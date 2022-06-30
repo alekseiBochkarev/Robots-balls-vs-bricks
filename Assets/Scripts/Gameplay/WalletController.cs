@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class WalletController : MonoBehaviour
-{
+{    
     public static WalletController Instance;
     public Coins Coins {private set; get;}
 
@@ -17,19 +18,18 @@ public class WalletController : MonoBehaviour
         Instance = this;
         Coins = new Coins();
         ShowCoins();
+        EventManager.BrickDestroyed += AddCoinAndShow;
+    }
+    
+    private void OnDestroy() {
+        EventManager.BrickDestroyed -= AddCoinAndShow;
     }
 
-    public void AddCoinAndShow() {
+    private void AddCoinAndShow() {
         // Add coins and show it on UI
         Coins.AddCoin();
         Coins.SaveCoins();
         ShowCoins();
-    }
-
-    void Update()
-    {
-        // Should invoke Events for add coins when brick is destroyed
-        
     }
 
     public void ShowCoins() {
