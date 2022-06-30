@@ -35,7 +35,8 @@ public class Brick : MonoBehaviour
         if (collision.gameObject.GetComponent<Ball>() != null)
         {
             polygonCollider2D.isTrigger = false;
-            m_Health--;
+            m_Health= m_Health - collision.gameObject.GetComponent<Ball>().attackPower;
+            collision.gameObject.GetComponent<Ball>().SpecialAttack();
             m_Text.text = m_Health.ToString();
             ChangeColor();
 
@@ -68,7 +69,8 @@ public class Brick : MonoBehaviour
         if (collider.gameObject.GetComponent<Ball>() != null)
         {
             polygonCollider2D.isTrigger = false;
-            m_Health--;
+            m_Health = m_Health - collider.gameObject.GetComponent<Ball>().attackPower;
+            collider.gameObject.GetComponent<Ball>().SpecialAttack();
             m_Text.text = m_Health.ToString();
             ChangeColor();
 
