@@ -4,6 +4,7 @@ public class Ball : MonoBehaviour
 {
     public static Vector3 s_FirstCollisionPoint { private set; get; }
     private static int s_ReturnedBallsAmount = 0;
+    public int attackPower = 2;
 
     private Rigidbody2D m_Rigidbody2D;
     private CircleCollider2D m_Collider2D;
@@ -92,6 +93,11 @@ public class Ball : MonoBehaviour
         m_Collider2D.enabled = false;
         m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
     }
+    //here special balls will be realize unical attack mechanics
+    public void SpecialAttack ()
+    {
+
+    }
 
     public void DisablePhysics()
     {
@@ -111,7 +117,7 @@ public class Ball : MonoBehaviour
     private void Deactive()
     {
         s_ReturnedBallsAmount++;    // then check all of balls are returned to the floor
-        //INPOTANT PLACE - HERE I CAN AD ATACK (BOCH ALEKSEI)
+        //INPOTANT PLACE - HERE I CAN ADD ATACK (BOCH ALEKSEI)
         if (s_ReturnedBallsAmount == BallLauncher.Instance.m_BallsAmount)
             ContinuePlaying();
 
