@@ -2,9 +2,10 @@
 
 public class Ball : MonoBehaviour
 {
+    public GameObject hero;
     public static Vector3 s_FirstCollisionPoint { private set; get; }
     private static int s_ReturnedBallsAmount = 0;
-    public int attackPower = 2;
+    public int attackPower;
 
     private Rigidbody2D m_Rigidbody2D;
     private CircleCollider2D m_Collider2D;
@@ -22,7 +23,13 @@ public class Ball : MonoBehaviour
         m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
 
         m_Collider2D = GetComponent<CircleCollider2D>();
-        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();    
+    }
+
+    void Start ()
+    {
+        hero = GameObject.Find("Hero");
+        attackPower = hero.GetComponent<Hero>().attackSkill;
     }
 
     void Update()
