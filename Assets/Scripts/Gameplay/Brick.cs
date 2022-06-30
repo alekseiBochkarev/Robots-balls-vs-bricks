@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Brick : MonoBehaviour
@@ -50,7 +51,8 @@ public class Brick : MonoBehaviour
                 //m_Parent.CheckBricksActivation();
 
                 // 3 - Set coin 
-                Coins.Instance.AddCoin();
+                EventManager.OnBrickDestroyed();
+             //   WalletController.Instance.AddCoinAndShow();
             }
         }
     }
@@ -82,7 +84,8 @@ public class Brick : MonoBehaviour
                 //m_Parent.CheckBricksActivation();
                 
                 // 3 - Set coin 
-                Coins.Instance.AddCoin();
+                EventManager.OnBrickDestroyed();
+              //  WalletController.Instance.AddCoinAndShow();
                 
             }
             //polygonCollider2D.isTrigger = true;
