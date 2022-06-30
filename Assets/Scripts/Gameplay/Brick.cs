@@ -50,7 +50,7 @@ public class Brick : MonoBehaviour
                 //m_Parent.CheckBricksActivation();
 
                 // 3 - Set coin 
-                Coins.Instance.AddCoin();
+                WalletController.Instance.AddCoinAndShow();
             }
         }
     }
@@ -82,7 +82,7 @@ public class Brick : MonoBehaviour
                 //m_Parent.CheckBricksActivation();
                 
                 // 3 - Set coin 
-                Coins.Instance.AddCoin();
+                WalletController.Instance.AddCoinAndShow();
                 
             }
             //polygonCollider2D.isTrigger = true;
