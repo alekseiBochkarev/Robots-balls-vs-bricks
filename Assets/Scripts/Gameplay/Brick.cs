@@ -32,11 +32,11 @@ public class Brick : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Ball>() != null)
+        if (collision.gameObject.GetComponent<AbstractBall>() != null)
         {
             polygonCollider2D.isTrigger = false;
-            m_Health= m_Health - collision.gameObject.GetComponent<Ball>().attackPower;
-            collision.gameObject.GetComponent<Ball>().SpecialAttack();
+            m_Health= m_Health - collision.gameObject.GetComponent<AbstractBall>().attackPower;
+            collision.gameObject.GetComponent<AbstractBall>().SpecialAttack();
             m_Text.text = m_Health.ToString();
             ChangeColor();
 
@@ -66,11 +66,11 @@ public class Brick : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.GetComponent<Ball>() != null)
+        if (collider.gameObject.GetComponent<AbstractBall>() != null)
         {
             polygonCollider2D.isTrigger = false;
-            m_Health = m_Health - collider.gameObject.GetComponent<Ball>().attackPower;
-            collider.gameObject.GetComponent<Ball>().SpecialAttack();
+            m_Health = m_Health - collider.gameObject.GetComponent<AbstractBall>().attackPower;
+            collider.gameObject.GetComponent<AbstractBall>().SpecialAttack();
             m_Text.text = m_Health.ToString();
             ChangeColor();
 

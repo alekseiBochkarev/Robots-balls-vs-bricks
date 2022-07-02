@@ -1,7 +1,23 @@
-﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class Ball : MonoBehaviour
+public abstract class AbstractBall: MonoBehaviour
 {
+    public AbstractBall ()
+    {
+
+    }
+
+    public AttackBehaviour attackBehaviour;
+
+    //here special balls will be realize unical attack mechanics
+    public void SpecialAttack()
+    {
+        attackBehaviour.SpecialAttack();
+    }
+
+
     public GameObject hero;
     public static Vector3 s_FirstCollisionPoint { private set; get; }
     private static int s_ReturnedBallsAmount = 0;
@@ -15,7 +31,7 @@ public class Ball : MonoBehaviour
 
     [SerializeField] private float m_MoveSpeed = 10;
 
-    public float m_MinimumYPosition = -4.7f;
+    public float m_MinimumYPosition = -4.09f;
 
     private void Awake()
     {
@@ -23,10 +39,10 @@ public class Ball : MonoBehaviour
         m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
 
         m_Collider2D = GetComponent<CircleCollider2D>();
-        m_SpriteRenderer = GetComponent<SpriteRenderer>();    
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Start ()
+    void Start()
     {
         hero = GameObject.Find("Hero");
         attackPower = hero.GetComponent<Hero>().attackSkill;
@@ -100,11 +116,6 @@ public class Ball : MonoBehaviour
         m_Collider2D.enabled = false;
         m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
     }
-    //here special balls will be realize unical attack mechanics
-    public void SpecialAttack ()
-    {
-
-    }
 
     public void DisablePhysics()
     {
@@ -116,8 +127,8 @@ public class Ball : MonoBehaviour
     {
         iTween.Stop(gameObject);
 
-        if(m_SpriteRenderer.enabled)
-            iTween.MoveTo(gameObject,iTween.Hash("position",position, "easetype", easeType, "time", time,
+        if (m_SpriteRenderer.enabled)
+            iTween.MoveTo(gameObject, iTween.Hash("position", position, "easetype", easeType, "time", time,
                 "oncomplete", onCompleteMethod));
     }
 

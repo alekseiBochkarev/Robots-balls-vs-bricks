@@ -1709,7 +1709,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 4712be3c7be654c4fb4c760e0994e7f0, type: 3}
   m_Color: {r: 0, g: 0.68235296, b: 0.93725497, a: 1}
   m_FlipX: 0
@@ -5569,7 +5569,7 @@ MonoBehaviour:
   m_TempAmount: 0
   m_BallsText: {fileID: 1083001158}
   m_StartingBallsPoolAmount: 5
-  m_BallPrefab: {fileID: 114167077968026030, guid: d7e5e539fe8189f4e9e51987479725a6,
+  m_BallPrefab: {fileID: 8092520905396922696, guid: d7e5e539fe8189f4e9e51987479725a6,
     type: 3}
   m_Balls: []
   m_ReturnBallsButton: {fileID: 2036214285}
