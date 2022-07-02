@@ -36,8 +36,8 @@ public class BallLauncher : MonoBehaviour
     public int m_TempAmount = 0;  // for score balls
     public Text m_BallsText;
     [SerializeField] private int m_StartingBallsPoolAmount = 10;
-    [SerializeField] private Ball m_BallPrefab;
-    [SerializeField] private List<Ball> m_Balls;
+    [SerializeField] private AbstractBall m_BallPrefab;
+    [SerializeField] private List<AbstractBall> m_Balls;
 
     [Header("UI Elements")]
     [SerializeField] private GameObject m_ReturnBallsButton;
@@ -62,7 +62,7 @@ public class BallLauncher : MonoBehaviour
 
     private void Start()
     {
-        m_Balls = new List<Ball>(m_StartingBallsPoolAmount);
+        m_Balls = new List<AbstractBall>(m_StartingBallsPoolAmount);
         m_BallsText.text = "x" + m_BallsAmount.ToString();
         m_ReturnBallsButton.SetActive(false);
         SpawNewBall(m_StartingBallsPoolAmount);
@@ -207,7 +207,7 @@ public class BallLauncher : MonoBehaviour
 
         m_TempAmount = 0;
 
-        Ball.ResetReturningBallsAmount();
+        AbstractBall.ResetReturningBallsAmount();
 
         m_ReturnBallsButton.SetActive(false);
 
@@ -286,10 +286,10 @@ public class BallLauncher : MonoBehaviour
     {
         //StopAllCoroutines();
         Debug.Log("ReturnAllBallsToNewStartPosition");
-        if(Ball.s_FirstCollisionPoint != Vector3.zero)
+        if(AbstractBall.s_FirstCollisionPoint != Vector3.zero)
         {
-            transform.position = Ball.s_FirstCollisionPoint;
-            Ball.ResetFirstCollisionPoint();
+            transform.position = AbstractBall.s_FirstCollisionPoint;
+            AbstractBall.ResetFirstCollisionPoint();
         }
 
         m_BallSprite.transform.position = transform.position;
@@ -303,7 +303,7 @@ public class BallLauncher : MonoBehaviour
 
         ResetPositions();
 
-        Ball.ResetReturningBallsAmount();
+        AbstractBall.ResetReturningBallsAmount();
 
         ScoreManager.Instance.UpdateScore();
 
