@@ -47,6 +47,12 @@ public class BallLauncher : MonoBehaviour
     public GameObject bottomBorder;
     public GameObject ballStartPosition;
 
+    public enum BallsType
+    {
+        Ball,
+        RocketBall
+    }
+
     private void Awake()
     {
         Instance = this;
@@ -65,7 +71,8 @@ public class BallLauncher : MonoBehaviour
         m_Balls = new List<AbstractBall>(m_StartingBallsPoolAmount);
         m_BallsText.text = "x" + m_BallsAmount.ToString();
         m_ReturnBallsButton.SetActive(false);
-        SpawNewBall(m_StartingBallsPoolAmount);
+        SpawNewBall(m_StartingBallsPoolAmount, BallsType.Ball);
+        AddBallToList(BallsType.RocketBall);
     }
 
     private void Update()
@@ -170,7 +177,7 @@ public class BallLauncher : MonoBehaviour
             //set RigidbodyType for all bricks
             FindBricksAndSetRigidbodyType(RigidbodyType2D.Static);
             if (m_Balls.Count < m_BallsAmount)
-                SpawNewBall(m_BallsAmount - m_Balls.Count);
+                SpawNewBall(m_BallsAmount - m_Balls.Count, BallsType.Ball);
 
             m_CanPlay = false;
             StartCoroutine(StartShootingBalls());
@@ -230,14 +237,21 @@ public class BallLauncher : MonoBehaviour
         }
     }
 
-    private void SpawNewBall(int Amount)
+    public void AddBallToList (BallsType ballsType)
     {
+        m_BallPrefab = Resources.Load<GameObject>(ballsType.ToString()).GetComponent<AbstractBall>();
+        m_Balls.Add(Instantiate(m_BallPrefab, transform.parent, false));
+        m_Balls[m_Balls.Count - 1].transform.localPosition = transform.localPosition;
+        m_Balls[m_Balls.Count - 1].transform.localScale = transform.localScale;
+        m_Balls[m_Balls.Count - 1].Disable();
+    }
+
+    private void SpawNewBall(int Amount, BallsType ballsType)
+    {
+        
         for (int i = 0; i < Amount; i++)
         {
-            m_Balls.Add(Instantiate(m_BallPrefab, transform.parent, false));
-            m_Balls[m_Balls.Count - 1].transform.localPosition = transform.localPosition;
-            m_Balls[m_Balls.Count - 1].transform.localScale = transform.localScale;
-            m_Balls[m_Balls.Count - 1].Disable();
+            AddBallToList(ballsType);
         }
     }
 
