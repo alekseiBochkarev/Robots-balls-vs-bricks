@@ -5,7 +5,9 @@ using UnityEngine.UI;
 public class Brick : MonoBehaviour
 {
     public Text m_Text;
-    public int m_Health;    // it's gonna be public because the GameManager needs to setup each brick
+    private HealthBar healthBar;
+    public int m_maxBrickHealth;
+    public int m_currentBrickHealth;    // it's gonna be public because the GameManager needs to setup each brick
     public PolygonCollider2D polygonCollider2D;
     private Rigidbody2D rigidbody2D;
 
@@ -23,10 +25,15 @@ public class Brick : MonoBehaviour
     private void OnEnable()
     {
         //GOOD DECISION BUT I SHOULD CHANGE THIS BOCHKAREV ALEKSEI
-        m_Health = ScoreManager.Instance.m_LevelOfFinalBrick +1;
-        Debug.Log("Brick OnEnable m_Health " + m_Health);
-        m_Text.text = m_Health.ToString();
-
+        m_currentBrickHealth = ScoreManager.Instance.m_LevelOfFinalBrick +1;
+        m_maxBrickHealth = m_currentBrickHealth;
+        Debug.Log("Brick OnEnable m_Health " + m_currentBrickHealth);
+        m_Text.text = m_currentBrickHealth.ToString();
+        healthBar = gameObject.GetComponentInChildren<HealthBar>();
+        healthBar.SaveCurrentBrickHealth();
+        healthBar.SaveMaxBrickHealth();
+        healthBar.ShowHealthWithPercentage();
+        
         ChangeColor();
     }
     
@@ -35,12 +42,15 @@ public class Brick : MonoBehaviour
         if (collision.gameObject.GetComponent<AbstractBall>() != null)
         {
             polygonCollider2D.isTrigger = false;
-            m_Health= m_Health - collision.gameObject.GetComponent<AbstractBall>().attackPower;
+            m_currentBrickHealth= m_currentBrickHealth - collision.gameObject.GetComponent<AbstractBall>().attackPower;
             collision.gameObject.GetComponent<AbstractBall>().SpecialAttack();
-            m_Text.text = m_Health.ToString();
+            m_Text.text = m_currentBrickHealth.ToString();
+
+            healthBar.SaveCurrentBrickHealth();
+            healthBar.ShowHealthWithPercentage();
             ChangeColor();
 
-            if (m_Health <= 0)
+            if (m_currentBrickHealth <= 0)
             {
                 // 1 - play a particle
                 Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
@@ -69,12 +79,15 @@ public class Brick : MonoBehaviour
         if (collider.gameObject.GetComponent<AbstractBall>() != null)
         {
             polygonCollider2D.isTrigger = false;
-            m_Health = m_Health - collider.gameObject.GetComponent<AbstractBall>().attackPower;
+            m_currentBrickHealth = m_currentBrickHealth - collider.gameObject.GetComponent<AbstractBall>().attackPower;
             collider.gameObject.GetComponent<AbstractBall>().SpecialAttack();
-            m_Text.text = m_Health.ToString();
+            m_Text.text = m_currentBrickHealth.ToString();
+            
+            healthBar.SaveCurrentBrickHealth();
+            healthBar.ShowHealthWithPercentage();
             ChangeColor();
 
-            if (m_Health <= 0)
+            if (m_currentBrickHealth <= 0)
             {
                 // 1 - play a particle
                 Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
@@ -101,6 +114,6 @@ public class Brick : MonoBehaviour
     
     public void ChangeColor()
     {
-        m_SpriteRenderer.color = Color.LerpUnclamped(new Color(1, 0.75f, 0, 1), Color.red, m_Health / (float)ScoreManager.Instance.m_LevelOfFinalBrick);
+        m_SpriteRenderer.color = Color.LerpUnclamped(new Color(1, 0.75f, 0, 1), Color.red, m_currentBrickHealth / (float)ScoreManager.Instance.m_LevelOfFinalBrick);
     }
 }
