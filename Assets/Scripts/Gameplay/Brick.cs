@@ -29,10 +29,12 @@ public class Brick : MonoBehaviour
         m_maxBrickHealth = m_currentBrickHealth;
         Debug.Log("Brick OnEnable m_Health " + m_currentBrickHealth);
         m_Text.text = m_currentBrickHealth.ToString();
+
+        // Set HealthBar and show health of brick
         healthBar = gameObject.GetComponentInChildren<HealthBar>();
         healthBar.SaveCurrentBrickHealth();
         healthBar.SaveMaxBrickHealth();
-        healthBar.ShowHealthWithPercentage();
+        healthBar.ShowHealth();
         
         ChangeColor();
     }
@@ -47,7 +49,7 @@ public class Brick : MonoBehaviour
             m_Text.text = m_currentBrickHealth.ToString();
 
             healthBar.SaveCurrentBrickHealth();
-            healthBar.ShowHealthWithPercentage();
+            healthBar.ShowHealth();
             ChangeColor();
 
             if (m_currentBrickHealth <= 0)
@@ -84,7 +86,7 @@ public class Brick : MonoBehaviour
             m_Text.text = m_currentBrickHealth.ToString();
             
             healthBar.SaveCurrentBrickHealth();
-            healthBar.ShowHealthWithPercentage();
+            healthBar.ShowHealth();
             ChangeColor();
 
             if (m_currentBrickHealth <= 0)
