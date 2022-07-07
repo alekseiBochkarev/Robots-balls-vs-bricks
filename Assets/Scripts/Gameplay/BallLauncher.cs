@@ -35,7 +35,7 @@ public class BallLauncher : MonoBehaviour
     public int m_BallsAmount;
     public int m_TempAmount = 0;  // for score balls
     public Text m_BallsText;
-    [SerializeField] private int m_StartingBallsPoolAmount = 10;
+    //[SerializeField] private int m_StartingBallsPoolAmount = 10;
     [SerializeField] private AbstractBall m_BallPrefab;
     [SerializeField] private List<AbstractBall> m_Balls;
 
@@ -68,11 +68,12 @@ public class BallLauncher : MonoBehaviour
 
     private void Start()
     {
-        m_Balls = new List<AbstractBall>(m_StartingBallsPoolAmount);
+        m_Balls = new List<AbstractBall>(m_BallsAmount);
         m_BallsText.text = "x" + m_BallsAmount.ToString();
         m_ReturnBallsButton.SetActive(false);
-        SpawNewBall(m_StartingBallsPoolAmount, BallsType.Ball);
-        AddBallToList(BallsType.RocketBall);
+        SpawNewBall(m_BallsAmount, BallsType.Ball);
+        //below is temprory decision just for test. next time it will be special method to set special attack
+        AddBall(BallsType.RocketBall);
     }
 
     private void Update()
@@ -200,6 +201,8 @@ public class BallLauncher : MonoBehaviour
     public void OnMainMenuActions()
     {
         m_CanPlay = false;
+
+        //check what it is!!!!!
         m_BallsAmount = 1;
 
         m_BallsText.text = "x" + m_BallsAmount.ToString();
@@ -244,6 +247,13 @@ public class BallLauncher : MonoBehaviour
         m_Balls[m_Balls.Count - 1].transform.localPosition = transform.localPosition;
         m_Balls[m_Balls.Count - 1].transform.localScale = transform.localScale;
         m_Balls[m_Balls.Count - 1].Disable();
+    }
+
+    public void AddBall(BallsType ballsType)
+    {
+        m_BallsAmount++;
+        m_BallsText.text = "x" + m_BallsAmount.ToString();
+        AddBallToList(ballsType);
     }
 
     private void SpawNewBall(int Amount, BallsType ballsType)
