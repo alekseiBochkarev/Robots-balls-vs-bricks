@@ -7,6 +7,7 @@ public class RocketBall : AbstractBall
     public RocketBall()
     {
         attackBehaviour = new RocketAttack();
+        afterCollisionBehaviour = new NoDestroy();
     }
         
 }

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface AttackBehaviour 
 {
-    public void SpecialAttack();
+    public void SpecialAttack(Vector3 position);
 }

@@ -10,11 +10,24 @@ public abstract class AbstractBall: MonoBehaviour
     }
 
     public AttackBehaviour attackBehaviour;
+    public AfterCollisionBehaviour afterCollisionBehaviour;
 
     //here special balls will be realize unical attack mechanics
-    public void SpecialAttack()
+    public void SpecialAttack(Vector3 position)
     {
-        attackBehaviour.SpecialAttack();
+        attackBehaviour.SpecialAttack(position);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Brick>() != null)
+            afterCollisionBehaviour.DestroyAfterCollision();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.GetComponent<Brick>() != null)
+            afterCollisionBehaviour.DestroyAfterCollision();
     }
 
 
@@ -146,4 +159,6 @@ public abstract class AbstractBall: MonoBehaviour
     {
         m_SpriteRenderer.enabled = false;
     }
+
+
 }

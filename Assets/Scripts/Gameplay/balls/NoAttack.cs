@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NoAttack : MonoBehaviour, AttackBehaviour
 {
-    public void SpecialAttack()
+    public void SpecialAttack(Vector3 position)
     {
         Debug.Log("special attack - No Attack");
     }

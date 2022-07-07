@@ -50,7 +50,8 @@ public class BallLauncher : MonoBehaviour
     public enum BallsType
     {
         Ball,
-        RocketBall
+        RocketBall,
+        RocketClone
     }
 
     private void Awake()
@@ -276,13 +277,14 @@ public class BallLauncher : MonoBehaviour
         {
             if (m_CanPlay)
                 break;
+            if (m_Balls[i] != null)
+            {
+                m_Balls[i].transform.position = transform.position;
+                m_Balls[i].GetReadyAndAddForce(m_Direction);
 
-            m_Balls[i].transform.position = transform.position;
-            m_Balls[i].GetReadyAndAddForce(m_Direction);
-            
-            balls--;
-            m_BallsText.text = "x" + balls.ToString();
-            
+                balls--;
+                m_BallsText.text = "x" + balls.ToString();   
+            }
             yield return new WaitForSeconds(0.05f);
         }
 
