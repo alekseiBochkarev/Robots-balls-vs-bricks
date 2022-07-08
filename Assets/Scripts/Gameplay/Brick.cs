@@ -35,27 +35,31 @@ public class Brick : MonoBehaviour
         if (collision.gameObject.GetComponent<AbstractBall>() != null)
         {
             polygonCollider2D.isTrigger = false;
-            m_Health= m_Health - collision.gameObject.GetComponent<AbstractBall>().attackPower;
+            takeDamage(collision.gameObject.GetComponent<AbstractBall>().attackPower);
             Vector3 position = collision.gameObject.transform.position;
-            collision.gameObject.GetComponent<AbstractBall>().SpecialAttack(position);
-            m_Text.text = m_Health.ToString();
-            ChangeColor();
+            collision.gameObject.GetComponent<AbstractBall>().SpecialAttack(position);   
+           // ChangeColor();  - deprecated
+        }
+    }
 
-            if (m_Health <= 0)
-            {
-                // 1 - play a particle
-                Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
-                m_ParentParticle.startColor = color;
-                m_ParentParticle.Play();
+    public void takeDamage (int damage)
+    {
+        m_Health = m_Health - damage;
+        m_Text.text = m_Health.ToString();
+        if (m_Health <= 0)
+        {
+            // 1 - play a particle
+            Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
+            m_ParentParticle.startColor = color;
+            m_ParentParticle.Play();
 
-                // 2 - hide this Brick or this row
-                gameObject.SetActive(false);
-                //m_Parent.CheckBricksActivation();
+            // 2 - hide this Brick or this row
+            gameObject.SetActive(false);
+            //m_Parent.CheckBricksActivation();
 
-                // 3 - Set coin 
-                EventManager.OnBrickDestroyed();
-             //   WalletController.Instance.AddCoinAndShow();
-            }
+            // 3 - Set coin 
+            EventManager.OnBrickDestroyed();
+            //   WalletController.Instance.AddCoinAndShow();
         }
     }
 
