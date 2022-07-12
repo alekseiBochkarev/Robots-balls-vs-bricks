@@ -252,8 +252,9 @@ public class BallLauncher : MonoBehaviour
 
     public void AddBall(BallsType ballsType)
     {
-        m_BallsAmount++;
-        m_BallsText.text = "x" + m_BallsAmount.ToString();
+        IncreaseBallsAmountFromOutSide(1);
+       // m_BallsAmount++;
+       // m_BallsText.text = "x" + m_BallsAmount.ToString();
         AddBallToList(ballsType);
     }
 

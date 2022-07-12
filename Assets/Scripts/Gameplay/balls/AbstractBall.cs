@@ -20,14 +20,12 @@ public abstract class AbstractBall: MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Brick>() != null)
-            afterCollisionBehaviour.DestroyAfterCollision();
+        afterCollisionBehaviour.DestroyAfterCollision();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.GetComponent<Brick>() != null)
-            afterCollisionBehaviour.DestroyAfterCollision();
+       afterCollisionBehaviour.DestroyAfterCollision();
     }
 
 
