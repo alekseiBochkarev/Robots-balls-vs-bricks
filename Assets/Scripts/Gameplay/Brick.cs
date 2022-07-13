@@ -52,6 +52,8 @@ public class Brick : MonoBehaviour
             healthBar.ShowHealth();
             ChangeColor();
 
+            EventManager.OnBrickHit();
+
             if (m_currentBrickHealth <= 0)
             {
                 // 1 - play a particle
@@ -88,6 +90,7 @@ public class Brick : MonoBehaviour
             healthBar.SaveCurrentBrickHealth();
             healthBar.ShowHealth();
             ChangeColor();
+            EventManager.OnBrickHit();
 
             if (m_currentBrickHealth <= 0)
             {
