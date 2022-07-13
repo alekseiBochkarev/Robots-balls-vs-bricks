@@ -310,6 +310,8 @@ public class BallLauncher : MonoBehaviour
         BrickSpawner.Instance.MoveDownBricksRows();
         BrickSpawner.Instance.SpawnNewBricks();
 
+        EventManager.OnBallsReturned();
+
         ActivateHUD();
         m_CanPlay = true;
         FindBricksAndSetRigidbodyType(RigidbodyType2D.Dynamic);
