@@ -32,15 +32,19 @@ public class Brick : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<AbstractBall>() != null)
+        if (collision.gameObject.GetComponent<IBall>() != null)
         {
             polygonCollider2D.isTrigger = false;
-            takeDamage(collision.gameObject.GetComponent<AbstractBall>().attackPower);
-            Vector3 position = collision.gameObject.transform.position;
-            collision.gameObject.GetComponent<AbstractBall>().SpecialAttack(position);   
+            takeDamage(collision.gameObject.GetComponent<IBall>().GetAttackPower);
+            if (collision.gameObject.GetComponent<AbstractBall>() != null)
+            {
+                Vector3 position = collision.gameObject.transform.position;
+                collision.gameObject.GetComponent<AbstractBall>().SpecialAttack(position);
+            }                 
            // ChangeColor();  - deprecated
         }
     }
+    
 
     public void takeDamage (int damage)
     {
@@ -71,14 +75,17 @@ public class Brick : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.GetComponent<AbstractBall>() != null)
+        if (collider.gameObject.GetComponent<IBall>() != null)
         {
             polygonCollider2D.isTrigger = false;
-            m_Health = m_Health - collider.gameObject.GetComponent<AbstractBall>().attackPower;
-            Vector3 position = collider.gameObject.transform.position;
-            collider.gameObject.GetComponent<AbstractBall>().SpecialAttack(position);
+            m_Health = m_Health - collider.gameObject.GetComponent<IBall>().GetAttackPower;
+            if (collider.gameObject.GetComponent<AbstractBall>() != null)
+            {
+                Vector3 position = collider.gameObject.transform.position;
+                collider.gameObject.GetComponent<AbstractBall>().SpecialAttack(position);
+            }
             m_Text.text = m_Health.ToString();
-            ChangeColor();
+            //ChangeColor();
 
             if (m_Health <= 0)
             {

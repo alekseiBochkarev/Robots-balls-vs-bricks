@@ -2,22 +2,73 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RocketCloneBall : AbstractBall
+public class RocketCloneBall : MonoBehaviour, IBall
 {
-    public RocketCloneBall()
+    public GameObject hero;
+    public int attackPower;
+    private float vision;
+    Collider2D[] colliders;
+    public int MoveSpeed = 7;
+    Vector3 target;
+    Vector3 diff;
+    float rot_z;
+    
+
+    void Start ()
     {
-        attackBehaviour = new NoAttack();
+        target = FindGoalToMove();
+        hero = GameObject.Find("Hero");
+        attackPower = hero.GetComponent<Hero>().attackSkill;
+        
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public Vector3 FindGoalToMove()
     {
-        if (collision.gameObject.GetComponent<Brick>() != null)
-            Destroy(gameObject, .5f);
+        vision = 10f;
+        Vector3 vector3 = new Vector3(0, 0, 0);
+        colliders = Physics2D.OverlapCircleAll(transform.position, vision);
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].gameObject == gameObject) continue;
+            if (colliders[i].gameObject.GetComponent<Brick>() != null)
+            {
+                vector3 = colliders[i].gameObject.transform.position;
+            }     
+        }
+        return vector3;
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    void Update ()
     {
-        if (collider.gameObject.GetComponent<Brick>() != null)
-            Destroy(gameObject, .5f);
+        transform.position = Vector3.MoveTowards(transform.position, target, MoveSpeed * Time.deltaTime);
+        RotateBall();
+        checkAndDestroy();
     }
+
+    void RotateBall ()
+    {
+        diff = target - transform.position;
+        diff.Normalize();
+        rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+    }
+
+    public int GetAttackPower
+    {
+        get
+        {
+            return attackPower;
+        }
+    }
+   
+    public void checkAndDestroy ()
+    {
+        if (transform.position == target)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    
 }
