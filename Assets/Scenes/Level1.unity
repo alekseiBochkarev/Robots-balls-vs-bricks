@@ -1971,7 +1971,7 @@ GameObject:
   - component: {fileID: 832922480}
   - component: {fileID: 832922481}
   m_Layer: 0
-  m_Name: wall top
+  m_Name: topBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2585,7 +2585,7 @@ GameObject:
   - component: {fileID: 1006837534}
   - component: {fileID: 1006837535}
   m_Layer: 0
-  m_Name: wall right
+  m_Name: rightBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2942,7 +2942,7 @@ GameObject:
   - component: {fileID: 1163078698}
   - component: {fileID: 1163078699}
   m_Layer: 0
-  m_Name: wall bottom
+  m_Name: bottomBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4399,7 +4399,7 @@ GameObject:
   - component: {fileID: 1622270828}
   - component: {fileID: 1622270829}
   m_Layer: 0
-  m_Name: wall left
+  m_Name: leftBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5575,7 +5575,6 @@ MonoBehaviour:
   m_BallsAmount: 1
   m_TempAmount: 0
   m_BallsText: {fileID: 1083001158}
-  m_StartingBallsPoolAmount: 5
   m_BallPrefab: {fileID: 8092520905396922696, guid: d7e5e539fe8189f4e9e51987479725a6,
     type: 3}
   m_Balls: []

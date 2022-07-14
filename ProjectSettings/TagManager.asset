@@ -7,6 +7,7 @@ TagManager:
   - Floor
   - Ball
   - Wall
+  - Brick
   layers:
   - Default
   - TransparentFX

@@ -41,34 +41,40 @@ public class Brick : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<AbstractBall>() != null)
+        if (collision.gameObject.GetComponent<IBall>() != null)
         {
             polygonCollider2D.isTrigger = false;
-            m_currentBrickHealth= m_currentBrickHealth - collision.gameObject.GetComponent<AbstractBall>().attackPower;
-            collision.gameObject.GetComponent<AbstractBall>().SpecialAttack();
-            m_Text.text = m_currentBrickHealth.ToString();
-
-            healthBar.SaveCurrentBrickHealth();
-            healthBar.ShowHealth();
-            ChangeColor();
-
-            EventManager.OnBrickHit();
-
-            if (m_currentBrickHealth <= 0)
+            takeDamage(collision.gameObject.GetComponent<IBall>().GetAttackPower);
+            if (collision.gameObject.GetComponent<AbstractBall>() != null)
             {
-                // 1 - play a particle
-                Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
-                m_ParentParticle.startColor = color;
-                m_ParentParticle.Play();
+                Vector3 position = collision.gameObject.transform.position;
+                collision.gameObject.GetComponent<AbstractBall>().SpecialAttack(position);
+            }                 
+        }
+    }
+    
 
-                // 2 - hide this Brick or this row
-                gameObject.SetActive(false);
-                //m_Parent.CheckBricksActivation();
+    public void takeDamage (int damage)
+    {
+        m_currentBrickHealth = m_currentBrickHealth - damage;
+        m_Text.text = m_currentBrickHealth.ToString();
+        healthBar.SaveCurrentBrickHealth();
+        healthBar.ShowHealth();
+        EventManager.OnBrickHit();
+        if (m_currentBrickHealth <= 0)
+        {
+            // 1 - play a particle
+            Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
+            m_ParentParticle.startColor = color;
+            m_ParentParticle.Play();
 
-                // 3 - Set coin 
-                EventManager.OnBrickDestroyed();
-             //   WalletController.Instance.AddCoinAndShow();
-            }
+            // 2 - hide this Brick or this row
+            gameObject.SetActive(false);
+            //m_Parent.CheckBricksActivation();
+
+            // 3 - Set coin 
+            EventManager.OnBrickDestroyed();
+            //   WalletController.Instance.AddCoinAndShow();
         }
     }
 
@@ -80,35 +86,15 @@ public class Brick : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.GetComponent<AbstractBall>() != null)
+        if (collider.gameObject.GetComponent<IBall>() != null)
         {
             polygonCollider2D.isTrigger = false;
-            m_currentBrickHealth = m_currentBrickHealth - collider.gameObject.GetComponent<AbstractBall>().attackPower;
-            collider.gameObject.GetComponent<AbstractBall>().SpecialAttack();
-            m_Text.text = m_currentBrickHealth.ToString();
-            
-            healthBar.SaveCurrentBrickHealth();
-            healthBar.ShowHealth();
-            ChangeColor();
-            EventManager.OnBrickHit();
-
-            if (m_currentBrickHealth <= 0)
+            takeDamage(collider.gameObject.GetComponent<IBall>().GetAttackPower);
+            if (collider.gameObject.GetComponent<AbstractBall>() != null)
             {
-                // 1 - play a particle
-                Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
-                m_ParentParticle.startColor = color;
-                m_ParentParticle.Play();
-
-                // 2 - hide this Brick or this row
-                gameObject.SetActive(false);
-                //m_Parent.CheckBricksActivation();
-                
-                // 3 - Set coin 
-                EventManager.OnBrickDestroyed();
-              //  WalletController.Instance.AddCoinAndShow();
-                
+                Vector3 position = collider.gameObject.transform.position;
+                collider.gameObject.GetComponent<AbstractBall>().SpecialAttack(position);
             }
-            //polygonCollider2D.isTrigger = true;
         }
     }
 

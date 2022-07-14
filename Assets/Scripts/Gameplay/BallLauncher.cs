@@ -35,7 +35,7 @@ public class BallLauncher : MonoBehaviour
     public int m_BallsAmount;
     public int m_TempAmount = 0;  // for score balls
     public Text m_BallsText;
-    [SerializeField] private int m_StartingBallsPoolAmount = 10;
+    //[SerializeField] private int m_StartingBallsPoolAmount = 10;
     [SerializeField] private AbstractBall m_BallPrefab;
     [SerializeField] private List<AbstractBall> m_Balls;
 
@@ -46,6 +46,13 @@ public class BallLauncher : MonoBehaviour
     public GameObject rightBorder;
     public GameObject bottomBorder;
     public GameObject ballStartPosition;
+
+    public enum BallsType
+    {
+        Ball,
+        RocketBall,
+        RocketClone
+    }
 
     private void Awake()
     {
@@ -62,10 +69,12 @@ public class BallLauncher : MonoBehaviour
 
     private void Start()
     {
-        m_Balls = new List<AbstractBall>(m_StartingBallsPoolAmount);
+        m_Balls = new List<AbstractBall>(m_BallsAmount);
         m_BallsText.text = "x" + m_BallsAmount.ToString();
         m_ReturnBallsButton.SetActive(false);
-        SpawNewBall(m_StartingBallsPoolAmount);
+        SpawNewBall(m_BallsAmount, BallsType.Ball);
+        //below is temprory decision just for test. next time it will be special method to set special attack
+        AddBall(BallsType.RocketBall);
     }
 
     private void Update()
@@ -170,7 +179,7 @@ public class BallLauncher : MonoBehaviour
             //set RigidbodyType for all bricks
             FindBricksAndSetRigidbodyType(RigidbodyType2D.Static);
             if (m_Balls.Count < m_BallsAmount)
-                SpawNewBall(m_BallsAmount - m_Balls.Count);
+                SpawNewBall(m_BallsAmount - m_Balls.Count, BallsType.Ball);
 
             m_CanPlay = false;
             StartCoroutine(StartShootingBalls());
@@ -193,6 +202,8 @@ public class BallLauncher : MonoBehaviour
     public void OnMainMenuActions()
     {
         m_CanPlay = false;
+
+        //check what it is!!!!!
         m_BallsAmount = 1;
 
         m_BallsText.text = "x" + m_BallsAmount.ToString();
@@ -230,14 +241,29 @@ public class BallLauncher : MonoBehaviour
         }
     }
 
-    private void SpawNewBall(int Amount)
+    public void AddBallToList (BallsType ballsType)
     {
+        m_BallPrefab = Resources.Load<GameObject>(ballsType.ToString()).GetComponent<AbstractBall>();
+        m_Balls.Add(Instantiate(m_BallPrefab, transform.parent, false));
+        m_Balls[m_Balls.Count - 1].transform.localPosition = transform.localPosition;
+        m_Balls[m_Balls.Count - 1].transform.localScale = transform.localScale;
+        m_Balls[m_Balls.Count - 1].Disable();
+    }
+
+    public void AddBall(BallsType ballsType)
+    {
+        IncreaseBallsAmountFromOutSide(1);
+       // m_BallsAmount++;
+       // m_BallsText.text = "x" + m_BallsAmount.ToString();
+        AddBallToList(ballsType);
+    }
+
+    private void SpawNewBall(int Amount, BallsType ballsType)
+    {
+        
         for (int i = 0; i < Amount; i++)
         {
-            m_Balls.Add(Instantiate(m_BallPrefab, transform.parent, false));
-            m_Balls[m_Balls.Count - 1].transform.localPosition = transform.localPosition;
-            m_Balls[m_Balls.Count - 1].transform.localScale = transform.localScale;
-            m_Balls[m_Balls.Count - 1].Disable();
+            AddBallToList(ballsType);
         }
     }
 
@@ -252,13 +278,14 @@ public class BallLauncher : MonoBehaviour
         {
             if (m_CanPlay)
                 break;
+            if (m_Balls[i] != null)
+            {
+                m_Balls[i].transform.position = transform.position;
+                m_Balls[i].GetReadyAndAddForce(m_Direction);
 
-            m_Balls[i].transform.position = transform.position;
-            m_Balls[i].GetReadyAndAddForce(m_Direction);
-            
-            balls--;
-            m_BallsText.text = "x" + balls.ToString();
-            
+                balls--;
+                m_BallsText.text = "x" + balls.ToString();   
+            }
             yield return new WaitForSeconds(0.05f);
         }
 

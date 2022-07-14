@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 50932128715658944}
   - component: {fileID: 58845583564804158}
   - component: {fileID: 96846943280894102}
-  - component: {fileID: 8092520905396922696}
+  - component: {fileID: 6114595092983412101}
   m_Layer: 8
   m_Name: Ball
   m_TagString: Ball
@@ -221,7 +221,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &8092520905396922696
+--- !u!114 &6114595092983412101
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,11 +230,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1054516289806286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8780c92ffd61349389fa2ddf65afa70a, type: 3}
+  m_Script: {fileID: 11500000, guid: dcdec18a3aa08e84eaea8220916c0ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hero: {fileID: 0}
   attackPower: 0
   m_WallCollisionDuration: 0
   m_MoveSpeed: 10
-  m_MinimumYPosition: -4.7
+  m_MinimumYPosition: -4.09

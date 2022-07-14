@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AbstractBall: MonoBehaviour
+public abstract class AbstractBall: MonoBehaviour, IBall
 {
     public AbstractBall ()
     {
@@ -10,11 +10,22 @@ public abstract class AbstractBall: MonoBehaviour
     }
 
     public AttackBehaviour attackBehaviour;
+    public AfterCollisionBehaviour afterCollisionBehaviour;
 
     //here special balls will be realize unical attack mechanics
-    public void SpecialAttack()
+    public void SpecialAttack(Vector3 position)
     {
-        attackBehaviour.SpecialAttack();
+        attackBehaviour.SpecialAttack(position);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        afterCollisionBehaviour.DestroyAfterCollision();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+       afterCollisionBehaviour.DestroyAfterCollision();
     }
 
 
@@ -32,6 +43,7 @@ public abstract class AbstractBall: MonoBehaviour
     [SerializeField] private float m_MoveSpeed = 10;
 
     public float m_MinimumYPosition = -4.09f;
+    float rot_z;
 
     private void Awake()
     {
@@ -48,13 +60,21 @@ public abstract class AbstractBall: MonoBehaviour
         attackPower = hero.GetComponent<Hero>().attackSkill;
     }
 
+    public int GetAttackPower
+    {
+        get
+        {
+            return attackPower;
+        }
+    }
+
     void Update()
     {
         if (m_Rigidbody2D.bodyType != RigidbodyType2D.Dynamic)
             return;
 
         m_Rigidbody2D.velocity = m_Rigidbody2D.velocity.normalized * m_MoveSpeed;
-
+        RotateBall();
         if (transform.localPosition.y < m_MinimumYPosition)
         {
             transform.localPosition = new Vector3(transform.localPosition.x, m_MinimumYPosition, 0);
@@ -69,6 +89,12 @@ public abstract class AbstractBall: MonoBehaviour
             DisablePhysics();
             MoveTo(s_FirstCollisionPoint, iTween.EaseType.linear, (Vector2.Distance(transform.position, s_FirstCollisionPoint) / 5.0f), "Deactive");
         }
+    }
+
+    void RotateBall()
+    {
+        rot_z = Mathf.Atan2(m_Rigidbody2D.velocity.y, m_Rigidbody2D.velocity.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
     }
 
     private static void ContinuePlaying()
@@ -149,3 +175,4 @@ public abstract class AbstractBall: MonoBehaviour
         m_SpriteRenderer.enabled = false;
     }
 }
+
