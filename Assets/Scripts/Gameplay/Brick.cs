@@ -5,7 +5,9 @@ using UnityEngine.UI;
 public class Brick : MonoBehaviour
 {
     public Text m_Text;
-    public int m_Health;    // it's gonna be public because the GameManager needs to setup each brick
+    private HealthBar healthBar;
+    public int m_maxBrickHealth;
+    public int m_currentBrickHealth;    // it's gonna be public because the GameManager needs to setup each brick
     public PolygonCollider2D polygonCollider2D;
     private Rigidbody2D rigidbody2D;
 
@@ -23,10 +25,17 @@ public class Brick : MonoBehaviour
     private void OnEnable()
     {
         //GOOD DECISION BUT I SHOULD CHANGE THIS BOCHKAREV ALEKSEI
-        m_Health = ScoreManager.Instance.m_LevelOfFinalBrick +1;
-        Debug.Log("Brick OnEnable m_Health " + m_Health);
-        m_Text.text = m_Health.ToString();
+        m_currentBrickHealth = ScoreManager.Instance.m_LevelOfFinalBrick +1;
+        m_maxBrickHealth = m_currentBrickHealth;
+        Debug.Log("Brick OnEnable m_Health " + m_currentBrickHealth);
+        m_Text.text = m_currentBrickHealth.ToString();
 
+        // Set HealthBar and show health of brick
+        healthBar = gameObject.GetComponentInChildren<HealthBar>();
+        healthBar.SaveCurrentBrickHealth();
+        healthBar.SaveMaxBrickHealth();
+        healthBar.ShowHealth();
+        
         ChangeColor();
     }
     
@@ -41,16 +50,18 @@ public class Brick : MonoBehaviour
                 Vector3 position = collision.gameObject.transform.position;
                 collision.gameObject.GetComponent<AbstractBall>().SpecialAttack(position);
             }                 
-           // ChangeColor();  - deprecated
         }
     }
     
 
     public void takeDamage (int damage)
     {
-        m_Health = m_Health - damage;
-        m_Text.text = m_Health.ToString();
-        if (m_Health <= 0)
+        m_currentBrickHealth = m_currentBrickHealth - damage;
+        m_Text.text = m_currentBrickHealth.ToString();
+        healthBar.SaveCurrentBrickHealth();
+        healthBar.ShowHealth();
+        EventManager.OnBrickHit();
+        if (m_currentBrickHealth <= 0)
         {
             // 1 - play a particle
             Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
@@ -78,32 +89,12 @@ public class Brick : MonoBehaviour
         if (collider.gameObject.GetComponent<IBall>() != null)
         {
             polygonCollider2D.isTrigger = false;
-            m_Health = m_Health - collider.gameObject.GetComponent<IBall>().GetAttackPower;
+            takeDamage(collider.gameObject.GetComponent<IBall>().GetAttackPower);
             if (collider.gameObject.GetComponent<AbstractBall>() != null)
             {
                 Vector3 position = collider.gameObject.transform.position;
                 collider.gameObject.GetComponent<AbstractBall>().SpecialAttack(position);
             }
-            m_Text.text = m_Health.ToString();
-            //ChangeColor();
-
-            if (m_Health <= 0)
-            {
-                // 1 - play a particle
-                Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
-                m_ParentParticle.startColor = color;
-                m_ParentParticle.Play();
-
-                // 2 - hide this Brick or this row
-                gameObject.SetActive(false);
-                //m_Parent.CheckBricksActivation();
-                
-                // 3 - Set coin 
-                EventManager.OnBrickDestroyed();
-              //  WalletController.Instance.AddCoinAndShow();
-                
-            }
-            //polygonCollider2D.isTrigger = true;
         }
     }
 
@@ -114,6 +105,6 @@ public class Brick : MonoBehaviour
     
     public void ChangeColor()
     {
-        m_SpriteRenderer.color = Color.LerpUnclamped(new Color(1, 0.75f, 0, 1), Color.red, m_Health / (float)ScoreManager.Instance.m_LevelOfFinalBrick);
+        m_SpriteRenderer.color = Color.LerpUnclamped(new Color(1, 0.75f, 0, 1), Color.red, m_currentBrickHealth / (float)ScoreManager.Instance.m_LevelOfFinalBrick);
     }
 }

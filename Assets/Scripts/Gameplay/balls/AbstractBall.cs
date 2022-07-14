@@ -114,6 +114,8 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         s_FirstCollisionPoint = Vector3.zero;
         s_ReturnedBallsAmount = 0;
 
+        EventManager.OnBallsReturned();
+
         BallLauncher.Instance.m_CanPlay = true;
         BallLauncher.Instance.FindBricksAndSetRigidbodyType(RigidbodyType2D.Dynamic);
     }
@@ -172,6 +174,5 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     {
         m_SpriteRenderer.enabled = false;
     }
-
-
 }
+
