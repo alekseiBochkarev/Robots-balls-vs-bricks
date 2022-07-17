@@ -44,7 +44,7 @@ public class BrickSpawner : MonoBehaviour
     {
         if (winManager != null)
         {
-            if (winManager.GetMaxSpawn >= ScoreManager.Instance.m_LevelOfFinalBrick)
+            if (winManager.GetMaxSpawn > ScoreManager.Instance.m_LevelOfFinalBrick)
             {
                 SpawnBricks();
             } 
@@ -73,5 +73,10 @@ public class BrickSpawner : MonoBehaviour
         for (int i = 0; i < m_BricksRow.Count; i++)
             if (m_BricksRow[i].gameObject.activeInHierarchy)
                 m_BricksRow[i].MoveDown(m_SpawningDistance);
+    }
+
+    void Update()
+    {
+        winManager.CheckIfWin();
     }
 }

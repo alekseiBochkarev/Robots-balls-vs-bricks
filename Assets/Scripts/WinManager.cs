@@ -18,6 +18,10 @@ public class WinManager : MonoBehaviour
         if (ScoreManager.Instance.m_LevelOfFinalBrick == GetMaxSpawn)
         {
             GameObject[] bricks = GameObject.FindGameObjectsWithTag("Brick");
+            if (bricks.Length == 0)
+            {
+                LevelManager.Instance.m_LevelState = LevelManager.LevelState.Win;
+            }
         }
     }
 
