@@ -17,6 +17,7 @@ public class HealthBar : MonoBehaviour
 
     public void SaveCurrentBrickHealth() 
     {
+        if (gameObject.GetComponentInParent<Brick>() != null)
         CurrentHealth = (float) gameObject.GetComponentInParent<Brick>().m_currentBrickHealth;
     }
 
