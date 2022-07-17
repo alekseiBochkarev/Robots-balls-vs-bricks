@@ -4,6 +4,23 @@ using UnityEngine;
 
 public class WinManager : MonoBehaviour
 {
+    private int maxSpawn = 20;
+    public int GetMaxSpawn
+    {
+        get
+        {
+            return maxSpawn;
+        }
+    }
+
+    public void CheckIfWin ()
+    {
+        if (ScoreManager.Instance.m_LevelOfFinalBrick == GetMaxSpawn)
+        {
+            GameObject[] bricks = GameObject.FindGameObjectsWithTag("Brick");
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
