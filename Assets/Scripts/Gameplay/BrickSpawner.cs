@@ -15,12 +15,15 @@ public class BrickSpawner : MonoBehaviour
 
     [Header("Bricks Row")]
     public List<BricksRow> m_BricksRow;
+    [Header("Win Manager")]
+    public WinManager winManager;
 
     private void Awake()
     {
         Instance = this;
 
         m_BricksRow = new List<BricksRow>();
+        winManager = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<WinManager>();
 
         // generate rows of bricks on the scene
         for (int i = 0; i < m_SpawningRows; i++)
@@ -39,13 +42,26 @@ public class BrickSpawner : MonoBehaviour
 
     public void SpawnNewBricks()
     {
-        Debug.Log("SpawnNewBricks - m_BricksRow.Count " + m_BricksRow.Count);
+        if (winManager != null)
+        {
+            if (winManager.GetMaxSpawn > ScoreManager.Instance.m_LevelOfFinalBrick)
+            {
+                SpawnBricks();
+            } 
+        } else
+        {
+            SpawnBricks();
+        }
+    }
+
+    public void SpawnBricks ()
+    {
         ScoreManager.Instance.m_LevelOfFinalBrick++;
         for (int i = 0; i < m_BricksRow.Count; i++)
         {
-            if(!m_BricksRow[i].gameObject.activeInHierarchy)
+            if (!m_BricksRow[i].gameObject.activeInHierarchy)
             {
-                Debug.Log("SpawnNewBricks m_BricksRow " + i + "set active true");
+                //Debug.Log("SpawnNewBricks m_BricksRow " + i + "set active true");
                 m_BricksRow[i].gameObject.SetActive(true);
                 break;
             }
@@ -57,5 +73,10 @@ public class BrickSpawner : MonoBehaviour
         for (int i = 0; i < m_BricksRow.Count; i++)
             if (m_BricksRow[i].gameObject.activeInHierarchy)
                 m_BricksRow[i].MoveDown(m_SpawningDistance);
+    }
+
+    void Update()
+    {
+        winManager.CheckIfWin();
     }
 }

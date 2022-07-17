@@ -6,6 +6,7 @@ public class BricksRow : MonoBehaviour
 
     public Brick[] m_Bricks;
     public ScoreBall[] m_ScoreBalls;
+    public WinManager winManager;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class BricksRow : MonoBehaviour
          */
         m_Bricks = GetComponentsInChildren<Brick>();
         m_ScoreBalls = GetComponentsInChildren<ScoreBall>();
+        winManager = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<WinManager>();
     }
 
     private void OnEnable()
