@@ -6,7 +6,6 @@ public class BricksRow : MonoBehaviour
 
     public Brick[] m_Bricks;
     public ScoreBall[] m_ScoreBalls;
-    public WinManager winManager;
 
     private void Awake()
     {
@@ -22,7 +21,6 @@ public class BricksRow : MonoBehaviour
          */
         m_Bricks = GetComponentsInChildren<Brick>();
         m_ScoreBalls = GetComponentsInChildren<ScoreBall>();
-        winManager = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<WinManager>();
     }
 
     private void OnEnable()
@@ -74,7 +72,7 @@ public class BricksRow : MonoBehaviour
         {
             if (HasActiveBricks())
             {
-                LevelManager.Instance.m_LevelState = LevelManager.LevelState.GameOver;
+                LevelManager.Instance.m_LevelState = LevelManager.LevelState.GAMEOVER;
                 //AttackPlayer();
                 if (HasActiveScoreBall())
                 {

@@ -79,13 +79,13 @@ public class BallLauncher : MonoBehaviour
 
     private void Update()
     {
-        if (LevelManager.Instance.m_LevelState == LevelManager.LevelState.GameOver)
+        if (LevelManager.Instance.m_LevelState == LevelManager.LevelState.GAMEOVER)
             return;
 
         if (!m_CanPlay)
             return;
 
-        if(Time.timeScale != 0 && LevelManager.Instance.m_LevelState != LevelManager.LevelState.GameOver)
+        if(Time.timeScale != 0 && LevelManager.Instance.m_LevelState != LevelManager.LevelState.GAMEOVER)
             m_WorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.back * -10;
 
         /*

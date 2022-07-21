@@ -20,7 +20,7 @@ public class WinManager : MonoBehaviour
             GameObject[] bricks = GameObject.FindGameObjectsWithTag("Brick");
             if (bricks.Length == 0)
             {
-                LevelManager.Instance.m_LevelState = LevelManager.LevelState.Win;
+                LevelManager.Instance.m_LevelState = LevelManager.LevelState.WIN;
             }
         }
     }
