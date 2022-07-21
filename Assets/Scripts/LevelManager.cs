@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     public GameObject m_Scores;
     public Text m_GameOverFinalScore;
 
-    public enum LevelState { Playable, GameOver, Win}
+    public enum LevelState { PLAYABLE, GAMEOVER, WIN }
     private LevelState m_State; //= GameState.MainMenu;
 
     public LevelState m_LevelState
@@ -21,7 +21,7 @@ public class LevelManager : MonoBehaviour
 
             switch(value)
             {
-                case LevelState.Playable:
+                case LevelState.PLAYABLE:
                     if(Saver.Instance.HasSave())
                     {
 
@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
                         BrickSpawner.Instance.SpawnNewBricks();
                     }
                     break;
-                case LevelState.GameOver:
+                case LevelState.GAMEOVER:
                     m_GameMenuPanel.SetActive(false);
                     m_GameOverPanel.SetActive(true);
                     m_Scores.SetActive(false);
@@ -49,7 +49,7 @@ public class LevelManager : MonoBehaviour
                     BallLauncher.Instance.m_CanPlay = false;
                     BallLauncher.Instance.ResetPositions();
                     break;
-                case LevelState.Win:
+                case LevelState.WIN:
                     m_GameMenuPanel.SetActive(false);
                     m_GameOverPanel.SetActive(true);
                     m_Scores.SetActive(false);
@@ -73,11 +73,12 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        m_LevelState = LevelState.Playable;
+        m_LevelState = LevelState.PLAYABLE;
         Debug.Log("start gameManager LevelState " + m_LevelState);
         Debug.Log("instanse state " + Instance.m_LevelState);
     }
 
+    //? maybe we can delete this
     private void Update()
     {
         ScoreManager.Instance.m_ScoreText.text = ScoreManager.Instance.m_LevelOfFinalBrick.ToString();
