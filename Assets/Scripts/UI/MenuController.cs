@@ -59,7 +59,7 @@ public class MenuController : MonoBehaviour
     public void StartGame()
     {
         if (energy.CurrentEnergy >= energy.startGameEnergy) {
-            Application.LoadLevel("Level1");
+            Application.LoadLevel("LevelWithWin");
           //  energy.currentEnergy -= energy.startGameEnergy;
           energy.ChangeCurrentEnergy(energy.CurrentEnergy - energy.startGameEnergy);
             TimeController.SaveLastPlayTime();
@@ -317,7 +317,7 @@ public class MenuController : MonoBehaviour
             
             BallLauncher.Instance.OnMainMenuActions();
             BrickSpawner.Instance.HideAllBricksRows();
-            LevelManager.Instance.m_LevelState = LevelManager.LevelState.Playable;
+            LevelManager.Instance.m_LevelState = LevelManager.LevelState.PLAYABLE;
             Saver.Instance.Save(true);
         }
     }

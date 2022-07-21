@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     public GameObject m_Scores;
     public Text m_GameOverFinalScore;
 
-    public enum LevelState { Playable, GameOver, }
+    public enum LevelState { Playable, GameOver, Win}
     private LevelState m_State; //= GameState.MainMenu;
 
     public LevelState m_LevelState
@@ -49,6 +49,16 @@ public class LevelManager : MonoBehaviour
                     BallLauncher.Instance.m_CanPlay = false;
                     BallLauncher.Instance.ResetPositions();
                     break;
+                case LevelState.Win:
+                    m_GameMenuPanel.SetActive(false);
+                    m_GameOverPanel.SetActive(true);
+                    m_Scores.SetActive(false);
+
+                    m_GameOverFinalScore.text = "You win";
+                    BallLauncher.Instance.m_CanPlay = false;
+                    BallLauncher.Instance.ResetPositions();
+                    break;
+
             }
         }
         get
