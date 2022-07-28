@@ -5380,7 +5380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8c5748d38a6c648915cdc6ff8b6a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SpawningRows: 7
+  m_SpawningRows: 8
   m_BricksRowPrefab: {fileID: 114082328019945812, guid: 8fbd4e3836caf4e0b997a3d4df863e89,
     type: 3}
   m_SpawningTopPosition: 3.78

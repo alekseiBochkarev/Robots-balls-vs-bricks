@@ -8,10 +8,14 @@ public class BrickSpawner : MonoBehaviour
     
 
     [Header("Spawning informations")]
-    public int m_SpawningRows = 7;
+    public int m_SpawningRows = 8;
     public BricksRow m_BricksRowPrefab;
     public float m_SpawningTopPosition = 2.88f;   // top position
     public float m_SpawningDistance = 0.8f; // distance of rows
+    public GameObject brickPrefab;
+    public GameObject scoreBallPrefab;
+    public GameObject magicBallPrefab;
+   public int maxObjectsInRow = 6;
 
     [Header("Bricks Row")]
     public List<BricksRow> m_BricksRow;
@@ -62,10 +66,63 @@ public class BrickSpawner : MonoBehaviour
             if (!m_BricksRow[i].gameObject.activeInHierarchy)
             {
                 //Debug.Log("SpawnNewBricks m_BricksRow " + i + "set active true");
+                CreateBrickRow();
                 m_BricksRow[i].gameObject.SetActive(true);
                 break;
             }
         }
+    }
+
+    private void CreateBrickRow()
+    {
+        int numberOfScoreBallInRow = Random.Range(0, maxObjectsInRow);
+        Instantiate(scoreBallPrefab, new Vector3 (getPositionX(numberOfScoreBallInRow), 1.66f, 0), Quaternion.identity);
+        bool createMagicBall = CreateMagicBall();
+        int numberOfMagicBallInRow = 0;
+        if (createMagicBall)
+        {
+            numberOfMagicBallInRow = Random.Range(0, maxObjectsInRow);
+            if (numberOfMagicBallInRow != numberOfScoreBallInRow)
+            {
+                Instantiate(magicBallPrefab, new Vector3(getPositionX(numberOfMagicBallInRow), 1.66f, 0), Quaternion.identity);
+            }
+        }
+        for (int i = 0; i < maxObjectsInRow; i++)
+        {
+            if (IfCreateBrick())
+            {
+                if (i != numberOfScoreBallInRow)
+                {
+                    if (!createMagicBall)
+                    {
+                        Instantiate(brickPrefab, new Vector3(getPositionX(i), 1.66f, 0), Quaternion.identity);
+                    } else
+                    {
+                        if (i != numberOfMagicBallInRow)
+                        {
+                            Instantiate(brickPrefab, new Vector3(getPositionX(i), 1.66f, 0), Quaternion.identity);
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+
+    private float getPositionX (int number)
+    {
+        return -2.34f + number * 0.94f;
+    }
+
+    private bool CreateMagicBall ()
+    {
+        //30% chanse
+        return Random.Range(0, 3) == 1 ? true : false;
+    }
+
+    private bool IfCreateBrick ()
+    {
+        return Random.Range(0, 2) == 1 ? true : false;
     }
 
     public void MoveDownBricksRows()
