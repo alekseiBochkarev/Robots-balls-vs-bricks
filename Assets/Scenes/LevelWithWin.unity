@@ -5385,6 +5385,13 @@ MonoBehaviour:
     type: 3}
   m_SpawningTopPosition: 3.78
   m_SpawningDistance: 0.64
+  brickPrefab: {fileID: 1388506910491776577, guid: 46c14843e46d040fcbdca9e424761fca,
+    type: 3}
+  scoreBallPrefab: {fileID: 2466504055430407184, guid: b88c498b211824a7ba9c4fcb138fc67c,
+    type: 3}
+  magicBallPrefab: {fileID: 2466504055430407184, guid: 923eb09d683274bcb8a0bb16d7877f85,
+    type: 3}
+  maxObjectsInRow: 6
   m_BricksRow: []
   winManager: {fileID: 0}
 --- !u!1 &2036214285

@@ -76,7 +76,7 @@ public class BrickSpawner : MonoBehaviour
     private void CreateBrickRow()
     {
         int numberOfScoreBallInRow = Random.Range(0, maxObjectsInRow);
-        Instantiate(scoreBallPrefab, new Vector3 (getPositionX(numberOfScoreBallInRow), 1.66f, 0), Quaternion.identity);
+        CreateObject(scoreBallPrefab, numberOfScoreBallInRow);
         bool createMagicBall = CreateMagicBall();
         int numberOfMagicBallInRow = 0;
         if (createMagicBall)
@@ -84,7 +84,7 @@ public class BrickSpawner : MonoBehaviour
             numberOfMagicBallInRow = Random.Range(0, maxObjectsInRow);
             if (numberOfMagicBallInRow != numberOfScoreBallInRow)
             {
-                Instantiate(magicBallPrefab, new Vector3(getPositionX(numberOfMagicBallInRow), 1.66f, 0), Quaternion.identity);
+                CreateObject(magicBallPrefab, numberOfMagicBallInRow);
             }
         }
         for (int i = 0; i < maxObjectsInRow; i++)
@@ -95,18 +95,23 @@ public class BrickSpawner : MonoBehaviour
                 {
                     if (!createMagicBall)
                     {
-                        Instantiate(brickPrefab, new Vector3(getPositionX(i), 1.66f, 0), Quaternion.identity);
+                        CreateObject(brickPrefab, i);
                     } else
                     {
                         if (i != numberOfMagicBallInRow)
                         {
-                            Instantiate(brickPrefab, new Vector3(getPositionX(i), 1.66f, 0), Quaternion.identity);
+                            CreateObject(brickPrefab, i);
                         }
                     }
                     
                 }
             }
         }
+    }
+
+    private void CreateObject(GameObject prefab, int numberInRow)
+    {
+        Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.66f, 0), new Quaternion(0, 180, 0, 1));
     }
 
     private float getPositionX (int number)
