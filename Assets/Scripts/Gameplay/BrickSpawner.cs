@@ -17,6 +17,9 @@ public class BrickSpawner : MonoBehaviour
     public GameObject magicBallPrefab;
    public int maxObjectsInRow = 6;
 
+    private float vision;
+    Collider2D[] colliders;
+
     [Header("Bricks Row")]
     public List<BricksRow> m_BricksRow;
     [Header("Win Manager")]
@@ -132,9 +135,23 @@ public class BrickSpawner : MonoBehaviour
 
     public void MoveDownBricksRows()
     {
+        vision = 10f;
+        colliders = Physics2D.OverlapCircleAll(transform.position, vision);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].gameObject == gameObject) continue;
+            if (colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>() != null)
+            {
+               colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>().MoveDown(m_SpawningDistance);
+            }
+        }
+
+
+        /*
         for (int i = 0; i < m_BricksRow.Count; i++)
             if (m_BricksRow[i].gameObject.activeInHierarchy)
                 m_BricksRow[i].MoveDown(m_SpawningDistance);
+        */
     }
 
     void Update()
