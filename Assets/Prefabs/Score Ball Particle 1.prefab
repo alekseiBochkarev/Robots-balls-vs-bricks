@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 2462911320780146510}
   - component: {fileID: 2342422084819990536}
   - component: {fileID: 2377205805212418996}
+  - component: {fileID: 2536967447053470973}
   m_Layer: 0
   m_Name: Score Ball Particle 1
   m_TagString: Untagged
@@ -5034,3 +5035,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &2536967447053470973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2466504055430407184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1d9e60919744490ab02935aec4c561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
