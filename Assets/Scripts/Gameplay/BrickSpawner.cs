@@ -8,10 +8,17 @@ public class BrickSpawner : MonoBehaviour
     
 
     [Header("Spawning informations")]
-    public int m_SpawningRows = 7;
+    public int m_SpawningRows = 8;
     public BricksRow m_BricksRowPrefab;
     public float m_SpawningTopPosition = 2.88f;   // top position
     public float m_SpawningDistance = 0.8f; // distance of rows
+    public GameObject brickPrefab;
+    public GameObject scoreBallPrefab;
+    public GameObject magicBallPrefab;
+   public int maxObjectsInRow = 6;
+
+    private float vision;
+    Collider2D[] colliders;
 
     [Header("Bricks Row")]
     public List<BricksRow> m_BricksRow;
@@ -57,22 +64,97 @@ public class BrickSpawner : MonoBehaviour
     public void SpawnBricks ()
     {
         ScoreManager.Instance.m_LevelOfFinalBrick++;
+        CreateBrickRow();
+/*
         for (int i = 0; i < m_BricksRow.Count; i++)
         {
             if (!m_BricksRow[i].gameObject.activeInHierarchy)
             {
                 //Debug.Log("SpawnNewBricks m_BricksRow " + i + "set active true");
+                
                 m_BricksRow[i].gameObject.SetActive(true);
                 break;
             }
         }
+*/
+    }
+
+    private void CreateBrickRow()
+    {
+        int numberOfScoreBallInRow = Random.Range(0, maxObjectsInRow);
+        CreateObject(scoreBallPrefab, numberOfScoreBallInRow);
+        bool createMagicBall = CheckIfICanCreateMagicBall();
+        int numberOfMagicBallInRow = 0;
+        if (createMagicBall)
+        {
+            numberOfMagicBallInRow = Random.Range(0, maxObjectsInRow);
+            if (numberOfMagicBallInRow != numberOfScoreBallInRow)
+            {
+                CreateObject(magicBallPrefab, numberOfMagicBallInRow);
+            }
+        }
+        for (int i = 0; i < maxObjectsInRow; i++)
+        {
+            if (CheckIfICanCreateBrick())
+            {
+                if (i != numberOfScoreBallInRow)
+                {
+                    if (!createMagicBall)
+                    {
+                        CreateObject(brickPrefab, i);
+                    } else
+                    {
+                        if (i != numberOfMagicBallInRow)
+                        {
+                            CreateObject(brickPrefab, i);
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+
+    private void CreateObject(GameObject prefab, int numberInRow)
+    {
+        Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1));
+    }
+
+    private float getPositionX (int number)
+    {
+        return -2.32f + number * 0.94f;
+    }
+
+    private bool CheckIfICanCreateMagicBall ()
+    {
+        //30% chanse
+        return Random.Range(0, 3) == 1 ? true : false;
+    }
+
+    private bool CheckIfICanCreateBrick ()
+    {
+        return Random.Range(0, 2) == 1 ? true : false;
     }
 
     public void MoveDownBricksRows()
     {
+        vision = 10f;
+        colliders = Physics2D.OverlapCircleAll(transform.position, vision);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].gameObject == gameObject) continue;
+            if (colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>() != null)
+            {
+               colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>().MoveDown(m_SpawningDistance);
+            }
+        }
+
+
+        /*
         for (int i = 0; i < m_BricksRow.Count; i++)
             if (m_BricksRow[i].gameObject.activeInHierarchy)
                 m_BricksRow[i].MoveDown(m_SpawningDistance);
+        */
     }
 
     void Update()

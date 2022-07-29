@@ -5380,11 +5380,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8c5748d38a6c648915cdc6ff8b6a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SpawningRows: 7
+  m_SpawningRows: 8
   m_BricksRowPrefab: {fileID: 114082328019945812, guid: 8fbd4e3836caf4e0b997a3d4df863e89,
     type: 3}
   m_SpawningTopPosition: 3.78
   m_SpawningDistance: 0.64
+  brickPrefab: {fileID: 1388506910491776577, guid: 46c14843e46d040fcbdca9e424761fca,
+    type: 3}
+  scoreBallPrefab: {fileID: 2466504055430407184, guid: b88c498b211824a7ba9c4fcb138fc67c,
+    type: 3}
+  magicBallPrefab: {fileID: 2466504055430407184, guid: 923eb09d683274bcb8a0bb16d7877f85,
+    type: 3}
+  maxObjectsInRow: 6
   m_BricksRow: []
   winManager: {fileID: 0}
 --- !u!1 &2036214285

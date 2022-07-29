@@ -54,7 +54,7 @@ public class BricksRow : MonoBehaviour
             {
                 hasNoBrick = false;
                 Debug.Log("OnEnable hasNoBrick " + i + hasNoBrick);
-                break;
+              //  break;
             }
 
         if (hasNoBrick)
