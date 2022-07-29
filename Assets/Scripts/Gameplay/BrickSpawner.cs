@@ -64,23 +64,26 @@ public class BrickSpawner : MonoBehaviour
     public void SpawnBricks ()
     {
         ScoreManager.Instance.m_LevelOfFinalBrick++;
+        CreateBrickRow();
+/*
         for (int i = 0; i < m_BricksRow.Count; i++)
         {
             if (!m_BricksRow[i].gameObject.activeInHierarchy)
             {
                 //Debug.Log("SpawnNewBricks m_BricksRow " + i + "set active true");
-                CreateBrickRow();
+                
                 m_BricksRow[i].gameObject.SetActive(true);
                 break;
             }
         }
+*/
     }
 
     private void CreateBrickRow()
     {
         int numberOfScoreBallInRow = Random.Range(0, maxObjectsInRow);
         CreateObject(scoreBallPrefab, numberOfScoreBallInRow);
-        bool createMagicBall = CreateMagicBall();
+        bool createMagicBall = CheckIfICanCreateMagicBall();
         int numberOfMagicBallInRow = 0;
         if (createMagicBall)
         {
@@ -92,7 +95,7 @@ public class BrickSpawner : MonoBehaviour
         }
         for (int i = 0; i < maxObjectsInRow; i++)
         {
-            if (IfCreateBrick())
+            if (CheckIfICanCreateBrick())
             {
                 if (i != numberOfScoreBallInRow)
                 {
@@ -114,21 +117,21 @@ public class BrickSpawner : MonoBehaviour
 
     private void CreateObject(GameObject prefab, int numberInRow)
     {
-        Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.66f, 0), new Quaternion(0, 180, 0, 1));
+        Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1));
     }
 
     private float getPositionX (int number)
     {
-        return -2.34f + number * 0.94f;
+        return -2.32f + number * 0.94f;
     }
 
-    private bool CreateMagicBall ()
+    private bool CheckIfICanCreateMagicBall ()
     {
         //30% chanse
         return Random.Range(0, 3) == 1 ? true : false;
     }
 
-    private bool IfCreateBrick ()
+    private bool CheckIfICanCreateBrick ()
     {
         return Random.Range(0, 2) == 1 ? true : false;
     }
