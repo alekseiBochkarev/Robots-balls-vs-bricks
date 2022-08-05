@@ -21,6 +21,7 @@ public class WinManager : MonoBehaviour
             if (bricks.Length == 0)
             {
                 LevelManager.Instance.m_LevelState = LevelManager.LevelState.WIN;
+                EventManager.OnGameWon();
             }
         }
     }

@@ -11,6 +11,12 @@ public class EventManager : MonoBehaviour
 
     public static event Action BallsReturned;
 
+    public static event Action GameWon;
+    public static void OnGameWon() 
+    {
+        GameWon?.Invoke();
+    }
+
     public static void OnBrickDestroyed() 
     {
         BrickDestroyed?.Invoke();
