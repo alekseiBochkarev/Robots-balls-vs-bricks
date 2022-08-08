@@ -8,6 +8,8 @@ TagManager:
   - Ball
   - Wall
   - Brick
+  - DamagePopupCanvas
+  - DamageTextTag
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - DamagePopup
   - Ball
   - ScoreBall
   - Brick
@@ -42,6 +44,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Top
+    uniqueID: 2875338949
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

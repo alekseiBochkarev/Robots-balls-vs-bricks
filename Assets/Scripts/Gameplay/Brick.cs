@@ -13,6 +13,8 @@ public class Brick : MonoBehaviour
 
     private SpriteRenderer m_SpriteRenderer;
     private ParticleSystem m_ParentParticle;
+    private Vector3 brickCoord;
+    private Vector3 brickCoordAbove;
 
     private void Awake()
     {
@@ -53,14 +55,28 @@ public class Brick : MonoBehaviour
         }
     }
     
+    private void InitBrickDamagePopupPosition() // init brickPosition and change Y to show damagePopup above the BRICK
+    {
+        float damagePopupHeight = .5f;
+        brickCoord = m_ParentParticle.transform.position;
+        brickCoordAbove = new Vector3(brickCoord.x, brickCoord.y + damagePopupHeight, brickCoord.z);
+    }
 
     public void takeDamage (int damage)
-    {
+    {   
+        bool isDamage = true;
+        bool isCriticalHit = false;
         m_currentBrickHealth = m_currentBrickHealth - damage;
         m_Text.text = m_currentBrickHealth.ToString();
         healthBar.SaveCurrentBrickHealth();
         healthBar.ShowHealth();
         EventManager.OnBrickHit();
+
+        
+        // Create DamagePopup with damage above the BRICK
+        InitBrickDamagePopupPosition();
+        DamagePopup.CreateDamagePopup(brickCoordAbove, damage, isCriticalHit, isDamage);
+
         if (m_currentBrickHealth <= 0)
         {
             // 1 - play a particle
