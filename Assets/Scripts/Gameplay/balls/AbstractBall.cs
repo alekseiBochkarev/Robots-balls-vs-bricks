@@ -33,6 +33,8 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     public static Vector3 s_FirstCollisionPoint { private set; get; }
     private static int s_ReturnedBallsAmount = 0;
     public int attackPower;
+    protected int damageTextFontSize;
+    protected Color damageTextColor;
 
     private Rigidbody2D m_Rigidbody2D;
     private CircleCollider2D m_Collider2D;
@@ -58,6 +60,8 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     {
         hero = GameObject.Find("Hero");
         attackPower = hero.GetComponent<Hero>().attackSkill;
+        damageTextColor = TextController.COLOR_YELLOW;
+        damageTextFontSize = TextController.FONT_SIZE_STANDARD;
     }
 
     public int GetAttackPower
@@ -65,6 +69,22 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         get
         {
             return attackPower;
+        }
+    }
+
+    public int GetDamageTextFontSize
+    {
+        get
+        {
+            return damageTextFontSize;
+        }
+    }
+
+    public Color GetDamageTextColor
+    {
+        get
+        {
+            return damageTextColor;
         }
     }
 
