@@ -25,16 +25,6 @@ public class HeroLevel
     {
         CurrentExperience
     }
-    public void Awake()
-    {
-        LoadHeroLevel();
-        LoadHeroExperience();
-        SetLevelMultiplier();
-        InitRequiredExperience();
-        EventManager.GameWon += AddHeroLevel;
-        IsGameWon = false;
-        Debug.Log("Awake HeroLevel");
-    }
 
     public HeroLevel()
     {
@@ -42,6 +32,9 @@ public class HeroLevel
         LoadHeroExperience();
         SetLevelMultiplier();
         InitRequiredExperience();
+        IsGameWon = false;
+        EventManager.GameWon += AddHeroLevel;
+        Debug.Log("Init HeroLevel");
     }
 
     private void OnDestroy() 
@@ -87,6 +80,7 @@ public class HeroLevel
 
     public void AddExperience()
     {
+        Debug.Log("Add experience");
         HeroExperience += earnExperience;
         SaveHeroExperience(HeroExperienceEnum.CurrentExperience, HeroExperience);
     }
@@ -107,7 +101,8 @@ public class HeroLevel
          because this action is always perfroms after event was called,
          OnDestroy works only when you go to the menu or do replay
          */
-        if (IsGameWon == false)
+         Debug.Log("before add experience");
+        if (!IsGameWon)
         {
             AddExperience();
             if (IsExperienceEnough())
