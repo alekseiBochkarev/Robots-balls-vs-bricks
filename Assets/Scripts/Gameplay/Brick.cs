@@ -114,7 +114,13 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
         {
             HealUp(5);
         }
+        if(transform.localPosition.y <= BallLauncher.Instance.m_FloorPosition)
+        {
+            LevelManager.Instance.m_LevelState = LevelManager.LevelState.GAMEOVER;
+            //AttackPlayer();
+        }
     }
+
     public void TakeDamage (int appliedDamage)
     {   
         bool isDamage = true;
@@ -139,10 +145,11 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
             // 2 - hide this Brick or this row
             gameObject.SetActive(false);
             //m_Parent.CheckBricksActivation();
-
             // 3 - Set coin 
             EventManager.OnBrickDestroyed();
             //   WalletController.Instance.AddCoinAndShow();
+            //destroy parent gameObject
+            Destroy(parent, 1);
         }
     }
 
@@ -157,12 +164,7 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
         EventManager.OnBrickHit();
         // Create DamagePopup with damage above the BRICK
         InitBrickDamagePopupPosition();
-<<<<<<< HEAD
         DamagePopup.CreateDamagePopup(brickCoordAbove, appliedDamage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
-
-=======
-        DamagePopup.CreateDamagePopup(brickCoordAbove, damage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
->>>>>>> simpleballbranch
         if (m_currentBrickHealth <= 0)
         {
             // 1 - play a particle
@@ -177,6 +179,7 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
             // 3 - Set coin 
             EventManager.OnBrickDestroyed();
             //   WalletController.Instance.AddCoinAndShow();
+            //destroy parent gameObject
             Destroy(parent, 1);
         }
     }
@@ -212,15 +215,6 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
     public void ChangeColor()
     {
         m_SpriteRenderer.color = Color.LerpUnclamped(new Color(1, 0.75f, 0, 1), Color.red, m_currentBrickHealth / (float)ScoreManager.Instance.m_LevelOfFinalBrick);
-    }
-
-    private void Update()
-    {
-        if(transform.localPosition.y <= BallLauncher.Instance.m_FloorPosition)
-        {
-                LevelManager.Instance.m_LevelState = LevelManager.LevelState.GAMEOVER;
-                //AttackPlayer();
-        }
     }
 
 }
