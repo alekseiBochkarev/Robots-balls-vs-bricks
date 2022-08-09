@@ -2,10 +2,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Brick : MonoBehaviour
+public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
 {
     public Text m_Text;
     private HealthBar healthBar;
+    public Hero hero;
     public int m_maxBrickHealth;
     public int m_currentBrickHealth;    // it's gonna be public because the GameManager needs to setup each brick
     public PolygonCollider2D polygonCollider2D;
@@ -15,6 +16,7 @@ public class Brick : MonoBehaviour
     private ParticleSystem m_ParentParticle;
     private Vector3 brickCoord;
     private Vector3 brickCoordAbove;
+    private int attackSkill = 10; // need to define what's the best value for start
     private int appliedDamage;
     private Color damageTextColor;
     private int damageTextFontSize;
@@ -25,6 +27,8 @@ public class Brick : MonoBehaviour
         rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_ParentParticle = GetComponentInParent<ParticleSystem>();
+        hero = GameObject.FindGameObjectWithTag("Hero").GetComponent<Hero>();
+        SetDefaultTextParams();
     }
 
     private void OnEnable()
@@ -43,7 +47,18 @@ public class Brick : MonoBehaviour
         
         ChangeColor();
     }
+
+    private void SetDefaultTextParams()
+    {
+        damageTextColor = TextController.COLOR_RED;
+        damageTextFontSize = TextController.FONT_SIZE_MAX;
+    }
     
+
+    public void SetMaxHealth(int maxHealth)
+    {
+        m_maxBrickHealth = maxHealth;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<IBall>() != null)
@@ -52,7 +67,7 @@ public class Brick : MonoBehaviour
             appliedDamage = collision.gameObject.GetComponent<IBall>().GetAttackPower;
             damageTextColor = collision.gameObject.GetComponent<IBall>().GetDamageTextColor;
             damageTextFontSize = collision.gameObject.GetComponent<IBall>().GetDamageTextFontSize;
-            takeDamage(appliedDamage);
+            TakeDamage(appliedDamage, damageTextColor, damageTextFontSize);
             if (collision.gameObject.GetComponent<AbstractBall>() != null)
             {
                 Vector3 position = collision.gameObject.transform.position;
@@ -68,11 +83,41 @@ public class Brick : MonoBehaviour
         brickCoordAbove = new Vector3(brickCoord.x, brickCoord.y + damagePopupHeight, brickCoord.z);
     }
 
-    public void takeDamage (int damage)
+    public void DoDamage(int applyDamage)
+    {
+        Debug.Log("apply " + applyDamage + " damage to hero");
+        hero.TakeDamage(applyDamage);
+   
+    }
+
+    public void HealUp(int healHealthUpAmount) // heals Health of the BRICK
+    {
+        InitBrickDamagePopupPosition();
+        bool isCriticalHit = false;
+        bool isDamage = false;
+        damageTextColor = TextController.COLOR_RED;
+        damageTextFontSize = TextController.FONT_SIZE_MAX;
+        m_currentBrickHealth += healHealthUpAmount;
+        healthBar.SaveCurrentBrickHealth();
+        healthBar.ShowHealth();
+        DamagePopup.CreateDamagePopup(brickCoordAbove, healHealthUpAmount, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
+    }
+
+    private void Update() { // ONLY FOR DEBUGGING AND TESTING
+        if (Input.GetMouseButtonDown(1))
+        {
+            TakeDamage(1);
+        }
+        if (Input.GetMouseButtonDown(2))
+        {
+            HealUp(5);
+        }
+    }
+    public void TakeDamage (int appliedDamage)
     {   
         bool isDamage = true;
         bool isCriticalHit = false;
-        m_currentBrickHealth = m_currentBrickHealth - damage;
+        m_currentBrickHealth = m_currentBrickHealth - appliedDamage;
         m_Text.text = m_currentBrickHealth.ToString();
         healthBar.SaveCurrentBrickHealth();
         healthBar.ShowHealth();
@@ -80,7 +125,38 @@ public class Brick : MonoBehaviour
 
         // Create DamagePopup with damage above the BRICK
         InitBrickDamagePopupPosition();
-        DamagePopup.CreateDamagePopup(brickCoordAbove, damage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
+        DamagePopup.CreateDamagePopup(brickCoordAbove, appliedDamage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
+
+        if (m_currentBrickHealth <= 0)
+        {
+            // 1 - play a particle
+            Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
+            m_ParentParticle.startColor = color;
+            m_ParentParticle.Play();
+
+            // 2 - hide this Brick or this row
+            gameObject.SetActive(false);
+            //m_Parent.CheckBricksActivation();
+
+            // 3 - Set coin 
+            EventManager.OnBrickDestroyed();
+            //   WalletController.Instance.AddCoinAndShow();
+        }
+    }
+
+    public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize)
+    {   
+        bool isDamage = true;
+        bool isCriticalHit = false;
+        m_currentBrickHealth = m_currentBrickHealth - appliedDamage;
+        m_Text.text = m_currentBrickHealth.ToString();
+        healthBar.SaveCurrentBrickHealth();
+        healthBar.ShowHealth();
+        EventManager.OnBrickHit();
+
+        // Create DamagePopup with damage above the BRICK
+        InitBrickDamagePopupPosition();
+        DamagePopup.CreateDamagePopup(brickCoordAbove, appliedDamage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
 
         if (m_currentBrickHealth <= 0)
         {
@@ -113,7 +189,7 @@ public class Brick : MonoBehaviour
             appliedDamage = collider.gameObject.GetComponent<IBall>().GetAttackPower;
             damageTextColor = collider.gameObject.GetComponent<IBall>().GetDamageTextColor;
             damageTextFontSize = collider.gameObject.GetComponent<IBall>().GetDamageTextFontSize;
-            takeDamage(appliedDamage);
+            TakeDamage(appliedDamage, damageTextColor, damageTextFontSize);
             if (collider.gameObject.GetComponent<AbstractBall>() != null)
             {
                 Vector3 position = collider.gameObject.transform.position;
