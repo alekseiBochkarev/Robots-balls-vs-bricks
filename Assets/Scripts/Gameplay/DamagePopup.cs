@@ -17,7 +17,7 @@ public class DamagePopup : MonoBehaviour
         return damagePopup;
     }
 
-    private static int sortingOrder;
+    private static int sortingOrder = 30; // is enough to display above everything
     private const float DISAPPEAR_TIMER_MAX = 0.3f;
     private const float VECTOR3_X_MAX = 0.7f;
     private const float VECTOR3_Y_MAX = 0.3f;
