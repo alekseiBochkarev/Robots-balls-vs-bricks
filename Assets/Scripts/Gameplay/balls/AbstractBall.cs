@@ -60,8 +60,6 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     {
         hero = GameObject.Find("Hero");
         attackPower = hero.GetComponent<Hero>().attackSkill;
-        damageTextColor = TextController.COLOR_YELLOW;
-        damageTextFontSize = TextController.FONT_SIZE_STANDARD;
     }
 
     public int GetAttackPower
@@ -117,9 +115,10 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
     }
 
+/*
     private static void ContinuePlaying()
     {
-        Debug.Log("ContinuePlaying");
+       // Debug.Log("ContinuePlaying");
         if (s_FirstCollisionPoint != Vector3.zero)
             BallLauncher.Instance.transform.position = s_FirstCollisionPoint;
 
@@ -139,6 +138,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         BallLauncher.Instance.m_CanPlay = true;
         BallLauncher.Instance.FindBricksAndSetRigidbodyType(RigidbodyType2D.Dynamic);
     }
+    */
 
     public static void ResetFirstCollisionPoint()
     {
@@ -185,7 +185,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         s_ReturnedBallsAmount++;    // then check all of balls are returned to the floor
         //INPOTANT PLACE - HERE I CAN ADD ATACK (BOCH ALEKSEI)
         if (s_ReturnedBallsAmount == BallLauncher.Instance.m_BallsAmount)
-            ContinuePlaying();
+            BallLauncher.Instance.ContinuePlaying();
 
         m_SpriteRenderer.enabled = false;
     }

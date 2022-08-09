@@ -269,7 +269,6 @@ public class BallLauncher : MonoBehaviour
 
     IEnumerator StartShootingBalls()
     {
-        m_ReturnBallsButton.SetActive(true);
         m_BallSprite.enabled = false;
 
         int balls = m_BallsAmount;
@@ -288,7 +287,7 @@ public class BallLauncher : MonoBehaviour
             }
             yield return new WaitForSeconds(0.05f);
         }
-
+        m_ReturnBallsButton.SetActive(true);
         if(balls <= 0)
             m_DeactivatableChildren.SetActive(false);
     }
@@ -318,16 +317,16 @@ public class BallLauncher : MonoBehaviour
             transform.position = AbstractBall.s_FirstCollisionPoint;
             AbstractBall.ResetFirstCollisionPoint();
         }
-
+/*
         m_BallSprite.transform.position = transform.position;
         m_BallSprite.enabled = true;
-
+*/
         for (int i = 0; i < m_Balls.Count; i++)
         {
             m_Balls[i].DisablePhysics();
-            m_Balls[i].MoveTo(transform.position, iTween.EaseType.easeInOutQuart, (Vector2.Distance(transform.position, m_Balls[i].transform.position) / 6.0f), "DeactiveSprite");
+            m_Balls[i].MoveTo(transform.position, iTween.EaseType.easeInOutQuart, (Vector2.Distance(transform.position, m_Balls[i].transform.position) / 6.0f), "Deactive");
         }
-
+/*
         ResetPositions();
 
         AbstractBall.ResetReturningBallsAmount();
@@ -340,6 +339,32 @@ public class BallLauncher : MonoBehaviour
         EventManager.OnBallsReturned();
 
         ActivateHUD();
+        m_CanPlay = true;
+        FindBricksAndSetRigidbodyType(RigidbodyType2D.Dynamic);*/
+    }
+
+    public void ContinuePlaying()
+    {
+       // Debug.Log("ContinuePlaying");
+        
+        if(AbstractBall.s_FirstCollisionPoint != Vector3.zero)
+        {
+            transform.position = AbstractBall.s_FirstCollisionPoint;
+            AbstractBall.ResetFirstCollisionPoint();
+        }
+        ResetPositions();
+        m_BallSprite.enabled = true;
+        ActivateHUD();
+
+        ScoreManager.Instance.UpdateScore();
+
+        BrickSpawner.Instance.MoveDownBricksRows();
+        BrickSpawner.Instance.SpawnNewBricks();
+
+        AbstractBall.ResetReturningBallsAmount();
+
+        EventManager.OnBallsReturned();
+
         m_CanPlay = true;
         FindBricksAndSetRigidbodyType(RigidbodyType2D.Dynamic);
     }
