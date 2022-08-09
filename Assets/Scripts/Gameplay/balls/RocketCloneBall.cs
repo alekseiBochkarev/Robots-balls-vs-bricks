@@ -6,6 +6,8 @@ public class RocketCloneBall : MonoBehaviour, IBall
 {
     public GameObject hero;
     public int attackPower;
+    private int damageTextFontSize;
+    private Color damageTextColor;
     private float vision;
     Collider2D[] colliders;
     public int MoveSpeed = 7;
@@ -19,7 +21,8 @@ public class RocketCloneBall : MonoBehaviour, IBall
         target = FindGoalToMove();
         hero = GameObject.Find("Hero");
         attackPower = hero.GetComponent<Hero>().attackSkill;
-        
+        damageTextColor = TextController.COLOR_BLACK;
+        damageTextFontSize = TextController.FONT_SIZE_MAX;
     }
 
     public Vector3 FindGoalToMove()
@@ -59,6 +62,22 @@ public class RocketCloneBall : MonoBehaviour, IBall
         get
         {
             return attackPower;
+        }
+    }
+
+    public int GetDamageTextFontSize
+    {
+        get
+        {
+            return damageTextFontSize;
+        }
+    }
+
+    public Color GetDamageTextColor
+    {
+        get
+        {
+            return damageTextColor;
         }
     }
    

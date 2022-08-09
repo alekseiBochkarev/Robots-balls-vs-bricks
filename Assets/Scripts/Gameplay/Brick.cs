@@ -13,6 +13,11 @@ public class Brick : MonoBehaviour
 
     private SpriteRenderer m_SpriteRenderer;
     private ParticleSystem m_ParentParticle;
+    private Vector3 brickCoord;
+    private Vector3 brickCoordAbove;
+    private int appliedDamage;
+    private Color damageTextColor;
+    private int damageTextFontSize;
 
     private void Awake()
     {
@@ -44,7 +49,10 @@ public class Brick : MonoBehaviour
         if (collision.gameObject.GetComponent<IBall>() != null)
         {
             polygonCollider2D.isTrigger = false;
-            takeDamage(collision.gameObject.GetComponent<IBall>().GetAttackPower);
+            appliedDamage = collision.gameObject.GetComponent<IBall>().GetAttackPower;
+            damageTextColor = collision.gameObject.GetComponent<IBall>().GetDamageTextColor;
+            damageTextFontSize = collision.gameObject.GetComponent<IBall>().GetDamageTextFontSize;
+            takeDamage(appliedDamage);
             if (collision.gameObject.GetComponent<AbstractBall>() != null)
             {
                 Vector3 position = collision.gameObject.transform.position;
@@ -53,14 +61,27 @@ public class Brick : MonoBehaviour
         }
     }
     
+    private void InitBrickDamagePopupPosition() // init brickPosition and change Y to show damagePopup above the BRICK
+    {
+        float damagePopupHeight = .5f;
+        brickCoord = m_ParentParticle.transform.position;
+        brickCoordAbove = new Vector3(brickCoord.x, brickCoord.y + damagePopupHeight, brickCoord.z);
+    }
 
     public void takeDamage (int damage)
-    {
+    {   
+        bool isDamage = true;
+        bool isCriticalHit = false;
         m_currentBrickHealth = m_currentBrickHealth - damage;
         m_Text.text = m_currentBrickHealth.ToString();
         healthBar.SaveCurrentBrickHealth();
         healthBar.ShowHealth();
         EventManager.OnBrickHit();
+
+        // Create DamagePopup with damage above the BRICK
+        InitBrickDamagePopupPosition();
+        DamagePopup.CreateDamagePopup(brickCoordAbove, damage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
+
         if (m_currentBrickHealth <= 0)
         {
             // 1 - play a particle
@@ -89,7 +110,10 @@ public class Brick : MonoBehaviour
         if (collider.gameObject.GetComponent<IBall>() != null)
         {
             polygonCollider2D.isTrigger = false;
-            takeDamage(collider.gameObject.GetComponent<IBall>().GetAttackPower);
+            appliedDamage = collider.gameObject.GetComponent<IBall>().GetAttackPower;
+            damageTextColor = collider.gameObject.GetComponent<IBall>().GetDamageTextColor;
+            damageTextFontSize = collider.gameObject.GetComponent<IBall>().GetDamageTextFontSize;
+            takeDamage(appliedDamage);
             if (collider.gameObject.GetComponent<AbstractBall>() != null)
             {
                 Vector3 position = collider.gameObject.transform.position;
