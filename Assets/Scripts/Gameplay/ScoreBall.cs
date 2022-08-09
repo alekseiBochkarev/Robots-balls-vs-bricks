@@ -4,11 +4,13 @@ public class ScoreBall : MonoBehaviour
 {
     private BricksRow m_Parent;
     private ParticleSystem m_ParentParticle;
+    private GameObject parent;
 
     private Color m_ParticleColor;
 
     private void Awake()
     {
+        parent = transform.parent.gameObject;
         m_Parent = GetComponentInParent<BricksRow>();
         m_ParentParticle = GetComponentInParent<ParticleSystem>();
 
@@ -21,7 +23,17 @@ public class ScoreBall : MonoBehaviour
         {
             BallLauncher.Instance.m_TempAmount++;    // increase balls amount
             PlayParticle();
+            Destroy(parent, 1);
         }  
+    }
+
+    private void Update()
+    {
+        if(transform.localPosition.y <= BallLauncher.Instance.m_FloorPosition)
+        {
+            BallLauncher.Instance.m_TempAmount++;    // increase balls amount
+            PlayParticle();
+        }
     }
 
     public void PlayParticle()
