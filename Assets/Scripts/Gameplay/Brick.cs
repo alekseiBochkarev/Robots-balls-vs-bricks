@@ -18,9 +18,11 @@ public class Brick : MonoBehaviour
     private int appliedDamage;
     private Color damageTextColor;
     private int damageTextFontSize;
+    private GameObject parent;
 
     private void Awake()
     {
+        parent = transform.parent.gameObject;
         polygonCollider2D = gameObject.GetComponent<PolygonCollider2D>();
         rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
@@ -77,11 +79,9 @@ public class Brick : MonoBehaviour
         healthBar.SaveCurrentBrickHealth();
         healthBar.ShowHealth();
         EventManager.OnBrickHit();
-
         // Create DamagePopup with damage above the BRICK
         InitBrickDamagePopupPosition();
         DamagePopup.CreateDamagePopup(brickCoordAbove, damage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
-
         if (m_currentBrickHealth <= 0)
         {
             // 1 - play a particle
@@ -96,6 +96,7 @@ public class Brick : MonoBehaviour
             // 3 - Set coin 
             EventManager.OnBrickDestroyed();
             //   WalletController.Instance.AddCoinAndShow();
+            Destroy(parent, 1);
         }
     }
 
@@ -131,4 +132,14 @@ public class Brick : MonoBehaviour
     {
         m_SpriteRenderer.color = Color.LerpUnclamped(new Color(1, 0.75f, 0, 1), Color.red, m_currentBrickHealth / (float)ScoreManager.Instance.m_LevelOfFinalBrick);
     }
+
+    private void Update()
+    {
+        if(transform.localPosition.y <= BallLauncher.Instance.m_FloorPosition)
+        {
+                LevelManager.Instance.m_LevelState = LevelManager.LevelState.GAMEOVER;
+                //AttackPlayer();
+        }
+    }
+
 }
