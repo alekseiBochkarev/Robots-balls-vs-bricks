@@ -346,12 +346,12 @@ public class BallLauncher : MonoBehaviour
     public void ContinuePlaying()
     {
        // Debug.Log("ContinuePlaying");
-        /*
+        
         if(AbstractBall.s_FirstCollisionPoint != Vector3.zero)
         {
             transform.position = AbstractBall.s_FirstCollisionPoint;
             AbstractBall.ResetFirstCollisionPoint();
-        }*/
+        }
         ResetPositions();
         m_BallSprite.enabled = true;
         ActivateHUD();
