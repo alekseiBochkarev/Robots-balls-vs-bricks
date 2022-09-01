@@ -12,6 +12,8 @@ public class MenuController : MonoBehaviour
     public GameObject m_MainMenuQuitPanel;
     public GameObject m_SettingsPanel;
     public GameObject m_PauseMenu;  // or backMenu (panel)
+    public GameObject m_UpgradeButton; // on click -> opens Upgrade modal panel
+    public GameObject m_UpgradePanel;
 
     private float m_timeScale;
 
@@ -66,6 +68,18 @@ public class MenuController : MonoBehaviour
         }
         //GameManager.Instance.m_GameState = GameManager.GameState.Playable;
         //Debug.Log("gamestate " + GameManager.Instance.m_GameState);
+    }
+
+    public void OpenUpgradePanel() // nice to add some animation on openning
+    {
+        m_UpgradePanel.SetActive(true);
+        m_UpgradeButton.SetActive(false);
+    }
+
+    public void CloseUpgradePanel() // nice to add some animation on closing
+    {
+        m_UpgradePanel.SetActive(false);
+        m_UpgradeButton.SetActive(true);
     }
 
     public void ShowPauseMenu()

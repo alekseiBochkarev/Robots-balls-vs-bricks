@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Coins
+public class Coins : WalletController
 {
     public static Coins Instance;
     public int m_Coins  {private set; get; }
