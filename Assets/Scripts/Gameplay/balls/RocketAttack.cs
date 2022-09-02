@@ -11,8 +11,5 @@ public class RocketAttack : MonoBehaviour, AttackBehaviour
     {
        ballPrefab = Resources.Load<GameObject>("RocketClone");
        GameObject rocket = Instantiate(ballPrefab, position, Quaternion.identity);
-    //    GameObject goal = GameObject.Find("leftBorder");
-    //   rocket.GetComponent<AbstractBall>().GetReadyAndAddForce(new Vector2 (goal.transform.position.x, 0));   
-
     }
 }
