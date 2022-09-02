@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class WalletController : MonoBehaviour
 {    
@@ -10,7 +11,7 @@ public class WalletController : MonoBehaviour
     public Coins Coins {private set; get;}
 
 
-    [SerializeField] private Text m_CoinsText;
+    [SerializeField] private TextMeshProUGUI m_CoinsText;
     private Text m_CrystalsText;
 
     private void Awake() {
@@ -19,10 +20,12 @@ public class WalletController : MonoBehaviour
         Coins = new Coins();
         ShowCoins();
         EventManager.BrickDestroyed += AddCoinAndShow;
+        EventManager.UpgradeStats += ShowCoins;
     }
     
     private void OnDestroy() {
         EventManager.BrickDestroyed -= AddCoinAndShow;
+        EventManager.UpgradeStats -= ShowCoins;
     }
 
     private void AddCoinAndShow() {
@@ -33,6 +36,7 @@ public class WalletController : MonoBehaviour
     }
 
     public void ShowCoins() {
+        Coins.LoadCoins();
         Debug.Log("Show amount of coins -> " + Coins.m_Coins);
         m_CoinsText.text = Coins.m_Coins.ToString();
     }

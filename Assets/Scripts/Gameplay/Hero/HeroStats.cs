@@ -74,11 +74,18 @@ public class HeroStats
         float statsValue = GetStats(statsEnum);
         statsValue += upgradeAmount;
         SaveStats(statsEnum, statsValue);
+        LoadStats();
     }
 
-    private void AddUpgradePoints()
+    public void AddUpgradePoints()
     {
         UpgradePoints++;
+        SaveStats(HeroStatsEnum.HeroUpgradePoints, UpgradePoints);
+    }
+
+    public void RemoveOneUpgradePoints()
+    {
+        UpgradePoints--;
         SaveStats(HeroStatsEnum.HeroUpgradePoints, UpgradePoints);
     }
 }

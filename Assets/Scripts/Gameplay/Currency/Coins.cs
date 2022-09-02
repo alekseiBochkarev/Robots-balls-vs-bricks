@@ -21,6 +21,17 @@ public class Coins : WalletController
         Debug.Log("+ 1 Coin, total = "+ m_Coins);
     }
 
+    public void AddCoin(float amount) {
+        m_Coins += (int) amount;
+        SaveCoins();
+    }
+
+    public void RemoveCoins(float amount)
+    {
+        m_Coins -= (int) amount;
+        SaveCoins();
+    }
+
     public bool IsPurchisable(int price) { // checks if coins are enough to buy something
             return (m_Coins >= price);
     }
