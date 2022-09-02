@@ -59,5 +59,6 @@ public class Grid{
         if (x>=0 && y >=0 && x < width && y < height) {
             return gridArray[x, y];
         }
+        return 0;
     }
 }
