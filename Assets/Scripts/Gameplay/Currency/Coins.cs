@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Coins
+public class Coins : WalletController
 {
     public static Coins Instance;
     public int m_Coins  {private set; get; }
@@ -19,6 +19,17 @@ public class Coins
     public void AddCoin() {
         m_Coins++;
         Debug.Log("+ 1 Coin, total = "+ m_Coins);
+    }
+
+    public void AddCoin(float amount) {
+        m_Coins += (int) amount;
+        SaveCoins();
+    }
+
+    public void RemoveCoins(float amount)
+    {
+        m_Coins -= (int) amount;
+        SaveCoins();
     }
 
     public bool IsPurchisable(int price) { // checks if coins are enough to buy something

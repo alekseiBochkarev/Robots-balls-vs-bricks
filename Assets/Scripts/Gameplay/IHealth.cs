@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IHealth
 {
-    void SetMaxHealth(int maxHealth);
-    void HealUp(int healHealthUpAmount);
+    void SetMaxHealth(float maxHealth);
+    void HealUp(float healHealthUpAmount);
 }

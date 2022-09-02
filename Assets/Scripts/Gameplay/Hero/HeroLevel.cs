@@ -112,6 +112,7 @@ public class HeroLevel
                 SetLevelMultiplier();
                 SaveHeroExperience(HeroExperienceEnum.CurrentExperience, startExperience);
                 InitRequiredExperience();
+                EventManager.OnLevelUp();
                 Debug.Log("New level is added, it's -> " + CurrentHeroLevel);
             }
             IsGameWon = true;

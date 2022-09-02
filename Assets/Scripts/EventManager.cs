@@ -12,6 +12,17 @@ public class EventManager : MonoBehaviour
     public static event Action BallsReturned;
 
     public static event Action GameWon;
+    public static event Action LevelUp;
+    public static event Action UpgradeStats;
+
+    public static void OnUpgradeStats()
+    {
+        UpgradeStats?.Invoke();
+    }
+    public static void OnLevelUp()
+    {
+        LevelUp?.Invoke();
+    }
     public static void OnGameWon() 
     {
         GameWon?.Invoke();

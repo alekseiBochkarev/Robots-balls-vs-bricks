@@ -57,9 +57,9 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
     }
     
 
-    public void SetMaxHealth(int maxHealth)
+    public void SetMaxHealth(float maxHealth)
     {
-        m_maxBrickHealth = maxHealth;
+        m_maxBrickHealth = (int) maxHealth;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -92,17 +92,18 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
    
     }
 
-    public void HealUp(int healHealthUpAmount) // heals Health of the BRICK
+    public void HealUp(float healHealthUpAmount) // heals Health of the BRICK
     {
         InitBrickDamagePopupPosition();
         bool isCriticalHit = false;
         bool isDamage = false;
         damageTextColor = TextController.COLOR_RED;
         damageTextFontSize = TextController.FONT_SIZE_MAX;
-        m_currentBrickHealth += healHealthUpAmount;
+        int healHealthUpAmountInt = (int) healHealthUpAmount;
+        m_currentBrickHealth += healHealthUpAmountInt;
         healthBar.SaveCurrentBrickHealth();
         healthBar.ShowHealth();
-        DamagePopup.CreateDamagePopup(brickCoordAbove, healHealthUpAmount, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
+        DamagePopup.CreateDamagePopup(brickCoordAbove, healHealthUpAmountInt, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
     }
 
     private void Update() { // ONLY FOR DEBUGGING AND TESTING
