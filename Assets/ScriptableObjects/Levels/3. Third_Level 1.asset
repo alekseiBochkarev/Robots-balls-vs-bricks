@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a4cd88b217275428e5c3a0315300ca, type: 3}
+  m_Name: 3. Third_Level 1
+  m_EditorClassIdentifier: 
+  levelIndex: 2
+  levelName: 3. Third_Level
+  levelDescription: Third_Level_Description
+  nameColor: {r: 1, g: 0, b: 0.71341753, a: 1}
+  levelImage: {fileID: 21300000, guid: fdb780d7e9bca40be95c765ae582d11d, type: 3}
+  sceneToLoad: {fileID: 102900000, guid: 1842f4903d14c42d9a26451053afde6c, type: 3}
