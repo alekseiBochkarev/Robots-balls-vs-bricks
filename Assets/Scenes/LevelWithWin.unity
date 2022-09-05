@@ -3852,6 +3852,8 @@ MonoBehaviour:
   m_PauseMenu: {fileID: 1249693383}
   m_UpgradeButton: {fileID: 0}
   m_UpgradePanel: {fileID: 0}
+  m_LevelSelectionButton: {fileID: 0}
+  m_LevelSelectionPanel: {fileID: 0}
 --- !u!1 &1440498513
 GameObject:
   m_ObjectHideFlags: 0

@@ -53,7 +53,10 @@ public class BallLauncher : MonoBehaviour
     {
         Ball,
         RocketBall,
-        RocketClone
+        RocketClone,
+        LaserHorizontalBall,
+        LaserVerticalBall,
+        LaserCrossBall
     }
 
     private void Awake()
@@ -76,7 +79,9 @@ public class BallLauncher : MonoBehaviour
         m_ReturnBallsButton.SetActive(false);
         SpawNewBall(m_BallsAmount, BallsType.Ball);
         //below is temprory decision just for test. next time it will be special method to set special attack
+        AddBall(BallsType.LaserVerticalBall);
         AddBall(BallsType.RocketBall);
+        AddBall(BallsType.LaserHorizontalBall);
     }
 
     private void Update()
