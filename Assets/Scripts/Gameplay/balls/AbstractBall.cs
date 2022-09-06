@@ -13,9 +13,9 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     public AfterCollisionBehaviour afterCollisionBehaviour;
 
     //here special balls will be realize unical attack mechanics
-    public void SpecialAttack(Vector3 position)
+    public void SpecialAttack(Vector3 position, GameObject brick)
     {
-        attackBehaviour.SpecialAttack(position);
+        attackBehaviour.SpecialAttack(position, brick);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

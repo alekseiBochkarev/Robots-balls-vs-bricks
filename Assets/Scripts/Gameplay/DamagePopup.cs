@@ -17,6 +17,16 @@ public class DamagePopup : MonoBehaviour
         return damagePopup;
     }
 
+    // Creates a Text popup
+    public static DamagePopup CreateTextPopup(Vector3 position, string text, Color textColor, int textFontSize) 
+    {
+        Transform textPopupTransform = Instantiate(GameAssets.i.pfDamagePopup, position, Quaternion.identity);
+        
+        DamagePopup textPopup = textPopupTransform.GetComponent<DamagePopup>();
+        textPopup.Setup(text, textColor, textFontSize);
+        return textPopup;
+    }
+
     private static int sortingOrder = 30; // is enough to display above everything
     private const float DISAPPEAR_TIMER_MAX = 0.3f;
     private const float VECTOR3_X_MAX = 0.7f;
@@ -55,6 +65,20 @@ public class DamagePopup : MonoBehaviour
             SetTextMeshFontSize(TextController.FONT_SIZE_MAX);
             SetTextMeshColor(TextController.COLOR_RED);
         }
+        // Sorting order need to prevent the problem with displaying popups in right order
+        sortingOrder++;
+        textMesh.sortingOrder = sortingOrder;
+        
+        moveVector = Utills.GetRandomVector(VECTOR3_X_MAX, VECTOR3_Y_MAX);
+    }
+
+    public void Setup(string text, Color textColor, int textFontSize)
+    {
+        
+        // Set Text params
+        textMesh.SetText(text);
+        SetTextMeshFontSize(textFontSize);
+        SetTextMeshColor(textColor);
         // Sorting order need to prevent the problem with displaying popups in right order
         sortingOrder++;
         textMesh.sortingOrder = sortingOrder;
