@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface AfterCollisionBehaviour 
 {
-    public void DestroyAfterCollision();
+    public void BehaviourAfterCollision();
 }
