@@ -20,12 +20,12 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        afterCollisionBehaviour.DestroyAfterCollision();
+        afterCollisionBehaviour.BehaviourAfterCollision();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-       afterCollisionBehaviour.DestroyAfterCollision();
+       afterCollisionBehaviour.BehaviourAfterCollision();
     }
 
 

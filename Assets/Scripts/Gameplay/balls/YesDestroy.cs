@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class YesDestroy : MonoBehaviour, AfterCollisionBehaviour
 {
-    public void DestroyAfterCollision()
+    public void BehaviourAfterCollision()
     {
         Debug.Log("destroy");
         //Destroy(this.gameObject, .00000005f);
