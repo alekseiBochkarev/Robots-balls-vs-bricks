@@ -326,10 +326,10 @@ public class BallLauncher : MonoBehaviour
             transform.position = AbstractBall.s_FirstCollisionPoint;
             AbstractBall.ResetFirstCollisionPoint();
         }
-/*
-        m_BallSprite.transform.position = transform.position;
-        m_BallSprite.enabled = true;
-*/
+
+        //m_BallSprite.transform.position = transform.position;
+        //m_BallSprite.enabled = true;
+
         for (int i = 0; i < m_Balls.Count; i++)
         {
             m_Balls[i].DisablePhysics();
@@ -350,6 +350,21 @@ public class BallLauncher : MonoBehaviour
         ActivateHUD();
         m_CanPlay = true;
         FindBricksAndSetRigidbodyType(RigidbodyType2D.Dynamic);*/
+    }
+
+    public void ReturnBallToStartPosition (AbstractBall ball) {
+        if(AbstractBall.s_FirstCollisionPoint != Vector3.zero)
+        {
+            transform.position = AbstractBall.s_FirstCollisionPoint;
+            //AbstractBall.ResetFirstCollisionPoint();
+        }
+
+        
+        for (int i = 0; i < m_Balls.Count; i++)
+        {
+            ball.DisablePhysics();
+            ball.MoveTo(transform.position, iTween.EaseType.easeInOutQuart, (Vector2.Distance(transform.position, ball.transform.position) / 6.0f), "Deactive");
+        }
     }
 
     public void ContinuePlaying()

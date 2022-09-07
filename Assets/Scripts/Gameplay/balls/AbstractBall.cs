@@ -60,6 +60,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     {
         hero = GameObject.Find("Hero");
         attackPower = hero.GetComponent<Hero>().attackSkill;
+        afterCollisionBehaviour = this.gameObject.GetComponent<AfterCollisionBehaviour>();
     }
 
     public int GetAttackPower

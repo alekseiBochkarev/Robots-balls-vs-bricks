@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 58845583564804158}
   - component: {fileID: 96846943280894102}
   - component: {fileID: 822485234576364471}
+  - component: {fileID: 8581837554429278974}
   m_Layer: 8
   m_Name: InstaKillBall
   m_TagString: Ball
@@ -242,6 +243,19 @@ MonoBehaviour:
   m_WallCollisionDuration: 0
   m_MoveSpeed: 10
   m_MinimumYPosition: -4.09
+  instaKillMessageText: INSTAKILL
+--- !u!114 &8581837554429278974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054516289806286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b602585c43715462abbea1b3e7474609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2980225175198431127
 GameObject:
   m_ObjectHideFlags: 0

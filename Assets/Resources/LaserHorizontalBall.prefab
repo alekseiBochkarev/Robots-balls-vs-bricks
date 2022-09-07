@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1554592291877676890}
   - component: {fileID: 3515405104819798745}
   - component: {fileID: 977686305490962134}
+  - component: {fileID: -4090547256395905346}
   m_Layer: 8
   m_Name: LaserHorizontalBall
   m_TagString: Ball
@@ -241,3 +242,15 @@ MonoBehaviour:
   m_WallCollisionDuration: 0
   m_MoveSpeed: 10
   m_MinimumYPosition: -4.09
+--- !u!114 &-4090547256395905346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5385733435678287018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b602585c43715462abbea1b3e7474609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
