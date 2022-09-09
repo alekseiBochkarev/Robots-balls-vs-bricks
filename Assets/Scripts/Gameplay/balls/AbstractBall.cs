@@ -20,12 +20,17 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        afterCollisionBehaviour.BehaviourAfterCollision();
+        if (collision.gameObject.GetComponent<Brick>() != null){
+            afterCollisionBehaviour.BehaviourAfterCollision();
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-       afterCollisionBehaviour.BehaviourAfterCollision();
+        if (collider.gameObject.GetComponent<Brick>() != null) {
+            afterCollisionBehaviour.BehaviourAfterCollision();
+        }
     }
 
 
@@ -39,6 +44,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     private Rigidbody2D m_Rigidbody2D;
     private CircleCollider2D m_Collider2D;
     private SpriteRenderer m_SpriteRenderer;
+    private TrailRenderer m_TrailRenderer;
 
     public int m_WallCollisionDuration = 0;
 
@@ -54,6 +60,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
         m_Collider2D = GetComponent<CircleCollider2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        m_TrailRenderer = GetComponent<TrailRenderer>();
     }
 
     void Start()
@@ -157,11 +164,13 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         m_Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
         m_Collider2D.enabled = true;
         m_Rigidbody2D.AddForce(direction);
+        m_TrailRenderer.enabled = true;
     }
 
     public void Disable()
     {
         m_SpriteRenderer.enabled = false;
+        m_TrailRenderer.enabled = false;
         m_Collider2D.enabled = false;
         m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
     }
@@ -178,6 +187,14 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
         if (m_SpriteRenderer.enabled)
             iTween.MoveTo(gameObject, iTween.Hash("position", position, "easetype", easeType, "time", time,
+                "oncomplete", onCompleteMethod));
+    }
+
+    public void MoveToStartPosition(Vector3 position, iTween.EaseType easeType = iTween.EaseType.linear, float time = 0.1f, string onCompleteMethod = "Deactive")
+    {
+        iTween.Stop(gameObject);
+
+        iTween.MoveTo(gameObject, iTween.Hash("position", position, "easetype", easeType, "time", time,
                 "oncomplete", onCompleteMethod));
     }
 

@@ -358,13 +358,8 @@ public class BallLauncher : MonoBehaviour
             transform.position = AbstractBall.s_FirstCollisionPoint;
             //AbstractBall.ResetFirstCollisionPoint();
         }
-
-        
-        for (int i = 0; i < m_Balls.Count; i++)
-        {
-            ball.DisablePhysics();
-            ball.MoveTo(transform.position, iTween.EaseType.easeInOutQuart, (Vector2.Distance(transform.position, ball.transform.position) / 6.0f), "Deactive");
-        }
+            ball.Disable();
+            ball.MoveToStartPosition(transform.position, iTween.EaseType.easeInOutQuart, (Vector2.Distance(transform.position, ball.transform.position) / 6.0f), "Deactive");
     }
 
     public void ContinuePlaying()

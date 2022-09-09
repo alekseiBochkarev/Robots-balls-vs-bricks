@@ -7,6 +7,6 @@ public class ReturnAfterCollision : MonoBehaviour, AfterCollisionBehaviour
     public void BehaviourAfterCollision()
     {
         Debug.Log("return");
-     //   BallLauncher.Instance.ReturnBallToStartPosition(this.gameObject.GetComponent<AbstractBall>());
+        BallLauncher.Instance.ReturnBallToStartPosition(this.gameObject.GetComponent<AbstractBall>());
     }
 }
