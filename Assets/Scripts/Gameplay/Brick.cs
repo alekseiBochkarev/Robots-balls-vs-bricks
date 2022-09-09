@@ -73,10 +73,28 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
             if (collision.gameObject.GetComponent<AbstractBall>() != null)
             {
                 Vector3 position = collision.gameObject.transform.position;
-                collision.gameObject.GetComponent<AbstractBall>().SpecialAttack(position);
+                collision.gameObject.GetComponent<AbstractBall>().SpecialAttack(position, this.gameObject);
             }                 
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.GetComponent<IBall>() != null)
+        {
+            polygonCollider2D.isTrigger = false;
+            appliedDamage = collider.gameObject.GetComponent<IBall>().GetAttackPower;
+            damageTextColor = collider.gameObject.GetComponent<IBall>().GetDamageTextColor;
+            damageTextFontSize = collider.gameObject.GetComponent<IBall>().GetDamageTextFontSize;
+            TakeDamage(appliedDamage, damageTextColor, damageTextFontSize);
+            if (collider.gameObject.GetComponent<AbstractBall>() != null)
+            {
+                Vector3 position = collider.gameObject.transform.position;
+                collider.gameObject.GetComponent<AbstractBall>().SpecialAttack(position, this.gameObject);
+            }
+        }
+    }
+
     
     private void InitBrickDamagePopupPosition() // init brickPosition and change Y to show damagePopup above the BRICK
     {
@@ -185,28 +203,50 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
         }
     }
 
+    public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize)
+    { 
+        m_currentBrickHealth = m_currentBrickHealth - appliedDamage;
+        m_Text.text = m_currentBrickHealth.ToString();
+        healthBar.SaveCurrentBrickHealth();
+        healthBar.ShowHealth();
+        EventManager.OnBrickHit();
+        // Create DamagePopup with damage above the BRICK
+        InitBrickDamagePopupPosition();
+
+        DamagePopup.CreateTextPopup(brickCoordAbove, textPopupTextValue, textColor, textFontSize);
+        if (m_currentBrickHealth <= 0)
+        {
+            // 1 - play a particle
+            Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
+            m_ParentParticle.startColor = color;
+            m_ParentParticle.Play();
+
+            // 2 - hide this Brick or this row
+            gameObject.SetActive(false);
+            //m_Parent.CheckBricksActivation();
+
+            // 3 - Set coin 
+            EventManager.OnBrickDestroyed();
+            //   WalletController.Instance.AddCoinAndShow();
+            //destroy parent gameObject
+            Destroy(parent, 1);
+        }
+    }
+
+    public void KillBrick(string textPopupTextValue)
+    {
+        appliedDamage = m_maxBrickHealth;
+        damageTextColor = TextController.COLOR_BLACK;
+        damageTextFontSize = TextController.FONT_SIZE_MAX;
+        TakeDamage(appliedDamage, textPopupTextValue, damageTextColor, damageTextFontSize);
+        Debug.Log("Kill brick applied");
+    }
+
     public void ChangeRigidbodyType (RigidbodyType2D rigidbodyType)
     {
         rigidbody2D.bodyType = rigidbodyType;
     }
     
-
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.GetComponent<IBall>() != null)
-        {
-            polygonCollider2D.isTrigger = false;
-            appliedDamage = collider.gameObject.GetComponent<IBall>().GetAttackPower;
-            damageTextColor = collider.gameObject.GetComponent<IBall>().GetDamageTextColor;
-            damageTextFontSize = collider.gameObject.GetComponent<IBall>().GetDamageTextFontSize;
-            TakeDamage(appliedDamage, damageTextColor, damageTextFontSize);
-            if (collider.gameObject.GetComponent<AbstractBall>() != null)
-            {
-                Vector3 position = collider.gameObject.transform.position;
-                collider.gameObject.GetComponent<AbstractBall>().SpecialAttack(position);
-            }
-        }
-    }
 
     public void Attack ()
     {

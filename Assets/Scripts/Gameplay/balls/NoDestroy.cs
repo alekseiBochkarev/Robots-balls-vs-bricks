@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NoDestroy : MonoBehaviour, AfterCollisionBehaviour
 {
-    public void DestroyAfterCollision()
+    public void BehaviourAfterCollision()
     {
         Debug.Log("no destroy");
     }

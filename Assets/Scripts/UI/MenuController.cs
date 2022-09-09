@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class MenuController : MonoBehaviour
     public GameObject m_PauseMenu;  // or backMenu (panel)
     public GameObject m_UpgradeButton; // on click -> opens Upgrade modal panel
     public GameObject m_UpgradePanel;
+
+    public GameObject m_LevelSelectionButton; // on click -> opens Level Selection panel
+    public GameObject m_LevelSelectionPanel;
 
     private float m_timeScale;
 
@@ -74,6 +78,18 @@ public class MenuController : MonoBehaviour
     {
         m_UpgradePanel.SetActive(true);
         m_UpgradeButton.SetActive(false);
+    }
+
+    public void OpenLevelSelection() // nice to add some animation on openning
+    {
+        m_LevelSelectionPanel.SetActive(true);
+        m_LevelSelectionButton.SetActive(false);
+    }
+
+    public void CloseLevelSelection() // nice to add some animation on openning
+    {
+        m_LevelSelectionPanel.SetActive(false);
+        m_LevelSelectionButton.SetActive(true);
     }
 
     public void CloseUpgradePanel() // nice to add some animation on closing
@@ -317,7 +333,12 @@ public class MenuController : MonoBehaviour
     #region GameOver Menu
     public void GotoMainMenuAfterGameOver()
     {
-        Application.LoadLevel("Main");
+        // if (game won) -> unlock next level and go to main menu
+        if (LevelManager.Instance.m_LevelState == LevelManager.LevelState.WIN)
+        {
+            PlayerPrefs.SetInt("currentScene", SceneManager.GetActiveScene().buildIndex);
+        }
+        SceneManager.LoadScene(0);
         //GameManager.Instance.m_GameState = GameManager.GameState.MainMenu;
         Saver.Instance.Save(true);
     }

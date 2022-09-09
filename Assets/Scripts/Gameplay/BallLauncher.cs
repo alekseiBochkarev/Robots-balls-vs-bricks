@@ -53,7 +53,11 @@ public class BallLauncher : MonoBehaviour
     {
         Ball,
         RocketBall,
-        RocketClone
+        RocketClone,
+        LaserHorizontalBall,
+        LaserVerticalBall,
+        LaserCrossBall,
+        InstaKillBall
     }
 
     private void Awake()
@@ -76,7 +80,10 @@ public class BallLauncher : MonoBehaviour
         m_ReturnBallsButton.SetActive(false);
         SpawNewBall(m_BallsAmount, BallsType.Ball);
         //below is temprory decision just for test. next time it will be special method to set special attack
+        AddBall(BallsType.InstaKillBall);
+        AddBall(BallsType.LaserVerticalBall);
         AddBall(BallsType.RocketBall);
+        AddBall(BallsType.LaserHorizontalBall);
     }
 
     private void Update()
@@ -319,10 +326,10 @@ public class BallLauncher : MonoBehaviour
             transform.position = AbstractBall.s_FirstCollisionPoint;
             AbstractBall.ResetFirstCollisionPoint();
         }
-/*
-        m_BallSprite.transform.position = transform.position;
-        m_BallSprite.enabled = true;
-*/
+
+        //m_BallSprite.transform.position = transform.position;
+        //m_BallSprite.enabled = true;
+
         for (int i = 0; i < m_Balls.Count; i++)
         {
             m_Balls[i].DisablePhysics();
@@ -343,6 +350,16 @@ public class BallLauncher : MonoBehaviour
         ActivateHUD();
         m_CanPlay = true;
         FindBricksAndSetRigidbodyType(RigidbodyType2D.Dynamic);*/
+    }
+
+    public void ReturnBallToStartPosition (AbstractBall ball) {
+        if(AbstractBall.s_FirstCollisionPoint != Vector3.zero)
+        {
+            transform.position = AbstractBall.s_FirstCollisionPoint;
+            //AbstractBall.ResetFirstCollisionPoint();
+        }
+            ball.Disable();
+            ball.MoveToStartPosition(transform.position, iTween.EaseType.easeInOutQuart, (Vector2.Distance(transform.position, ball.transform.position) / 6.0f), "Deactive");
     }
 
     public void ContinuePlaying()

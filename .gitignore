@@ -35,3 +35,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
+ProjectSettings/ProjectSettings.asset
+UserSettings/EditorUserSettings.asset
