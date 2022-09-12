@@ -5366,6 +5366,7 @@ GameObject:
   - component: {fileID: 2041127516}
   - component: {fileID: 2041127519}
   - component: {fileID: 2041127518}
+  - component: {fileID: 2041127520}
   m_Layer: 0
   m_Name: Ball Launcher Position
   m_TagString: Untagged
@@ -5408,12 +5409,8 @@ MonoBehaviour:
   m_DeactivatableChildren: {fileID: 1083001153}
   m_CorrectLineColor: {r: 0, g: 0.6080651, b: 1, a: 1}
   m_WrongLineColor: {r: 1, g: 0.13743854, b: 0, a: 1}
-  m_BallsAmount: 1
   m_TempAmount: 0
   m_BallsText: {fileID: 1083001158}
-  m_BallPrefab: {fileID: 8092520905396922696, guid: d7e5e539fe8189f4e9e51987479725a6,
-    type: 3}
-  m_Balls: []
   m_ReturnBallsButton: {fileID: 2036214285}
   topBorder: {fileID: 832922478}
   leftBorder: {fileID: 1622270826}
@@ -5519,6 +5516,20 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!114 &2041127520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041127515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cfcaeb716240e54f940b956a443a08e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startBallsAmount: 5
+  IsBallAmountChanged: 0
 --- !u!1 &2085448893
 GameObject:
   m_ObjectHideFlags: 0

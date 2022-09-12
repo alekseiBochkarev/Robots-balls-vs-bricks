@@ -202,7 +202,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     {
         s_ReturnedBallsAmount++;    // then check all of balls are returned to the floor
         //INPOTANT PLACE - HERE I CAN ADD ATACK (BOCH ALEKSEI)
-        if (s_ReturnedBallsAmount == BallLauncher.Instance.m_BallsAmount)
+        if (s_ReturnedBallsAmount == Balls.Instance.PlayerBallsAmount)
             BallLauncher.Instance.ContinuePlaying();
 
         m_SpriteRenderer.enabled = false;
