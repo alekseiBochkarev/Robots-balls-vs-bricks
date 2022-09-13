@@ -87,21 +87,13 @@ public class Balls : MonoBehaviour
     }
     public void ReplaceBallInList(BallsTypeEnum replaceableBall, BallsTypeEnum newBallType)
     {
-        // int ballIndex = GetIndexByBallTypeInList(replaceableBall);
-        // Debug.Log("ballIndex is -> " + ballIndex);
-        // m_BallPrefab = Resources.Load<GameObject>(newBallType.ToString()).GetComponent<AbstractBall>();
-        // PlayerBalls[ballIndex] = Instantiate(m_BallPrefab, transform.parent, false);
-        // PlayerBalls[PlayerBalls.Count - 1].transform.localPosition = transform.localPosition;
-        // PlayerBalls[PlayerBalls.Count - 1].transform.localScale = transform.localScale;
-        // PlayerBalls[PlayerBalls.Count - 1].Disable();
-        // SavePlayerBallsAmount();
-
-        
         int ballIndex = GetIndexByBallTypeInList(replaceableBall);
         Debug.Log("ballIndex is -> " + ballIndex);
         m_BallPrefab = Resources.Load<GameObject>(newBallType.ToString()).GetComponent<AbstractBall>();
-        // need to delete ball on scene, not only in List of balls
+
+        PlayerBalls[ballIndex].DestroyAfterTime();
         PlayerBalls.Remove(PlayerBalls[ballIndex]);
+
         AddBallToList(ballIndex, newBallType);
     }
 

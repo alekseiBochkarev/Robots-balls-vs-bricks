@@ -9,6 +9,12 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
     }
 
+    public void DestroyAfterTime()
+    {
+        Destroy(this.gameObject, 2f);
+    }
+    
+
     public AttackBehaviour attackBehaviour;
     public AfterCollisionBehaviour afterCollisionBehaviour;
 
