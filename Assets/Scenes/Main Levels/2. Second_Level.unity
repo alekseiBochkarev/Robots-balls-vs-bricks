@@ -2587,6 +2587,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1549437315}
     m_Modifications:
+    - target: {fileID: 5876898573300780573, guid: 462ad69c2102dac46971648c997daf1e,
+        type: 3}
+      propertyPath: startBallsAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5876898573300780577, guid: 462ad69c2102dac46971648c997daf1e,
         type: 3}
       propertyPath: m_RootOrder
@@ -2642,6 +2647,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5876898573300780579, guid: 462ad69c2102dac46971648c997daf1e,
+        type: 3}
+      propertyPath: topBorder
+      value: 
+      objectReference: {fileID: 832922478}
+    - target: {fileID: 5876898573300780579, guid: 462ad69c2102dac46971648c997daf1e,
+        type: 3}
+      propertyPath: leftBorder
+      value: 
+      objectReference: {fileID: 1622270826}
+    - target: {fileID: 5876898573300780579, guid: 462ad69c2102dac46971648c997daf1e,
+        type: 3}
+      propertyPath: rightBorder
+      value: 
+      objectReference: {fileID: 1006837532}
+    - target: {fileID: 5876898573300780579, guid: 462ad69c2102dac46971648c997daf1e,
+        type: 3}
+      propertyPath: bottomBorder
+      value: 
+      objectReference: {fileID: 1163078697}
+    - target: {fileID: 5876898573300780579, guid: 462ad69c2102dac46971648c997daf1e,
+        type: 3}
+      propertyPath: m_BallSprite
+      value: 
+      objectReference: {fileID: 619659860}
+    - target: {fileID: 5876898573300780579, guid: 462ad69c2102dac46971648c997daf1e,
+        type: 3}
+      propertyPath: ballStartPosition
+      value: 
+      objectReference: {fileID: 619659858}
+    - target: {fileID: 5876898573300780579, guid: 462ad69c2102dac46971648c997daf1e,
+        type: 3}
+      propertyPath: m_ReturnBallsButton
+      value: 
+      objectReference: {fileID: 2036214285}
     - target: {fileID: 5876898573300780582, guid: 462ad69c2102dac46971648c997daf1e,
         type: 3}
       propertyPath: m_Name

@@ -315,6 +315,7 @@ public class BallLauncher : MonoBehaviour
     public void ActivateHUD()
     {
         Balls.IncreaseBallsAmountFromOutSide(m_TempAmount);
+        Balls.SpawnNewBall(m_TempAmount, Balls.BallsTypeEnum.Ball);
        // m_BallsAmount += m_TempAmount;
 
         // avoiding more balls than final brick level - I SHOULD AVOID THIS. IF I will use extra balls. Bochkarev Aleksei
