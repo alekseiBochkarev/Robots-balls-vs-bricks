@@ -156,19 +156,7 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
 
         if (m_currentBrickHealth <= 0)
         {
-            // 1 - play a particle
-            Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
-            m_ParentParticle.startColor = color;
-            m_ParentParticle.Play();
-
-            // 2 - hide this Brick or this row
-            gameObject.SetActive(false);
-            //m_Parent.CheckBricksActivation();
-            // 3 - Set coin 
-            EventManager.OnBrickDestroyed();
-            //   WalletController.Instance.AddCoinAndShow();
-            //destroy parent gameObject
-            Destroy(parent, 1);
+            DeathOfBrick();
         }
     }
 
@@ -186,20 +174,7 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
         DamagePopup.CreateDamagePopup(brickCoordAbove, appliedDamage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
         if (m_currentBrickHealth <= 0)
         {
-            // 1 - play a particle
-            Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
-            m_ParentParticle.startColor = color;
-            m_ParentParticle.Play();
-
-            // 2 - hide this Brick or this row
-            gameObject.SetActive(false);
-            //m_Parent.CheckBricksActivation();
-
-            // 3 - Set coin 
-            EventManager.OnBrickDestroyed();
-            //   WalletController.Instance.AddCoinAndShow();
-            //destroy parent gameObject
-            Destroy(parent, 1);
+            DeathOfBrick();
         }
     }
 
@@ -216,21 +191,26 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
         DamagePopup.CreateTextPopup(brickCoordAbove, textPopupTextValue, textColor, textFontSize);
         if (m_currentBrickHealth <= 0)
         {
-            // 1 - play a particle
-            Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
-            m_ParentParticle.startColor = color;
-            m_ParentParticle.Play();
+            DeathOfBrick();
+        }
+    }
 
-            // 2 - hide this Brick or this row
-            gameObject.SetActive(false);
+    public void DeathOfBrick () {
+        // 1 - play a particle
+        Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
+        m_ParentParticle.startColor = color;
+        m_ParentParticle.Play();
+        //2 - set Grid to 0
+        gameObject.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
+        gameObject.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
+            // 3 - hide this Brick or this row
+        gameObject.SetActive(false);
             //m_Parent.CheckBricksActivation();
-
-            // 3 - Set coin 
-            EventManager.OnBrickDestroyed();
+            // 4 - Set coin 
+        EventManager.OnBrickDestroyed();
             //   WalletController.Instance.AddCoinAndShow();
             //destroy parent gameObject
-            Destroy(parent, 1);
-        }
+        Destroy(parent, 1);
     }
 
     public void KillBrick(string textPopupTextValue)

@@ -378,6 +378,7 @@ public class BallLauncher : MonoBehaviour
         ScoreManager.Instance.UpdateScore();
 
         BrickSpawner.Instance.MoveDownBricksRows();
+        BrickSpawner.Instance.MoveHorizontalBricksRows();
         BrickSpawner.Instance.SpawnNewBricks();
 
         AbstractBall.ResetReturningBallsAmount();

@@ -23,6 +23,8 @@ public class ScoreBall : MonoBehaviour
         {
             BallLauncher.Instance.m_TempAmount++;    // increase balls amount
             PlayParticle();
+            parent.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
+            parent.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
             Destroy(parent, 1);
         }  
     }

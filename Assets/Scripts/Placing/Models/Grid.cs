@@ -18,6 +18,7 @@ public class Grid{
         this.cellSize = cellSize;
         this.originPosition = originPosition;
         gridArray = new int[width, height];
+        /*
         debugTextArray = new TextMesh[width, height];
 
         Debug.Log("TESTING " + width + " " + height);
@@ -31,21 +32,22 @@ public class Grid{
         }
         Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.black, 100f);
         Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.black, 100f);
+        */
     }
 
-    private Vector3 GetWorldPosition(int x, int y) {
-        return new Vector3(x, -y) * cellSize + originPosition;
+    public Vector3 GetWorldPosition(int x, int y) {
+      //  return new Vector3(x-1/2, -y+1/2) * cellSize + originPosition;
+      return new Vector3(x+.5f, -y-.5f) * cellSize + originPosition;
     }
 
-    private void GetXY (Vector3 worldPosition, out int x, out int y) {
-        x = Mathf.FloorToInt((worldPosition - originPosition).x / cellSize);
-        y = Mathf.FloorToInt(-(worldPosition - originPosition).y / cellSize);
+    public void GetXY (Vector3 worldPosition, out int x, out int y) {
+        x = Mathf.FloorToInt(((worldPosition - originPosition).x / cellSize) - .5f);
+        y = Mathf.FloorToInt((-(worldPosition - originPosition).y / cellSize) - .5f);
     }
 
     public void SetValue(int x, int y, int value) {
         if (x>=0 && y >=0 && x < width && y < height) {
             gridArray[x, y] = value;
-            
         }
     }
 
@@ -59,6 +61,22 @@ public class Grid{
         if (x>=0 && y >=0 && x < width && y < height) {
             return gridArray[x, y];
         }
-        return 0;
+        return -1;
+    }
+
+    public int GridWidth
+    {
+        get
+        {
+            return width;
+        }
+    }
+
+    public int GridHeight
+    {
+        get
+        {
+            return height;
+        }
     }
 }

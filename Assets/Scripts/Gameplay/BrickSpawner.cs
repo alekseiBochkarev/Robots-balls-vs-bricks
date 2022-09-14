@@ -15,7 +15,9 @@ public class BrickSpawner : MonoBehaviour
     public GameObject brickPrefab;
     public GameObject scoreBallPrefab;
     public GameObject magicBallPrefab;
-   public int maxObjectsInRow = 6;
+    public int maxObjectsInRow = 6;
+    private Grid grid;
+    private LevelConfig m_levelConfig;
 
     private float vision;
     Collider2D[] colliders;
@@ -31,7 +33,10 @@ public class BrickSpawner : MonoBehaviour
 
         m_BricksRow = new List<BricksRow>();
         winManager = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<WinManager>();
-
+        m_levelConfig = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelConfig>();
+        grid = m_levelConfig.grid;
+        maxObjectsInRow = grid.GridWidth-1;
+        /*
         // generate rows of bricks on the scene
         for (int i = 0; i < m_SpawningRows; i++)
         {
@@ -39,7 +44,9 @@ public class BrickSpawner : MonoBehaviour
             m_BricksRow[m_BricksRow.Count - 1].transform.localPosition = new Vector3(0, m_SpawningTopPosition, 0);
             m_BricksRow[m_BricksRow.Count - 1].gameObject.SetActive(false);
         }
+        */
     }
+
 
     public void HideAllBricksRows()
     {
@@ -117,7 +124,10 @@ public class BrickSpawner : MonoBehaviour
 
     private void CreateObject(GameObject prefab, int numberInRow)
     {
-        Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1));
+       Debug.Log("world pos " + grid.GetWorldPosition(numberInRow, 0));
+       // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1));
+       GameObject newObject = Instantiate(prefab, grid.GetWorldPosition(numberInRow, 0), new Quaternion(0, 180, 0, 1));
+       newObject.GetComponent<MoveDownBehaviour>().MoveDown();
     }
 
     private float getPositionX (int number)
@@ -138,8 +148,23 @@ public class BrickSpawner : MonoBehaviour
 
     public void MoveDownBricksRows()
     {
-        vision = 10f;
+        vision = 10f; //need to check maybe we should set more than 10
         colliders = Physics2D.OverlapCircleAll(transform.position, vision);
+        for (int y = grid.GridHeight-1; y >= 0; y--) {
+            for (int x = 0; x <= grid.GridWidth-1; x ++) {
+                if (grid.GetValue(x, y)== 1) {
+                    for (int i = 0; i < colliders.Length; i ++) {
+                        if (colliders[i].gameObject == gameObject) continue;
+                        if (colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>() != null) {
+                            if (colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>().X == x && colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>().Y == y) {
+                                colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>().MoveDown();
+                            }
+                        }
+                    }
+                }
+            }
+        } 
+        /*
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject == gameObject) continue;
@@ -148,13 +173,33 @@ public class BrickSpawner : MonoBehaviour
                colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>().MoveDown(m_SpawningDistance);
             }
         }
-
+        */
 
         /*
         for (int i = 0; i < m_BricksRow.Count; i++)
             if (m_BricksRow[i].gameObject.activeInHierarchy)
                 m_BricksRow[i].MoveDown(m_SpawningDistance);
         */
+    }
+
+    public void MoveHorizontalBricksRows()
+    {
+        vision = 10f; //need to check maybe we should set more than 10
+        colliders = Physics2D.OverlapCircleAll(transform.position, vision);
+        for (int y = grid.GridHeight-1; y >= 0; y--) {
+            for (int x = 0; x <= grid.GridWidth-1; x ++) {
+                if (grid.GetValue(x, y)== 1) {
+                    for (int i = 0; i < colliders.Length; i ++) {
+                        if (colliders[i].gameObject == gameObject) continue;
+                        if (colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>() != null) {
+                            if (colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>().X == x && colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>().Y == y) {
+                                colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>().MoveHorizontal();
+                            }
+                        }
+                    }
+                }
+            }
+        } 
     }
 
     void Update()
