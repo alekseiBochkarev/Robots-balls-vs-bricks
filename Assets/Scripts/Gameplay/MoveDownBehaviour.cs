@@ -64,13 +64,13 @@ public class MoveDownBehaviour : MonoBehaviour
                 SetFreeXY();
                 Vector3 target = m_levelConfig.grid.GetWorldPosition(x-1, y);
                 iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.25f);
-                UpdateCurrentPosition();
+                StartCoroutine(WaitAndUpdateCurrentPosition());
                 needHorizontalMove = false;
             } else if (m_levelConfig.grid.GetValue(x+1, y) == 0) {
                 SetFreeXY();
                 Vector3 target = m_levelConfig.grid.GetWorldPosition(x+1, y);
                 iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.25f);
-                UpdateCurrentPosition();
+                StartCoroutine(WaitAndUpdateCurrentPosition());
                 needHorizontalMove = false;
             }
             needHorizontalMove = false;

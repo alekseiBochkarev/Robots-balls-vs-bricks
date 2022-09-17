@@ -378,15 +378,29 @@ public class BallLauncher : MonoBehaviour
         ScoreManager.Instance.UpdateScore();
 
         BrickSpawner.Instance.MoveDownBricksRows();
-        BrickSpawner.Instance.MoveHorizontalBricksRows();
-        BrickSpawner.Instance.SpawnNewBricks();
+        StartCoroutine(WaitAndMoveHorizontalBricksRowsAndWaitAndSpawnNewBricks());
+        
 
         AbstractBall.ResetReturningBallsAmount();
 
         EventManager.OnBallsReturned();
 
-        m_CanPlay = true;
         FindBricksAndSetRigidbodyType(RigidbodyType2D.Dynamic);
+        StartCoroutine(WaitAndCanPlay());
+    }
+
+    IEnumerator WaitAndCanPlay()
+    {
+        yield return new WaitForSeconds(2);
+        m_CanPlay = true;
+    }
+
+    IEnumerator WaitAndMoveHorizontalBricksRowsAndWaitAndSpawnNewBricks()
+    {
+        yield return new WaitForSeconds(0.7f);
+        BrickSpawner.Instance.MoveHorizontalBricksRows();
+        yield return new WaitForSeconds(0.7f);
+        BrickSpawner.Instance.SpawnNewBricks();
     }
 
     public void ChangeCollider()

@@ -122,10 +122,11 @@ public class BrickSpawner : MonoBehaviour
 
     private void CreateObject(GameObject prefab, int numberInRow)
     {
-       Debug.Log("world pos " + m_levelConfig.grid.GetWorldPosition(numberInRow, 0));
-       // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1));
-       GameObject newObject = Instantiate(prefab, m_levelConfig.grid.GetWorldPosition(numberInRow, 0), new Quaternion(0, 180, 0, 1));
-       newObject.GetComponent<MoveDownBehaviour>().MoveDown();
+        if (m_levelConfig.grid.GetValue(numberInRow, 0+1) == 0) {
+            GameObject newObject = Instantiate(prefab, m_levelConfig.grid.GetWorldPosition(numberInRow, 0), new Quaternion(0, 180, 0, 1));
+            newObject.GetComponent<MoveDownBehaviour>().MoveDown();
+        }
+       // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
     }
 
     private float getPositionX (int number)
@@ -186,7 +187,7 @@ public class BrickSpawner : MonoBehaviour
         colliders = Physics2D.OverlapCircleAll(transform.position, vision);
         for (int y = m_levelConfig.grid.GridHeight-1; y >= 0; y--) {
             for (int x = 0; x <= m_levelConfig.grid.GridWidth-1; x ++) {
-                if (m_levelConfig.grid.GetValue(x, y)== 1) {
+                
                     for (int i = 0; i < colliders.Length; i ++) {
                         if (colliders[i].gameObject == gameObject) continue;
                         if (colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>() != null) {
@@ -195,7 +196,7 @@ public class BrickSpawner : MonoBehaviour
                             }
                         }
                     }
-                }
+                
             }
         } 
     }
