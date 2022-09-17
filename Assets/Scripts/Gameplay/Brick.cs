@@ -75,6 +75,10 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
                 Vector3 position = collision.gameObject.transform.position;
                 collision.gameObject.GetComponent<AbstractBall>().SpecialAttack(position, this.gameObject);
             }                 
+        } else if (collision.gameObject.tag == "Finish") 
+        {
+            Attack();
+            Suicide();
         }
     }
 
@@ -92,6 +96,9 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
                 Vector3 position = collider.gameObject.transform.position;
                 collider.gameObject.GetComponent<AbstractBall>().SpecialAttack(position, this.gameObject);
             }
+        } else if (collider.gameObject.tag == "Finish") {
+            Attack();
+            Suicide();
         }
     }
 
@@ -209,6 +216,21 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
             // 4 - Set coin 
         EventManager.OnBrickDestroyed();
             //   WalletController.Instance.AddCoinAndShow();
+            //destroy parent gameObject
+        Destroy(parent, 1);
+    }
+
+    public void Suicide () {
+        // 1 - play a particle
+        Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
+        m_ParentParticle.startColor = color;
+        m_ParentParticle.Play();
+        //2 - set Grid to 0
+        gameObject.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
+        gameObject.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
+            // 3 - hide this Brick or this row
+        gameObject.SetActive(false);
+            //m_Parent.CheckBricksActivation();
             //destroy parent gameObject
         Destroy(parent, 1);
     }

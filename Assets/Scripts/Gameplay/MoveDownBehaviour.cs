@@ -12,10 +12,9 @@ public class MoveDownBehaviour : MonoBehaviour
 
     private void Awake() {
         m_levelConfig = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelConfig>();
-        grid = m_levelConfig.grid;
         UpdateCurrentPosition();
         Debug.Log("x " + x + " y " + y);
-        Debug.Log("value x and y+1 = " + grid.GetValue(x, y+1));
+        Debug.Log("value x and y+1 = " + m_levelConfig.grid.GetValue(x, y+1));
     }
 
     void Start() {
@@ -28,24 +27,24 @@ public class MoveDownBehaviour : MonoBehaviour
     }
 
     public void UpdateCurrentPosition () {
-        grid.GetXY(transform.position, out x, out y);
+        m_levelConfig.grid.GetXY(transform.position, out x, out y);
         Debug.Log("current position after update x y " + x + " " + y);
     }
 
     public void SetZeroToCurrentPosition() {
-        grid.SetValue(x, y, 0);
+        m_levelConfig.grid.SetValue(x, y, 0);
         Debug.Log("set zero to pos x y " + x + " " + y);
     }
 
     public void MoveDown()
     {
-        if (grid.GetValue(x, y+1) == 0) {
-            Vector3 target = grid.GetWorldPosition(x, y+1);
+        UpdateCurrentPosition();
+        if (m_levelConfig.grid.GetValue(x, y+1) == 0) {
+            Vector3 target = m_levelConfig.grid.GetWorldPosition(x, y+1);
             iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.25f);
-            grid.SetValue(x, y, 0);
-            grid.SetValue(x, y+1, 1);
+            //grid.SetValue(x, y, 0);
             StartCoroutine(WaitAndUpdateCurrentPosition());
-        } else if (grid.GetValue(x, y+1) == 2) {
+        } else if (m_levelConfig.grid.GetValue(x, y+1) == 2) {
             needHorizontalMove = true;
         }
     }
@@ -56,25 +55,25 @@ public class MoveDownBehaviour : MonoBehaviour
         yield return new WaitForSeconds(0.26f);
         Debug.Log("transform position after waiting " + transform.position);
         UpdateCurrentPosition();
+        //grid.SetValue(x, y, 1);
     }
 
     public void MoveHorizontal () {
         if (needHorizontalMove) {
-            if (grid.GetValue(x-1, y) == 0) {
-                Vector3 target = grid.GetWorldPosition(x-1, y);
+            if (m_levelConfig.grid.GetValue(x-1, y) == 0) {
+                Vector3 target = m_levelConfig.grid.GetWorldPosition(x-1, y);
                 iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.25f);
-                grid.SetValue(x, y, 0);
-                grid.SetValue(x-1, y, 1);
+                //grid.SetValue(x, y, 0);
                 UpdateCurrentPosition();
                 needHorizontalMove = false;
-            } else if (grid.GetValue(x+1, y) == 0) {
-                Vector3 target = grid.GetWorldPosition(x+1, y);
+            } else if (m_levelConfig.grid.GetValue(x+1, y) == 0) {
+                Vector3 target = m_levelConfig.grid.GetWorldPosition(x+1, y);
                 iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.25f);
-                grid.SetValue(x, y, 0);
-                grid.SetValue(x+1, y, 1);
+                //grid.SetValue(x, y, 0);
                 UpdateCurrentPosition();
                 needHorizontalMove = false;
             }
+            needHorizontalMove = false;
         }
     }
 

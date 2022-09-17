@@ -26,7 +26,18 @@ public class ScoreBall : MonoBehaviour
             parent.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
             parent.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
             Destroy(parent, 1);
-        }  
+        }  else if (collision.gameObject.tag == "Finish") 
+        {
+            SuicideScoreBall();
+        }
+    }
+
+    private void SuicideScoreBall () {
+        BallLauncher.Instance.m_TempAmount++;    // increase balls amount
+        PlayParticle();
+        parent.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
+        parent.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
+        Destroy(parent, 1);
     }
 
     private void Update()

@@ -18,21 +18,24 @@ public class Grid{
         this.cellSize = cellSize;
         this.originPosition = originPosition;
         gridArray = new int[width, height];
-        /*
-        debugTextArray = new TextMesh[width, height];
+        
+        debugTextArray = new TextMesh[width, height]; 
+        DebugDraw();
+    }
 
+    public void DebugDraw () {
+        
         Debug.Log("TESTING " + width + " " + height);
         for (int x=0; x < gridArray.GetLength(0); x++) {
             for (int y = 0; y < gridArray.GetLength(1); y++) {
                 Debug.Log (x + ", " + y + ", " + cellSize + ", worldpos" + GetWorldPosition(x,y));
-               debugTextArray[x, y] = UtilsClass.CreateWorldText(gridArray[x, y].ToString(), null, GetWorldPosition(x, y) + new Vector3(cellSize, cellSize) * .5f, 12, Color.black, TextAnchor.MiddleCenter);
-               Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.black, 100f);
-               Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.black, 100f);
+               debugTextArray[x, y] = UtilsClass.CreateWorldText(gridArray[x, y].ToString(), null, GetWorldPosition(x, y) , 12, Color.black, TextAnchor.MiddleCenter);
+              // Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.black, 100f);
+              // Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1 , y), Color.black, 100f);
             }
         }
-        Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.black, 100f);
-        Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.black, 100f);
-        */
+      //  Debug.DrawLine(GetWorldPosition(0 , height ), GetWorldPosition(width, height), Color.black, 100f);
+       // Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.black, 100f);
     }
 
     public Vector3 GetWorldPosition(int x, int y) {
@@ -48,6 +51,7 @@ public class Grid{
     public void SetValue(int x, int y, int value) {
         if (x>=0 && y >=0 && x < width && y < height) {
             gridArray[x, y] = value;
+            debugTextArray[x, y].text = gridArray[x, y].ToString();
         }
     }
 
