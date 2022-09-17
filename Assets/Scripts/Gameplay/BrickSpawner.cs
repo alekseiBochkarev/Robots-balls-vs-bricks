@@ -150,7 +150,7 @@ public class BrickSpawner : MonoBehaviour
         colliders = Physics2D.OverlapCircleAll(transform.position, vision);
         for (int y = m_levelConfig.grid.GridHeight-1; y >= 0; y--) {
             for (int x = 0; x <= m_levelConfig.grid.GridWidth-1; x ++) {
-                if (m_levelConfig.grid.GetValue(x, y)== 1) {
+                
                     for (int i = 0; i < colliders.Length; i ++) {
                         if (colliders[i].gameObject == gameObject) continue;
                         if (colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>() != null) {
@@ -159,7 +159,7 @@ public class BrickSpawner : MonoBehaviour
                             }
                         }
                     }
-                }
+                
             }
         } 
         /*
