@@ -152,7 +152,7 @@ public class BallLauncher : MonoBehaviour
             Vector3 tempDirection = tempEndposition - ballStartPosition.transform.position;
             tempDirection.Normalize();
             // getting the angle in radians. you can replace 1.35f with any number or without hardcode like this
-            if (Mathf.Abs(Mathf.Atan2(tempDirection.x, tempDirection.y)) < 1.35f)
+            if (Mathf.Abs(Mathf.Atan2(tempDirection.x, tempDirection.y)) < 1.45f)
             {
                 // Debug.Log("Color is correct");
                 m_LineRenderer.startColor = m_CorrectLineColor;
@@ -183,7 +183,7 @@ public class BallLauncher : MonoBehaviour
 
         m_LineRenderer.SetPosition(1, Vector3.zero);
         ChangeCollider();
-        if (Mathf.Abs(Mathf.Atan2(m_Direction.x, m_Direction.y)) < 1.35f)   // hardcode for this time. fix it!
+        if (Mathf.Abs(Mathf.Atan2(m_Direction.x, m_Direction.y)) < 1.45f)   // hardcode for this time. fix it!
         {
             //set RigidbodyType for all bricks
             FindBricksAndSetRigidbodyType(RigidbodyType2D.Static);
@@ -319,7 +319,6 @@ public class BallLauncher : MonoBehaviour
 
     public void ReturnAllBallsToNewStartPosition()
     {
-        //StopAllCoroutines();
         Debug.Log("ReturnAllBallsToNewStartPosition");
         if(AbstractBall.s_FirstCollisionPoint != Vector3.zero)
         {
@@ -327,29 +326,13 @@ public class BallLauncher : MonoBehaviour
             AbstractBall.ResetFirstCollisionPoint();
         }
 
-        //m_BallSprite.transform.position = transform.position;
-        //m_BallSprite.enabled = true;
 
         for (int i = 0; i < m_Balls.Count; i++)
         {
             m_Balls[i].DisablePhysics();
             m_Balls[i].MoveTo(transform.position, iTween.EaseType.easeInOutQuart, (Vector2.Distance(transform.position, m_Balls[i].transform.position) / 6.0f), "Deactive");
         }
-/*
-        ResetPositions();
 
-        AbstractBall.ResetReturningBallsAmount();
-
-        ScoreManager.Instance.UpdateScore();
-
-        BrickSpawner.Instance.MoveDownBricksRows();
-        BrickSpawner.Instance.SpawnNewBricks();
-
-        EventManager.OnBallsReturned();
-
-        ActivateHUD();
-        m_CanPlay = true;
-        FindBricksAndSetRigidbodyType(RigidbodyType2D.Dynamic);*/
     }
 
     public void ReturnBallToStartPosition (AbstractBall ball) {

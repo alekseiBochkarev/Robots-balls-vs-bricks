@@ -15,7 +15,7 @@ public class LevelConfig : MonoBehaviour
     void Awake()
     {
         grid = new Grid(gridWidth, gridHeight, cellSize, originPosition);
-        grid.SetValue(2,2,2);
+        //grid.SetValue(2,2,2);
         //grid.SetValue(1,1,1);
 
        /* for (int y = 0; y < grid.GridHeight; y++) {
