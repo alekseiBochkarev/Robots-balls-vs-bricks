@@ -8,14 +8,14 @@ public class BrickSpawner : MonoBehaviour
     
 
     [Header("Spawning informations")]
-    public int m_SpawningRows = 8;
+    [SerializeField] private int m_SpawningRows = 8;
     public BricksRow m_BricksRowPrefab;
     public float m_SpawningTopPosition = 2.88f;   // top position
     public float m_SpawningDistance = 0.8f; // distance of rows
     public GameObject brickPrefab;
     public GameObject scoreBallPrefab;
     public GameObject magicBallPrefab;
-    public int maxObjectsInRow = 6;
+    [SerializeField] private int maxObjectsInRow = 6;
     private LevelConfig m_levelConfig;
 
     private float vision;
@@ -34,15 +34,7 @@ public class BrickSpawner : MonoBehaviour
         winManager = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<WinManager>();
         m_levelConfig = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelConfig>();
         maxObjectsInRow = m_levelConfig.grid.GridWidth-1;
-        /*
-        // generate rows of bricks on the scene
-        for (int i = 0; i < m_SpawningRows; i++)
-        {
-            m_BricksRow.Add(Instantiate(m_BricksRowPrefab, transform.parent, false));
-            m_BricksRow[m_BricksRow.Count - 1].transform.localPosition = new Vector3(0, m_SpawningTopPosition, 0);
-            m_BricksRow[m_BricksRow.Count - 1].gameObject.SetActive(false);
-        }
-        */
+
     }
 
 
@@ -70,18 +62,7 @@ public class BrickSpawner : MonoBehaviour
     {
         ScoreManager.Instance.m_LevelOfFinalBrick++;
         CreateBrickRow();
-/*
-        for (int i = 0; i < m_BricksRow.Count; i++)
-        {
-            if (!m_BricksRow[i].gameObject.activeInHierarchy)
-            {
-                //Debug.Log("SpawnNewBricks m_BricksRow " + i + "set active true");
-                
-                m_BricksRow[i].gameObject.SetActive(true);
-                break;
-            }
-        }
-*/
+
     }
 
     private void CreateBrickRow()
@@ -163,22 +144,7 @@ public class BrickSpawner : MonoBehaviour
                 
             }
         } 
-        /*
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            if (colliders[i].gameObject == gameObject) continue;
-            if (colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>() != null)
-            {
-               colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>().MoveDown(m_SpawningDistance);
-            }
-        }
-        */
-
-        /*
-        for (int i = 0; i < m_BricksRow.Count; i++)
-            if (m_BricksRow[i].gameObject.activeInHierarchy)
-                m_BricksRow[i].MoveDown(m_SpawningDistance);
-        */
+        
     }
 
     public void MoveHorizontalBricksRows()

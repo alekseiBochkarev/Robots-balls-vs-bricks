@@ -13,8 +13,8 @@ public class MoveDownBehaviour : MonoBehaviour
     private void Awake() {
         m_levelConfig = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelConfig>();
         UpdateCurrentPosition();
-        Debug.Log("x " + x + " y " + y);
-        Debug.Log("value x and y+1 = " + m_levelConfig.grid.GetValue(x, y+1));
+        //Debug.Log("x " + x + " y " + y);
+        //Debug.Log("value x and y+1 = " + m_levelConfig.grid.GetValue(x, y+1));
     }
 
     void Start() {
@@ -28,12 +28,12 @@ public class MoveDownBehaviour : MonoBehaviour
 
     public void UpdateCurrentPosition () {
         m_levelConfig.grid.GetXY(transform.position, out x, out y);
-        Debug.Log("current position after update x y " + x + " " + y);
+        //Debug.Log("current position after update x y " + x + " " + y);
     }
 
     public void SetZeroToCurrentPosition() {
         SetFreeXY();
-        Debug.Log("set zero to pos x y " + x + " " + y);
+        //Debug.Log("set zero to pos x y " + x + " " + y);
     }
 
     public void MoveDown()
@@ -51,9 +51,9 @@ public class MoveDownBehaviour : MonoBehaviour
 
     IEnumerator WaitAndUpdateCurrentPosition()
     {
-	    Debug.Log("transform position before waiting " + transform.position);
+	    //Debug.Log("transform position before waiting " + transform.position);
         yield return new WaitForSeconds(0.5f);
-        Debug.Log("transform position after waiting " + transform.position);
+        //Debug.Log("transform position after waiting " + transform.position);
         UpdateCurrentPosition();
         SetBusyXY();
     }
