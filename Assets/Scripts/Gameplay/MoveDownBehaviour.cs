@@ -32,7 +32,7 @@ public class MoveDownBehaviour : MonoBehaviour
     }
 
     public void SetZeroToCurrentPosition() {
-        m_levelConfig.grid.SetValue(x, y, 0);
+        SetFreeXY();
         Debug.Log("set zero to pos x y " + x + " " + y);
     }
 
@@ -40,9 +40,9 @@ public class MoveDownBehaviour : MonoBehaviour
     {
         UpdateCurrentPosition();
         if (m_levelConfig.grid.GetValue(x, y+1) == 0) {
+            SetFreeXY();
             Vector3 target = m_levelConfig.grid.GetWorldPosition(x, y+1);
             iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.25f);
-            //grid.SetValue(x, y, 0);
             StartCoroutine(WaitAndUpdateCurrentPosition());
         } else if (m_levelConfig.grid.GetValue(x, y+1) == 2) {
             needHorizontalMove = true;
@@ -52,29 +52,37 @@ public class MoveDownBehaviour : MonoBehaviour
     IEnumerator WaitAndUpdateCurrentPosition()
     {
 	    Debug.Log("transform position before waiting " + transform.position);
-        yield return new WaitForSeconds(0.26f);
+        yield return new WaitForSeconds(0.5f);
         Debug.Log("transform position after waiting " + transform.position);
         UpdateCurrentPosition();
-        //grid.SetValue(x, y, 1);
+        SetBusyXY();
     }
 
     public void MoveHorizontal () {
         if (needHorizontalMove) {
             if (m_levelConfig.grid.GetValue(x-1, y) == 0) {
+                SetFreeXY();
                 Vector3 target = m_levelConfig.grid.GetWorldPosition(x-1, y);
                 iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.25f);
-                //grid.SetValue(x, y, 0);
                 UpdateCurrentPosition();
                 needHorizontalMove = false;
             } else if (m_levelConfig.grid.GetValue(x+1, y) == 0) {
+                SetFreeXY();
                 Vector3 target = m_levelConfig.grid.GetWorldPosition(x+1, y);
                 iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.25f);
-                //grid.SetValue(x, y, 0);
                 UpdateCurrentPosition();
                 needHorizontalMove = false;
             }
             needHorizontalMove = false;
         }
+    }
+
+    private void SetBusyXY () {
+        m_levelConfig.grid.SetValue(x,y,1);
+    }
+
+    private void SetFreeXY () {
+        m_levelConfig.grid.SetValue(x,y,0);
     }
 
     public int X

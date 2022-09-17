@@ -37,7 +37,7 @@ public class ScoreBall : MonoBehaviour
         PlayParticle();
         parent.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
         parent.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
-        Destroy(parent, 1);
+        Destroy(parent, 0.1f);
     }
 
     private void Update()

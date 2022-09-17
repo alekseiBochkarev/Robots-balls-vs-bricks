@@ -15,13 +15,13 @@ public class LevelConfig : MonoBehaviour
     void Awake()
     {
         grid = new Grid(gridWidth, gridHeight, cellSize, originPosition);
-        for (int y = 0; y < grid.GridHeight; y++) {
+       /* for (int y = 0; y < grid.GridHeight; y++) {
             for (int x = 0; x < grid.GridWidth; x ++) {
                 GameObject gridObj = Instantiate(gridColliderPrefab, grid.GetWorldPosition(x, y), new Quaternion(0, 180, 0, 1));
                 gridObj.GetComponent<GridCollider>().X = x;
                 gridObj.GetComponent<GridCollider>().Y = y;
             }
-        }
+        }*/
     }
 
 

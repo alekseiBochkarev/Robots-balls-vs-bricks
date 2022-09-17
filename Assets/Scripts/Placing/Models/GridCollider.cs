@@ -17,15 +17,15 @@ public class GridCollider : MonoBehaviour
         if (collider.gameObject.GetComponent<Brick>() != null || collider.gameObject.GetComponent<ScoreBall>() != null)
         {
             m_levelConfig.grid.SetValue(x, y, 1);
-            Debug.Log("GRID COLLIDER TRIGGER ENTER");
+          //  Debug.Log("GRID COLLIDER TRIGGER ENTER");
         } 
     }
 
     private void OnTriggerExit2D(Collider2D collider) {
         if (collider.gameObject.GetComponent<Brick>() != null || collider.gameObject.GetComponent<ScoreBall>() != null)
         {
-            m_levelConfig.grid.SetValue(x, y, 0);
-            Debug.Log("GRID COLLIDER TRIGGER EXIT");
+         //   m_levelConfig.grid.SetValue(x, y, 0);
+           // Debug.Log("GRID COLLIDER TRIGGER EXIT");
         } 
     }
 

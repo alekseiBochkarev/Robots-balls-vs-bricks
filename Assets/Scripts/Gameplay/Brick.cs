@@ -232,7 +232,7 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
         gameObject.SetActive(false);
             //m_Parent.CheckBricksActivation();
             //destroy parent gameObject
-        Destroy(parent, 1);
+        Destroy(parent, 0.1f);
     }
 
     public void KillBrick(string textPopupTextValue)

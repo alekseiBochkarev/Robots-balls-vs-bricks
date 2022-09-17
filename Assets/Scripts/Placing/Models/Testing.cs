@@ -9,13 +9,8 @@ public class Testing : MonoBehaviour
     
     private void Start()
     {
-        grid = new Grid(3, 4, 1f, new Vector3(-2.832f, 2.664f));
+     //   grid = new Grid(3, 4, 1f, new Vector3(-2.832f, 2.664f));
     }
 
-    private void Update () {
-        if (Input.GetMouseButtonDown(0)) {
-            grid.SetValue(UtilsClass.GetMouseWorldPosition(), 56);
-        }
-    }
 
 }
