@@ -9,12 +9,6 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
     }
 
-    public void DestroyAfterTime()
-    {
-        Destroy(this.gameObject, 2f);
-    }
-    
-
     public AttackBehaviour attackBehaviour;
     public AfterCollisionBehaviour afterCollisionBehaviour;
 
@@ -208,7 +202,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     {
         s_ReturnedBallsAmount++;    // then check all of balls are returned to the floor
         //INPOTANT PLACE - HERE I CAN ADD ATACK (BOCH ALEKSEI)
-        if (s_ReturnedBallsAmount == Balls.Instance.PlayerBallsAmount)
+        if (s_ReturnedBallsAmount == BallLauncher.Instance.m_BallsAmount)
             BallLauncher.Instance.ContinuePlaying();
 
         m_SpriteRenderer.enabled = false;
