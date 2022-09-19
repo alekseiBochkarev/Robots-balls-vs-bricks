@@ -25,7 +25,6 @@ public class Grid{
 
     public void DebugDraw () {
         
-        //Debug.Log("TESTING " + width + " " + height);
         for (int x=0; x < gridArray.GetLength(0); x++) {
             for (int y = 0; y < gridArray.GetLength(1); y++) {
                 //Debug.Log (x + ", " + y + ", " + cellSize + ", worldpos" + GetWorldPosition(x,y));
@@ -51,7 +50,7 @@ public class Grid{
     public void SetValue(int x, int y, int value) {
         if (x>=0 && y >=0 && x < width && y < height) {
             gridArray[x, y] = value;
-            debugTextArray[x, y].text = gridArray[x, y].ToString();
+         //   debugTextArray[x, y].text = gridArray[x, y].ToString();
         }
     }
 
