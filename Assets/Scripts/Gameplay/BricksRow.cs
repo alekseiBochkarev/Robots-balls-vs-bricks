@@ -173,7 +173,8 @@ public class BricksRow : MonoBehaviour
             if (m_ScoreBalls[i].gameObject.activeInHierarchy)
             {
                 m_ScoreBalls[i].PlayParticle();
-                BallLauncher.Instance.IncreaseBallsAmountFromOutSide(1);
+                Balls.Instance.IncreaseBallsAmountFromOutSide(1);
+                BallLauncher.Instance.ShowBallsAmountOnHUD();
 
                 hasActiveScoreBall = true;
                 break;

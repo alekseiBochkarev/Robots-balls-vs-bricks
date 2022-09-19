@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BallLauncher : MonoBehaviour
 {
     public static BallLauncher Instance;
+    public static Balls Balls;
 
     private Vector3 m_StartPosition;
     private Vector3 m_EndPosition;
@@ -34,12 +35,12 @@ public class BallLauncher : MonoBehaviour
     public Color m_WrongLineColor;      // it will be displayed for wrong angles
 
     [Header("Balls")]
-    public int m_BallsAmount;
+   // public int m_BallsAmount;
     public int m_TempAmount = 0;  // for score balls
     public Text m_BallsText;
     //[SerializeField] private int m_StartingBallsPoolAmount = 10;
-    [SerializeField] private AbstractBall m_BallPrefab;
-    [SerializeField] private List<AbstractBall> m_Balls;
+   // [SerializeField] private AbstractBall m_BallPrefab;
+   // [SerializeField] private List<AbstractBall> m_Balls;
 
     [Header("UI Elements")]
     [SerializeField] private GameObject m_ReturnBallsButton;
@@ -49,16 +50,16 @@ public class BallLauncher : MonoBehaviour
     public GameObject bottomBorder;
     public GameObject ballStartPosition;
 
-    public enum BallsType
-    {
-        Ball,
-        RocketBall,
-        RocketClone,
-        LaserHorizontalBall,
-        LaserVerticalBall,
-        LaserCrossBall,
-        InstaKillBall
-    }
+    // public enum BallsType
+    // {
+    //     Ball,
+    //     RocketBall,
+    //     RocketClone,
+    //     LaserHorizontalBall,
+    //     LaserVerticalBall,
+    //     LaserCrossBall,
+    //     InstaKillBall
+    // }
 
     private void Awake()
     {
@@ -67,23 +68,32 @@ public class BallLauncher : MonoBehaviour
         m_LineRenderer = GetComponent<LineRenderer>();
         edgeCollider2D = gameObject.AddComponent<EdgeCollider2D>();
         edgeCollider2D.isTrigger = false;
+        Balls = GetComponent<Balls>();
 
         m_DefaultStartPosition = transform.position;
 
-        m_BallsAmount = PlayerPrefs.GetInt("balls", 1);
+        // m_BallsAmount = PlayerPrefs.GetInt("balls", 1); for FUTURE UPGRADE?
     }
 
     private void Start()
     {
-        m_Balls = new List<AbstractBall>(m_BallsAmount);
-        m_BallsText.text = "x" + m_BallsAmount.ToString();
+        // m_Balls = new List<AbstractBall>(m_BallsAmount);
+
+        ShowBallsAmountOnHUD();
+       // m_BallsText.text = "x" + m_BallsAmount.ToString();
         m_ReturnBallsButton.SetActive(false);
-        SpawNewBall(m_BallsAmount, BallsType.Ball);
+      //  Balls.SpawnNewBall(m_BallsAmount, BallsType.Ball);
         //below is temprory decision just for test. next time it will be special method to set special attack
-        AddBall(BallsType.InstaKillBall);
-        AddBall(BallsType.LaserVerticalBall);
-        AddBall(BallsType.RocketBall);
-        AddBall(BallsType.LaserHorizontalBall);
+        // AddBall(BallsType.InstaKillBall);
+        // AddBall(BallsType.LaserVerticalBall);
+        // AddBall(BallsType.RocketBall);
+        // AddBall(BallsType.LaserHorizontalBall);
+    }
+
+    public void ShowBallsAmountOnHUD()
+    {
+        Balls.SavePlayerBallsAmount();
+        m_BallsText.text = "x" + Balls.PlayerBallsAmount.ToString();
     }
 
     private void Update()
@@ -187,8 +197,8 @@ public class BallLauncher : MonoBehaviour
         {
             //set RigidbodyType for all bricks
             FindBricksAndSetRigidbodyType(RigidbodyType2D.Static);
-            if (m_Balls.Count < m_BallsAmount)
-                SpawNewBall(m_BallsAmount - m_Balls.Count, BallsType.Ball);
+            if (Balls.PlayerBalls.Count < Balls.PlayerBallsAmount)
+                Balls.SpawnNewBall(Balls.PlayerBallsAmount - Balls.PlayerBalls.Count, Balls.BallsTypeEnum.Ball);
 
             m_CanPlay = false;
             StartCoroutine(StartShootingBalls());
@@ -213,9 +223,10 @@ public class BallLauncher : MonoBehaviour
         m_CanPlay = false;
 
         //check what it is!!!!!
-        m_BallsAmount = 1;
+      //  m_BallsAmount = 1;
 
-        m_BallsText.text = "x" + m_BallsAmount.ToString();
+        ShowBallsAmountOnHUD();
+     //   m_BallsText.text = "x" + m_BallsAmount.ToString();
 
         m_BallSprite.enabled = true;
         m_DeactivatableChildren.SetActive(true);
@@ -243,53 +254,53 @@ public class BallLauncher : MonoBehaviour
 
     private void HideAllBalls()
     {
-        for (int i = 0; i < m_Balls.Count; i++)
+        for (int i = 0; i < Balls.PlayerBalls.Count; i++)
         {
-            m_Balls[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            m_Balls[i].Disable();
+            Balls.PlayerBalls[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            Balls.PlayerBalls[i].Disable();
         }
     }
 
-    public void AddBallToList (BallsType ballsType)
-    {
-        m_BallPrefab = Resources.Load<GameObject>(ballsType.ToString()).GetComponent<AbstractBall>();
-        m_Balls.Add(Instantiate(m_BallPrefab, transform.parent, false));
-        m_Balls[m_Balls.Count - 1].transform.localPosition = transform.localPosition;
-        m_Balls[m_Balls.Count - 1].transform.localScale = transform.localScale;
-        m_Balls[m_Balls.Count - 1].Disable();
-    }
+    // public void AddBallToList (BallsType ballsType)
+    // {
+    //     m_BallPrefab = Resources.Load<GameObject>(ballsType.ToString()).GetComponent<AbstractBall>();
+    //     m_Balls.Add(Instantiate(m_BallPrefab, transform.parent, false));
+    //     m_Balls[m_Balls.Count - 1].transform.localPosition = transform.localPosition;
+    //     m_Balls[m_Balls.Count - 1].transform.localScale = transform.localScale;
+    //     m_Balls[m_Balls.Count - 1].Disable();
+    // }
 
-    public void AddBall(BallsType ballsType)
-    {
-        IncreaseBallsAmountFromOutSide(1);
-       // m_BallsAmount++;
-       // m_BallsText.text = "x" + m_BallsAmount.ToString();
-        AddBallToList(ballsType);
-    }
+    // public void AddBall(BallsType ballsType)
+    // {
+    //     IncreaseBallsAmountFromOutSide(1);
+    //    // m_BallsAmount++;
+    //    // m_BallsText.text = "x" + m_BallsAmount.ToString();
+    //     AddBallToList(ballsType);
+    // }
 
-    private void SpawNewBall(int Amount, BallsType ballsType)
-    {
+    // private void SpawNewBall(int Amount, BallsType ballsType)
+    // {
         
-        for (int i = 0; i < Amount; i++)
-        {
-            AddBallToList(ballsType);
-        }
-    }
+    //     for (int i = 0; i < Amount; i++)
+    //     {
+    //         AddBallToList(ballsType);
+    //     }
+    // }
 
     IEnumerator StartShootingBalls()
     {
         m_BallSprite.enabled = false;
 
-        int balls = m_BallsAmount;
+        int balls = Balls.PlayerBallsAmount;
         
-        for (int i = 0; i < m_BallsAmount; i++)
+        for (int i = 0; i < Balls.PlayerBallsAmount; i++)
         {
             if (m_CanPlay)
                 break;
-            if (m_Balls[i] != null)
+            if (Balls.PlayerBalls[i] != null)
             {
-                m_Balls[i].transform.position = transform.position;
-                m_Balls[i].GetReadyAndAddForce(m_Direction);
+                Balls.PlayerBalls[i].transform.position = transform.position;
+                Balls.PlayerBalls[i].GetReadyAndAddForce(m_Direction);
 
                 balls--;
                 m_BallsText.text = "x" + balls.ToString();   
@@ -303,7 +314,9 @@ public class BallLauncher : MonoBehaviour
 
     public void ActivateHUD()
     {
-        m_BallsAmount += m_TempAmount;
+        Balls.IncreaseBallsAmountFromOutSide(m_TempAmount);
+        Balls.SpawnNewBall(m_TempAmount, Balls.BallsTypeEnum.Ball);
+       // m_BallsAmount += m_TempAmount;
 
         // avoiding more balls than final brick level - I SHOULD AVOID THIS. IF I will use extra balls. Bochkarev Aleksei
         /*
@@ -312,7 +325,8 @@ public class BallLauncher : MonoBehaviour
         */
         m_TempAmount = 0;
 
-        m_BallsText.text = "x" + m_BallsAmount.ToString();
+        m_BallsText.text = "x" + Balls.PlayerBallsAmount.ToString();
+      //  ShowBallsAmountOnHUD();
         m_DeactivatableChildren.SetActive(true);
         m_ReturnBallsButton.SetActive(false);
     }
@@ -327,10 +341,10 @@ public class BallLauncher : MonoBehaviour
         }
 
 
-        for (int i = 0; i < m_Balls.Count; i++)
+        for (int i = 0; i < Balls.PlayerBalls.Count; i++)
         {
-            m_Balls[i].DisablePhysics();
-            m_Balls[i].MoveTo(transform.position, iTween.EaseType.easeInOutQuart, (Vector2.Distance(transform.position, m_Balls[i].transform.position) / 6.0f), "Deactive");
+            Balls.PlayerBalls[i].DisablePhysics();
+            Balls.PlayerBalls[i].MoveTo(transform.position, iTween.EaseType.easeInOutQuart, (Vector2.Distance(transform.position, Balls.PlayerBalls[i].transform.position) / 6.0f), "Deactive");
         }
 
     }
@@ -400,11 +414,11 @@ public class BallLauncher : MonoBehaviour
         edgeCollider2D.points = pos2;
     }
 
-    public void IncreaseBallsAmountFromOutSide(int amout)
-    {
-        m_BallsAmount += amout;
-        m_BallsText.text = "x" + m_BallsAmount.ToString();
-    }
+    // public void IncreaseBallsAmountFromOutSide(int amout)
+    // {
+    //     m_BallsAmount += amout;
+    //     m_BallsText.text = "x" + m_BallsAmount.ToString();
+    // }
 
     Vector2[] ConvertArray(Vector3[] v3)
     {
