@@ -392,7 +392,7 @@ public class BallLauncher : MonoBehaviour
 
     IEnumerator MoveDownBricks() {
         BrickSpawner.Instance.MoveDownBricksRows();
-        while (BrickSpawner.Instance.AllBricksMovedDown == true)
+        while (BrickSpawner.Instance.AllBricksMovedDown == false)
         {
             yield return null;
         }
@@ -400,7 +400,7 @@ public class BallLauncher : MonoBehaviour
 
     IEnumerator MoveHorizontalBricks() {
         BrickSpawner.Instance.MoveHorizontalBricksRows();
-        while (BrickSpawner.Instance.AllBricksMovedHorizontal == true)
+        while (BrickSpawner.Instance.AllBricksMovedHorizontal == false)
         {
             yield return null;
         }
@@ -408,7 +408,7 @@ public class BallLauncher : MonoBehaviour
 
     IEnumerator SpawnBricks() {
         BrickSpawner.Instance.SpawnNewBricks();
-        while (BrickSpawner.Instance.AllObjectsCreated == true)
+        while (BrickSpawner.Instance.AllObjectsCreated == false)
         {
             yield return null;
         }
