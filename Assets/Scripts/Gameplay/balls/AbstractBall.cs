@@ -217,10 +217,13 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
     IEnumerator OpenSpecAttackPanelAndContinuePlaying()
     {
-        int magicBallCount = m_SpecialAttackPanelController.GetMagicBallAmount();
-        for(int i = 0; i < magicBallCount; i++)
+        if (LevelManager.Instance.m_LevelState == LevelManager.LevelState.PLAYABLE)
         {
-            yield return StartCoroutine(ShowSpecAttackPanelAndClose());
+            int magicBallCount = m_SpecialAttackPanelController.GetMagicBallAmount();
+            for (int i = 0; i < magicBallCount; i++)
+            {
+                yield return StartCoroutine(ShowSpecAttackPanelAndClose());
+            }
         }
         BallLauncher.Instance.ContinuePlaying();
 
