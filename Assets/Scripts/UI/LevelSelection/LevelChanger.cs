@@ -20,7 +20,7 @@ public class LevelChanger : MonoBehaviour
         if (currentIndex < 0) currentIndex = levelsSO.Length - 1;
         else if (currentIndex > levelsSO.Length - 1) currentIndex = 0;
 
-        if (levelDisplay != null) levelDisplay.DisplayMap( (LevelSO)levelsSO[currentIndex]);
-    
+        if (levelDisplay != null) levelDisplay.DisplayMap( (LevelSO) levelsSO[currentIndex]);
+        
     }
 }

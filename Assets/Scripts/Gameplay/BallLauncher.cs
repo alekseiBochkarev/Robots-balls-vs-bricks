@@ -187,8 +187,8 @@ public class BallLauncher : MonoBehaviour
         {
             //set RigidbodyType for all bricks
             FindBricksAndSetRigidbodyType(RigidbodyType2D.Static);
-            if (m_Balls.Count < m_BallsAmount)
-                SpawNewBall(m_BallsAmount - m_Balls.Count, BallsType.Ball);
+            if (Balls.PlayerBalls.Count < Balls.PlayerBallsAmount)
+                Balls.SpawnNewBall(Balls.PlayerBallsAmount - Balls.PlayerBalls.Count, BallsTypeEnum.Ball);
 
             m_CanPlay = false;
             StartCoroutine(StartShootingBalls());
@@ -303,7 +303,9 @@ public class BallLauncher : MonoBehaviour
 
     public void ActivateHUD()
     {
-        m_BallsAmount += m_TempAmount;
+        Balls.IncreaseBallsAmountFromOutSide(m_TempAmount);
+        Balls.SpawnNewBall(m_TempAmount, BallsTypeEnum.Ball);
+       // m_BallsAmount += m_TempAmount;
 
         // avoiding more balls than final brick level - I SHOULD AVOID THIS. IF I will use extra balls. Bochkarev Aleksei
         /*
