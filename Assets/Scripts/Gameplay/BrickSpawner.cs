@@ -17,6 +17,9 @@ public class BrickSpawner : MonoBehaviour
     public GameObject magicBallPrefab;
     [SerializeField] private int maxObjectsInRow = 6;
     private LevelConfig m_levelConfig;
+    [SerializeField] private bool allBricksMovedDown;
+    [SerializeField] private bool allBricksMovedHorizontal;
+    [SerializeField] private bool allObjectsCreated;
 
     private float vision;
     Collider2D[] colliders;
@@ -35,6 +38,30 @@ public class BrickSpawner : MonoBehaviour
         m_levelConfig = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelConfig>();
         maxObjectsInRow = m_levelConfig.grid.GridWidth-1;
 
+    }
+
+    public bool AllBricksMovedDown
+    {
+        get
+        {
+            return allBricksMovedDown;
+        }
+    }
+
+    public bool AllBricksMovedHorizontal
+    {
+        get
+        {
+            return allBricksMovedHorizontal;
+        }
+    }
+
+    public bool AllObjectsCreated
+    {
+        get
+        {
+            return allObjectsCreated;
+        }
     }
 
 
@@ -67,6 +94,7 @@ public class BrickSpawner : MonoBehaviour
 
     private void CreateBrickRow()
     {
+        allObjectsCreated = false;
         int numberOfScoreBallInRow = Random.Range(0, maxObjectsInRow);
         CreateObject(scoreBallPrefab, numberOfScoreBallInRow);
         bool createMagicBall = CheckIfICanCreateMagicBall();
@@ -99,6 +127,7 @@ public class BrickSpawner : MonoBehaviour
                 }
             }
         }
+        allObjectsCreated = true;
     }
 
     private void CreateObject(GameObject prefab, int numberInRow)
@@ -110,6 +139,7 @@ public class BrickSpawner : MonoBehaviour
        // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
     }
 
+//check it should not be used now
     private float getPositionX (int number)
     {
         return -2.32f + number * 0.94f;
@@ -128,6 +158,7 @@ public class BrickSpawner : MonoBehaviour
 
     public void MoveDownBricksRows()
     {
+        allBricksMovedDown = false;
         vision = 10f; //need to check maybe we should set more than 10
         colliders = Physics2D.OverlapCircleAll(transform.position, vision);
         for (int y = m_levelConfig.grid.GridHeight-1; y >= 0; y--) {
@@ -144,11 +175,12 @@ public class BrickSpawner : MonoBehaviour
                 
             }
         } 
-        
+        allBricksMovedDown = true;
     }
 
     public void MoveHorizontalBricksRows()
     {
+        allBricksMovedHorizontal = false;
         vision = 10f; //need to check maybe we should set more than 10
         colliders = Physics2D.OverlapCircleAll(transform.position, vision);
         for (int y = m_levelConfig.grid.GridHeight-1; y >= 0; y--) {
@@ -164,7 +196,8 @@ public class BrickSpawner : MonoBehaviour
                     }
                 
             }
-        } 
+        }
+        allBricksMovedHorizontal = true; 
     }
 
     void Update()

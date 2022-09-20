@@ -364,8 +364,8 @@ public class BallLauncher : MonoBehaviour
 
         ScoreManager.Instance.UpdateScore();
 
-        BrickSpawner.Instance.MoveDownBricksRows();
-        StartCoroutine(WaitAndMoveHorizontalBricksRowsAndWaitAndSpawnNewBricks());
+        //BrickSpawner.Instance.MoveDownBricksRows();
+        StartCoroutine(MoveBricksAndSpawnNewBricks());
         
 
         AbstractBall.ResetReturningBallsAmount();
@@ -376,18 +376,42 @@ public class BallLauncher : MonoBehaviour
         StartCoroutine(WaitAndCanPlay());
     }
 
+
     IEnumerator WaitAndCanPlay()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         m_CanPlay = true;
     }
 
-    IEnumerator WaitAndMoveHorizontalBricksRowsAndWaitAndSpawnNewBricks()
+    IEnumerator MoveBricksAndSpawnNewBricks()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return StartCoroutine(MoveDownBricks());
+        yield return StartCoroutine(MoveHorizontalBricks());
+        yield return StartCoroutine(SpawnBricks());
+    }
+
+    IEnumerator MoveDownBricks() {
+        BrickSpawner.Instance.MoveDownBricksRows();
+        while (BrickSpawner.Instance.AllBricksMovedDown == true)
+        {
+            yield return null;
+        }
+    }
+
+    IEnumerator MoveHorizontalBricks() {
         BrickSpawner.Instance.MoveHorizontalBricksRows();
-        yield return new WaitForSeconds(0.7f);
+        while (BrickSpawner.Instance.AllBricksMovedHorizontal == true)
+        {
+            yield return null;
+        }
+    }
+
+    IEnumerator SpawnBricks() {
         BrickSpawner.Instance.SpawnNewBricks();
+        while (BrickSpawner.Instance.AllObjectsCreated == true)
+        {
+            yield return null;
+        }
     }
 
     public void ChangeCollider()

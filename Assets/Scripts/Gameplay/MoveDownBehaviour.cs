@@ -23,7 +23,7 @@ public class MoveDownBehaviour : MonoBehaviour
 
     public void MoveDown(float howMuch)
     {
-        iTween.MoveTo(gameObject, new Vector3(transform.position.x, transform.position.y - howMuch, transform.position.z), 0.25f);
+        iTween.MoveTo(gameObject, new Vector3(transform.position.x, transform.position.y - howMuch, transform.position.z), 0.05f);
     }
 
     public void UpdateCurrentPosition () {
