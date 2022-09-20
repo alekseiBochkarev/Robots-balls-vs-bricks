@@ -14,6 +14,7 @@ public class BallLauncher : MonoBehaviour
     private Vector3 m_Direction;
 
     private LineRenderer m_LineRenderer;
+    private Balls m_BallsScript;
     private EdgeCollider2D edgeCollider2D;
 
     private Vector3 m_DefaultStartPosition;
@@ -71,6 +72,7 @@ public class BallLauncher : MonoBehaviour
         m_DefaultStartPosition = transform.position;
 
         m_BallsAmount = PlayerPrefs.GetInt("balls", 1);
+        m_BallsScript = GetComponent<Balls>();
     }
 
     private void Start()
@@ -187,8 +189,8 @@ public class BallLauncher : MonoBehaviour
         {
             //set RigidbodyType for all bricks
             FindBricksAndSetRigidbodyType(RigidbodyType2D.Static);
-            if (Balls.PlayerBalls.Count < Balls.PlayerBallsAmount)
-                Balls.SpawnNewBall(Balls.PlayerBallsAmount - Balls.PlayerBalls.Count, BallsTypeEnum.Ball);
+            if (m_BallsScript.PlayerBalls.Count < m_BallsScript.PlayerBallsAmount)
+                m_BallsScript.SpawnNewBall(m_BallsScript.PlayerBallsAmount - m_BallsScript.PlayerBalls.Count, BallsTypeEnum.Ball);
 
             m_CanPlay = false;
             StartCoroutine(StartShootingBalls());
@@ -303,8 +305,8 @@ public class BallLauncher : MonoBehaviour
 
     public void ActivateHUD()
     {
-        Balls.IncreaseBallsAmountFromOutSide(m_TempAmount);
-        Balls.SpawnNewBall(m_TempAmount, BallsTypeEnum.Ball);
+        m_BallsScript.IncreaseBallsAmountFromOutSide(m_TempAmount);
+        m_BallsScript.SpawnNewBall(m_TempAmount, BallsTypeEnum.Ball);
        // m_BallsAmount += m_TempAmount;
 
         // avoiding more balls than final brick level - I SHOULD AVOID THIS. IF I will use extra balls. Bochkarev Aleksei
