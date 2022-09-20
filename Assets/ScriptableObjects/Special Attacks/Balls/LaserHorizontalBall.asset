@@ -16,7 +16,7 @@ MonoBehaviour:
   specialAttackName: Laser Horizontal Ball
   specialAttackDescription: Creates a horizontal laser on hit
   specialAttackImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  maxUseAmount: 5
-  currentUseAmount: 0
+  maxUseAmount: 99
+  currentUseAmount: 9
   attackTypeEnum: 0
   ballsType: 3

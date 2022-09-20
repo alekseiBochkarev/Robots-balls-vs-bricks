@@ -9,7 +9,14 @@ public class SpecialAttackDisplay : MonoBehaviour
     [SerializeField] private Image specialAttackImage;
     [SerializeField] private TextMeshProUGUI specialAttackDescription;
     private SpecialAttackSO specialAttack;
- 
+
+    private SpecialAttackPanelController m_SpecialAttackPanelController;
+
+    private void Awake()
+    {
+        m_SpecialAttackPanelController = GameObject.Find("SpecialAttackUI").GetComponent<SpecialAttackPanelController>();
+    }
+
     public void DisplaySpecialAttack(SpecialAttackSO _specialAttack)
     {
         specialAttack = _specialAttack;
@@ -28,13 +35,14 @@ public class SpecialAttackDisplay : MonoBehaviour
         if (specialAttack.GetType() == typeof(BallSO))
             Balls.Instance.SetSpecialAttack( (BallSO) specialAttack);
         if (specialAttack.GetType() == typeof(ComboAttackSO))
-            // Combo.Instance.SetSpecialAttack(specialAttack); ???
+            // ComboAttacks.Instance.SetSpecialAttack(specialAttack); ???
         if (specialAttack.GetType() == typeof(HeroBuffSO))
-                            // HeroBuffs.Instance.SetHeroBuff(specialAttack); ???
+            // HeroBuffs.Instance.SetHeroBuff(specialAttack); ???
+
+        //Clear SpecAttacks in UI
+        Destroy(this.gameObject);
 
         //Hide the panel
-        SpecialAttackController.Instance.HideSpecAttackPanel();
+        m_SpecialAttackPanelController.HideSpecAttackPanel();
     }
-    
-
 }

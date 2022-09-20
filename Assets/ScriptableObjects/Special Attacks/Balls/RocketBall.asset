@@ -16,7 +16,7 @@ MonoBehaviour:
   specialAttackName: Rocket Ball
   specialAttackDescription: Shots rockets on hit
   specialAttackImage: {fileID: 21300000, guid: e77d78febd58b49ad9f82b570d446358, type: 3}
-  maxUseAmount: 5
-  currentUseAmount: 0
+  maxUseAmount: 99
+  currentUseAmount: 9
   attackTypeEnum: 0
   ballsType: 1

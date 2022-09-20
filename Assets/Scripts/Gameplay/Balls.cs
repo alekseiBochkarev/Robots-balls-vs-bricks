@@ -48,6 +48,7 @@ public class Balls : MonoBehaviour
 
     public void SetSpecialAttack(BallSO _specialBall)
     {
+        Debug.Log("SetSpecialAttack ---> " + _specialBall.name);
         AddBallToList(_specialBall.ballsType);
     }
 

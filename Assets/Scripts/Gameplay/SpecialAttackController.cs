@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -11,6 +10,7 @@ public class SpecialAttackController : MonoBehaviour
     [SerializeField] private ScriptableObject[] heroBuffsSO;
     [SerializeField] private int amountOfUpgradeTabs;
     private List<SpecialAttackSO> selectedSpecAttacks;
+    private List<GameObject> allSpecAttackPrefabs;
 
     [Header("Settings")]
     [SerializeField] private GameObject displayPrefab;
@@ -23,8 +23,14 @@ public class SpecialAttackController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        ClearAllSpecAttackUseAmount();
+    }
+
+    private void OnEnable()
+    {
         SelectSpecialAttack();
-        ShowScriptableObjectLists(); // In this place for debugging
+        ClearScriptableObjectPrefabs();
+        ShowScriptableObjectLists();
     }
 
     public List<SpecialAttackSO> GetScriptableObjectsList()
@@ -63,22 +69,35 @@ public class SpecialAttackController : MonoBehaviour
 
     public void ShowScriptableObjectLists()
     {
+        allSpecAttackPrefabs = new List<GameObject>();
         for (int i = 0; i < selectedSpecAttacks.Count; i++)
         {
             Debug.Log("Index of SO ->>>>" + i);
             GameObject tabPrefab = Instantiate(displayPrefab, transform.position, Quaternion.identity);
+            allSpecAttackPrefabs.Add(tabPrefab);
             tabPrefab.gameObject.transform.SetParent(this.transform);
             tabPrefab.GetComponent<SpecialAttackDisplay>().DisplaySpecialAttack(selectedSpecAttacks[i]);
         }
     }
 
-    public void ShowSpecAttackPanel()
+    public void ClearScriptableObjectPrefabs()
     {
-        this.gameObject.SetActive(true);
+        if (allSpecAttackPrefabs != null)
+        {
+            for (int i = 0; i < allSpecAttackPrefabs.Count; i++)
+            {
+                Destroy(allSpecAttackPrefabs[i]);
+            }
+            allSpecAttackPrefabs.Clear();
+        }
     }
 
-    public void HideSpecAttackPanel()
+    public void ClearAllSpecAttackUseAmount()
     {
-        this.gameObject.SetActive(false);
+        var listOfSpecialAttacks = GetScriptableObjectsList();
+        foreach (var specAttack in listOfSpecialAttacks.Where(el => el.currentUseAmount > 0))
+        {
+            specAttack.currentUseAmount = 0;
+        }
     }
 }

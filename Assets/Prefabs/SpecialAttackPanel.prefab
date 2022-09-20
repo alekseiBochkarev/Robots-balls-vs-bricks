@@ -126,3 +126,4 @@ MonoBehaviour:
     type: 3}
   specialAttackDisplay: {fileID: 4171250024230975385, guid: de962f0b7988ad94b88eed8d555790de,
     type: 3}
+  IsSpecAttackPanelOpened: 0
