@@ -51,6 +51,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     private CircleCollider2D m_Collider2D;
     private SpriteRenderer m_SpriteRenderer;
     private TrailRenderer m_TrailRenderer;
+    private SpecialAttackPanelController m_SpecialAttackPanelController;
 
     public int m_WallCollisionDuration = 0;
 
@@ -67,6 +68,8 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         m_Collider2D = GetComponent<CircleCollider2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_TrailRenderer = GetComponent<TrailRenderer>();
+
+        m_SpecialAttackPanelController = GameObject.Find("SpecialAttackUI").GetComponent<SpecialAttackPanelController>();
     }
 
     void Start()
@@ -209,10 +212,33 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         s_ReturnedBallsAmount++;    // then check all of balls are returned to the floor
         //INPOTANT PLACE - HERE I CAN ADD ATACK (BOCH ALEKSEI)
         if (s_ReturnedBallsAmount == Balls.Instance.PlayerBallsAmount)
-            BallLauncher.Instance.ContinuePlaying();
+            StartCoroutine(OpenSpecAttackPanelAndContinuePlaying());
+    }
+
+    IEnumerator OpenSpecAttackPanelAndContinuePlaying()
+    {
+        if (LevelManager.Instance.m_LevelState == LevelManager.LevelState.PLAYABLE)
+        {
+            int magicBallCount = m_SpecialAttackPanelController.GetMagicBallAmount();
+            for (int i = 0; i < magicBallCount; i++)
+            {
+                yield return StartCoroutine(ShowSpecAttackPanelAndClose());
+            }
+        }
+        BallLauncher.Instance.ContinuePlaying();
 
         m_SpriteRenderer.enabled = false;
     }
+    IEnumerator ShowSpecAttackPanelAndClose()
+    {
+        m_SpecialAttackPanelController.ShowSpecAttackPanel();
+        while (m_SpecialAttackPanelController.IsSpecAttackPanelOpened == true)
+        {
+            yield return null;
+        }
+        m_SpecialAttackPanelController.MinusMagicBallAmount();
+    }
+
 
     private void DeactiveSprite()
     {

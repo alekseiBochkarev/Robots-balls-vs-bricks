@@ -26,4 +26,12 @@ public class Combo
     {
         CurrentCombo = startCombo;
     }
+
+
+}
+
+public enum ComboAttackEnum
+{
+    FireCombo,
+    IceCombo
 }

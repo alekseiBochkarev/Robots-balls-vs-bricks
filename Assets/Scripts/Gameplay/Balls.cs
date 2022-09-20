@@ -10,16 +10,6 @@ public class Balls : MonoBehaviour
     [SerializeField] private int startBallsAmount = 1;
     public int PlayerBallsAmount {private set; get; }
     public bool IsBallAmountChanged;
-    public enum BallsTypeEnum
-    {
-        Ball,
-        RocketBall,
-        RocketClone,
-        LaserHorizontalBall,
-        LaserVerticalBall,
-        LaserCrossBall,
-        InstaKillBall
-    }
 
     // public Balls()
     // {
@@ -54,6 +44,12 @@ public class Balls : MonoBehaviour
         {
             AddBallToList(ballsType);
         }
+    }
+
+    public void SetSpecialAttack(BallSO _specialBall)
+    {
+        Debug.Log("SetSpecialAttack ---> " + _specialBall.name);
+        AddBallToList(_specialBall.ballsType);
     }
 
     public void AddBallToTheBeginning(BallsTypeEnum ballsType)
@@ -145,3 +141,15 @@ public class Balls : MonoBehaviour
         PlayerBallsAmount += amount;
     }
 }
+
+public enum BallsTypeEnum
+{
+    Ball,
+    RocketBall,
+    RocketClone,
+    LaserHorizontalBall,
+    LaserVerticalBall,
+    LaserCrossBall,
+    InstaKillBall
+}
+    
