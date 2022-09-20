@@ -4,13 +4,18 @@ using UnityEngine;
 
 public abstract class AbstractBall: MonoBehaviour, IBall
 {
+    public AttackBehaviour attackBehaviour;
+    public AfterCollisionBehaviour afterCollisionBehaviour;
+    
     public AbstractBall ()
     {
 
     }
 
-    public AttackBehaviour attackBehaviour;
-    public AfterCollisionBehaviour afterCollisionBehaviour;
+        public void DestroyAfterTime()
+    {
+        Destroy(this.gameObject, 2f);
+    }
 
     //here special balls will be realize unical attack mechanics
     public void SpecialAttack(Vector3 position, GameObject brick)
