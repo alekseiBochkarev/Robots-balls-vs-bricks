@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Gameplay.Combo;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Special Attack", menuName = "Scriptable Objects/Special Attacks/ComboAttackSO")]
 public class ComboAttackSO : SpecialAttackSO
 {
-    public new ComboAttackEnum comboType;
+    public ComboAttackEnum comboType;
+    public int initComboOnValue;
+
 
     public ComboAttackSO()
     {

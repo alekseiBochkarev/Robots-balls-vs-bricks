@@ -1,3 +1,4 @@
+using Assets.Scripts.Gameplay.Combo;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,13 +6,13 @@ using UnityEngine.UI;
 
 public class ComboController : MonoBehaviour
 {
-    public Combo Combo {private set; get;}
+    public ComboCounter ComboCounter {private set; get;}
     [SerializeField] private Text comboAmountText;
 
 
     private void Awake()
     {
-        Combo = new Combo();
+        ComboCounter = new ComboCounter();
         gameObject.SetActive(false);
         EventManager.BrickHit += AddComboAndShow;
         EventManager.BallsReturned += HideCombo;
@@ -24,19 +25,20 @@ public class ComboController : MonoBehaviour
 
     private void AddComboAndShow()
     {   gameObject.SetActive(true);
-        Combo.AddComboPoint();
+        ComboCounter.AddComboPoint();
+        ComboLauncher.Instance.AddComboPoint();
         ShowCombo();
     }
 
     private void HideCombo()
     {
         gameObject.SetActive(false);
-        Combo.SetComboToZero();
+        ComboCounter.SetComboToZero();
         Debug.Log("Hide combo");
         
     }
 
     private void ShowCombo(){
-       comboAmountText.text = $"{Combo.GetComboAmount()}";
+       comboAmountText.text = $"{ComboCounter.GetComboAmount()}";
     }
 }

@@ -1,14 +1,15 @@
+using Assets.Scripts.Gameplay.Combo;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Combo
+public class ComboCounter
 {   
     private int startCombo = 0;
-    public int CurrentCombo { private set; get;}
+    public static int CurrentCombo { private set; get;}
 
 
-    public Combo()
+    public ComboCounter()
     {
         SetComboToZero();
     }
@@ -17,7 +18,7 @@ public class Combo
         CurrentCombo++;
     }
     
-    public int GetComboAmount()
+    public static int GetComboAmount()
     {
         return CurrentCombo;
     }
@@ -27,11 +28,4 @@ public class Combo
         CurrentCombo = startCombo;
     }
 
-
-}
-
-public enum ComboAttackEnum
-{
-    FireCombo,
-    IceCombo
 }
