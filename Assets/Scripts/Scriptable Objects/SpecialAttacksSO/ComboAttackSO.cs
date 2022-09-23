@@ -11,5 +11,6 @@ public class ComboAttackSO : SpecialAttackSO
     public ComboAttackSO()
     {
         attackTypeEnum = AttackTypeEnum.ComboAttack;
+        maxUseAmount = 1;
     }
 }

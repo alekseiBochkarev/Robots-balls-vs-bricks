@@ -1,3 +1,4 @@
+using Assets.Scripts.Gameplay.Combo;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -231,6 +232,10 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     }
     IEnumerator ShowSpecAttackPanelAndClose()
     {
+        while (ComboLauncher.Instance.CanPlay == false)
+        {
+            yield return new WaitForSeconds(1f);
+        }
         m_SpecialAttackPanelController.ShowSpecAttackPanel();
         while (m_SpecialAttackPanelController.IsSpecAttackPanelOpened == true)
         {
@@ -238,7 +243,6 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         }
         m_SpecialAttackPanelController.MinusMagicBallAmount();
     }
-
 
     private void DeactiveSprite()
     {

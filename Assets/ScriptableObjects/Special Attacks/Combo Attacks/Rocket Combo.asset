@@ -19,5 +19,5 @@ MonoBehaviour:
   maxUseAmount: 1
   currentUseAmount: 1
   attackTypeEnum: 1
-  comboType: 3
-  initComboOnValue: 30
+  comboType: 0
+  initComboOnValue: 5

@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   specialAttackPanel: {fileID: 1600163121619098403}
+  magicBallAmount: 0
   IsSpecAttackPanelOpened: 0
 --- !u!1001 &8654677996747926921
 PrefabInstance:
@@ -221,7 +222,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5d71d9b7406b07241ae2808d6e5b766b, type: 2}
   - {fileID: 11400000, guid: 98e610454b044aa46a0a04c58bf7f9c4, type: 2}
   - {fileID: 11400000, guid: fa691d4e6e3b24e49b8ec34eec98bd3d, type: 2}
-  comboAttacksSO: []
+  comboAttacksSO:
+  - {fileID: 11400000, guid: 5d71d9b7406b07241ae2808d6e5b766b, type: 2}
+  - {fileID: 11400000, guid: 98e610454b044aa46a0a04c58bf7f9c4, type: 2}
+  - {fileID: 11400000, guid: fa691d4e6e3b24e49b8ec34eec98bd3d, type: 2}
   heroBuffsSO: []
   amountOfUpgradeTabs: 3
   displayPrefab: {fileID: 4171250024230975390, guid: de962f0b7988ad94b88eed8d555790de,

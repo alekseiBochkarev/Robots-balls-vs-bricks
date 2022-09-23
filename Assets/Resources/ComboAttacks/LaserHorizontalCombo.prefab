@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1054516289806286
+--- !u!1 &5385733435678287018
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4900135059807266}
-  - component: {fileID: 212826454424653660}
-  - component: {fileID: 50932128715658944}
-  - component: {fileID: 58845583564804158}
-  - component: {fileID: 96846943280894102}
-  - component: {fileID: 964171199461278394}
+  - component: {fileID: 4215692545756606596}
+  - component: {fileID: 5029704157052243055}
+  - component: {fileID: 8459259618117897333}
+  - component: {fileID: 1554592291877676890}
+  - component: {fileID: 3515405104819798745}
+  - component: {fileID: 6260434269040810117}
   m_Layer: 8
-  m_Name: RocketCombo
+  m_Name: LaserHorizontalCombo
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4900135059807266
+--- !u!4 &4215692545756606596
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054516289806286}
+  m_GameObject: {fileID: 5385733435678287018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.4375, y: 1.916666, z: 1.15}
@@ -36,13 +36,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &212826454424653660
+--- !u!212 &5029704157052243055
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054516289806286}
+  m_GameObject: {fileID: 5385733435678287018}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 5b612a9712f894266b04b5ffeb42c071, type: 3}
-  m_Color: {r: 0.9372549, g: 0.62120837, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4712be3c7be654c4fb4c760e0994e7f0, type: 3}
+  m_Color: {r: 1, g: 0.62891984, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -88,14 +88,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &50932128715658944
+--- !u!50 &8459259618117897333
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054516289806286}
+  m_GameObject: {fileID: 5385733435678287018}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -109,30 +109,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &58845583564804158
+--- !u!58 &1554592291877676890
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054516289806286}
+  m_GameObject: {fileID: 5385733435678287018}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
---- !u!96 &96846943280894102
+--- !u!96 &3515405104819798745
 TrailRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054516289806286}
+  m_GameObject: {fileID: 5385733435678287018}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -224,13 +224,13 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &964171199461278394
+--- !u!114 &6260434269040810117
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054516289806286}
+  m_GameObject: {fileID: 5385733435678287018}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5be57b48455b85c4e8f15e97cec22e52, type: 3}
@@ -239,4 +239,4 @@ MonoBehaviour:
   hero: {fileID: 0}
   attackPower: 0
   MoveSpeed: 7
-  ballToSpawnOnHit: 3
+  ballToSpawnOnHit: 0
