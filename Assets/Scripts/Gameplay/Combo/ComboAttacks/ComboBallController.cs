@@ -10,7 +10,6 @@ public class ComboBallController : MonoBehaviour
     private int damageTextFontSize;
     private Color damageTextColor;
     private float vision;
-    Collider2D[] colliders;
     public int MoveSpeed = 7;
     private GameObject brickObject;
     Vector3 diff;
