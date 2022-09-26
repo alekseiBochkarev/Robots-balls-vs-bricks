@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a61109a557c40e245ae267b488eab25b, type: 3}
-  m_Name: Rocket Combo
+  m_Name: Insta Kill Combo
   m_EditorClassIdentifier: 
   specialAttackIndex: 0
-  specialAttackName: Rocket Combo
-  specialAttackDescription: Shots rockets on enemy
-  specialAttackImage: {fileID: 0}
+  specialAttackName: Insta Kill Combo
+  specialAttackDescription: Kills an enemy with a small chance
+  specialAttackImage: {fileID: 21300000, guid: e35dd77cf81eb864c91561cf0c7a0672, type: 3}
   maxUseAmount: 1
   currentUseAmount: 0
   attackTypeEnum: 1
-  comboType: 0
-  initComboOnValue: 1
+  comboType: 5
+  initComboOnValue: 20

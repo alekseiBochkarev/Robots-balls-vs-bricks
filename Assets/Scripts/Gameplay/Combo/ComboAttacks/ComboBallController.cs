@@ -1,4 +1,6 @@
 using Assets.Scripts.Gameplay.Combo;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ComboBallController : MonoBehaviour
@@ -10,7 +12,7 @@ public class ComboBallController : MonoBehaviour
     private float vision;
     Collider2D[] colliders;
     public int MoveSpeed = 7;
-    GameObject brickObject;
+    private GameObject brickObject;
     Vector3 diff;
     float rot_z;
     [SerializeField] private CloneBallTypes ballToSpawnOnHit;
@@ -19,7 +21,7 @@ public class ComboBallController : MonoBehaviour
 
     void Start()
     {
-        brickObject = FindGoalToMoveAsInstanceID();
+        brickObject = FindBrickToMove();
         ComboLauncher.Instance.AddComboAmountOnScene();
 
         hero = GameObject.Find("Hero");
@@ -31,44 +33,68 @@ public class ComboBallController : MonoBehaviour
         damageTextFontSize = TextController.FONT_SIZE_MAX;
     }
 
-
-    public GameObject FindGoalToMoveAsInstanceID()
+    public GameObject FindBrickToMove()
     {
         vision = 10f;
-        GameObject brickObject = null;
-        colliders = Physics2D.OverlapCircleAll(transform.position, vision);
-
-        for (int i = 0; i < colliders.Length; i++)
+        List<Collider2D> activeBricks = Physics2D.OverlapCircleAll(transform.position, vision).ToList();
+        activeBricks.RemoveAll(el => !el.gameObject.GetComponent<Brick>());
+        if (activeBricks.Count != 0 && activeBricks != null)
         {
-            if (colliders[i].gameObject == gameObject) continue;
-            if (colliders[i].gameObject.GetComponent<Brick>() != null)
+            if (activeBricks.Count == 1)
             {
-                brickObject = colliders[i].gameObject;
-                break;
+                brickObject = activeBricks[0].gameObject;
             }
+            else
+            {
+                Shuffle(activeBricks);
+                brickObject = activeBricks[0].gameObject;
+            }
+        }       
+        else
+        {
+            brickObject = GameObject.Find("topBorder");
         }
         return brickObject;
     }
 
-
-    void Update()
+    private void Shuffle<T>(List<T> inputList)
     {
-        if (brickObject.activeSelf == false || brickObject == null)
+        for (int i = 0; i < inputList.Count - 1; i++)
         {
-            brickObject = FindGoalToMoveAsInstanceID();
-            if (brickObject == null)
-            {
-                ComboLauncher.Instance.DecreaseComboAmountOnScene();
-                Destroy(this.gameObject);
-            }
-        }
+            T temp = inputList[i];
+            int rand = Random.Range(i, inputList.Count);
+            inputList[i] = inputList[rand];
+            inputList[rand] = temp;
+        }   
+    }
+
+    private void Update()
+    {
         if (brickObject != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, brickObject.transform.position, MoveSpeed * Time.deltaTime);
-            RotateBall();
-            CheckAndDestroy();
+            if (brickObject.GetComponent<Brick>() != null)
+            {
+                if (brickObject.GetComponent<Brick>().m_currentBrickHealth > 0)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, brickObject.transform.position, MoveSpeed * Time.deltaTime);
+                    RotateBall();
+                    CheckAndDestroy();
+                }
+                else
+                {
+                    brickObject = FindBrickToMove();
+                }
+            }
+            else
+            {
+                    ComboLauncher.Instance.DecreaseComboAmountOnScene();
+                    Destroy(this.gameObject);
+            }
         }
-
+        else
+        {
+            brickObject = FindBrickToMove();
+        }
     }
 
     void RotateBall()
@@ -83,7 +109,14 @@ public class ComboBallController : MonoBehaviour
     {
         if (transform.position == brickObject.transform.position)
         {
-            if (CloneBallTypes.RocketClone != ballToSpawnOnHit)
+            if (CloneBallTypes.InstaKillBall == ballToSpawnOnHit)
+            {
+                string instaKillMessageText = "INSTAKILL";
+                InstaKillAttack instaKillAttack = new InstaKillAttack(instaKillMessageText);
+                instaKillAttack.SpecialAttack(brickObject.transform.position, brickObject);
+            }
+
+            if (CloneBallTypes.RocketClone != ballToSpawnOnHit && CloneBallTypes.InstaKillBall != ballToSpawnOnHit)
             {
                 GameObject ballPrefab = Resources.Load<GameObject>(ballToSpawnOnHit.ToString());
                 GameObject ballPrefabToSpawn = Instantiate(ballPrefab, transform.position, Quaternion.identity);
@@ -96,7 +129,7 @@ public class ComboBallController : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    public void DisablePhysics()
+    private void DisablePhysics()
     {
         m_Collider2D.enabled = false;
     }
@@ -107,5 +140,6 @@ public enum CloneBallTypes
     LaserHorizontalCloneBall,
     LaserVerticalCloneBall,
     LaserCrossCloneBall,
-    RocketClone
+    RocketClone,
+    InstaKillBall
 }

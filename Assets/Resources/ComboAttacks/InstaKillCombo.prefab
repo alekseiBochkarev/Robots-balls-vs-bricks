@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 50932128715658944}
   - component: {fileID: 58845583564804158}
   - component: {fileID: 96846943280894102}
-  - component: {fileID: 822485234576364471}
-  - component: {fileID: 8581837554429278974}
+  - component: {fileID: 1941239652188985523}
   m_Layer: 8
-  m_Name: InstaKillBall
+  m_Name: InstaKillCombo
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,7 +225,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &822485234576364471
+--- !u!114 &1941239652188985523
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -235,27 +234,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1054516289806286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5da62081612266f4ead3d6549b7c32a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be57b48455b85c4e8f15e97cec22e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hero: {fileID: 0}
   attackPower: 0
-  m_WallCollisionDuration: 0
-  m_MoveSpeed: 10
-  m_MinimumYPosition: -4.09
-  instaKillMessageText: INSTAKILL
---- !u!114 &8581837554429278974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054516289806286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b602585c43715462abbea1b3e7474609, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  MoveSpeed: 7
+  ballToSpawnOnHit: 4
 --- !u!1 &2980225175198431127
 GameObject:
   m_ObjectHideFlags: 0

@@ -1788,6 +1788,7 @@ GameObject:
   - component: {fileID: 832922479}
   - component: {fileID: 832922480}
   - component: {fileID: 832922481}
+  - component: {fileID: 832922482}
   m_Layer: 0
   m_Name: topBorder
   m_TagString: Untagged
@@ -1888,6 +1889,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &832922482
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832922478}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &881710502
 GameObject:
   m_ObjectHideFlags: 0
@@ -5595,7 +5617,7 @@ PrefabInstance:
     - target: {fileID: 1303595325216086738, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
         type: 3}
       propertyPath: comboAttacksSO.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1303595325216086738, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
         type: 3}
@@ -5630,7 +5652,7 @@ PrefabInstance:
         type: 3}
       propertyPath: comboAttacksSO.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 10c2b4aaf5d046748b87935ec5a0e859,
+      objectReference: {fileID: 11400000, guid: 3407e24ffcfb3494ebff7f050ac9e95e,
         type: 2}
     - target: {fileID: 1303595325216086738, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
         type: 3}
