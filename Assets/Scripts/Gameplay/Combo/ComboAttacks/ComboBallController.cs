@@ -1,4 +1,5 @@
 using Assets.Scripts.Gameplay.Combo;
+using Assets.Scripts.DataManaging.Utills;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -45,7 +46,8 @@ public class ComboBallController : MonoBehaviour
             }
             else
             {
-                Shuffle(activeBricks);
+                Utills utills = new Utills();
+                utills.Shuffle(activeBricks);
                 brickObject = activeBricks[0].gameObject;
             }
         }       
@@ -54,17 +56,6 @@ public class ComboBallController : MonoBehaviour
             brickObject = GameObject.Find("topBorder");
         }
         return brickObject;
-    }
-
-    private void Shuffle<T>(List<T> inputList)
-    {
-        for (int i = 0; i < inputList.Count - 1; i++)
-        {
-            T temp = inputList[i];
-            int rand = Random.Range(i, inputList.Count);
-            inputList[i] = inputList[rand];
-            inputList[rand] = temp;
-        }   
     }
 
     private void Update()
