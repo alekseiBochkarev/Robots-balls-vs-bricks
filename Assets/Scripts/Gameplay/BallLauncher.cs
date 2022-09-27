@@ -330,7 +330,7 @@ public class BallLauncher : MonoBehaviour
 
     public void ReturnAllBallsToNewStartPosition()
     {
-        Debug.Log("ReturnAllBallsToNewStartPosition");
+       // Debug.Log("ReturnAllBallsToNewStartPosition");
         if(AbstractBall.s_FirstCollisionPoint != Vector3.zero)
         {
             transform.position = AbstractBall.s_FirstCollisionPoint;
@@ -453,7 +453,7 @@ public class BallLauncher : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("GameObject2 collided with " + col.name);
+       // Debug.Log("GameObject2 collided with " + col.name);
         if (col.gameObject.GetComponent<Brick>() != null)
         {
             colliderTriggered = true;

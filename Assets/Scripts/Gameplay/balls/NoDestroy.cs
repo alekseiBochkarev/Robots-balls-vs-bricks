@@ -6,6 +6,6 @@ public class NoDestroy : MonoBehaviour, AfterCollisionBehaviour
 {
     public void BehaviourAfterCollision()
     {
-        Debug.Log("no destroy");
+        //Debug.Log("no destroy");
     }
 }

@@ -38,7 +38,7 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
         //GOOD DECISION BUT I SHOULD CHANGE THIS BOCHKAREV ALEKSEI
         m_currentBrickHealth = ScoreManager.Instance.m_LevelOfFinalBrick +1;
         m_maxBrickHealth = m_currentBrickHealth;
-        Debug.Log("Brick OnEnable m_Health " + m_currentBrickHealth);
+       // Debug.Log("Brick OnEnable m_Health " + m_currentBrickHealth);
         m_Text.text = m_currentBrickHealth.ToString();
 
         // Set HealthBar and show health of brick
@@ -112,7 +112,7 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
 
     public void DoDamage(int applyDamage)
     {
-        Debug.Log("apply " + applyDamage + " damage to hero");
+       // Debug.Log("apply " + applyDamage + " damage to hero");
         hero.TakeDamage(applyDamage);
    
     }
@@ -208,8 +208,8 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
         m_ParentParticle.startColor = color;
         m_ParentParticle.Play();
         //2 - set Grid to 0
-        gameObject.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
-        gameObject.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
+        //gameObject.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
+        //gameObject.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
             // 3 - hide this Brick or this row
         gameObject.SetActive(false);
             //m_Parent.CheckBricksActivation();
@@ -226,10 +226,11 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
         m_ParentParticle.startColor = color;
         m_ParentParticle.Play();
         //2 - set Grid to 0
-        gameObject.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
-        gameObject.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
+        //gameObject.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
+        //gameObject.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
             // 3 - hide this Brick or this row
         gameObject.SetActive(false);
+        EventManager.OnBrickDestroyed();
             //m_Parent.CheckBricksActivation();
             //destroy parent gameObject
         Destroy(parent, 0.1f);
@@ -241,7 +242,7 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
         damageTextColor = TextController.COLOR_BLACK;
         damageTextFontSize = TextController.FONT_SIZE_MAX;
         TakeDamage(appliedDamage, textPopupTextValue, damageTextColor, damageTextFontSize);
-        Debug.Log("Kill brick applied");
+       // Debug.Log("Kill brick applied");
     }
 
     public void ChangeRigidbodyType (RigidbodyType2D rigidbodyType)
@@ -252,7 +253,7 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
 
     public void Attack ()
     {
-        Debug.Log("Attack");
+      //  Debug.Log("Attack");
     }
     
     public void ChangeColor()

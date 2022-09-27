@@ -8,14 +8,14 @@ public class BrickSpawner : MonoBehaviour
     
 
     [Header("Spawning informations")]
-    [SerializeField] private int m_SpawningRows = 8;
-    public BricksRow m_BricksRowPrefab;
-    public float m_SpawningTopPosition = 2.88f;   // top position
-    public float m_SpawningDistance = 0.8f; // distance of rows
+   // [SerializeField] private int m_SpawningRows = 8;
+   // public BricksRow m_BricksRowPrefab;
+   // public float m_SpawningTopPosition = 2.88f;   // top position
+    //public float m_SpawningDistance = 0.8f; // distance of rows
     public GameObject brickPrefab;
     public GameObject scoreBallPrefab;
     public GameObject magicBallPrefab;
-    [SerializeField] private int maxObjectsInRow = 6;
+    private int maxObjectsInRow;
     private LevelConfig m_levelConfig;
     [SerializeField] private bool allBricksMovedDown;
     [SerializeField] private bool allBricksMovedHorizontal;
@@ -25,7 +25,7 @@ public class BrickSpawner : MonoBehaviour
     Collider2D[] colliders;
 
     [Header("Bricks Row")]
-    public List<BricksRow> m_BricksRow;
+    //public List<BricksRow> m_BricksRow;
     [Header("Win Manager")]
     public WinManager winManager;
 
@@ -33,10 +33,10 @@ public class BrickSpawner : MonoBehaviour
     {
         Instance = this;
 
-        m_BricksRow = new List<BricksRow>();
+        //m_BricksRow = new List<BricksRow>();
         winManager = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<WinManager>();
         m_levelConfig = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelConfig>();
-        maxObjectsInRow = m_levelConfig.grid.GridWidth-1;
+        maxObjectsInRow = m_levelConfig.grid.GridWidth;
 
     }
 
@@ -64,12 +64,12 @@ public class BrickSpawner : MonoBehaviour
         }
     }
 
-
+/*
     public void HideAllBricksRows()
     {
         for (int i = 0; i < m_BricksRow.Count; i++)
             m_BricksRow[i].gameObject.SetActive(false);
-    }
+    }*/
 
     public void SpawnNewBricks()
     {
@@ -134,6 +134,7 @@ public class BrickSpawner : MonoBehaviour
     {
         if (m_levelConfig.grid.GetValue(numberInRow, 0+1) == 0) {
             GameObject newObject = Instantiate(prefab, m_levelConfig.grid.GetWorldPosition(numberInRow, 0), new Quaternion(0, 180, 0, 1));
+            newObject.transform.localScale *= m_levelConfig.ScaleCoefficient;
             newObject.GetComponent<MoveDownBehaviour>().MoveDown();
         }
        // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
@@ -162,7 +163,7 @@ public class BrickSpawner : MonoBehaviour
         vision = 10f; //need to check maybe we should set more than 10
         colliders = Physics2D.OverlapCircleAll(transform.position, vision);
         for (int y = m_levelConfig.grid.GridHeight-1; y >= 0; y--) {
-            for (int x = 0; x <= m_levelConfig.grid.GridWidth-1; x ++) {
+            for (int x = 0; x <= m_levelConfig.grid.GridWidth-1; x++) {
                 
                     for (int i = 0; i < colliders.Length; i ++) {
                         if (colliders[i].gameObject == gameObject) continue;

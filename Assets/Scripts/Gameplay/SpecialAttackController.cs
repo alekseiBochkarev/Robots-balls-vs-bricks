@@ -72,7 +72,7 @@ public class SpecialAttackController : MonoBehaviour
         allSpecAttackPrefabs = new List<GameObject>();
         for (int i = 0; i < selectedSpecAttacks.Count; i++)
         {
-            Debug.Log("Index of SO ->>>>" + i);
+          //  Debug.Log("Index of SO ->>>>" + i);
             GameObject tabPrefab = Instantiate(displayPrefab, transform.position, Quaternion.identity);
             allSpecAttackPrefabs.Add(tabPrefab);
             tabPrefab.gameObject.transform.SetParent(this.transform);

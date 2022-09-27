@@ -2,7 +2,7 @@
 
 public class ScoreBall : MonoBehaviour
 {
-    private BricksRow m_Parent;
+    //private BricksRow m_Parent;
     private ParticleSystem m_ParentParticle;
     private GameObject parent;
 
@@ -11,7 +11,7 @@ public class ScoreBall : MonoBehaviour
     private void Awake()
     {
         parent = transform.parent.gameObject;
-        m_Parent = GetComponentInParent<BricksRow>();
+    //    m_Parent = GetComponentInParent<BricksRow>();
         m_ParentParticle = GetComponentInParent<ParticleSystem>();
 
         m_ParticleColor = new Color(0, 1, 0, 0.5f);
@@ -23,8 +23,9 @@ public class ScoreBall : MonoBehaviour
         {
             BallLauncher.Instance.m_TempAmount++;    // increase balls amount
             PlayParticle();
-            parent.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
-            parent.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
+            //parent.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
+            //parent.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
+            EventManager.OnBrickDestroyed();
             Destroy(parent, 1);
         }  else if (collision.gameObject.tag == "Finish") 
         {
@@ -35,8 +36,9 @@ public class ScoreBall : MonoBehaviour
     private void SuicideScoreBall () {
         BallLauncher.Instance.m_TempAmount++;    // increase balls amount
         PlayParticle();
-        parent.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
-        parent.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
+        //parent.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
+        //parent.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
+        EventManager.OnBrickDestroyed();
         Destroy(parent, 0.1f);
     }
 

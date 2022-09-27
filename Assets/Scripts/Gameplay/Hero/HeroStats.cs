@@ -59,14 +59,14 @@ public class HeroStats
 
     public float GetStats(HeroStatsEnum statsEnum)
     {
-        Debug.Log(PlayerPrefs.GetFloat(statsEnum.ToString()) + " == "+statsEnum+" == GET that hero stats");
+        //Debug.Log(PlayerPrefs.GetFloat(statsEnum.ToString()) + " == "+statsEnum+" == GET that hero stats");
         return PlayerPrefs.GetFloat(statsEnum.ToString());
     }
     private void SaveStats(HeroStatsEnum statsEnum, float statsValue)
     {
         // AttackPower = statsValue;
         PlayerPrefs.SetFloat(statsEnum.ToString(), statsValue);
-        Debug.Log(PlayerPrefs.GetFloat(statsEnum.ToString()) + " == "+statsEnum+" == SAVED that hero stats");
+       // Debug.Log(PlayerPrefs.GetFloat(statsEnum.ToString()) + " == "+statsEnum+" == SAVED that hero stats");
     }
 
     public void UpgradeStats(HeroStatsEnum statsEnum, float upgradeAmount)

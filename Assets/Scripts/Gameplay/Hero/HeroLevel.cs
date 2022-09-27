@@ -34,13 +34,13 @@ public class HeroLevel
         InitRequiredExperience();
         IsGameWon = false;
         EventManager.GameWon += AddHeroLevel;
-        Debug.Log("Init HeroLevel");
+       // Debug.Log("Init HeroLevel");
     }
 
     private void OnDestroy() 
     {
         EventManager.GameWon -= AddHeroLevel;
-        Debug.Log("Perfrom OnDestroy on HeroLevel");
+      //  Debug.Log("Perfrom OnDestroy on HeroLevel");
     }
 
     public void SaveHeroLevel(HeroLevelEnum levelEnum, float levelAmount)
@@ -59,7 +59,7 @@ public class HeroLevel
             SaveHeroLevel(HeroLevelEnum.CurrentLevel, minLevel);
         if (GetHeroLevel() != 0)
             CurrentHeroLevel = GetHeroLevel();
-            Debug.Log("Current heroLevel is -> " + CurrentHeroLevel);
+           // Debug.Log("Current heroLevel is -> " + CurrentHeroLevel);
     }
 
     public float GetHeroLevel()
@@ -70,7 +70,7 @@ public class HeroLevel
     public void LoadHeroExperience()
     {
         HeroExperience = PlayerPrefs.GetFloat(HeroExperienceEnum.CurrentExperience.ToString());
-        Debug.Log("Current HeroExperience is -> " + HeroExperience);
+      //  Debug.Log("Current HeroExperience is -> " + HeroExperience);
     }
 
     private void SetLevelMultiplier()
@@ -80,7 +80,7 @@ public class HeroLevel
 
     public void AddExperience()
     {
-        Debug.Log("Add experience");
+       // Debug.Log("Add experience");
         HeroExperience += earnExperience;
         SaveHeroExperience(HeroExperienceEnum.CurrentExperience, HeroExperience);
     }
@@ -88,7 +88,7 @@ public class HeroLevel
     private void InitRequiredExperience()
     {
         requiredExperience = levelMultiplier * earnExperience;
-        Debug.Log("Required experience for new level -> " + requiredExperience);
+       // Debug.Log("Required experience for new level -> " + requiredExperience);
     }
 
     private void HeroLevelUp()
@@ -101,7 +101,7 @@ public class HeroLevel
          because this action is always perfroms after event was called,
          OnDestroy works only when you go to the menu or do replay
          */
-         Debug.Log("before add experience");
+       //  Debug.Log("before add experience");
         if (!IsGameWon)
         {
             AddExperience();
@@ -113,7 +113,7 @@ public class HeroLevel
                 SaveHeroExperience(HeroExperienceEnum.CurrentExperience, startExperience);
                 InitRequiredExperience();
                 EventManager.OnLevelUp();
-                Debug.Log("New level is added, it's -> " + CurrentHeroLevel);
+              //  Debug.Log("New level is added, it's -> " + CurrentHeroLevel);
             }
             IsGameWon = true;
         }
@@ -128,7 +128,7 @@ public class HeroLevel
     {
         if (HeroExperience != 0)
         {
-            Debug.Log("HeroExperience is " + HeroExperience + " requiredExperience is " + requiredExperience);
+           // Debug.Log("HeroExperience is " + HeroExperience + " requiredExperience is " + requiredExperience);
             return HeroExperience / requiredExperience;
         }
         else

@@ -13,7 +13,7 @@ public class EnergyController : MonoBehaviour
     [SerializeField] private Text energyText;
 
     private void Awake() {
-        Debug.Log("Awake the EnergyController");
+      //  Debug.Log("Awake the EnergyController");
         Instance = this;
         Energy = new Energy();
         ShowEnergy();

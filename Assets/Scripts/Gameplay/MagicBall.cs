@@ -26,8 +26,21 @@ public class MagicBall : MonoBehaviour
         {
             m_SpecialAttackPanelController.SetMagicBallAmount(1);
             PlayParticle();
+            EventManager.OnBrickDestroyed();
             Destroy(parent, 1);
+        } else if (collision.gameObject.tag == "Finish") 
+        {
+            SuicideMagicBall();
         }
+    }
+
+    private void SuicideMagicBall () {
+        m_SpecialAttackPanelController.SetMagicBallAmount(1);    // increase balls amount
+        PlayParticle();
+        //parent.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
+        //parent.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
+        EventManager.OnBrickDestroyed();
+        Destroy(parent, 0.1f);
     }
 
     public void PlayParticle()

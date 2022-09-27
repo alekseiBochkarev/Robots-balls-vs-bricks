@@ -27,7 +27,7 @@ public class HeroProgressBar : MonoBehaviour
     private void SetUpProgressBar()
     {
         float experienceAsPercentage = heroLevel.SetCurrentExperienceAsPercentage();
-        Debug.Log("experienceAsPercentage is " + experienceAsPercentage);
+       // Debug.Log("experienceAsPercentage is " + experienceAsPercentage);
         slider.value = experienceAsPercentage;
     }
 

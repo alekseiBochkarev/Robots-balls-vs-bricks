@@ -36,11 +36,11 @@ public class UpgradeStats
     {
         UpgradeHealthCoinsRequired = startCoinsUpgradeValue * HealthUpgradeMult;
         SaveRequiredCoins(RequiredCoinsStatsEnum.HealthUpgradeCost, UpgradeHealthCoinsRequired);
-        Debug.Log("UpgradeHealthCoinsRequired is ->" + UpgradeHealthCoinsRequired);
+      //  Debug.Log("UpgradeHealthCoinsRequired is ->" + UpgradeHealthCoinsRequired);
 
         UpgradeAttackPowerCoinsRequired = startCoinsUpgradeValue * AttackUpgradeMult;
         SaveRequiredCoins(RequiredCoinsStatsEnum.AttackPowerUpgradeCost, UpgradeAttackPowerCoinsRequired);
-        Debug.Log("UpgradeAttackPowerCoinsRequired is ->" + UpgradeAttackPowerCoinsRequired);
+       // Debug.Log("UpgradeAttackPowerCoinsRequired is ->" + UpgradeAttackPowerCoinsRequired);
     }
 
     public void InitStatsUpgrading()
@@ -60,7 +60,7 @@ public class UpgradeStats
             HealthUpgradeMult = 1;
             SaveUpgradeMultiplier(UpgradeMultipliersEnum.HealthMultiplier, HealthUpgradeMult);
         }
-        Debug.Log("HealthUpgradeMult is ->" + HealthUpgradeMult);
+       // Debug.Log("HealthUpgradeMult is ->" + HealthUpgradeMult);
         if (LoadUpgradeMultiplier(UpgradeMultipliersEnum.AttackPowerMultiplier) != 0)
         {
             AttackUpgradeMult = LoadUpgradeMultiplier(UpgradeMultipliersEnum.AttackPowerMultiplier);
@@ -70,7 +70,7 @@ public class UpgradeStats
             AttackUpgradeMult = 1;
             SaveUpgradeMultiplier(UpgradeMultipliersEnum.AttackPowerMultiplier, AttackUpgradeMult);
         }
-        Debug.Log("AttackUpgradeMult is ->" + AttackUpgradeMult);
+      //  Debug.Log("AttackUpgradeMult is ->" + AttackUpgradeMult);
     }
 
     public void SaveUpgradeMultiplier(UpgradeMultipliersEnum multiplierEnum, float multValue)

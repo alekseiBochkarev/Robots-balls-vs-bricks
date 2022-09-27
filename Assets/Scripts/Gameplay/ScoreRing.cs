@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 
 public class ScoreRing : MonoBehaviour
 {
@@ -15,4 +15,4 @@ public class ScoreRing : MonoBehaviour
         gameObject.SetActive(false);
         m_Parent.CheckBricksActivation();
     }
-}
+}*/

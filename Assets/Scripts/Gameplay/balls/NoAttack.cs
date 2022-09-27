@@ -6,6 +6,6 @@ public class NoAttack : MonoBehaviour, AttackBehaviour
 {
     public void SpecialAttack(Vector3 position, GameObject brick)
     {
-        Debug.Log("special attack - No Attack");
+       // Debug.Log("special attack - No Attack");
     }
 }

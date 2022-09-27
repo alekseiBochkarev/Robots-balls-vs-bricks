@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour
                         m_Scores.SetActive(true);
                     
                         BallLauncher.Instance.m_CanPlay = true;
-                        Debug.Log("Level state, LevelOfFinalBrick " + ScoreManager.Instance.m_LevelOfFinalBrick);
+                      //  Debug.Log("Level state, LevelOfFinalBrick " + ScoreManager.Instance.m_LevelOfFinalBrick);
                         ScoreManager.Instance.m_LevelOfFinalBrick = 0;  // temporary (after save and load)
                         // reset score (probably by conditions)
                         //ScoreManager.Instance.m_ScoreText.text = ScoreManager.Instance.m_LevelOfFinalBrick.ToString();
@@ -74,8 +74,8 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         m_LevelState = LevelState.PLAYABLE;
-        Debug.Log("start gameManager LevelState " + m_LevelState);
-        Debug.Log("instanse state " + Instance.m_LevelState);
+       // Debug.Log("start gameManager LevelState " + m_LevelState);
+      //  Debug.Log("instanse state " + Instance.m_LevelState);
     }
 
     //? maybe we can delete this

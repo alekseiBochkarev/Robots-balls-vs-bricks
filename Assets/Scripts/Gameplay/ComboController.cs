@@ -32,7 +32,7 @@ public class ComboController : MonoBehaviour
     {
         gameObject.SetActive(false);
         Combo.SetComboToZero();
-        Debug.Log("Hide combo");
+      //  Debug.Log("Hide combo");
         
     }
 

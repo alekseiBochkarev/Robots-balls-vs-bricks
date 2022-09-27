@@ -12,13 +12,13 @@ public class Coins : WalletController
 
     public Coins() {
         LoadCoins();
-        Debug.Log("Start Coins");
+       // Debug.Log("Start Coins");
     }
     
     // Add coin and UpdateCoins
     public void AddCoin() {
         m_Coins++;
-        Debug.Log("+ 1 Coin, total = "+ m_Coins);
+       // Debug.Log("+ 1 Coin, total = "+ m_Coins);
     }
 
     public void AddCoin(float amount) {
@@ -39,13 +39,13 @@ public class Coins : WalletController
     public void SaveCoins() {
         //user Enum for set and get coins as well as crystalls
         PlayerPrefs.SetInt("coins", m_Coins);
-        Debug.Log("Save coins to -> " + m_Coins);
+       // Debug.Log("Save coins to -> " + m_Coins);
     }
 
     
     public void LoadCoins() {
         //user Enum for set and get coins as well as crystalls
         m_Coins = PlayerPrefs.GetInt("coins");
-        Debug.Log("Get coins -> " + m_Coins);
+       // Debug.Log("Get coins -> " + m_Coins);
     }
 }

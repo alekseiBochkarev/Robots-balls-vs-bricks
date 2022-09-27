@@ -33,7 +33,7 @@ public class Saver : MonoBehaviour
             };
 
             string data = JsonUtility.ToJson(savedGame);
-            Debug.Log(data);
+           // Debug.Log(data);
         }
     }
 

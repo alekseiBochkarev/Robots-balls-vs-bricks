@@ -12,7 +12,7 @@ public class HealthBar : MonoBehaviour
     private int startSliderValue = 1;
 
     private void Awake() {
-        Debug.Log("Awake the HealthBar");
+      //  Debug.Log("Awake the HealthBar");
         healthBarSlider.value = startSliderValue;
     }
 
@@ -41,7 +41,7 @@ public class HealthBar : MonoBehaviour
     {
         _percentageValueOfHealth = SetCurrentHealthAsPercentage(CurrentHealth, MaxHealth);
         healthBarSlider.value = _percentageValueOfHealth;
-        Debug.Log("Show Health percent in UI -> " + _percentageValueOfHealth);
+        //Debug.Log("Show Health percent in UI -> " + _percentageValueOfHealth);
     }
 
     public float SetCurrentHealthAsPercentage(float currentHealth, float maxHealth) 

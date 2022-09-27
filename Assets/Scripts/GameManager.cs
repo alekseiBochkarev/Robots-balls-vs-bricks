@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
                     m_Scores.SetActive(true);
 
                     BallLauncher.Instance.OnMainMenuActions();
-                    BrickSpawner.Instance.HideAllBricksRows();
+                   // BrickSpawner.Instance.HideAllBricksRows();
                     break;
             }
         }
@@ -46,8 +46,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         // m_GameState = GameState.MainMenu;
-        Debug.Log("start gameManager gameState " + m_GameState);
-        Debug.Log("instanse state " + Instance.m_GameState);
+       // Debug.Log("start gameManager gameState " + m_GameState);
+       // Debug.Log("instanse state " + Instance.m_GameState);
     }
 
     private void Update()

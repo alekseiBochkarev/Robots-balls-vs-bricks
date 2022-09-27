@@ -20,7 +20,7 @@ public class Balls : MonoBehaviour
     //     IsBallAmountChanged = false;
     // }
 
-    private void Start() 
+    private void Awake() 
     {
         Instance = this;
         PlayerBalls = new List<AbstractBall>(startBallsAmount);
@@ -48,7 +48,7 @@ public class Balls : MonoBehaviour
 
     public void SetSpecialAttack(BallSO _specialBall)
     {
-        Debug.Log("SetSpecialAttack ---> " + _specialBall.name);
+      //  Debug.Log("SetSpecialAttack ---> " + _specialBall.name);
         AddBallToList(_specialBall.ballsType);
     }
 
@@ -84,7 +84,7 @@ public class Balls : MonoBehaviour
     public void ReplaceBallInList(BallsTypeEnum replaceableBall, BallsTypeEnum newBallType)
     {
         int ballIndex = GetIndexByBallTypeInList(replaceableBall);
-        Debug.Log("ballIndex is -> " + ballIndex);
+      //  Debug.Log("ballIndex is -> " + ballIndex);
         m_BallPrefab = Resources.Load<GameObject>(newBallType.ToString()).GetComponent<AbstractBall>();
 
         PlayerBalls[ballIndex].DestroyAfterTime();
@@ -97,11 +97,11 @@ public class Balls : MonoBehaviour
     {
         for (int i = 0; i < PlayerBalls.Count; i++)
         {
-            Debug.Log("Balls names are -> " + PlayerBalls[i].name);
+           // Debug.Log("Balls names are -> " + PlayerBalls[i].name);
          //   if (PlayerBalls[i].name.Contains(ballType.ToString()))
             if (PlayerBalls[i].name == ballType.ToString() + "(Clone)")
             {
-                Debug.Log("Return index is -> " + i);
+               // Debug.Log("Return index is -> " + i);
                 return i;
             }                
         }
@@ -109,7 +109,7 @@ public class Balls : MonoBehaviour
     }
     public AbstractBall GetFirstBallInList()
     {
-        Debug.Log("GetFirstBallInList -> " + PlayerBalls[0]);
+       // Debug.Log("GetFirstBallInList -> " + PlayerBalls[0]);
         return PlayerBalls[0];
     }
 
@@ -119,7 +119,7 @@ public class Balls : MonoBehaviour
         {
             if (ball.name.Contains(" " + ballsType.ToString())) 
             {
-                Debug.Log("GetBallByBallTypeInList  -> " + ball.name);
+                //Debug.Log("GetBallByBallTypeInList  -> " + ball.name);
                 return ball;
             }
         }

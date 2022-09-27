@@ -105,7 +105,7 @@ public class MenuController : MonoBehaviour
         Time.timeScale = 0;
         //pause = true;
         BallLauncher.Instance.m_CanPlay = false;
-        Debug.Log("can play " + BallLauncher.Instance.m_CanPlay);
+       // Debug.Log("can play " + BallLauncher.Instance.m_CanPlay);
         // 2 - active m_PauseMenu
         m_PauseMenu.SetActive(true);
     }
@@ -124,7 +124,7 @@ public class MenuController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         BallLauncher.Instance.m_CanPlay = true;
-        Debug.Log("can play " + BallLauncher.Instance.m_CanPlay);
+       // Debug.Log("can play " + BallLauncher.Instance.m_CanPlay);
     }
 
     public void ShowSettingsPanel()
@@ -170,7 +170,7 @@ public class MenuController : MonoBehaviour
             catch (Exception e)
             {
                 Application.OpenURL("https://cafebazaar.ir/developer/scientist_studio");   // open in browser instead
-                Debug.LogAssertion(e.StackTrace);   // was not installed!
+              //  Debug.LogAssertion(e.StackTrace);   // was not installed!
             }
 #endif
         }
@@ -211,7 +211,7 @@ public class MenuController : MonoBehaviour
         catch (Exception e)
         {
             Application.OpenURL("https://www.instagram.com/gameditors/");   // open in browser instead
-            Debug.LogAssertion(e.StackTrace);   // was not installed!
+           // Debug.LogAssertion(e.StackTrace);   // was not installed!
         }
 #endif
     }
@@ -241,7 +241,7 @@ public class MenuController : MonoBehaviour
             catch (Exception e)
             {
                 Application.OpenURL("https://cafebazaar.ir/app/com.gameditors.ballz");
-                Debug.LogAssertion(e.StackTrace);   // maybe Bazaar was not installed!
+              //  Debug.LogAssertion(e.StackTrace);   // maybe Bazaar was not installed!
             }
 #endif
         }
@@ -351,7 +351,7 @@ public class MenuController : MonoBehaviour
             EnergyController.Instance.ShowEnergy();
             
             BallLauncher.Instance.OnMainMenuActions();
-            BrickSpawner.Instance.HideAllBricksRows();
+            //BrickSpawner.Instance.HideAllBricksRows();
             LevelManager.Instance.m_LevelState = LevelManager.LevelState.PLAYABLE;
             Saver.Instance.Save(true);
         }

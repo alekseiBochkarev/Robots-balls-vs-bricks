@@ -11,7 +11,7 @@ public class Energy
 
     public Energy() {
        CurrentEnergy = PlayerPrefs.GetInt("energy", defaultEnergy);
-       Debug.Log("Current energy before CalculateEnergy -> " + CurrentEnergy);
+      // Debug.Log("Current energy before CalculateEnergy -> " + CurrentEnergy);
        CalculateEnergy();
     }
 
@@ -22,7 +22,7 @@ public class Energy
         CurrentEnergy += differenceTime / energyRefreshentTime;
         if (CurrentEnergy > defaultEnergy)
             ChangeCurrentEnergy(defaultEnergy);
-        Debug.Log("Current energy After CalculateEnergy -> " + CurrentEnergy);
+      //  Debug.Log("Current energy After CalculateEnergy -> " + CurrentEnergy);
     }
 
     public void ChangeCurrentEnergy(int newEnergy) {

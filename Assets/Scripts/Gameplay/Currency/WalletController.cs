@@ -15,7 +15,7 @@ public class WalletController : MonoBehaviour
     private Text m_CrystalsText;
 
     private void Awake() {
-        Debug.Log("Awake the Wallet Controller");
+       // Debug.Log("Awake the Wallet Controller");
         Instance = this;
         Coins = new Coins();
         ShowCoins();
@@ -37,7 +37,7 @@ public class WalletController : MonoBehaviour
 
     public void ShowCoins() {
         Coins.LoadCoins();
-        Debug.Log("Show amount of coins -> " + Coins.m_Coins);
+      //  Debug.Log("Show amount of coins -> " + Coins.m_Coins);
         m_CoinsText.text = Coins.m_Coins.ToString();
     }
 

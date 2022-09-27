@@ -7,7 +7,7 @@ public class RocketBall : AbstractBall
     public RocketBall()
     {
         attackBehaviour = new RocketAttack();
-        afterCollisionBehaviour = new NoDestroy();
+      //  afterCollisionBehaviour = new NoDestroy();
         damageTextColor = TextController.COLOR_BLACK;
         damageTextFontSize = TextController.FONT_SIZE_MAX;
     }

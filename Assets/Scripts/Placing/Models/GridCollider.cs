@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,7 +24,7 @@ public class GridCollider : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collider) {
         if (collider.gameObject.GetComponent<Brick>() != null || collider.gameObject.GetComponent<ScoreBall>() != null)
         {
-         //   m_levelConfig.grid.SetValue(x, y, 0);
+            m_levelConfig.grid.SetValue(x, y, 0);
            // Debug.Log("GRID COLLIDER TRIGGER EXIT");
         } 
     }
@@ -50,3 +50,4 @@ public class GridCollider : MonoBehaviour
 
 
 }
+*/

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿/*
+using UnityEngine;
 
 public class BricksRow : MonoBehaviour
 {
@@ -18,14 +19,14 @@ public class BricksRow : MonoBehaviour
             m_Bricks[m_Bricks.Count - 1].transform.localPosition = new Vector3(0, m_SpawningTopPosition, 0);
             m_Bricks[m_Bricks.Count - 1].gameObject.SetActive(false);
         } 
-         */
+         
         m_Bricks = GetComponentsInChildren<Brick>();
         m_ScoreBalls = GetComponentsInChildren<ScoreBall>();
     }
 
     private void OnEnable()
     {
-        Debug.Log("BricksRow - OnEnable");
+       // Debug.Log("BricksRow - OnEnable");
         if (transform.localPosition.y < m_FloorPosition)
             GoToTop();
 
@@ -48,12 +49,12 @@ public class BricksRow : MonoBehaviour
 
         // make at least one brick available if there was not any one before
         bool hasNoBrick = true;
-        Debug.Log("OnEnable hasNoBrick " + hasNoBrick);
+       // Debug.Log("OnEnable hasNoBrick " + hasNoBrick);
         for (int i = 0; i < m_Bricks.Length; i++)
             if (m_Bricks[i].gameObject.activeInHierarchy)
             {
                 hasNoBrick = false;
-                Debug.Log("OnEnable hasNoBrick " + i + hasNoBrick);
+              //  Debug.Log("OnEnable hasNoBrick " + i + hasNoBrick);
               //  break;
             }
 
@@ -95,8 +96,8 @@ public class BricksRow : MonoBehaviour
 
     private void HideAll()
     {
-        Debug.Log("BricksRow - HideAll");
-        Debug.Log("BricksRow - HideAll -> m_Bricks.Length " + m_Bricks.Length);
+      //  Debug.Log("BricksRow - HideAll");
+      //  Debug.Log("BricksRow - HideAll -> m_Bricks.Length " + m_Bricks.Length);
         for (int i = 0; i < m_Bricks.Length; i++)
         {
             m_Bricks[i].gameObject.SetActive(false);
@@ -107,7 +108,7 @@ public class BricksRow : MonoBehaviour
 
     private void GoToTop()
     {
-        Debug.Log("GoToTop");
+       // Debug.Log("GoToTop");
         //HideAll();
         transform.localPosition = new Vector3(0, BrickSpawner.Instance.m_SpawningTopPosition, 0);
     }
@@ -183,4 +184,4 @@ public class BricksRow : MonoBehaviour
 
         return hasActiveScoreBall;
     }
-}
+}*/
