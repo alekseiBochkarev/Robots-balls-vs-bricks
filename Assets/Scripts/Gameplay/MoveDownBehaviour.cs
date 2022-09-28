@@ -9,6 +9,7 @@ public class MoveDownBehaviour : MonoBehaviour
     private bool needHorizontalMove = false;
     [SerializeField] private int x, y;
     private LevelConfig m_levelConfig;
+    public bool isMovingNow = false;
 
     private void Awake() {
         m_levelConfig = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelConfig>();
@@ -52,17 +53,35 @@ public class MoveDownBehaviour : MonoBehaviour
         if (m_levelConfig.grid.GetValue(x, y+1) == 0) {
             SetFreeXY();
             Vector3 target = m_levelConfig.grid.GetWorldPosition(x, y+1);
-            iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
-            StartCoroutine(WaitAndUpdateCurrentPosition());
+            //iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
+            StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.position, target));
         } else if (m_levelConfig.grid.GetValue(x, y+1) == 2) {
             needHorizontalMove = true;
         }
     }
 
-    IEnumerator WaitAndUpdateCurrentPosition()
+    IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos)
     {
-	    //Debug.Log("transform position before waiting " + transform.position);
-        yield return new WaitForSeconds(0.25f);
+        isMovingNow = true;
+        float speed = 0.1f; //  скорость прогресса (от начальной до конечной позиции)
+        float progress = 0;
+        while (true)
+        {
+            progress += speed;
+            transform.position = Vector3.Lerp(startPos, endPos, progress);
+            if (progress  >= 1) {
+                isMovingNow = false;
+                yield break; // выход из корутины, если находимся в конечной позиции
+            }
+            yield return null; // если выхода из корутины не произошло, то продолжаем выполнять цикл while в следующем кадре
+        }
+    }
+
+    IEnumerator MoveAndUpdateCurrentPosition(Vector3 startPos, Vector3 endPos)
+    {
+	    yield return StartCoroutine(MoveToTarget(startPos, endPos));
+        //Debug.Log("transform position before waiting " + transform.position);
+        //yield return new WaitForSeconds(0.25f);
         //Debug.Log("transform position after waiting " + transform.position);
         UpdateCurrentPosition();
         SetBusyXY();
@@ -73,14 +92,16 @@ public class MoveDownBehaviour : MonoBehaviour
             if (m_levelConfig.grid.GetValue(x-1, y) == 0) {
                 SetFreeXY();
                 Vector3 target = m_levelConfig.grid.GetWorldPosition(x-1, y);
-                iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
-                StartCoroutine(WaitAndUpdateCurrentPosition());
+                //iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
+                //StartCoroutine(WaitAndUpdateCurrentPosition());
+                StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.position, target));
                 needHorizontalMove = false;
             } else if (m_levelConfig.grid.GetValue(x+1, y) == 0) {
                 SetFreeXY();
                 Vector3 target = m_levelConfig.grid.GetWorldPosition(x+1, y);
-                iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
-                StartCoroutine(WaitAndUpdateCurrentPosition());
+                //iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
+                //StartCoroutine(WaitAndUpdateCurrentPosition());
+                StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.position, target));
                 needHorizontalMove = false;
             }
             needHorizontalMove = false;
