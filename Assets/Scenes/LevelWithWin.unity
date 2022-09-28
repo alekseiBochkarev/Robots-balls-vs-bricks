@@ -2007,6 +2007,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3099995468502116795, guid: bd11adedb0e20fd45b495497a7e47f5e,
+        type: 3}
+      propertyPath: heroBuffs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4455049390096852866, guid: bd11adedb0e20fd45b495497a7e47f5e,
         type: 3}
       propertyPath: m_Name
@@ -5623,7 +5628,7 @@ PrefabInstance:
         type: 3}
       propertyPath: heroBuffsSO.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 5d71d9b7406b07241ae2808d6e5b766b,
+      objectReference: {fileID: 11400000, guid: 2135372fb34863c47995cde170b40148,
         type: 2}
     - target: {fileID: 1303595325216086738, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
         type: 3}

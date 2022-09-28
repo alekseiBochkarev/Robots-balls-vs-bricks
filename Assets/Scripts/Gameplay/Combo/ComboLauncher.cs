@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Gameplay.HeroBuffs;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -21,7 +23,7 @@ namespace Assets.Scripts.Gameplay.Combo
             Instance = this;
             CanPlay = true;
         }
-
+        
         private void Update()
         {
             if (comboAmountOnScenes == 0)

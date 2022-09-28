@@ -14,7 +14,12 @@ public class EventManager : MonoBehaviour
     public static event Action GameWon;
     public static event Action LevelUp;
     public static event Action UpgradeStats;
+    public static event Action<HeroBuffSO> HeroBuffAdded;
 
+    public static void OnHeroBuffAdded(HeroBuffSO _heroBuffSO)
+    {
+        HeroBuffAdded?.Invoke(_heroBuffSO);
+    }
     public static void OnUpgradeStats()
     {
         UpgradeStats?.Invoke();

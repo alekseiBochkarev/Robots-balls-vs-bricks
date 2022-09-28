@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Gameplay.Combo;
+using Assets.Scripts.Gameplay.HeroBuffs;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,7 +39,7 @@ public class SpecialAttackDisplay : MonoBehaviour
         if (specialAttack.GetType() == typeof(ComboAttackSO))
             ComboLauncher.Instance.SetSpecialAttack(specialAttack);
         if (specialAttack.GetType() == typeof(HeroBuffSO))
-            // HeroBuffs.Instance.SetHeroBuff(specialAttack); ???
+            HeroBuffs.Instance.SetHeroBuff(specialAttack);
 
         //Clear SpecAttacks in UI
         Destroy(this.gameObject);

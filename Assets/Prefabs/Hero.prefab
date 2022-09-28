@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4455049390096852876}
   - component: {fileID: 4455049390096852879}
   - component: {fileID: 2224682512971057594}
+  - component: {fileID: 3099995468502116795}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Hero
@@ -100,9 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSkill: 3
-  defendSkill: 0
-  healthSkill: 10
-  heroHealth: 100
 --- !u!114 &2224682512971057594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +115,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarSlider: {fileID: 2482361933324841231}
   _percentageValueOfHealth: 0
+--- !u!114 &3099995468502116795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4455049390096852866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b93817ba53ce5429c80c244a54db54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroBuffs:
+  - {fileID: 11400000, guid: 2135372fb34863c47995cde170b40148, type: 2}
+  increasedCountComboValue: 0
 --- !u!1 &6422487429084728365
 GameObject:
   m_ObjectHideFlags: 0

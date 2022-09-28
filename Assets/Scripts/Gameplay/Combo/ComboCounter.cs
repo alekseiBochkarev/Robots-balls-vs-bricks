@@ -1,23 +1,28 @@
-using Assets.Scripts.Gameplay.Combo;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ComboCounter
 {   
-    private int startCombo = 0;
+    private readonly int startCombo = 0;
+    private readonly int startComboCounterValue = 1;
+    private int comboCounterValue;
     public static int CurrentCombo { private set; get;}
 
 
     public ComboCounter()
     {
         SetComboToZero();
+        SetComboCounterValue(startComboCounterValue);
+    }
+    public void SetComboCounterValue(int _comboCounterValue)
+    {
+        comboCounterValue = _comboCounterValue;
     }
     public void AddComboPoint()
     {
-        CurrentCombo++;
+        Debug.Log("Combo to add as value -> " + comboCounterValue);
+        CurrentCombo += comboCounterValue;
     }
-    
+
     public static int GetComboAmount()
     {
         return CurrentCombo;

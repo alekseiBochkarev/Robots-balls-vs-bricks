@@ -1,6 +1,5 @@
 using Assets.Scripts.Gameplay.Combo;
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Gameplay.HeroBuffs;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,11 +15,13 @@ public class ComboController : MonoBehaviour
         gameObject.SetActive(false);
         EventManager.BrickHit += AddComboAndShow;
         EventManager.BallsReturned += HideCombo;
+        EventManager.HeroBuffAdded += AddBuffToCombo;
     }
 
     private void OnDestroy() {
         EventManager.BrickHit -= AddComboAndShow;
         EventManager.BallsReturned -= HideCombo;
+        EventManager.HeroBuffAdded -= AddBuffToCombo;
     }
 
     private void AddComboAndShow()
@@ -28,6 +29,14 @@ public class ComboController : MonoBehaviour
         ComboCounter.AddComboPoint();
         ComboLauncher.Instance.AddComboPointAndStartComboAttack();
         ShowCombo();
+    }
+
+    private void AddBuffToCombo(HeroBuffSO buff)
+    {
+        if (buff.heroBuffType.Equals(HeroBuffsEnum.IncreasedCountComboBuff))
+        {
+            ComboCounter.SetComboCounterValue(buff.heroBuffValue);
+        }
     }
 
     private void HideCombo()
