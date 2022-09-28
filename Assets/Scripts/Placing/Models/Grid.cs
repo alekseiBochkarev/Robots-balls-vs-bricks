@@ -26,14 +26,14 @@ public class Grid{
 
     public void DebugDraw () {
         
-        for (int x=0; x < gridArray.GetLength(0); x++) {
+       /* for (int x=0; x < gridArray.GetLength(0); x++) {
             for (int y = 0; y < gridArray.GetLength(1); y++) {
                 //Debug.Log (x + ", " + y + ", " + cellSize + ", worldpos" + GetWorldPosition(x,y));
                debugTextArray[x, y] = UtilsClass.CreateWorldText(gridArray[x, y].ToString(), null, GetWorldPosition(x, y) , 12, Color.black, TextAnchor.MiddleCenter);
               // Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.black, 100f);
               // Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1 , y), Color.black, 100f);
             }
-        }
+        }*/
       //  Debug.DrawLine(GetWorldPosition(0 , height ), GetWorldPosition(width, height), Color.black, 100f);
        // Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.black, 100f);
     }
@@ -55,7 +55,7 @@ public class Grid{
     public void SetValue(int x, int y, int value) {
         if (x>=0 && y >=0 && x < width && y < height) {
             gridArray[x, y] = value;
-            debugTextArray[x, y].text = gridArray[x, y].ToString();
+           // debugTextArray[x, y].text = gridArray[x, y].ToString();
         }
     }
 

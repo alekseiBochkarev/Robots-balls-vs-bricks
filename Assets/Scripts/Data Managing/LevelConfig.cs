@@ -21,7 +21,7 @@ public class LevelConfig : MonoBehaviour
         scaleCoefficient = 6 / gridWidth;
         cellSize = baseCellSize * scaleCoefficient;
         grid = new Grid(gridWidth, gridHeight, cellSize, originPosition);
-        grid.SetValue(2,2,2);
+        //grid.SetValue(2,2,2); - it's for test
         //grid.SetValue(1,1,1);
        /* for (int y = 0; y < grid.GridHeight; y++) {
             for (int x = 0; x < grid.GridWidth; x ++) {
