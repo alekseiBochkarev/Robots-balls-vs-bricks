@@ -47,7 +47,7 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
         healthBar.SaveMaxBrickHealth();
         healthBar.ShowHealth();
         
-        ChangeColor();
+       // ChangeColor();
     }
 
     private void SetDefaultTextParams()
