@@ -1,9 +1,6 @@
 ﻿using Assets.Scripts.Data_Managing;
 using Assets.Scripts.Gameplay.HeroBuffs;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.Gameplay.Combo
@@ -19,22 +16,29 @@ namespace Assets.Scripts.Gameplay.Combo
         public bool CanPlay { set; get; }
         public int comboAmountOnScenes;
         private int currentComboAmount;
+        private int initComboOnValue;
 
-        private float PercentageToTriggerComboTwice;
-        private bool IsDoubleComboBuffActivated;
-        private bool IsPossibleToDoubleAttack;
+        [Header("Double Combo Info")]
+        [SerializeField] private float PercentageToTriggerComboTwice;
+        [SerializeField] private bool IsDoubleComboBuffActivated;
+        [SerializeField] private bool IsPossibleToDoubleAttack;
+
+        [Header("Discount Combo Info")]
+        [SerializeField] private bool IsDiscountComboBuffActivated;
+        [SerializeField] private float PercentageToSetComboDiscount;
 
         private void Awake()
         {
             Instance = this;
             CanPlay = true;
             IsDoubleComboBuffActivated = false;
-            EventManager.HeroBuffAdded += InitDoubleComboBuff;
+            IsDiscountComboBuffActivated = false;
+            EventManager.HeroBuffAdded += InitComboBuffs;
             EventManager.ComboCounterChanged += AddComboPointAndStartComboAttack;
         }
         private void OnDestroy()
         {
-            EventManager.HeroBuffAdded -= InitDoubleComboBuff;
+            EventManager.HeroBuffAdded -= InitComboBuffs;
             EventManager.ComboCounterChanged -= AddComboPointAndStartComboAttack;
         }
 
@@ -47,6 +51,12 @@ namespace Assets.Scripts.Gameplay.Combo
             }
         }
 
+        private void InitComboBuffs(HeroBuffSO heroBuff)
+        {
+            InitDoubleComboBuff(heroBuff);
+            InitDiscountComboBuff(heroBuff);
+        }
+
         private void InitDoubleComboBuff(HeroBuffSO buff)
         {
 
@@ -56,6 +66,18 @@ namespace Assets.Scripts.Gameplay.Combo
                 IsDoubleComboBuffActivated = true;
                 PercentageToTriggerComboTwice = (float) buff.heroBuffValue;
                 Debug.Log("InitDoubleComboBuff AFTER IF");
+            }
+        }
+
+        private void InitDiscountComboBuff(HeroBuffSO buff)
+        {
+
+            Debug.Log("InitDiscountComboBuff BEFORE IF");
+            if (buff.heroBuffType.Equals(HeroBuffsEnum.DiscountComboBuff))
+            {
+                IsDiscountComboBuffActivated = true;
+                PercentageToSetComboDiscount = (float) buff.heroBuffValue;
+                Debug.Log("InitDiscountComboBuff AFTER IF");
             }
         }
 
@@ -77,11 +99,16 @@ namespace Assets.Scripts.Gameplay.Combo
         public void AddComboPointAndStartComboAttack(int _currentComboAmount)
         {
             SetCurrentComboAmount(_currentComboAmount);
-            if (currentComboAmount != 0 && comboAttacks != null)
+            if (currentComboAmount != 0 && comboAttacks.Count != 0)
             {
                 for (int i = 0; i < comboAttacks.Count; i++)
                 {
-                    if (currentComboAmount % comboAttacks[i].initComboOnValue == 0)
+                    initComboOnValue = comboAttacks[i].initComboOnValue;
+                    if (IsDiscountComboBuffActivated)
+                    {
+                        initComboOnValue = (int) ProbalitiesController.Instance.GetCalculatedValueFromTotalByPercentage(initComboOnValue, PercentageToSetComboDiscount);
+                    }
+                    if (currentComboAmount % initComboOnValue == 0)
                     {
                         m_ComboPrefab = Resources.Load<GameObject>("ComboAttacks/" + comboAttacks[i].comboType.ToString());
                         if (IsDoubleComboBuffActivated == true)

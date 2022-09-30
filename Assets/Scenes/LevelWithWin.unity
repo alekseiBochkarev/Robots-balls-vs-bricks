@@ -1628,11 +1628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b89429486f8f894e88e26b1bf8673f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboAttacks:
-  - {fileID: 11400000, guid: 3407e24ffcfb3494ebff7f050ac9e95e, type: 2}
-  - {fileID: 11400000, guid: 82751e3109f5d8540a97ec7e5a10c38f, type: 2}
-  - {fileID: 11400000, guid: 05ebfdd82c5313b4d991c2764577022e, type: 2}
-  - {fileID: 11400000, guid: a7ab98fcec9376b428b7f529a08d234e, type: 2}
+  comboAttacks: []
   comboAmountOnScenes: 0
 --- !u!4 &700072698 stripped
 Transform:
@@ -2027,13 +2023,19 @@ PrefabInstance:
     - target: {fileID: 3099995468502116795, guid: bd11adedb0e20fd45b495497a7e47f5e,
         type: 3}
       propertyPath: heroBuffs.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3099995468502116795, guid: bd11adedb0e20fd45b495497a7e47f5e,
         type: 3}
       propertyPath: heroBuffs.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 2135372fb34863c47995cde170b40148,
+        type: 2}
+    - target: {fileID: 3099995468502116795, guid: bd11adedb0e20fd45b495497a7e47f5e,
+        type: 3}
+      propertyPath: heroBuffs.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2fb60337a605a374eabe5f795aea4282,
         type: 2}
     - target: {fileID: 4455049390096852866, guid: bd11adedb0e20fd45b495497a7e47f5e,
         type: 3}
@@ -5640,7 +5642,7 @@ PrefabInstance:
     - target: {fileID: 1303595325216086738, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
         type: 3}
       propertyPath: heroBuffsSO.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1303595325216086738, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
         type: 3}
@@ -5658,6 +5660,12 @@ PrefabInstance:
       propertyPath: heroBuffsSO.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: ec5c84aa44eaead4cb76f9154859c4c5,
+        type: 2}
+    - target: {fileID: 1303595325216086738, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
+        type: 3}
+      propertyPath: heroBuffsSO.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2fb60337a605a374eabe5f795aea4282,
         type: 2}
     - target: {fileID: 1303595325216086738, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
         type: 3}
