@@ -1,3 +1,4 @@
+using Assets.Scripts.Gameplay.Combo;
 using UnityEngine;
 
 public class ComboCounter
@@ -20,7 +21,19 @@ public class ComboCounter
     public void AddComboPoint()
     {
         Debug.Log("Combo to add as value -> " + comboCounterValue);
-        CurrentCombo += comboCounterValue;
+        if (comboCounterValue == startComboCounterValue)
+        {
+            CurrentCombo += startComboCounterValue;
+            EventManager.OnComboCounterChanged(CurrentCombo);
+        }
+        else
+        {
+            for (int i = 0; i < comboCounterValue; i++)
+            {
+                CurrentCombo++;
+                EventManager.OnComboCounterChanged(CurrentCombo);
+            }
+        }
     }
 
     public static int GetComboAmount()

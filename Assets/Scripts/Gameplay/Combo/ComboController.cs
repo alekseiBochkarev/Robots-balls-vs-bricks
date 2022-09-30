@@ -27,7 +27,6 @@ public class ComboController : MonoBehaviour
     private void AddComboAndShow()
     {   gameObject.SetActive(true);
         ComboCounter.AddComboPoint();
-        ComboLauncher.Instance.AddComboPointAndStartComboAttack();
         ShowCombo();
     }
 

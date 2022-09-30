@@ -18,6 +18,7 @@ namespace Assets.Scripts.Gameplay.Combo
         private Vector3 cannonPosition = new Vector3(2f, -6.09f, 0f); //need to add cannon position instead hardcore
         public bool CanPlay { set; get; }
         public int comboAmountOnScenes;
+        private int currentComboAmount;
 
         private float PercentageToTriggerComboTwice;
         private bool IsDoubleComboBuffActivated;
@@ -29,10 +30,12 @@ namespace Assets.Scripts.Gameplay.Combo
             CanPlay = true;
             IsDoubleComboBuffActivated = false;
             EventManager.HeroBuffAdded += InitDoubleComboBuff;
+            EventManager.ComboCounterChanged += AddComboPointAndStartComboAttack;
         }
         private void OnDestroy()
         {
             EventManager.HeroBuffAdded -= InitDoubleComboBuff;
+            EventManager.ComboCounterChanged -= AddComboPointAndStartComboAttack;
         }
 
         private void Update()
@@ -66,9 +69,14 @@ namespace Assets.Scripts.Gameplay.Combo
             comboAmountOnScenes++;
         }
 
-        public void AddComboPointAndStartComboAttack()
+        private void SetCurrentComboAmount(int _currentComboAmount)
         {
-            int currentComboAmount = ComboCounter.GetComboAmount();
+            this.currentComboAmount = _currentComboAmount;
+        }
+
+        public void AddComboPointAndStartComboAttack(int _currentComboAmount)
+        {
+            SetCurrentComboAmount(_currentComboAmount);
             if (currentComboAmount != 0 && comboAttacks != null)
             {
                 for (int i = 0; i < comboAttacks.Count; i++)

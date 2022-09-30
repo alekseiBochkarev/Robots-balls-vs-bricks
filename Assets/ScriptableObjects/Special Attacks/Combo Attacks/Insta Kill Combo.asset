@@ -20,4 +20,4 @@ MonoBehaviour:
   currentUseAmount: 0
   attackTypeEnum: 1
   comboType: 5
-  initComboOnValue: 20
+  initComboOnValue: 45

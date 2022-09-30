@@ -20,5 +20,4 @@ MonoBehaviour:
   currentUseAmount: 0
   attackTypeEnum: 2
   heroBuffType: 2
-  heroBuffValue: 5
-  IsBuffActivated: 1
+  heroBuffValue: 7
