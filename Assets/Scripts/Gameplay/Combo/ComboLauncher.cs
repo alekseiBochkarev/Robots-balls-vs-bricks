@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Gameplay.HeroBuffs;
+﻿using Assets.Scripts.Data_Managing;
+using Assets.Scripts.Gameplay.HeroBuffs;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,18 +19,40 @@ namespace Assets.Scripts.Gameplay.Combo
         public bool CanPlay { set; get; }
         public int comboAmountOnScenes;
 
+        private float PercentageToTriggerComboTwice;
+        private bool IsDoubleComboBuffActivated;
+        private bool IsPossibleToDoubleAttack;
+
         private void Awake()
         {
             Instance = this;
             CanPlay = true;
+            IsDoubleComboBuffActivated = false;
+            EventManager.HeroBuffAdded += InitDoubleComboBuff;
         }
-        
+        private void OnDestroy()
+        {
+            EventManager.HeroBuffAdded -= InitDoubleComboBuff;
+        }
+
         private void Update()
         {
             if (comboAmountOnScenes == 0)
             {
                 CanPlay = true;
                 comboAmountOnScenes = 0;
+            }
+        }
+
+        private void InitDoubleComboBuff(HeroBuffSO buff)
+        {
+
+            Debug.Log("InitDoubleComboBuff BEFORE IF");
+            if (buff.heroBuffType.Equals(HeroBuffsEnum.DoubleComboBuff))
+            {
+                IsDoubleComboBuffActivated = true;
+                PercentageToTriggerComboTwice = (float) buff.heroBuffValue;
+                Debug.Log("InitDoubleComboBuff AFTER IF");
             }
         }
 
@@ -53,6 +76,15 @@ namespace Assets.Scripts.Gameplay.Combo
                     if (currentComboAmount % comboAttacks[i].initComboOnValue == 0)
                     {
                         m_ComboPrefab = Resources.Load<GameObject>("ComboAttacks/" + comboAttacks[i].comboType.ToString());
+                        if (IsDoubleComboBuffActivated == true)
+                        {
+                            IsPossibleToDoubleAttack = ProbalitiesController.Instance.CheckProbality(PercentageToTriggerComboTwice);
+                            Debug.Log("IsPossibleToDoubleAttack -> " + IsPossibleToDoubleAttack);
+                            if (IsPossibleToDoubleAttack == true)
+                            {
+                                Instantiate(m_ComboPrefab, cannonPosition, Quaternion.identity);
+                            }
+                        }
                         Instantiate(m_ComboPrefab, cannonPosition, Quaternion.identity);
                         CanPlay = false;
                     }

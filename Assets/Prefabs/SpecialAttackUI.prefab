@@ -226,7 +226,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5d71d9b7406b07241ae2808d6e5b766b, type: 2}
   - {fileID: 11400000, guid: 98e610454b044aa46a0a04c58bf7f9c4, type: 2}
   - {fileID: 11400000, guid: fa691d4e6e3b24e49b8ec34eec98bd3d, type: 2}
-  heroBuffsSO: []
+  - {fileID: 11400000, guid: 3407e24ffcfb3494ebff7f050ac9e95e, type: 2}
+  heroBuffsSO:
+  - {fileID: 11400000, guid: 2135372fb34863c47995cde170b40148, type: 2}
+  - {fileID: 11400000, guid: ec5c84aa44eaead4cb76f9154859c4c5, type: 2}
   amountOfUpgradeTabs: 3
   displayPrefab: {fileID: 4171250024230975390, guid: de962f0b7988ad94b88eed8d555790de,
     type: 3}

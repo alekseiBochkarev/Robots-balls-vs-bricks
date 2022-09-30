@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.Gameplay.HeroBuffs
@@ -17,10 +16,18 @@ namespace Assets.Scripts.Gameplay.HeroBuffs
 
         private void Start()
         {
-            /* It needs to initialize if a hero already have buffs
-               otherwise -> it will not load all buffs
-            */
-            if (heroBuffs != null)
+            /*  It needs to initialize if a hero already have buffs
+             *   otherwise -> it will not load all buffs
+             */
+            LoadHeroBuffs();
+        }
+
+        /*  Need to Init ClearAllActivatedHeroBuffs before reload heroBuffs
+         *  otherwise it will rewrite IsBuffActivated to true
+         */
+        private void LoadHeroBuffs() 
+        {
+            if (heroBuffs.Count != 0)
             {
                 foreach (var singleHeroBuff in heroBuffs)
                 {
@@ -28,6 +35,7 @@ namespace Assets.Scripts.Gameplay.HeroBuffs
                 }
             }
         }
+
         public void SetHeroBuff(SpecialAttackSO _specialAttack)
         {
             heroBuffs.Add( (HeroBuffSO) _specialAttack);
@@ -40,6 +48,7 @@ namespace Assets.Scripts.Gameplay.HeroBuffs
         }
 
     }
+
     public enum HeroBuffsEnum
     {
         DoubleComboBuff,

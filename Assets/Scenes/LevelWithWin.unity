@@ -825,6 +825,7 @@ GameObject:
   - component: {fileID: 519420035}
   - component: {fileID: 519420030}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420037}
   m_Layer: 0
   m_Name: Main Camera (LevelManager)
   m_TagString: MainCamera
@@ -1040,6 +1041,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &519420037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9caf0137e99b9b14a8081489de69b725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &539004127
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,6 +2025,12 @@ PrefabInstance:
       propertyPath: heroBuffs.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3099995468502116795, guid: bd11adedb0e20fd45b495497a7e47f5e,
+        type: 3}
+      propertyPath: heroBuffs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ec5c84aa44eaead4cb76f9154859c4c5,
+        type: 2}
     - target: {fileID: 4455049390096852866, guid: bd11adedb0e20fd45b495497a7e47f5e,
         type: 3}
       propertyPath: m_Name
@@ -5617,7 +5636,7 @@ PrefabInstance:
     - target: {fileID: 1303595325216086738, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
         type: 3}
       propertyPath: heroBuffsSO.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1303595325216086738, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
         type: 3}
@@ -5629,6 +5648,12 @@ PrefabInstance:
       propertyPath: heroBuffsSO.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 2135372fb34863c47995cde170b40148,
+        type: 2}
+    - target: {fileID: 1303595325216086738, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
+        type: 3}
+      propertyPath: heroBuffsSO.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: ec5c84aa44eaead4cb76f9154859c4c5,
         type: 2}
     - target: {fileID: 1303595325216086738, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
         type: 3}

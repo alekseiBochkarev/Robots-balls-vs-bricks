@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff26feb5aaa043842ac9754b0fce7803, type: 3}
-  m_Name: IncreasedCountComboBuff
+  m_Name: DoubleComboBuff
   m_EditorClassIdentifier: 
   specialAttackIndex: 0
-  specialAttackName: Increased Count Combo Buff
-  specialAttackDescription: Increases Combo Count
+  specialAttackName: Double Combo Buff
+  specialAttackDescription: Has a chance to trigger combo twice
   specialAttackImage: {fileID: 0}
   maxUseAmount: 1
-  currentUseAmount: 0
+  currentUseAmount: 1
   attackTypeEnum: 2
-  heroBuffType: 2
-  heroBuffValue: 5
+  heroBuffType: 0
+  heroBuffValue: 25
   IsBuffActivated: 1
