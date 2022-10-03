@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Gameplay.HeroBuffs;
 using UnityEngine;
 
-public class HeroBuffSO : MonoBehaviour
+[CreateAssetMenu(fileName = "New Special Attack", menuName = "Scriptable Objects/Special Attacks/HeroBuffSO")]
+public class HeroBuffSO : SpecialAttackSO
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public HeroBuffsEnum heroBuffType;
+    public int heroBuffValue;
 
-    // Update is called once per frame
-    void Update()
+    public HeroBuffSO()
     {
-        
+        attackTypeEnum = AttackTypeEnum.HeroBuff;
+        maxUseAmount = 1;
     }
 }
