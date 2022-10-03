@@ -41,14 +41,8 @@ public class ComboController : MonoBehaviour
     private void HideCombo()
     {
         gameObject.SetActive(false);
-<<<<<<< HEAD:Assets/Scripts/Gameplay/ComboController.cs
-        Combo.SetComboToZero();
-      //  Debug.Log("Hide combo");
-=======
         ComboCounter.SetComboToZero();
-        Debug.Log("Hide combo");
->>>>>>> 3a2dea06ef4e84ee208f97a07801e907a945e7a9:Assets/Scripts/Gameplay/Combo/ComboController.cs
-        
+        //Debug.Log("Hide combo");       
     }
 
     private void ShowCombo(){
