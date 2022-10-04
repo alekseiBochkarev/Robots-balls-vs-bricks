@@ -7,5 +7,5 @@ public interface IBall
     int GetAttackPower { get; }
     int GetDamageTextFontSize { get; }
     Color GetDamageTextColor { get; }
-
+    public void DestroyBall();
 }

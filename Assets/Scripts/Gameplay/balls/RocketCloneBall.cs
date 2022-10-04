@@ -89,5 +89,9 @@ public class RocketCloneBall : MonoBehaviour, IBall
         }
     }
 
+    public void DestroyBall () {
+        Destroy(this.gameObject);
+    }
+
     
 }

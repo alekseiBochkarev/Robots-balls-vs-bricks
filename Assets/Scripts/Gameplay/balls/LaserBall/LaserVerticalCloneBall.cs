@@ -53,4 +53,8 @@ public class LaserVerticalCloneBall : MonoBehaviour, IBall
             Destroy(this.gameObject);
         }
     }
+
+    public void DestroyBall () {
+        Destroy(this.gameObject);
+    }
 }
