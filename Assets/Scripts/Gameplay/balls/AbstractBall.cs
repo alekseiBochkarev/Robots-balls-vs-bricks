@@ -8,12 +8,44 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     public AttackBehaviour attackBehaviour;
     public AfterCollisionBehaviour afterCollisionBehaviour;
     
+    public GameObject hero;
+    public static Vector3 s_FirstCollisionPoint { private set; get; }
+    //private static int s_ReturnedBallsAmount = 0;
+    public int attackPower;
+    protected int damageTextFontSize;
+    protected Color damageTextColor;
+
+    private Rigidbody2D m_Rigidbody2D;
+    private CircleCollider2D m_Collider2D;
+    private SpriteRenderer m_SpriteRenderer;
+    private TrailRenderer m_TrailRenderer;
+    //private SpecialAttackPanelController m_SpecialAttackPanelController;
+
+    public int m_WallCollisionDuration = 0;
+
+    [SerializeField] private float m_MoveSpeed = 10;
+
+    public float m_MinimumYPosition = -4.09f;
+    float rot_z;
+
+    private void Awake()
+    {
+        m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
+
+        m_Collider2D = GetComponent<CircleCollider2D>();
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        m_TrailRenderer = GetComponent<TrailRenderer>();
+
+        //m_SpecialAttackPanelController = GameObject.Find("SpecialAttackUI").GetComponent<SpecialAttackPanelController>();
+    }
+
     public AbstractBall ()
     {
 
     }
 
-        public void DestroyAfterTime()
+    public void DestroyAfterTime()
     {
         Destroy(this.gameObject, 2f);
     }
@@ -49,39 +81,6 @@ public abstract class AbstractBall: MonoBehaviour, IBall
             MoveTo(s_FirstCollisionPoint, iTween.EaseType.linear, (Vector2.Distance(transform.position, s_FirstCollisionPoint) / 5.0f), "Deactive");
         }
         
-    }
-
-
-    public GameObject hero;
-    public static Vector3 s_FirstCollisionPoint { private set; get; }
-    //private static int s_ReturnedBallsAmount = 0;
-    public int attackPower;
-    protected int damageTextFontSize;
-    protected Color damageTextColor;
-
-    private Rigidbody2D m_Rigidbody2D;
-    private CircleCollider2D m_Collider2D;
-    private SpriteRenderer m_SpriteRenderer;
-    private TrailRenderer m_TrailRenderer;
-    //private SpecialAttackPanelController m_SpecialAttackPanelController;
-
-    public int m_WallCollisionDuration = 0;
-
-    [SerializeField] private float m_MoveSpeed = 10;
-
-    public float m_MinimumYPosition = -4.09f;
-    float rot_z;
-
-    private void Awake()
-    {
-        m_Rigidbody2D = GetComponent<Rigidbody2D>();
-        m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
-
-        m_Collider2D = GetComponent<CircleCollider2D>();
-        m_SpriteRenderer = GetComponent<SpriteRenderer>();
-        m_TrailRenderer = GetComponent<TrailRenderer>();
-
-        //m_SpecialAttackPanelController = GameObject.Find("SpecialAttackUI").GetComponent<SpecialAttackPanelController>();
     }
 
     void Start()
