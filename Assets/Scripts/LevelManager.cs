@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Gameplay.Combo;
+using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class LevelManager : MonoBehaviour
 {
@@ -9,6 +11,9 @@ public class LevelManager : MonoBehaviour
     public GameObject m_GameOverPanel;
     public GameObject m_Scores;
     public Text m_GameOverFinalScore;
+
+    private static int s_ReturnedBallsAmount = 0;
+    private SpecialAttackPanelController m_SpecialAttackPanelController;
 
     public enum LevelState { PLAYABLE, GAMEOVER, WIN }
     private LevelState m_State; //= GameState.MainMenu;
@@ -69,6 +74,9 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        EventManager.BallsReturned += CheckBallsAndOpenSpecAttackPanelAndContinuePlaying;
+        EventManager.ResetReturningBallsAmount += ResetReturningBallsAmount;
+        m_SpecialAttackPanelController = GameObject.Find("SpecialAttackUI").GetComponent<SpecialAttackPanelController>();
     }
 
     private void Start()
@@ -82,5 +90,44 @@ public class LevelManager : MonoBehaviour
     private void Update()
     {
         ScoreManager.Instance.m_ScoreText.text = ScoreManager.Instance.m_LevelOfFinalBrick.ToString();
+    }
+
+    private void CheckBallsAndOpenSpecAttackPanelAndContinuePlaying () {
+        s_ReturnedBallsAmount ++;
+        if (s_ReturnedBallsAmount >= Balls.Instance.PlayerBallsAmount)
+            StartCoroutine(OpenSpecAttackPanelAndContinuePlaying());
+    }
+
+     IEnumerator OpenSpecAttackPanelAndContinuePlaying()
+    {
+        if (LevelManager.Instance.m_LevelState == LevelManager.LevelState.PLAYABLE)
+        {
+            int magicBallCount = m_SpecialAttackPanelController.GetMagicBallAmount();
+            for (int i = 0; i < magicBallCount; i++)
+            {
+                yield return StartCoroutine(ShowSpecAttackPanelAndClose());
+            }
+        }
+        BallLauncher.Instance.ContinuePlaying();
+        //m_SpriteRenderer.enabled = false;
+    }
+    
+    IEnumerator ShowSpecAttackPanelAndClose()
+    {
+        while (ComboLauncher.Instance.CanPlay == false)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        m_SpecialAttackPanelController.ShowSpecAttackPanel();
+        while (m_SpecialAttackPanelController.IsSpecAttackPanelOpened == true)
+        {
+            yield return null;
+        }
+        m_SpecialAttackPanelController.MinusMagicBallAmount();
+    }
+
+    public static void ResetReturningBallsAmount()
+    {
+        s_ReturnedBallsAmount = 0;
     }
 }

@@ -42,7 +42,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
     public GameObject hero;
     public static Vector3 s_FirstCollisionPoint { private set; get; }
-    private static int s_ReturnedBallsAmount = 0;
+    //private static int s_ReturnedBallsAmount = 0;
     public int attackPower;
     protected int damageTextFontSize;
     protected Color damageTextColor;
@@ -51,7 +51,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     private CircleCollider2D m_Collider2D;
     private SpriteRenderer m_SpriteRenderer;
     private TrailRenderer m_TrailRenderer;
-    private SpecialAttackPanelController m_SpecialAttackPanelController;
+    //private SpecialAttackPanelController m_SpecialAttackPanelController;
 
     public int m_WallCollisionDuration = 0;
 
@@ -69,7 +69,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_TrailRenderer = GetComponent<TrailRenderer>();
 
-        m_SpecialAttackPanelController = GameObject.Find("SpecialAttackUI").GetComponent<SpecialAttackPanelController>();
+        //m_SpecialAttackPanelController = GameObject.Find("SpecialAttackUI").GetComponent<SpecialAttackPanelController>();
     }
 
     void Start()
@@ -164,7 +164,8 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
     public static void ResetReturningBallsAmount()
     {
-        s_ReturnedBallsAmount = 0;
+        //s_ReturnedBallsAmount = 0;
+        EventManager.OnResetReturningBallsAmount();
     }
 
     public void GetReadyAndAddForce(Vector2 direction)
@@ -209,13 +210,16 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
     private void Deactive()
     {
-        s_ReturnedBallsAmount++;    // then check all of balls are returned to the floor
+       // s_ReturnedBallsAmount++;
+        EventManager.OnBallsReturned();
+        m_SpriteRenderer.enabled = false;
+            // then check all of balls are returned to the floor
         //INPOTANT PLACE - HERE I CAN ADD ATACK (BOCH ALEKSEI)
-        if (s_ReturnedBallsAmount == Balls.Instance.PlayerBallsAmount)
-            StartCoroutine(OpenSpecAttackPanelAndContinuePlaying());
+       // if (s_ReturnedBallsAmount == Balls.Instance.PlayerBallsAmount)
+       //     StartCoroutine(OpenSpecAttackPanelAndContinuePlaying());
     }
 
-    IEnumerator OpenSpecAttackPanelAndContinuePlaying()
+ /*   IEnumerator OpenSpecAttackPanelAndContinuePlaying()
     {
         if (LevelManager.Instance.m_LevelState == LevelManager.LevelState.PLAYABLE)
         {
@@ -241,7 +245,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
             yield return null;
         }
         m_SpecialAttackPanelController.MinusMagicBallAmount();
-    }
+    }*/
 
     private void DeactiveSprite()
     {
