@@ -28,15 +28,27 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     {
         if (collision.gameObject.GetComponent<Brick>() != null){
             afterCollisionBehaviour.BehaviourAfterCollision();
-        }
-        
+        } 
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collider.gameObject.GetComponent<Brick>() != null) {
+        if (collision.gameObject.GetComponent<Brick>() != null) {
             afterCollisionBehaviour.BehaviourAfterCollision();
+        } else if (collision.gameObject.name == "BORDER") {
+            transform.localPosition = new Vector3(transform.localPosition.x, m_MinimumYPosition, 0);
+            Debug.Log("BORDER");
+            if (s_FirstCollisionPoint == Vector3.zero)
+            {
+                s_FirstCollisionPoint = transform.position;
+                BallLauncher.Instance.m_BallSprite.transform.position = s_FirstCollisionPoint;
+                BallLauncher.Instance.m_BallSprite.enabled = true;
+            }
+
+            DisablePhysics();
+            MoveTo(s_FirstCollisionPoint, iTween.EaseType.linear, (Vector2.Distance(transform.position, s_FirstCollisionPoint) / 5.0f), "Deactive");
         }
+        
     }
 
 
@@ -110,7 +122,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
         m_Rigidbody2D.velocity = m_Rigidbody2D.velocity.normalized * m_MoveSpeed;
         RotateBall();
-        if (transform.localPosition.y < m_MinimumYPosition)
+        /*if (transform.localPosition.y < m_MinimumYPosition)
         {
             transform.localPosition = new Vector3(transform.localPosition.x, m_MinimumYPosition, 0);
 
@@ -123,7 +135,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
             DisablePhysics();
             MoveTo(s_FirstCollisionPoint, iTween.EaseType.linear, (Vector2.Distance(transform.position, s_FirstCollisionPoint) / 5.0f), "Deactive");
-        }
+        }*/
     }
 
     void RotateBall()
