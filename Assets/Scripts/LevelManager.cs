@@ -14,6 +14,8 @@ public class LevelManager : MonoBehaviour
 
     private static int s_ReturnedBallsAmount = 0;
     private SpecialAttackPanelController m_SpecialAttackPanelController;
+    Collider2D[] colliders;
+    private float vision = 10f;
 
     public enum LevelState { PLAYABLE, GAMEOVER, WIN }
     private LevelState m_State; //= GameState.MainMenu;
@@ -94,12 +96,18 @@ public class LevelManager : MonoBehaviour
 
     private void CheckBallsAndOpenSpecAttackPanelAndContinuePlaying () {
         s_ReturnedBallsAmount ++;
-        if (s_ReturnedBallsAmount >= Balls.Instance.PlayerBallsAmount)
-            StartCoroutine(OpenSpecAttackPanelAndContinuePlaying());
+        if (s_ReturnedBallsAmount >= Balls.Instance.PlayerBallsAmount)  
+        StartCoroutine(OpenSpecAttackPanelAndContinuePlaying());
     }
 
-     IEnumerator OpenSpecAttackPanelAndContinuePlaying()
+    IEnumerator OpenSpecAttackPanelAndContinuePlaying()
     {
+        colliders = Physics2D.OverlapCircleAll(transform.position, vision);
+        for (int i = 0; i < colliders.Length; i ++) {
+            if (colliders[i].gameObject.GetComponent<IBall>() != null) {
+                colliders[i].gameObject.GetComponent<IBall>().DestroyBall();
+            }
+        }
         if (LevelManager.Instance.m_LevelState == LevelManager.LevelState.PLAYABLE)
         {
             int magicBallCount = m_SpecialAttackPanelController.GetMagicBallAmount();

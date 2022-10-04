@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ComboBallController : MonoBehaviour
+public class ComboBallController : MonoBehaviour, IBall
 {
     public GameObject hero;
     public int attackPower;
@@ -119,9 +119,39 @@ public class ComboBallController : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    public void DestroyBall () {
+        ComboLauncher.Instance.DecreaseComboAmountOnScene();
+        Destroy(this.gameObject);
+    }
+
     private void DisablePhysics()
     {
         m_Collider2D.enabled = false;
+    }
+
+    public int GetAttackPower
+    {
+        get
+        {
+            return attackPower;
+        }
+    }
+
+    public int GetDamageTextFontSize
+    {
+        get
+        {
+            return damageTextFontSize;
+        }
+    }
+
+    public Color GetDamageTextColor
+    {
+        get
+        {
+            return damageTextColor;
+        }
     }
 }
 

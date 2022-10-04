@@ -69,7 +69,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
             afterCollisionBehaviour.BehaviourAfterCollision();
         } else if (collision.gameObject.name == "BORDER") {
             transform.localPosition = new Vector3(transform.localPosition.x, m_MinimumYPosition, 0);
-            Debug.Log("BORDER");
+            //Debug.Log("BORDER");
             if (s_FirstCollisionPoint == Vector3.zero)
             {
                 s_FirstCollisionPoint = transform.position;
@@ -121,20 +121,6 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
         m_Rigidbody2D.velocity = m_Rigidbody2D.velocity.normalized * m_MoveSpeed;
         RotateBall();
-        /*if (transform.localPosition.y < m_MinimumYPosition)
-        {
-            transform.localPosition = new Vector3(transform.localPosition.x, m_MinimumYPosition, 0);
-
-            if (s_FirstCollisionPoint == Vector3.zero)
-            {
-                s_FirstCollisionPoint = transform.position;
-                BallLauncher.Instance.m_BallSprite.transform.position = s_FirstCollisionPoint;
-                BallLauncher.Instance.m_BallSprite.enabled = true;
-            }
-
-            DisablePhysics();
-            MoveTo(s_FirstCollisionPoint, iTween.EaseType.linear, (Vector2.Distance(transform.position, s_FirstCollisionPoint) / 5.0f), "Deactive");
-        }*/
     }
 
     void RotateBall()
@@ -142,31 +128,6 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         rot_z = Mathf.Atan2(m_Rigidbody2D.velocity.y, m_Rigidbody2D.velocity.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
     }
-
-/*
-    private static void ContinuePlaying()
-    {
-       // Debug.Log("ContinuePlaying");
-        if (s_FirstCollisionPoint != Vector3.zero)
-            BallLauncher.Instance.transform.position = s_FirstCollisionPoint;
-
-        BallLauncher.Instance.m_BallSprite.enabled = true;
-        BallLauncher.Instance.ActivateHUD();
-
-        ScoreManager.Instance.UpdateScore();
-
-        BrickSpawner.Instance.MoveDownBricksRows();
-        BrickSpawner.Instance.SpawnNewBricks();
-
-        s_FirstCollisionPoint = Vector3.zero;
-        s_ReturnedBallsAmount = 0;
-
-        EventManager.OnBallsReturned();
-
-        BallLauncher.Instance.m_CanPlay = true;
-        BallLauncher.Instance.FindBricksAndSetRigidbodyType(RigidbodyType2D.Dynamic);
-    }
-    */
 
     public static void ResetFirstCollisionPoint()
     {
@@ -261,6 +222,11 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     private void DeactiveSprite()
     {
         m_SpriteRenderer.enabled = false;
+    }
+
+    public void DestroyBall() {
+        DisablePhysics();
+            MoveTo(s_FirstCollisionPoint, iTween.EaseType.linear, (Vector2.Distance(transform.position, s_FirstCollisionPoint) / 5.0f), "Deactive");
     }
 }
 
