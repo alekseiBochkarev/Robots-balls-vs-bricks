@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 51174430}
   - component: {fileID: 51174431}
+  - component: {fileID: 51174432}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -167,13 +168,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b89429486f8f894e88e26b1bf8673f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboAttacks: []
+  comboAttacks:
+  - {fileID: 11400000, guid: a7ab98fcec9376b428b7f529a08d234e, type: 2}
   comboAmountOnScenes: 0
   PercentageToTriggerComboTwice: 0
   IsDoubleComboBuffActivated: 0
   IsPossibleToDoubleAttack: 0
   IsDiscountComboBuffActivated: 0
   PercentageToSetComboDiscount: 0
+--- !u!114 &51174432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51174429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d8e7cddf985954abda7fac47f000fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  managingPrefab: {fileID: 0}
+  growOverAmount: 1
 --- !u!1 &78971640
 GameObject:
   m_ObjectHideFlags: 0
@@ -2022,8 +2038,14 @@ PrefabInstance:
     - target: {fileID: 3099995468502116795, guid: bd11adedb0e20fd45b495497a7e47f5e,
         type: 3}
       propertyPath: heroBuffs.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3099995468502116795, guid: bd11adedb0e20fd45b495497a7e47f5e,
+        type: 3}
+      propertyPath: heroBuffs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2135372fb34863c47995cde170b40148,
+        type: 2}
     - target: {fileID: 3099995468502116795, guid: bd11adedb0e20fd45b495497a7e47f5e,
         type: 3}
       propertyPath: heroBuffs.Array.data[1]
@@ -5922,6 +5944,11 @@ PrefabInstance:
       propertyPath: m_ReturnBallsButton
       value: 
       objectReference: {fileID: 2036214285}
+    - target: {fileID: 2365796386279608605, guid: 2c292e703fd22b9df8790345502fa7ac,
+        type: 3}
+      propertyPath: startBallsAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2365796386279608606, guid: 2c292e703fd22b9df8790345502fa7ac,
         type: 3}
       propertyPath: m_RootOrder

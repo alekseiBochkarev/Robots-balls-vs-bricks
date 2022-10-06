@@ -13,14 +13,16 @@ public class ComboBallController : MonoBehaviour, IBall
     private float vision;
     public int MoveSpeed = 7;
     private GameObject brickObject;
+    private Transform cannonPosition;
     Vector3 diff;
     float rot_z;
     [SerializeField] private CloneBallTypes ballToSpawnOnHit;
 
     private CircleCollider2D m_Collider2D;
 
-    void Start()
+    private void OnEnable()
     {
+        cannonPosition = GameObject.Find("Cannon").transform;
         brickObject = FindBrickToMove();
         ComboLauncher.Instance.AddComboAmountOnScene();
 
@@ -77,8 +79,7 @@ public class ComboBallController : MonoBehaviour, IBall
             }
             else
             {
-                    ComboLauncher.Instance.DecreaseComboAmountOnScene();
-                    Destroy(this.gameObject);
+                HideComboAttack();
             }
         }
         else
@@ -115,14 +116,21 @@ public class ComboBallController : MonoBehaviour, IBall
             {
                 brickObject.GetComponent<Brick>().TakeDamage(attackPower, damageTextColor, damageTextFontSize);
             }
-            ComboLauncher.Instance.DecreaseComboAmountOnScene();
-            Destroy(this.gameObject);
+            HideComboAttack();
         }
     }
 
     public void DestroyBall () {
+        HideComboAttack();
+    }
+
+    private void HideComboAttack() // needs to hide, if we want reuse this gameObject using ObjectPool
+    {
         ComboLauncher.Instance.DecreaseComboAmountOnScene();
-        Destroy(this.gameObject);
+
+        this.transform.position = cannonPosition.position;
+        this.transform.rotation = Quaternion.identity;
+        this.gameObject.SetActive(false);
     }
 
     private void DisablePhysics()

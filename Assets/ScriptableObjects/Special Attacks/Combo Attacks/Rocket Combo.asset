@@ -17,7 +17,7 @@ MonoBehaviour:
   specialAttackDescription: Shots rockets on enemy
   specialAttackImage: {fileID: 0}
   maxUseAmount: 1
-  currentUseAmount: 1
+  currentUseAmount: 0
   attackTypeEnum: 1
   comboType: 0
-  initComboOnValue: 14
+  initComboOnValue: 5

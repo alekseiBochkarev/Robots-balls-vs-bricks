@@ -11,12 +11,14 @@ namespace Assets.Scripts.Gameplay.Combo
 
         [Header("List of Combos")]
         [SerializeField] List<ComboAttackSO> comboAttacks;
-        private GameObject m_ComboPrefab;
+        private GameObject comboPrefab;
         private Vector3 cannonPosition = new Vector3(2f, -6.09f, 0f); //need to add cannon position instead hardcore
         public bool CanPlay { set; get; }
         public int comboAmountOnScenes;
         private int currentComboAmount;
         private int initComboOnValue;
+
+        private ObjectPool comboPool;
 
         [Header("Double Combo Info")]
         [SerializeField] private float PercentageToTriggerComboTwice;
@@ -30,6 +32,10 @@ namespace Assets.Scripts.Gameplay.Combo
         private void Awake()
         {
             Instance = this;
+
+            comboPool = GetComponent<ObjectPool>();
+            LoadComboPool();
+
             CanPlay = true;
             IsDoubleComboBuffActivated = false;
             IsDiscountComboBuffActivated = false;
@@ -49,6 +55,21 @@ namespace Assets.Scripts.Gameplay.Combo
                 CanPlay = true;
                 comboAmountOnScenes = 0;
             }
+        }
+
+        private void LoadComboPool()
+        {
+            // init all comboPrefabs and adds them to the comboPool
+            foreach (var combo in comboAttacks)
+            {
+                InitComboPrefabAndAddToPool(combo);
+            }
+        }
+
+        private void InitComboPrefabAndAddToPool(ComboAttackSO _comboPrefab)
+        {
+            comboPrefab = Resources.Load<GameObject>("ComboAttacks/" + _comboPrefab.comboType.ToString());
+            comboPool.AddPrefabToThePool(comboPrefab);
         }
 
         private void InitComboBuffs(HeroBuffSO heroBuff)
@@ -110,17 +131,17 @@ namespace Assets.Scripts.Gameplay.Combo
                     }
                     if (currentComboAmount % initComboOnValue == 0)
                     {
-                        m_ComboPrefab = Resources.Load<GameObject>("ComboAttacks/" + comboAttacks[i].comboType.ToString());
+                        string comboTypeName = comboAttacks[i].comboType.ToString();
                         if (IsDoubleComboBuffActivated == true)
                         {
                             IsPossibleToDoubleAttack = ProbalitiesController.Instance.CheckProbality(PercentageToTriggerComboTwice);
                             Debug.Log("IsPossibleToDoubleAttack -> " + IsPossibleToDoubleAttack);
                             if (IsPossibleToDoubleAttack == true)
                             {
-                                Instantiate(m_ComboPrefab, cannonPosition, Quaternion.identity);
+                                comboPool.Instantiate(comboTypeName, cannonPosition, Quaternion.identity);
                             }
                         }
-                        Instantiate(m_ComboPrefab, cannonPosition, Quaternion.identity);
+                        comboPool.Instantiate(comboTypeName, cannonPosition, Quaternion.identity);
                         CanPlay = false;
                     }
                 }
@@ -130,6 +151,7 @@ namespace Assets.Scripts.Gameplay.Combo
         public void SetSpecialAttack(SpecialAttackSO _specialAttack)
         {
             comboAttacks.Add( (ComboAttackSO) _specialAttack);
+            InitComboPrefabAndAddToPool( (ComboAttackSO) _specialAttack);
         }
     }
     public enum ComboAttackEnum
