@@ -9,9 +9,9 @@ TagManager:
   - Wall
   - Brick
   - DamagePopupCanvas
-  - DamageTextTag
   - Hero
   - Cannon
+  - DamagePopups
   layers:
   - Default
   - TransparentFX

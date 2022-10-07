@@ -1,32 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Assets.Scripts.DataManaging.Utills;
+using Assets.Scripts.Gameplay;
 
 public class DamagePopup : MonoBehaviour
 {
-
-    // Creates a damage popup
-    public static DamagePopup CreateDamagePopup(Vector3 position, int damageAmount, bool isCriticalHit, bool isDamage, Color damageTextColor, int textFontSize) 
-    {
-        Transform damagePopupTransform = Instantiate(GameAssets.i.pfDamagePopup, position, Quaternion.identity);
-        
-        DamagePopup damagePopup = damagePopupTransform.GetComponent<DamagePopup>();
-        damagePopup.Setup(damageAmount, isCriticalHit, isDamage, damageTextColor, textFontSize);
-
-        return damagePopup;
-    }
-
-    // Creates a Text popup
-    public static DamagePopup CreateTextPopup(Vector3 position, string text, Color textColor, int textFontSize) 
-    {
-        Transform textPopupTransform = Instantiate(GameAssets.i.pfDamagePopup, position, Quaternion.identity);
-        
-        DamagePopup textPopup = textPopupTransform.GetComponent<DamagePopup>();
-        textPopup.Setup(text, textColor, textFontSize);
-        return textPopup;
-    }
 
     private static int sortingOrder = 30; // is enough to display above everything
     private const float DISAPPEAR_TIMER_MAX = 0.3f;
@@ -34,6 +12,7 @@ public class DamagePopup : MonoBehaviour
     private const float VECTOR3_Y_MAX = 0.3f;
     private TextMeshPro textMesh;
     private float disappearTimer = DISAPPEAR_TIMER_MAX;
+    private Vector3 defaultScalePopup;
     
     private float disappearSpeed = 2f;
     private Color textColor;
@@ -43,11 +22,29 @@ public class DamagePopup : MonoBehaviour
     private void Awake() 
     {
         textMesh = transform.GetComponent<TextMeshPro>();
+        defaultScalePopup = this.transform.localScale;
     }
 
     private void Update() {
         UpAndDownAnimPopup();
-        DisappearAndDestroyPopup();
+        DisappearAndHidePopup();
+    }
+
+    // Creates a damage popup
+    public void CreateDamagePopup(Vector3 position, int damageAmount, bool isCriticalHit, bool isDamage, Color damageTextColor, int textFontSize)
+    {
+        GameObject popupGameObject = DamagePopupController.Instance.popupPool.Instantiate(GameAssets.i.pfDamagePopup.name, position, Quaternion.identity);
+        DamagePopup popupDamagePopup = popupGameObject.GetComponent<DamagePopup>();
+        popupDamagePopup.Setup(damageAmount, isCriticalHit, isDamage, damageTextColor, textFontSize);
+    }
+
+    // Creates a Text popup
+    public void CreateTextPopup(Vector3 position, string text, Color textColor, int textFontSize)
+    {
+        GameObject popupGameObject = DamagePopupController.Instance.popupPool.Instantiate(GameAssets.i.pfDamagePopup.name, position, Quaternion.identity);
+
+        DamagePopup popupDamagePopup = popupGameObject.GetComponent<DamagePopup>();
+        popupDamagePopup.Setup(text, textColor, textFontSize);
     }
 
     public void Setup(int damageAmount, bool isCriticalHit, bool isDamage, Color damageTextColor, int damageTextFontSize)
@@ -110,17 +107,18 @@ public class DamagePopup : MonoBehaviour
         textColor = damageTextColor;
     }
 
-    private void DisappearAndDestroyPopup()
+    private void DisappearAndHidePopup()
     {
         disappearTimer -= Time.deltaTime;
         if (disappearTimer < 0)
         {
-            // Start disappearing and then destroy a DamagePopup
+            // Start disappearing and then hide a TextPopup
             textColor.a -= disappearSpeed * Time.deltaTime;
             SetTextMeshColor(textColor);
             if (textColor.a < 0)
             {
-                Destroy(gameObject);
+                this.gameObject.SetActive(false);
+                this.transform.localScale = defaultScalePopup;
             }
         }
     }

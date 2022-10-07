@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.Data_Managing
@@ -7,9 +6,30 @@ namespace Assets.Scripts.Data_Managing
     public class ObjectPool : MonoBehaviour
     {
         public GameObject managingPrefab; // used for instantiate new items into the pool
+        public int managingCount;
         public bool growOverAmount = true; // if true => allows the pool to grow when all items are being used
 
         private List<GameObject> pool = new List<GameObject>(); // pool that contains all instantiated/destroyed items
+
+        private void Start()
+        {
+            if (managingPrefab != null && managingCount > 0)
+            {
+                for (int i = 0; i < managingCount; i++)
+                {
+                    AddPrefabToThePool(managingPrefab);
+                    pool[i].gameObject.transform.SetParent(this.transform);
+                }
+            }
+        }
+
+        public void AddPrefabToThePool(GameObject prefab, int amount)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                AddPrefabToThePool(prefab);
+            }
+        }
 
         public void AddPrefabToThePool(GameObject prefab)
         {
@@ -29,6 +49,7 @@ namespace Assets.Scripts.Data_Managing
                 {
                     item.transform.position = position;
                     item.transform.rotation = rotation;
+                    item.transform.SetParent(this.transform);
                     item.SetActive(true);
                     return item;
                 }
@@ -48,6 +69,7 @@ namespace Assets.Scripts.Data_Managing
                     return _instance;
                 }    
                 var instance = (GameObject) Instantiate(managingPrefab, position, rotation);
+                instance.transform.SetParent(this.transform);
                 pool.Add(instance);
                 return instance;
             }

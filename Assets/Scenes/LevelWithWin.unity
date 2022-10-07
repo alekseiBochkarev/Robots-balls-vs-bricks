@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   managingPrefab: {fileID: 0}
+  managingCount: 0
   growOverAmount: 1
 --- !u!1 &78971640
 GameObject:
@@ -744,6 +745,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285790207}
   m_CullTransparentMesh: 0
+--- !u!1 &441030071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 441030073}
+  - component: {fileID: 441030072}
+  - component: {fileID: 441030074}
+  m_Layer: 0
+  m_Name: Damage popups
+  m_TagString: DamagePopupCanvas
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &441030072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441030071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d8e7cddf985954abda7fac47f000fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  managingPrefab: {fileID: 220595351935093904, guid: 67b681d537bbfc046a1fe423f990d1a7,
+    type: 3}
+  managingCount: 35
+  growOverAmount: 1
+--- !u!4 &441030073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441030071}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.904346, y: 0.33052218, z: -9.897519}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &441030074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441030071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb594155cfabb34fb565bbecd4aa915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupPrefab: {fileID: 220595351935093904, guid: 67b681d537bbfc046a1fe423f990d1a7,
+    type: 3}
+  popupPool: {fileID: 0}
 --- !u!1 &475485790
 GameObject:
   m_ObjectHideFlags: 0
@@ -2038,7 +2103,7 @@ PrefabInstance:
     - target: {fileID: 3099995468502116795, guid: bd11adedb0e20fd45b495497a7e47f5e,
         type: 3}
       propertyPath: heroBuffs.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3099995468502116795, guid: bd11adedb0e20fd45b495497a7e47f5e,
         type: 3}
@@ -2050,13 +2115,13 @@ PrefabInstance:
         type: 3}
       propertyPath: heroBuffs.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 2fb60337a605a374eabe5f795aea4282,
+      objectReference: {fileID: 11400000, guid: ec5c84aa44eaead4cb76f9154859c4c5,
         type: 2}
     - target: {fileID: 3099995468502116795, guid: bd11adedb0e20fd45b495497a7e47f5e,
         type: 3}
       propertyPath: heroBuffs.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: ec5c84aa44eaead4cb76f9154859c4c5,
+      objectReference: {fileID: 11400000, guid: 2fb60337a605a374eabe5f795aea4282,
         type: 2}
     - target: {fileID: 4455049390096852866, guid: bd11adedb0e20fd45b495497a7e47f5e,
         type: 3}
