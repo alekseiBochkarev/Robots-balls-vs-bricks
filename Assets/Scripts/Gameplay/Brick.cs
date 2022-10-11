@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Gameplay;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -128,7 +129,8 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
         m_currentBrickHealth += healHealthUpAmountInt;
         healthBar.SaveCurrentBrickHealth();
         healthBar.ShowHealth();
-        DamagePopup.CreateDamagePopup(brickCoordAbove, healHealthUpAmountInt, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
+
+        DamagePopupController.Instance.CreateDamagePopup(brickCoord, healHealthUpAmountInt, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
     }
 
     private void Update() { // ONLY FOR DEBUGGING AND TESTING
@@ -159,7 +161,7 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
 
         // Create DamagePopup with damage above the BRICK
         InitBrickDamagePopupPosition();
-        DamagePopup.CreateDamagePopup(brickCoordAbove, appliedDamage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
+        DamagePopupController.Instance.CreateDamagePopup(brickCoordAbove, appliedDamage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
 
         if (m_currentBrickHealth <= 0)
         {
@@ -176,9 +178,11 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
         healthBar.SaveCurrentBrickHealth();
         healthBar.ShowHealth();
         EventManager.OnBrickHit();
+
         // Create DamagePopup with damage above the BRICK
         InitBrickDamagePopupPosition();
-        DamagePopup.CreateDamagePopup(brickCoordAbove, appliedDamage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
+        DamagePopupController.Instance.CreateDamagePopup(brickCoord, appliedDamage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
+
         if (m_currentBrickHealth <= 0)
         {
             DeathOfBrick();
@@ -192,10 +196,11 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
         healthBar.SaveCurrentBrickHealth();
         healthBar.ShowHealth();
         EventManager.OnBrickHit();
+
         // Create DamagePopup with damage above the BRICK
         InitBrickDamagePopupPosition();
+        DamagePopupController.Instance.CreateTextPopup(brickCoordAbove, textPopupTextValue, textColor, textFontSize);
 
-        DamagePopup.CreateTextPopup(brickCoordAbove, textPopupTextValue, textColor, textFontSize);
         if (m_currentBrickHealth <= 0)
         {
             DeathOfBrick();

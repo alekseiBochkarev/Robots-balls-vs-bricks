@@ -1,3 +1,4 @@
+using Assets.Scripts.Gameplay;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -70,7 +71,8 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
         healthBar.SaveCurrentHealth(CurrentHealth);
         healthBar.ShowHealth();
         heroCoord = gameObject.transform.position;
-        DamagePopup.CreateDamagePopup(heroCoord, appliedDamage, false,
+
+        DamagePopupController.Instance.CreateDamagePopup(heroCoord, appliedDamage, false,
          isDamage, TextController.COLOR_RED, TextController.FONT_SIZE_MAX);
     }
 
@@ -86,7 +88,8 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
         healthBar.SaveCurrentHealth(CurrentHealth);
         healthBar.ShowHealth();
         heroCoord = gameObject.transform.position;
-        DamagePopup.CreateDamagePopup(heroCoord, healHealthUpAmountInt, false,
+
+        DamagePopupController.Instance.CreateDamagePopup(heroCoord, healHealthUpAmountInt, false,
          isDamage, TextController.COLOR_GREEN, TextController.FONT_SIZE_MAX);
     }
 }
