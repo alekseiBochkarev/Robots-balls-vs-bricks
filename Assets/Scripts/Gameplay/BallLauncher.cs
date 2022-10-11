@@ -376,7 +376,7 @@ public class BallLauncher : MonoBehaviour
 
         AbstractBall.ResetReturningBallsAmount();
 
-        EventManager.OnBallsReturned();
+        //EventManager.OnBallsReturned();
 
         FindBricksAndSetRigidbodyType(RigidbodyType2D.Dynamic);
         StartCoroutine(WaitAndCanPlay());
