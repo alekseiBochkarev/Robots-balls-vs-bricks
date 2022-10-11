@@ -65,6 +65,7 @@ namespace Assets.Scripts.Data_Managing
                 {
                     var comboPrefab = Resources.Load<GameObject>("ComboAttacks/" + comboTypeName);
                     var _instance = (GameObject) Instantiate(comboPrefab, position, rotation);
+                    _instance.transform.SetParent(this.transform);
                     pool.Add(_instance);
                     return _instance;
                 }    
