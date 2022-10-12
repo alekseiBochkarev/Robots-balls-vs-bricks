@@ -13,8 +13,15 @@ namespace Assets.Scripts.Gameplay.Combo
         [SerializeField] List<ComboAttackSO> comboAttacks;
         private GameObject comboPrefab;
         private Vector3 cannonPosition = new Vector3(2f, -6.09f, 0f); //need to add cannon position instead hardcore
-        public bool CanPlay { set; get; }
-        public int comboAmountOnScenes;
+        
+        [SerializeField] private bool canPlay;
+        public bool CanPlay
+        { 
+        set { canPlay = value;}
+        get { return canPlay; } 
+        }
+        
+        [SerializeField] private int comboAmountOnScenes;
         private int currentComboAmount;
         private int initComboOnValue;
 

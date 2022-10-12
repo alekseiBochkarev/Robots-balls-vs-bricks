@@ -22,6 +22,7 @@ public class ComboBallController : MonoBehaviour, IBall
 
     private void OnEnable()
     {
+        Debug.Log("combo ball enabled -> add combo amount on scene");
         cannonPosition = GameObject.Find("Cannon").transform;
         brickObject = FindBrickToMove();
         ComboLauncher.Instance.AddComboAmountOnScene();
@@ -33,6 +34,10 @@ public class ComboBallController : MonoBehaviour, IBall
         attackPower = hero.GetComponent<Hero>().attackSkill;
         damageTextColor = TextController.COLOR_YELLOW;
         damageTextFontSize = TextController.FONT_SIZE_MAX;
+    }
+
+    private void OnDisable() {
+        ComboLauncher.Instance.DecreaseComboAmountOnScene();
     }
 
     public GameObject FindBrickToMove()
@@ -126,7 +131,7 @@ public class ComboBallController : MonoBehaviour, IBall
 
     private void HideComboAttack() // needs to hide, if we want reuse this gameObject using ObjectPool
     {
-        ComboLauncher.Instance.DecreaseComboAmountOnScene();
+        //ComboLauncher.Instance.DecreaseComboAmountOnScene();
 
         this.transform.position = cannonPosition.position;
         this.transform.rotation = Quaternion.identity;

@@ -114,11 +114,13 @@ public class LevelManager : MonoBehaviour
         if (LevelManager.Instance.m_LevelState == LevelManager.LevelState.PLAYABLE)
         {
             int magicBallCount = m_SpecialAttackPanelController.GetMagicBallAmount();
+            Debug.Log("magicBallCount = " + magicBallCount);
             for (int i = 0; i < magicBallCount; i++)
             {
                 yield return StartCoroutine(ShowSpecAttackPanelAndClose());
             }
         }
+        Debug.Log("invoke continuePlaying");
         BallLauncher.Instance.ContinuePlaying();
         //m_SpriteRenderer.enabled = false;
     }
@@ -139,6 +141,7 @@ public class LevelManager : MonoBehaviour
 
     public void ResetReturningBallsAmount()
     {
+        Debug.Log("ResetReturningBallsAmount");
         s_ReturnedBallsAmount = 0;
     }
 }
