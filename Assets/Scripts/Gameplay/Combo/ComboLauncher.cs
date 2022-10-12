@@ -81,24 +81,24 @@ namespace Assets.Scripts.Gameplay.Combo
         private void InitDoubleComboBuff(HeroBuffSO buff)
         {
 
-            Debug.Log("InitDoubleComboBuff BEFORE IF");
+            //Debug.Log("InitDoubleComboBuff BEFORE IF");
             if (buff.heroBuffType.Equals(HeroBuffsEnum.DoubleComboBuff))
             {
                 IsDoubleComboBuffActivated = true;
                 PercentageToTriggerComboTwice = (float) buff.heroBuffValue;
-                Debug.Log("InitDoubleComboBuff AFTER IF");
+                //Debug.Log("InitDoubleComboBuff AFTER IF");
             }
         }
 
         private void InitDiscountComboBuff(HeroBuffSO buff)
         {
 
-            Debug.Log("InitDiscountComboBuff BEFORE IF");
+            //Debug.Log("InitDiscountComboBuff BEFORE IF");
             if (buff.heroBuffType.Equals(HeroBuffsEnum.DiscountComboBuff))
             {
                 IsDiscountComboBuffActivated = true;
                 PercentageToSetComboDiscount = (float) buff.heroBuffValue;
-                Debug.Log("InitDiscountComboBuff AFTER IF");
+                //Debug.Log("InitDiscountComboBuff AFTER IF");
             }
         }
 
@@ -135,7 +135,7 @@ namespace Assets.Scripts.Gameplay.Combo
                         if (IsDoubleComboBuffActivated == true)
                         {
                             IsPossibleToDoubleAttack = ProbalitiesController.Instance.CheckProbality(PercentageToTriggerComboTwice);
-                            Debug.Log("IsPossibleToDoubleAttack -> " + IsPossibleToDoubleAttack);
+                            //Debug.Log("IsPossibleToDoubleAttack -> " + IsPossibleToDoubleAttack);
                             if (IsPossibleToDoubleAttack == true)
                             {
                                 comboPool.Instantiate(comboTypeName, cannonPosition, Quaternion.identity);

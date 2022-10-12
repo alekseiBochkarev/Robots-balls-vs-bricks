@@ -12,7 +12,8 @@ public class LevelManager : MonoBehaviour
     public GameObject m_Scores;
     public Text m_GameOverFinalScore;
 
-    private static int s_ReturnedBallsAmount = 0;
+    [SerializeField] private int s_ReturnedBallsAmount = 0;
+    [SerializeField] private int playerBallsAmount;
     private SpecialAttackPanelController m_SpecialAttackPanelController;
     Collider2D[] colliders;
     private float vision = 10f;
@@ -92,9 +93,11 @@ public class LevelManager : MonoBehaviour
     private void Update()
     {
         ScoreManager.Instance.m_ScoreText.text = ScoreManager.Instance.m_LevelOfFinalBrick.ToString();
+        playerBallsAmount = Balls.Instance.PlayerBallsAmount;
     }
 
     private void CheckBallsAndOpenSpecAttackPanelAndContinuePlaying () {
+        Debug.Log("CheckBallsAndOpenSpecAttackPanelAndContinuePlaying");
         s_ReturnedBallsAmount ++;
         if (s_ReturnedBallsAmount >= Balls.Instance.PlayerBallsAmount)  
         StartCoroutine(OpenSpecAttackPanelAndContinuePlaying());
@@ -134,7 +137,7 @@ public class LevelManager : MonoBehaviour
         m_SpecialAttackPanelController.MinusMagicBallAmount();
     }
 
-    public static void ResetReturningBallsAmount()
+    public void ResetReturningBallsAmount()
     {
         s_ReturnedBallsAmount = 0;
     }

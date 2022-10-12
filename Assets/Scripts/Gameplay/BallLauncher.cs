@@ -235,8 +235,8 @@ public class BallLauncher : MonoBehaviour
         ResetPositions();
 
         m_TempAmount = 0;
-
-        AbstractBall.ResetReturningBallsAmount();
+        EventManager.OnResetReturningBallsAmount();
+        //AbstractBall.ResetReturningBallsAmount();
 
         m_ReturnBallsButton.SetActive(false);
 
@@ -372,11 +372,10 @@ public class BallLauncher : MonoBehaviour
 
         //BrickSpawner.Instance.MoveDownBricksRows();
         StartCoroutine(MoveBricksAndSpawnNewBricks());
-        
-
-        AbstractBall.ResetReturningBallsAmount();
 
         EventManager.OnAllBallsReturned();
+        EventManager.OnResetReturningBallsAmount();
+        //AbstractBall.ResetReturningBallsAmount();
 
         FindBricksAndSetRigidbodyType(RigidbodyType2D.Dynamic);
         StartCoroutine(WaitAndCanPlay());

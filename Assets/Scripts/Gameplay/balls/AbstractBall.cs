@@ -134,11 +134,12 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         s_FirstCollisionPoint = Vector3.zero;
     }
 
-    public static void ResetReturningBallsAmount()
+   /* public static void ResetReturningBallsAmount()
     {
         //s_ReturnedBallsAmount = 0;
+        Debug.Log("ResetReturningBallsAmount");
         EventManager.OnResetReturningBallsAmount();
-    }
+    }*/
 
     public void GetReadyAndAddForce(Vector2 direction)
     {

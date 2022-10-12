@@ -8,7 +8,7 @@ public class Balls : MonoBehaviour
     private AbstractBall m_BallPrefab;
     public List<AbstractBall> PlayerBalls {private set; get; } 
     [SerializeField] private int startBallsAmount = 1;
-    public int PlayerBallsAmount {private set; get; }
+    public int PlayerBallsAmount { private set; get; }
     public bool IsBallAmountChanged;
 
     // public Balls()

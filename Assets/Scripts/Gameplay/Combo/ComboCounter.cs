@@ -19,7 +19,7 @@ public class ComboCounter
     }
     public void AddComboPoint()
     {
-        Debug.Log("Combo to add as value -> " + comboCounterValue);
+        //Debug.Log("Combo to add as value -> " + comboCounterValue);
         if (comboCounterValue == startComboCounterValue)
         {
             CurrentCombo += startComboCounterValue;
