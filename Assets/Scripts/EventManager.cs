@@ -16,6 +16,7 @@ public class EventManager : MonoBehaviour
     public static event Action<int> ComboCounterChanged;
 
     public static event Action BallsReturned;
+    public static event Action AllBallsReturned;
     public static event Action ResetReturningBallsAmount;
 
     public static void OnComboCounterChanged(int currentComboAmount)
@@ -61,6 +62,11 @@ public class EventManager : MonoBehaviour
     public static void OnBallsReturned() 
     {
         BallsReturned?.Invoke();
+    }
+
+    public static void OnAllBallsReturned() 
+    {
+        AllBallsReturned?.Invoke();
     }
 
     public static void OnResetReturningBallsAmount() {

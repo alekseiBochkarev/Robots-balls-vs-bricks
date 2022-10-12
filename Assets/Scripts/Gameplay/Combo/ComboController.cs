@@ -14,13 +14,13 @@ public class ComboController : MonoBehaviour
         ComboCounter = new ComboCounter();
         gameObject.SetActive(false);
         EventManager.BrickHit += AddComboAndShow;
-        EventManager.BallsReturned += HideCombo;
+        EventManager.AllBallsReturned += HideCombo;
         EventManager.HeroBuffAdded += AddBuffToCombo;
     }
 
     private void OnDestroy() {
         EventManager.BrickHit -= AddComboAndShow;
-        EventManager.BallsReturned -= HideCombo;
+        EventManager.AllBallsReturned -= HideCombo;
         EventManager.HeroBuffAdded -= AddBuffToCombo;
     }
 
