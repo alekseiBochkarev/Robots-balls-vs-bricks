@@ -159,46 +159,17 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
 
     public void TakeDamage (int appliedDamage)
     {   
-        bool isDamage = true;
-        bool isCriticalHit = false;
-        m_currentBrickHealth = m_currentBrickHealth - appliedDamage;
-        m_Text.text = m_currentBrickHealth.ToString();
-        healthBar.SaveCurrentBrickHealth();
-        healthBar.ShowHealth();
-        EventManager.OnBrickHit();
-
-        // Create DamagePopup with damage above the BRICK
-        InitBrickDamagePopupPosition();
-        DamagePopupController.Instance.CreateDamagePopup(brickCoordAbove, appliedDamage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
-
-        if (m_currentBrickHealth <= 0)
-        {
-            DeathOfBrick();
-        }
+        state.TakeDamage(appliedDamage);
     }
 
     public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize)
     {   
-        bool isDamage = true;
-        bool isCriticalHit = false;
-        m_currentBrickHealth = m_currentBrickHealth - appliedDamage;
-        m_Text.text = m_currentBrickHealth.ToString();
-        healthBar.SaveCurrentBrickHealth();
-        healthBar.ShowHealth();
-        EventManager.OnBrickHit();
-
-        // Create DamagePopup with damage above the BRICK
-        InitBrickDamagePopupPosition();
-        DamagePopupController.Instance.CreateDamagePopup(brickCoord, appliedDamage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
-
-        if (m_currentBrickHealth <= 0)
-        {
-            DeathOfBrick();
-        }
+        state.TakeDamage(appliedDamage, damageTextColor, damageTextFontSize);
     }
 
     public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize)
     { 
+        animator.Play("takeDamage");
         m_currentBrickHealth = m_currentBrickHealth - appliedDamage;
         m_Text.text = m_currentBrickHealth.ToString();
         healthBar.SaveCurrentBrickHealth();
