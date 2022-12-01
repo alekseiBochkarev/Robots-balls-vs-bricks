@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IStateBrick : MonoBehaviour
+public interface IStateBrick
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public void Enter();
+    public void Exit();
+    public void DoDamage(int applyDamage);
+    public void HealUp(float healHealthUpAmount);
+    public void TakeDamage (int appliedDamage);
+    public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize);
+    public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize);
+    public void DeathOfBrick ();
+    public void Suicide ();
+    public void KillBrick(string textPopupTextValue);
+    public void ChangeRigidbodyType (RigidbodyType2D rigidbodyType); //hmmm its a quastion
+    public void Attack ();
+    public void ChangeColor(); //hmm its a quastion
 }

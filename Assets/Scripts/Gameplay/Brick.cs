@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
 {
     public Text m_Text;
-    private HealthBar healthBar;
+    public HealthBar healthBar;
     public Hero hero;
     public int m_maxBrickHealth;
     public int m_currentBrickHealth;    // it's gonna be public because the GameManager needs to setup each brick
@@ -14,14 +14,21 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
     private Rigidbody2D rigidbody2D;
 
     private SpriteRenderer m_SpriteRenderer;
-    private ParticleSystem m_ParentParticle;
-    private Vector3 brickCoord;
-    private Vector3 brickCoordAbove;
+    public ParticleSystem m_ParentParticle;
+    public Vector3 brickCoord;
+    public Vector3 brickCoordAbove;
     private int attackSkill = 10; // need to define what's the best value for start
     private int appliedDamage;
-    private Color damageTextColor;
-    private int damageTextFontSize;
+    public Color damageTextColor;
+    public int damageTextFontSize;
     private GameObject parent;
+    public Animator animator;
+
+    public IStateBrick idleStateBrick;
+    public IStateBrick walkStateBrick;
+
+
+    IStateBrick state;
 
     private void Awake()
     {
@@ -31,6 +38,10 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_ParentParticle = GetComponentInParent<ParticleSystem>();
         hero = GameObject.FindGameObjectWithTag("Hero").GetComponent<Hero>();
+        animator = GetComponent<Animator>();
+        idleStateBrick = new IdleStateBrick(this);
+        walkStateBrick = new WalkStateBrick(this);
+        state = idleStateBrick;
         SetDefaultTextParams();
     }
 
@@ -49,6 +60,14 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
         healthBar.ShowHealth();
         
        // ChangeColor();
+    }
+
+    public void SetState (IStateBrick state) {
+        if (this.state != null) {
+            this.state.Exit();
+        }
+        this.state = state;
+        this.state.Enter();
     }
 
     private void SetDefaultTextParams()
@@ -103,34 +122,23 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
         }
     }
 
-    
+    ///* move to state...
     private void InitBrickDamagePopupPosition() // init brickPosition and change Y to show damagePopup above the BRICK
     {
         float damagePopupHeight = .5f;
         brickCoord = m_ParentParticle.transform.position;
         brickCoordAbove = new Vector3(brickCoord.x, brickCoord.y + damagePopupHeight, brickCoord.z);
     }
+    //*/
 
     public void DoDamage(int applyDamage)
     {
-       // Debug.Log("apply " + applyDamage + " damage to hero");
-        hero.TakeDamage(applyDamage);
-   
+       state.DoDamage(applyDamage);
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK
     {
-        InitBrickDamagePopupPosition();
-        bool isCriticalHit = false;
-        bool isDamage = false;
-        damageTextColor = TextController.COLOR_RED;
-        damageTextFontSize = TextController.FONT_SIZE_MAX;
-        int healHealthUpAmountInt = (int) healHealthUpAmount;
-        m_currentBrickHealth += healHealthUpAmountInt;
-        healthBar.SaveCurrentBrickHealth();
-        healthBar.ShowHealth();
-
-        DamagePopupController.Instance.CreateDamagePopup(brickCoord, healHealthUpAmountInt, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
+        state.HealUp(healHealthUpAmount);
     }
 
     private void Update() { // ONLY FOR DEBUGGING AND TESTING

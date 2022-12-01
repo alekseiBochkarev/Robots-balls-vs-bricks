@@ -10,6 +10,7 @@ public class MoveDownBehaviour : MonoBehaviour
     [SerializeField] private int x, y;
     private LevelConfig m_levelConfig;
     public bool isMovingNow = false;
+    Brick brick;
 
     private void Awake() {
         m_levelConfig = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelConfig>();
@@ -67,10 +68,19 @@ public class MoveDownBehaviour : MonoBehaviour
         float progress = 0;
         while (true)
         {
+            if (transform.GetComponentInChildren<Brick>() != null) {
+                brick = transform.GetComponentInChildren<Brick>();
+                brick.SetState(brick.walkStateBrick);
+            }
             progress += speed;
             transform.position = Vector3.Lerp(startPos, endPos, progress);
             if (progress  >= 1) {
                 isMovingNow = false;
+                if (transform.GetComponentInChildren<Brick>() != null) {
+                    brick = transform.GetComponentInChildren<Brick>();
+                    Debug.Log("stop brick");
+                    brick.SetState(brick.idleStateBrick);
+                }
                 yield break; // выход из корутины, если находимся в конечной позиции
             }
             yield return null; // если выхода из корутины не произошло, то продолжаем выполнять цикл while в следующем кадре
