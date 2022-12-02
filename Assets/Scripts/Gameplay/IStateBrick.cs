@@ -17,4 +17,5 @@ public interface IStateBrick
     public void ChangeRigidbodyType (RigidbodyType2D rigidbodyType); //hmmm its a quastion
     public void Attack ();
     public void ChangeColor(); //hmm its a quastion
+    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos);
 }

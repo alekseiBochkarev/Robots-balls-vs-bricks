@@ -135,7 +135,7 @@ public class BrickSpawner : MonoBehaviour
         if (m_levelConfig.grid.GetValue(numberInRow, 0+1) == 0) {
             GameObject newObject = Instantiate(prefab, m_levelConfig.grid.GetWorldPosition(numberInRow, 0), new Quaternion(0, 180, 0, 1));
             newObject.transform.localScale *= m_levelConfig.ScaleCoefficient;
-            newObject.GetComponent<MoveDownBehaviour>().MoveDown();
+            newObject.GetComponentInChildren<MoveDownBehaviour>().MoveDown();
         }
        // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
     }
@@ -159,6 +159,7 @@ public class BrickSpawner : MonoBehaviour
 
     public void MoveDownBricksRows()
     {
+        Debug.Log("MOVE DOWN BRICK ROWS");
         allBricksMovedDown = false;
         vision = 10f; //need to check maybe we should set more than 10
         colliders = Physics2D.OverlapCircleAll(transform.position, vision);
@@ -167,9 +168,11 @@ public class BrickSpawner : MonoBehaviour
                 
                     for (int i = 0; i < colliders.Length; i ++) {
                         if (colliders[i].gameObject == gameObject) continue;
-                        if (colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>() != null) {
-                            if (colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>().X == x && colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>().Y == y) {
-                                colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>().MoveDown();
+                        if (colliders[i].gameObject.GetComponent<MoveDownBehaviour>() != null) {
+                            Debug.Log("component MOVEDOWNBEHAVIOUR not null");
+                            if (colliders[i].gameObject.GetComponent<MoveDownBehaviour>().X == x && colliders[i].gameObject.GetComponent<MoveDownBehaviour>().Y == y) {
+                                Debug.Log("component MOVEDOWN concrete COLLIDER");
+                                colliders[i].gameObject.GetComponent<MoveDownBehaviour>().MoveDown();
                             }
                         }
                     }
@@ -189,9 +192,9 @@ public class BrickSpawner : MonoBehaviour
                 
                     for (int i = 0; i < colliders.Length; i ++) {
                         if (colliders[i].gameObject == gameObject) continue;
-                        if (colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>() != null) {
-                            if (colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>().X == x && colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>().Y == y) {
-                                colliders[i].gameObject.GetComponentInParent<MoveDownBehaviour>().MoveHorizontal();
+                        if (colliders[i].gameObject.GetComponent<MoveDownBehaviour>() != null) {
+                            if (colliders[i].gameObject.GetComponent<MoveDownBehaviour>().X == x && colliders[i].gameObject.GetComponent<MoveDownBehaviour>().Y == y) {
+                                colliders[i].gameObject.GetComponent<MoveDownBehaviour>().MoveHorizontal();
                             }
                         }
                     }

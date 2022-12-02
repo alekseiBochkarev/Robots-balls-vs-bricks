@@ -14,6 +14,7 @@ public class Grid{
     private float gridCenter = .5f;
 
     public Grid(int width, int height, float cellSize, Vector3 originPosition) {
+        Debug.Log("grid" + " " + width + " " + height + " " + cellSize + " " + originPosition);
         this.width = width;
         this.height = height;
         this.cellSize = cellSize;
@@ -48,7 +49,7 @@ public class Grid{
         x = (int)Mathf.Round(((worldPosition.x  - originPosition.x ) / cellSize) - gridCenter );
         y = (int)Mathf.Round((-(worldPosition.y - originPosition.y ) / cellSize) - gridCenter );
         //int test = (int)Mathf.Round(-(0.144f-2.664f)/0.72f - 0.5f); 
-       //Debug.Log("worldpos " + worldPosition + " x " + x + " y " + y + " originPos " + originPosition.y );
+       Debug.Log("worldpos " + worldPosition + " x " + x + " y " + y + " originPos " + originPosition.y );
        //Debug.Log("test (int)(-(0.144f-2.664f)/0.72f - 0.5f) " + test);
     }
 

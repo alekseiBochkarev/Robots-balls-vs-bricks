@@ -390,6 +390,7 @@ public class BallLauncher : MonoBehaviour
 
     IEnumerator MoveBricksAndSpawnNewBricks()
     {
+        Debug.Log("BALL LAUNCHER start coroutine MoveDownBricks");
         yield return StartCoroutine(MoveDownBricks());
         yield return StartCoroutine(MoveHorizontalBricks());
         yield return StartCoroutine(SpawnBricks());

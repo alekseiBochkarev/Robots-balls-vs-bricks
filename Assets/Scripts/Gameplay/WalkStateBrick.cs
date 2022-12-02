@@ -11,12 +11,12 @@ public class WalkStateBrick : IStateBrick
     }
 
     public void Enter() {
-        Debug.Log("Enter Walk behaviour");
+        //Debug.Log("Enter Walk behaviour");
         brick.animator.SetBool("walk", true);
     }
 
     public void Exit() {
-        Debug.Log("Exit Walk behaviour");
+        //Debug.Log("Exit Walk behaviour");
     }
 
     public void DoDamage(int applyDamage) {
@@ -56,4 +56,7 @@ public class WalkStateBrick : IStateBrick
     public void ChangeRigidbodyType (RigidbodyType2D rigidbodyType) {} //hmmm its a quastion
     public void Attack () {}
     public void ChangeColor() {} //hmm its a quastion
+    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos) {
+        yield break; 
+    }
 }

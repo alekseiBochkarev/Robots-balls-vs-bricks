@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using System.Collections;
 
-public class ScoreBall : MonoBehaviour
+public class ScoreBall : MoveDownBehaviour
 {
     //private BricksRow m_Parent;
     private ParticleSystem m_ParentParticle;
@@ -10,11 +11,17 @@ public class ScoreBall : MonoBehaviour
 
     private void Awake()
     {
+        InitMoveDown();
+        
         parent = transform.parent.gameObject;
     //    m_Parent = GetComponentInParent<BricksRow>();
         m_ParentParticle = GetComponentInParent<ParticleSystem>();
 
         m_ParticleColor = new Color(0, 1, 0, 0.5f);
+    }
+
+    private void OnEnable() {
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -51,7 +58,7 @@ public class ScoreBall : MonoBehaviour
         }
     }
 
-    public void PlayParticle()
+    private void PlayParticle()
     {
         gameObject.SetActive(false);
 

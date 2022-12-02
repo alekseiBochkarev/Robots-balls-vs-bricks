@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagicBall : MonoBehaviour
+public class MagicBall : MoveDownBehaviour
+
 {
     private ParticleSystem m_ParentParticle;
     private GameObject parent;
@@ -12,12 +13,18 @@ public class MagicBall : MonoBehaviour
 
     private void Awake()
     {
+        InitMoveDown();
+        
         parent = transform.parent.gameObject;
         m_ParentParticle = GetComponentInParent<ParticleSystem>();
 
         m_ParticleColor = new Color(0, 1, 0, 0.5f);
 
         m_SpecialAttackPanelController = GameObject.Find("SpecialAttackUI").GetComponent<SpecialAttackPanelController>();
+    }
+
+    private void OnEnable() {
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,7 +50,7 @@ public class MagicBall : MonoBehaviour
         Destroy(parent, 0.1f);
     }
 
-    public void PlayParticle()
+    private void PlayParticle()
     {
         gameObject.SetActive(false);
 

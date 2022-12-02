@@ -12,10 +12,13 @@ public class LevelConfig : MonoBehaviour
     private float scaleCoefficient;
     [SerializeField] private Vector3 originPosition;
     public Grid grid;
+    public static LevelConfig Instance;
    // public GameObject gridColliderPrefab;
      
     void Awake()
     {
+        Instance = this;
+        //Debug.Log("level config init");
         gridHeight = gridWidth * 4 / 3 + 1;
         //Debug.Log("gridHeight " + gridHeight);
         scaleCoefficient = 6 / gridWidth;

@@ -7,17 +7,18 @@ public class MoveDownBehaviour : MonoBehaviour
     // value == 0 - empty, value == 1 - brick, value == 2 - barrier
     //private Grid grid;
     private bool needHorizontalMove = false;
-    [SerializeField] private int x, y;
-    private LevelConfig m_levelConfig;
+    [SerializeField] public int x, y;
+    public LevelConfig m_levelConfig;
     public bool isMovingNow = false;
     Brick brick;
-
-    private void Awake() {
+    
+    public void InitMoveDown() {
+        //for movedownbehaviour
+        //Debug.Log("awake");
         m_levelConfig = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelConfig>();
         UpdateCurrentPosition();
         EventManager.BrickDestroyed += GetPositionAndResetCell;
-        //Debug.Log("x " + x + " y " + y);
-        //Debug.Log("value x and y+1 = " + m_levelConfig.grid.GetValue(x, y+1));
+        //
     }
 
     private void OnDestroy() {
@@ -25,7 +26,11 @@ public class MoveDownBehaviour : MonoBehaviour
     }
 
     void Start() {
-        
+        //m_levelConfig = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelConfig>();
+        //UpdateCurrentPosition();
+        //EventManager.BrickDestroyed += GetPositionAndResetCell;
+        //Debug.Log("x " + x + " y " + y);
+        //Debug.Log("value x and y+1 = " + m_levelConfig.grid.GetValue(x, y+1));
     }
 
   /*  public void MoveDown(float howMuch)
@@ -39,8 +44,18 @@ public class MoveDownBehaviour : MonoBehaviour
     }
 
     private void UpdateCurrentPosition () {
-        m_levelConfig.grid.GetXY(this.transform.position, out x, out y);
-        //Debug.Log("current position after update x y " + x + " " + y);
+        Debug.Log("updateCurrentPos (parent position is)" + this.transform.parent.position);
+        try
+        {
+            //LevelConfig.Instance.grid.GetXY(this.transform.parent.position, out x, out y);
+            m_levelConfig.grid.GetXY(this.transform.parent.position, out x, out y);
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(this.transform.parent.name);
+            throw;
+        }
+        Debug.Log("current position after update x y " + x + " " + y);
     }
 
     private void SetZeroToCurrentPosition() {
@@ -54,33 +69,25 @@ public class MoveDownBehaviour : MonoBehaviour
         if (m_levelConfig.grid.GetValue(x, y+1) == 0) {
             SetFreeXY();
             Vector3 target = m_levelConfig.grid.GetWorldPosition(x, y+1);
+            Debug.Log("Move DOWN TARGET is " + target);
             //iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
-            StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.position, target));
+            StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.parent.position, target));
         } else if (m_levelConfig.grid.GetValue(x, y+1) == 2) {
             needHorizontalMove = true;
         }
     }
 
-    IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos)
+    public virtual IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos)
     {
         isMovingNow = true;
         float speed = 0.1f; //  скорость прогресса (от начальной до конечной позиции)
         float progress = 0;
         while (true)
         {
-            if (transform.GetComponentInChildren<Brick>() != null) {
-                brick = transform.GetComponentInChildren<Brick>();
-                brick.SetState(brick.walkStateBrick);
-            }
             progress += speed;
-            transform.position = Vector3.Lerp(startPos, endPos, progress);
+            transform.parent.position = Vector3.Lerp(startPos, endPos, progress);
             if (progress  >= 1) {
                 isMovingNow = false;
-                if (transform.GetComponentInChildren<Brick>() != null) {
-                    brick = transform.GetComponentInChildren<Brick>();
-                    Debug.Log("stop brick");
-                    brick.SetState(brick.idleStateBrick);
-                }
                 yield break; // выход из корутины, если находимся в конечной позиции
             }
             yield return null; // если выхода из корутины не произошло, то продолжаем выполнять цикл while в следующем кадре

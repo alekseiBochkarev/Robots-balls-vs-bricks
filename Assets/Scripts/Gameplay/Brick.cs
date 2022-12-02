@@ -2,8 +2,9 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
-public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
+public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
 {
     public Text m_Text;
     public HealthBar healthBar;
@@ -32,6 +33,8 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
 
     private void Awake()
     {
+        InitMoveDown();
+
         parent = transform.parent.gameObject;
         polygonCollider2D = gameObject.GetComponent<PolygonCollider2D>();
         rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
@@ -243,6 +246,12 @@ public class Brick : MonoBehaviour, IDamage, IHealth, IDamageable
     public void ChangeColor()
     {
         m_SpriteRenderer.color = Color.LerpUnclamped(new Color(1, 0.75f, 0, 1), Color.red, m_currentBrickHealth / (float)ScoreManager.Instance.m_LevelOfFinalBrick);
+    }
+
+    
+    public override IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos)
+    {
+        yield return state.MoveToTarget(startPos, endPos);
     }
 
 }
