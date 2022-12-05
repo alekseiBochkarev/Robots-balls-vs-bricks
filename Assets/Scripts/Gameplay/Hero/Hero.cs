@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Hero : MonoBehaviour, IHealth, IDamageable
 {
+    public static Hero Instance;
     public int attackSkill;
     // public int defendSkill = 0;
     // public int healthSkill = 10;
@@ -25,6 +26,7 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
         SetMaxHealth(heroStats.Health);
         CurrentHealth = MaxHealth;
         attackSkill = (int) heroStats.GetStats(HeroStats.HeroStatsEnum.HeroAttackPower);
+        Instance = this;
     }
 
     private void OnEnable() 
