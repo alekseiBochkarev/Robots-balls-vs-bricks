@@ -21,16 +21,7 @@ namespace Assets.Scripts.Data_Managing
         public bool CheckProbality(float _percentage)
         {
             float randomValue = Random.Range(0, 101);
-            if (randomValue <= _percentage)
-            {
-                //Debug.Log("Random value is -> " + randomValue + " <- and perctange is -> " + _percentage + "\n Returns true");
-                return true;
-            }
-            else
-            {
-                //Debug.Log("Random value is -> " + randomValue + " <- and perctange is -> " + _percentage + "\n Returns false");
-                return false;
-            }
+            return randomValue <= _percentage;
         }
     }
 }

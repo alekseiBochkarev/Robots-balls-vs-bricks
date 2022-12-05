@@ -28,6 +28,8 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public IStateBrick idleStateBrick;
     public IStateBrick walkStateBrick;
 
+    public LootBag lootBag;
+
 
     IStateBrick state;
 
@@ -45,6 +47,8 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         idleStateBrick = new IdleStateBrick(this);
         walkStateBrick = new WalkStateBrick(this);
         state = idleStateBrick;
+
+        lootBag = GetComponent<LootBag>();
         SetDefaultTextParams();
     }
 
@@ -202,8 +206,12 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
             //m_Parent.CheckBricksActivation();
             // 4 - Set coin 
         EventManager.OnBrickDestroyed();
-            //   WalletController.Instance.AddCoinAndShow();
-            //destroy parent gameObject
+
+        // Drop loot if has a chance
+        lootBag.InstantiateLoot();
+
+        //   WalletController.Instance.AddCoinAndShow();
+        //destroy parent gameObject
         Destroy(parent, 1);
     }
 
@@ -218,6 +226,10 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
             // 3 - hide this Brick or this row
         gameObject.SetActive(false);
         EventManager.OnBrickDestroyed();
+
+        // Drop loot if has a chance
+        lootBag.InstantiateLoot();
+
             //m_Parent.CheckBricksActivation();
             //destroy parent gameObject
         Destroy(parent, 0.1f);

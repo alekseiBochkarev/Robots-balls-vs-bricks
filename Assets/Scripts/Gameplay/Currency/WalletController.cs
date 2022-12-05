@@ -19,18 +19,18 @@ public class WalletController : MonoBehaviour
         Instance = this;
         Coins = new Coins();
         ShowCoins();
-        EventManager.BrickDestroyed += AddCoinAndShow;
+        //EventManager.BrickDestroyed += AddCoinAndShow;
         EventManager.UpgradeStats += ShowCoins;
     }
     
     private void OnDestroy() {
-        EventManager.BrickDestroyed -= AddCoinAndShow;
+        //EventManager.BrickDestroyed -= AddCoinAndShow;
         EventManager.UpgradeStats -= ShowCoins;
     }
 
-    private void AddCoinAndShow() {
+    public void AddMoneyAndShow(int amount) {
         // Add coins and show it on UI
-        Coins.AddCoin();
+        Coins.AddCoin(amount);
         Coins.SaveCoins();
         ShowCoins();
     }
@@ -45,4 +45,11 @@ public class WalletController : MonoBehaviour
 
     //     m_CrystalsText = Coins.m_Crystals.ToString;
     // }
+}
+
+public enum WalletMoneyEnum
+{
+    Coin,
+    Crystal,
+    Rybin
 }
