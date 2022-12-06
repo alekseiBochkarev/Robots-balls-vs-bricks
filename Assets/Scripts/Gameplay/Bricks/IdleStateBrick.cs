@@ -13,7 +13,7 @@ public class IdleStateBrick : IStateBrick
 
     public void Enter() {
         //Debug.Log("Enter Idle behaviour");
-        brick.animator.SetBool("walk", false);
+        //brick.animator.SetBool("walk", false);
     }
 
     public void Exit() {
@@ -98,10 +98,12 @@ public class IdleStateBrick : IStateBrick
     public void ChangeColor() {} //hmm its a quastion
     
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos) {
+        brick.SetState(brick.walkStateBrick);
+
+        /*brick.animator.SetBool("walk", true);
         brick.isMovingNow = true;
         float speed = 0.1f; //  скорость прогресса (от начальной до конечной позиции)
         float progress = 0;
-        brick.animator.SetBool("walk", true);
         while (true)
         {
             progress += speed;
@@ -109,10 +111,14 @@ public class IdleStateBrick : IStateBrick
             if (progress  >= 1) {
                 brick.isMovingNow = false;
                 brick.animator.SetBool("walk", false);
+               // brick.state.Exit();
                 yield break; // выход из корутины, если находимся в конечной позиции
             }
             yield return null; // если выхода из корутины не произошло, то продолжаем выполнять цикл while в следующем кадре
-        }
+        }*/
+        yield return brick.MoveToTarget(startPos, endPos);
+        brick.SetState(this);
+        yield break;
     }
 
 }

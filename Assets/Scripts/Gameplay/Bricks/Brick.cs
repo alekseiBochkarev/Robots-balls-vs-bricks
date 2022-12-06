@@ -31,7 +31,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public LootBag lootBag;
 
 
-    IStateBrick state;
+    public IStateBrick state;
 
     private void Awake()
     {
