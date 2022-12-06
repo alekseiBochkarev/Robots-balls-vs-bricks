@@ -14,7 +14,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public PolygonCollider2D polygonCollider2D;
     private Rigidbody2D rigidbody2D;
 
-    private SpriteRenderer m_SpriteRenderer;
+    public SpriteRenderer m_SpriteRenderer;
     public ParticleSystem m_ParentParticle;
     public Vector3 brickCoord;
     public Vector3 brickCoordAbove;
