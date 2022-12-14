@@ -30,6 +30,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public IStateBrick deathStateBrick;
     public IStateBrick takeDamageStateBrick;
     public IStateBrick attackStateBrick;
+    public IStateBrick freezeStateBrick;
 
     public LootBag lootBag;
 
@@ -52,6 +53,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         deathStateBrick = new DeathStateBrick(this);
         takeDamageStateBrick = new TakeDamageStateBrick(this);
         attackStateBrick = new AttackStateBrick(this);
+        freezeStateBrick = new FreezeStateBrick(this);
         state = idleStateBrick;
 
         lootBag = GetComponent<LootBag>();

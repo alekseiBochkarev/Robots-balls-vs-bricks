@@ -3,26 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Gameplay;
 
-public class IdleStateBrick : IStateBrick 
+public class FreezeStateBrick : IStateBrick
 {
     Brick brick;
-    public IdleStateBrick(Brick brick) {
+    public FreezeStateBrick(Brick brick) {
         this.brick = brick;
         
     }
 
     public void Enter() {
-        //Debug.Log("Enter Idle behaviour");
-        //brick.animator.SetBool("walk", false);
+        
     }
 
     public void Exit() {
-        //Debug.Log("Exit Idle behaviour");
+        
     }
 
     public void DoDamage(int applyDamage) {
-        brick.SetState(brick.attackStateBrick);
-        brick.DoDamage(applyDamage);
+        
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK
@@ -85,10 +83,6 @@ public class IdleStateBrick : IStateBrick
     public void ChangeColor() {} //hmm its a quastion
     
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos) {
-        brick.SetState(brick.walkStateBrick);
-        yield return brick.MoveToTarget(startPos, endPos);
-        brick.SetState(this);
         yield break;
     }
-
 }

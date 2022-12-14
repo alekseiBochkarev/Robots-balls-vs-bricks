@@ -64,7 +64,6 @@ public class TakeDamageStateBrick : IStateBrick
         {
             brick.DeathOfBrick();
         }
-        brick.SetState(brick.idleStateBrick);
     }
 
     public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize) {
@@ -86,7 +85,6 @@ public class TakeDamageStateBrick : IStateBrick
         {
             brick.DeathOfBrick();
         }
-        brick.SetState(brick.idleStateBrick);
     }
     
     public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize) {
@@ -106,7 +104,6 @@ public class TakeDamageStateBrick : IStateBrick
         {
             brick.DeathOfBrick();
         }
-        brick.SetState(brick.idleStateBrick);
     }
 
     public void DeathOfBrick () {
