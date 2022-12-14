@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Gameplay;
 
-public class IdleStateBrick : IStateBrick 
+public class AttackStateBrick : IStateBrick
 {
     Brick brick;
-    public IdleStateBrick(Brick brick) {
+    public AttackStateBrick(Brick brick) {
         this.brick = brick;
-        
     }
 
     public void Enter() {
@@ -21,8 +20,9 @@ public class IdleStateBrick : IStateBrick
     }
 
     public void DoDamage(int applyDamage) {
-        brick.SetState(brick.attackStateBrick);
-        brick.DoDamage(applyDamage);
+        brick.animator.SetBool("attack", true);
+        brick.hero.TakeDamage(applyDamage);
+        brick.SetState(brick.idleStateBrick);
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK
@@ -49,18 +49,15 @@ public class IdleStateBrick : IStateBrick
     }
 
     public void TakeDamage (int appliedDamage) {
-        brick.SetState(brick.takeDamageStateBrick);
-        brick.TakeDamage(appliedDamage);
+        
     }
 
     public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize) {
-        brick.SetState(brick.takeDamageStateBrick);
-        brick.TakeDamage(appliedDamage, damageTextColor, damageTextFontSize);
+        
     }
     
     public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize) {
-        brick.SetState(brick.takeDamageStateBrick);
-        brick.TakeDamage(appliedDamage, textPopupTextValue, textColor, textFontSize);
+        
     }
 
     public void DeathOfBrick () {
@@ -77,15 +74,12 @@ public class IdleStateBrick : IStateBrick
         brick.SetState(brick.takeDamageStateBrick);
         brick.KillBrick(textPopupTextValue);
     }
+
     public void ChangeRigidbodyType (RigidbodyType2D rigidbodyType) {} //hmmm its a quastion
     public void Attack () {}
     public void ChangeColor() {} //hmm its a quastion
     
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos) {
-        brick.SetState(brick.walkStateBrick);
-        yield return brick.MoveToTarget(startPos, endPos);
-        brick.SetState(this);
         yield break;
     }
-
 }

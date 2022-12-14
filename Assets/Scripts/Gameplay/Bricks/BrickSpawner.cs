@@ -159,7 +159,7 @@ public class BrickSpawner : MonoBehaviour
 
     public void MoveDownBricksRows()
     {
-        Debug.Log("MOVE DOWN BRICK ROWS");
+        //Debug.Log("MOVE DOWN BRICK ROWS");
         allBricksMovedDown = false;
         vision = 10f; //need to check maybe we should set more than 10
         colliders = Physics2D.OverlapCircleAll(transform.position, vision);
@@ -169,9 +169,9 @@ public class BrickSpawner : MonoBehaviour
                     for (int i = 0; i < colliders.Length; i ++) {
                         if (colliders[i].gameObject == gameObject) continue;
                         if (colliders[i].gameObject.GetComponent<MoveDownBehaviour>() != null) {
-                            Debug.Log("component MOVEDOWNBEHAVIOUR not null");
+                            //Debug.Log("component MOVEDOWNBEHAVIOUR not null");
                             if (colliders[i].gameObject.GetComponent<MoveDownBehaviour>().X == x && colliders[i].gameObject.GetComponent<MoveDownBehaviour>().Y == y) {
-                                Debug.Log("component MOVEDOWN concrete COLLIDER");
+                                //Debug.Log("component MOVEDOWN concrete COLLIDER");
                                 colliders[i].gameObject.GetComponent<MoveDownBehaviour>().MoveDown();
                             }
                         }

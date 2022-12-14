@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeathStateBrick : MonoBehaviour, IStateBrick
+public class DeathStateBrick : IStateBrick
 {
     Brick brick;
     public DeathStateBrick(Brick brick) {
@@ -10,10 +10,11 @@ public class DeathStateBrick : MonoBehaviour, IStateBrick
     }
     
     public void Enter() {
+        //Debug.Log("DEATH STATE BRICK");
        // brick.animator.Play("death");
-       brick.animator.enabled = false;
-        brick.animator.enabled = true;
-        brick.animator.Play("death"); 
+       //brick.animator.enabled = false;
+        //brick.animator.enabled = true;
+       // brick.animator.Play("death"); 
     }
 
     public void Exit(){}
@@ -48,29 +49,12 @@ public class DeathStateBrick : MonoBehaviour, IStateBrick
 
         //   WalletController.Instance.AddCoinAndShow();
         //destroy parent gameObject
-       //Destroy(brick.parent, 1);  
+       brick.Destroy();  
         
     }
 
     public void Suicide (){
-            
-        // 1 - play a particle
-        Color color = new Color(brick.m_SpriteRenderer.color.r, brick.m_SpriteRenderer.color.g, brick.m_SpriteRenderer.color.b, 0.5f);
-        brick.m_ParentParticle.startColor = color;
-        brick.m_ParentParticle.Play();
-        //2 - set Grid to 0
-        //gameObject.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
-        //gameObject.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
-            // 3 - hide this Brick or this row
-        brick.gameObject.SetActive(false);
-        EventManager.OnBrickDestroyed();
-
-        // Drop loot if has a chance
-        brick.lootBag.InstantiateLoot();
-
-            //m_Parent.CheckBricksActivation();
-            //destroy parent gameObject
-        //brick.Destroy(brick.parent, 0.1f); ------ MOVE THIS TO BRICK
+        DeathOfBrick();
     }
 
     public void KillBrick(string textPopupTextValue){}

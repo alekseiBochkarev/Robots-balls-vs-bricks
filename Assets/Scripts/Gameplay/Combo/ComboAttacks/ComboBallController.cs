@@ -22,7 +22,7 @@ public class ComboBallController : MonoBehaviour, IBall
 
     private void OnEnable()
     {
-        Debug.Log("combo ball enabled -> add combo amount on scene");
+        //Debug.Log("combo ball enabled -> add combo amount on scene");
         cannonPosition = GameObject.Find("Cannon").transform;
         brickObject = FindBrickToMove();
         ComboLauncher.Instance.AddComboAmountOnScene();
