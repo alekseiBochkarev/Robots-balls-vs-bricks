@@ -1725,7 +1725,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 4712be3c7be654c4fb4c760e0994e7f0, type: 3}
-  m_Color: {r: 0, g: 0.68235296, b: 0.93725497, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5972,6 +5972,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1549437315}
     m_Modifications:
+    - target: {fileID: 2365796386131134172, guid: 2c292e703fd22b9df8790345502fa7ac,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365796386131134172, guid: 2c292e703fd22b9df8790345502fa7ac,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.98929524
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365796386131134172, guid: 2c292e703fd22b9df8790345502fa7ac,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.98589355
+      objectReference: {fileID: 0}
     - target: {fileID: 2365796386131134176, guid: 2c292e703fd22b9df8790345502fa7ac,
         type: 3}
       propertyPath: m_Camera
