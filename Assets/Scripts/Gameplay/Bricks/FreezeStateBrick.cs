@@ -12,11 +12,11 @@ public class FreezeStateBrick : IStateBrick
     }
 
     public void Enter() {
-        
+        brick.ice.SetActive(true);
     }
 
     public void Exit() {
-        
+        brick.ice.SetActive(false);
     }
 
     public void DoDamage(int applyDamage) {

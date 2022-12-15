@@ -146,6 +146,7 @@ public enum BallsTypeEnum
 {
     Ball,
     RocketBall,
+    IceBall,
     RocketClone,
     LaserHorizontalBall,
     LaserVerticalBall,

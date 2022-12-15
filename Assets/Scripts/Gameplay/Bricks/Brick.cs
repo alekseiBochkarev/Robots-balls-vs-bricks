@@ -9,6 +9,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public Text m_Text;
     public HealthBar healthBar;
     public Hero hero;
+    public GameObject ice;
     public int m_maxBrickHealth;
     public int m_currentBrickHealth;    // it's gonna be public because the GameManager needs to setup each brick
     public PolygonCollider2D polygonCollider2D;

@@ -7,7 +7,7 @@ public class IceAttack : MonoBehaviour, AttackBehaviour
    public void SpecialAttack(Vector3 position, GameObject brick)
   {
     System.Random rn = new System.Random();
-    int rnNum = rn.Next(1, 10);
+    int rnNum = rn.Next(1, 2);
    // Debug.Log("Random Num for InstaKill Ball is -> " + rnNum);
     if (rnNum == 1)
     {

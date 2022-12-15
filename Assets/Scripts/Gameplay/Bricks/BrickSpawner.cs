@@ -96,7 +96,9 @@ public class BrickSpawner : MonoBehaviour
     {
         allObjectsCreated = false;
         int numberOfScoreBallInRow = Random.Range(0, maxObjectsInRow);
-        CreateObject(scoreBallPrefab, numberOfScoreBallInRow);
+        if (CheckIfICanCreateScoreBall()) {
+            CreateObject(scoreBallPrefab, numberOfScoreBallInRow);
+        }
         bool createMagicBall = CheckIfICanCreateMagicBall();
         int numberOfMagicBallInRow = 0;
         if (createMagicBall)
@@ -146,6 +148,12 @@ public class BrickSpawner : MonoBehaviour
         return -2.32f + number * 0.94f;
     }
 
+    private bool CheckIfICanCreateScoreBall ()
+    {
+        //30% chanse
+        return Random.Range(0, 3) == 1 ? true : false;
+    }
+    
     private bool CheckIfICanCreateMagicBall ()
     {
         //30% chanse
