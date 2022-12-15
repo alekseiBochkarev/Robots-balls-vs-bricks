@@ -6,10 +6,11 @@ public class MoveDownBehaviour : MonoBehaviour
 {
     // value == 0 - empty, value == 1 - brick, value == 2 - barrier
     //private Grid grid;
-    private bool needHorizontalMove = false;
+    public bool needHorizontalMove;
     [SerializeField] public int x, y;
     public LevelConfig m_levelConfig;
     public bool isMovingNow = false;
+    public bool canMove;
     Brick brick;
     
     public void InitMoveDown() {
@@ -17,12 +18,15 @@ public class MoveDownBehaviour : MonoBehaviour
         //Debug.Log("awake");
         m_levelConfig = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelConfig>();
         UpdateCurrentPosition();
-        EventManager.BrickDestroyed += GetPositionAndResetCell;
+       // EventManager.BrickDestroyed += GetPositionAndResetCell;
+       needHorizontalMove = false;
+        canMove = true;
         //
     }
 
     private void OnDestroy() {
-        EventManager.BrickDestroyed -= GetPositionAndResetCell;
+        //EventManager.BrickDestroyed -= GetPositionAndResetCell;
+        GetPositionAndResetCell();
     }
 
     void Start() {
@@ -66,15 +70,20 @@ public class MoveDownBehaviour : MonoBehaviour
 
     public void MoveDown()
     {
-        UpdateCurrentPosition();
-        if (m_levelConfig.grid.GetValue(x, y+1) == 0) {
-            SetFreeXY();
-            Vector3 target = m_levelConfig.grid.GetWorldPosition(x, y+1);
-            //Debug.Log("Move DOWN TARGET is " + target);
-            //iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
-            StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.parent.position, target));
-        } else if (m_levelConfig.grid.GetValue(x, y+1) == 2) {
-            needHorizontalMove = true;
+        //UpdateCurrentPosition();
+        
+        if (canMove) {
+                if (m_levelConfig.grid.GetValue(x, y+1) == 0) {
+                    SetFreeXY();
+                    Vector3 target = m_levelConfig.grid.GetWorldPosition(x, y+1);
+                    //Debug.Log("Move DOWN TARGET is " + target);
+                    //iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
+                    StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.parent.position, target));
+                } else if (m_levelConfig.grid.GetValue(x, y+1) == 2) {
+                needHorizontalMove = true;
+                }
+        }  else {
+           Debug.Log("CAN MOVE = FALSE" + "VALUE OF CURRENT POSITION X " + x + "Y " + y + "VALUE "+ m_levelConfig.grid.GetValue(x, y));
         }
     }
 
@@ -128,6 +137,7 @@ public class MoveDownBehaviour : MonoBehaviour
 
     private void SetBusyXY () {
         m_levelConfig.grid.SetValue(x,y,1);
+      //  Debug.Log("VALUE OF CURRENT POSITION X " + x + "Y " + y + "VALUE "+ m_levelConfig.grid.GetValue(x, y));
     }
 
     private void SetFreeXY () {
