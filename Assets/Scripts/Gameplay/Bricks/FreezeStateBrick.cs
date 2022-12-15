@@ -13,10 +13,13 @@ public class FreezeStateBrick : IStateBrick
 
     public void Enter() {
         brick.ice.SetActive(true);
+        brick.canMove = false;
+        Debug.Log("CAN MOVE = " + brick.canMove);
     }
 
     public void Exit() {
         brick.ice.SetActive(false);
+        brick.canMove = true;
     }
 
     public void DoDamage(int applyDamage) {
