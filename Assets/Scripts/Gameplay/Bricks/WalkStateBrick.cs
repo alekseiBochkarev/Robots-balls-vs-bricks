@@ -23,8 +23,7 @@ public class WalkStateBrick : IStateBrick
     }
 
     public void DoDamage(int applyDamage) {
-        brick.animator.SetBool("attack", true);
-        brick.hero.TakeDamage(applyDamage);
+        
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK
@@ -53,8 +52,16 @@ public class WalkStateBrick : IStateBrick
     public void TakeDamage (int appliedDamage) {}
     public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize) {}
     public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize) {}
-    public void DeathOfBrick () {}
-    public void Suicide () {}
+    public void DeathOfBrick () {
+        brick.SetState(brick.deathStateBrick);
+        brick.DeathOfBrick();
+    }
+
+    public void Suicide () {
+        brick.SetState(brick.deathStateBrick);
+        brick.Suicide();
+    }
+    
     public void KillBrick(string textPopupTextValue) {}
     public void ChangeRigidbodyType (RigidbodyType2D rigidbodyType) {} //hmmm its a quastion
     public void Attack () {}
