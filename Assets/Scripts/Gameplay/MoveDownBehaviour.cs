@@ -53,6 +53,7 @@ public class MoveDownBehaviour : MonoBehaviour
         catch (System.Exception e)
         {
             //Debug.Log(this.transform.parent.name);
+            Debug.LogAssertion(e.StackTrace);
             throw;
         }
         //Debug.Log("current position after update x y " + x + " " + y);
