@@ -17,6 +17,6 @@ MonoBehaviour:
   specialAttackDescription: Creates a vertical laser on hit
   specialAttackImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   maxUseAmount: 99
-  currentUseAmount: 5
+  currentUseAmount: 0
   attackTypeEnum: 0
-  ballsType: 4
+  ballsType: 5

@@ -28,6 +28,17 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     public float m_MinimumYPosition = -4.09f;
     float rot_z;
 
+    public void Init() {
+        m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
+
+        m_Collider2D = GetComponent<CircleCollider2D>();
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        m_TrailRenderer = GetComponent<TrailRenderer>();
+
+        //m_SpecialAttackPanelController = GameObject.Find("SpecialAttackUI").GetComponent<SpecialAttackPanelController>();
+    }
+
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();

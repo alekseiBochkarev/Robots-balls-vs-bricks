@@ -17,6 +17,6 @@ MonoBehaviour:
   specialAttackDescription: Creates a horizontal laser on hit
   specialAttackImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   maxUseAmount: 99
-  currentUseAmount: 9
+  currentUseAmount: 1
   attackTypeEnum: 0
-  ballsType: 3
+  ballsType: 4

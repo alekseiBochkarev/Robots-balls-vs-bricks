@@ -13,15 +13,17 @@ public class WalkStateBrick : IStateBrick
     public void Enter() {
         //Debug.Log("Enter Walk behaviour");
         brick.animator.SetBool("walk", true);
+
+        
     }
 
     public void Exit() {
         //Debug.Log("Exit Walk behaviour");
+        brick.animator.SetBool("walk", false);
     }
 
     public void DoDamage(int applyDamage) {
-        brick.animator.SetBool("attack", true);
-        brick.hero.TakeDamage(applyDamage);
+        
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK
@@ -50,13 +52,35 @@ public class WalkStateBrick : IStateBrick
     public void TakeDamage (int appliedDamage) {}
     public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize) {}
     public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize) {}
-    public void DeathOfBrick () {}
-    public void Suicide () {}
+    public void DeathOfBrick () {
+        brick.SetState(brick.deathStateBrick);
+        brick.DeathOfBrick();
+    }
+
+    public void Suicide () {
+        brick.SetState(brick.deathStateBrick);
+        brick.Suicide();
+    }
+    
     public void KillBrick(string textPopupTextValue) {}
     public void ChangeRigidbodyType (RigidbodyType2D rigidbodyType) {} //hmmm its a quastion
     public void Attack () {}
     public void ChangeColor() {} //hmm its a quastion
+
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos) {
-        yield break; 
+        brick.isMovingNow = true;
+        float speed = 0.1f; //  скорость прогресса (от начальной до конечной позиции)
+        float progress = 0;
+        while (true)
+        {
+            progress += speed;
+            brick.transform.parent.position = Vector3.Lerp(startPos, endPos, progress);
+            if (progress  >= 1) {
+                brick.isMovingNow = false;
+                
+                yield break; // выход из корутины, если находимся в конечной позиции
+            }
+            yield return null; // если выхода из корутины не произошло, то продолжаем выполнять цикл while в следующем кадре
+        }
     }
 }

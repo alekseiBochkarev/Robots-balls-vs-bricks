@@ -13,7 +13,7 @@ public class IdleStateBrick : IStateBrick
 
     public void Enter() {
         //Debug.Log("Enter Idle behaviour");
-        brick.animator.SetBool("walk", false);
+        //brick.animator.SetBool("walk", false);
     }
 
     public void Exit() {
@@ -21,8 +21,8 @@ public class IdleStateBrick : IStateBrick
     }
 
     public void DoDamage(int applyDamage) {
-        brick.animator.SetBool("attack", true);
-        brick.hero.TakeDamage(applyDamage);
+        brick.SetState(brick.attackStateBrick);
+        brick.DoDamage(applyDamage);
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK
@@ -49,70 +49,46 @@ public class IdleStateBrick : IStateBrick
     }
 
     public void TakeDamage (int appliedDamage) {
-        brick.animator.Play("takeDamage");
-        bool isDamage = true;
-        bool isCriticalHit = false;
-        brick.m_currentBrickHealth = brick.m_currentBrickHealth - appliedDamage;
-        brick.m_Text.text = brick.m_currentBrickHealth.ToString();
-        brick.healthBar.SaveCurrentBrickHealth();
-        brick.healthBar.ShowHealth();
-        EventManager.OnBrickHit();
-
-        // Create DamagePopup with damage above the BRICK
-        InitBrickDamagePopupPosition();
-        DamagePopupController.Instance
-        .CreateDamagePopup(brick.brickCoordAbove, appliedDamage, isCriticalHit, isDamage, brick.damageTextColor, brick.damageTextFontSize);
-
-        if (brick.m_currentBrickHealth <= 0)
-        {
-            brick.DeathOfBrick();
-        }
+        brick.SetState(brick.takeDamageStateBrick);
+        brick.TakeDamage(appliedDamage);
+        brick.SetState(this);
     }
 
     public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize) {
-        brick.animator.Play("takeDamage");
-        bool isDamage = true;
-        bool isCriticalHit = false;
-        brick.m_currentBrickHealth = brick.m_currentBrickHealth - appliedDamage;
-        brick.m_Text.text = brick.m_currentBrickHealth.ToString();
-        brick.healthBar.SaveCurrentBrickHealth();
-        brick.healthBar.ShowHealth();
-        EventManager.OnBrickHit();
-
-        // Create DamagePopup with damage above the BRICK
-        InitBrickDamagePopupPosition();
-        DamagePopupController.Instance
-        .CreateDamagePopup(brick.brickCoord, appliedDamage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
-
-        if (brick.m_currentBrickHealth <= 0)
-        {
-            brick.DeathOfBrick();
-        }
+        brick.SetState(brick.takeDamageStateBrick);
+        brick.TakeDamage(appliedDamage, damageTextColor, damageTextFontSize);
+        brick.SetState(this);
     }
-    public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize) {}
-    public void DeathOfBrick () {}
-    public void Suicide () {}
-    public void KillBrick(string textPopupTextValue) {}
+    
+    public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize) {
+        brick.SetState(brick.takeDamageStateBrick);
+        brick.TakeDamage(appliedDamage, textPopupTextValue, textColor, textFontSize);
+        brick.SetState(this);
+    }
+
+    public void DeathOfBrick () {
+        brick.SetState(brick.deathStateBrick);
+        brick.DeathOfBrick();
+    }
+
+    public void Suicide () {
+        brick.SetState(brick.deathStateBrick);
+        brick.Suicide();
+    }
+
+    public void KillBrick(string textPopupTextValue) {
+        brick.SetState(brick.takeDamageStateBrick);
+        brick.KillBrick(textPopupTextValue);
+    }
     public void ChangeRigidbodyType (RigidbodyType2D rigidbodyType) {} //hmmm its a quastion
     public void Attack () {}
     public void ChangeColor() {} //hmm its a quastion
     
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos) {
-        brick.isMovingNow = true;
-        float speed = 0.1f; //  скорость прогресса (от начальной до конечной позиции)
-        float progress = 0;
-        brick.animator.SetBool("walk", true);
-        while (true)
-        {
-            progress += speed;
-            brick.transform.parent.position = Vector3.Lerp(startPos, endPos, progress);
-            if (progress  >= 1) {
-                brick.isMovingNow = false;
-                brick.animator.SetBool("walk", false);
-                yield break; // выход из корутины, если находимся в конечной позиции
-            }
-            yield return null; // если выхода из корутины не произошло, то продолжаем выполнять цикл while в следующем кадре
-        }
+        brick.SetState(brick.walkStateBrick);
+        yield return brick.MoveToTarget(startPos, endPos);
+        brick.SetState(this);
+        yield break;
     }
 
 }

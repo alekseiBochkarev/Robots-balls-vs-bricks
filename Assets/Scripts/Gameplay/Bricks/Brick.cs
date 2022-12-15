@@ -9,29 +9,34 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public Text m_Text;
     public HealthBar healthBar;
     public Hero hero;
+    public GameObject ice;
     public int m_maxBrickHealth;
     public int m_currentBrickHealth;    // it's gonna be public because the GameManager needs to setup each brick
     public PolygonCollider2D polygonCollider2D;
     private Rigidbody2D rigidbody2D;
 
-    private SpriteRenderer m_SpriteRenderer;
+    public SpriteRenderer m_SpriteRenderer;
     public ParticleSystem m_ParentParticle;
     public Vector3 brickCoord;
     public Vector3 brickCoordAbove;
     private int attackSkill = 10; // need to define what's the best value for start
-    private int appliedDamage;
+    public int appliedDamage;
     public Color damageTextColor;
     public int damageTextFontSize;
-    private GameObject parent;
+    public GameObject parent;
     public Animator animator;
 
     public IStateBrick idleStateBrick;
     public IStateBrick walkStateBrick;
+    public IStateBrick deathStateBrick;
+    public IStateBrick takeDamageStateBrick;
+    public IStateBrick attackStateBrick;
+    public IStateBrick freezeStateBrick;
 
     public LootBag lootBag;
 
 
-    IStateBrick state;
+    public IStateBrick state;
 
     private void Awake()
     {
@@ -46,6 +51,10 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         animator = GetComponent<Animator>();
         idleStateBrick = new IdleStateBrick(this);
         walkStateBrick = new WalkStateBrick(this);
+        deathStateBrick = new DeathStateBrick(this);
+        takeDamageStateBrick = new TakeDamageStateBrick(this);
+        attackStateBrick = new AttackStateBrick(this);
+        freezeStateBrick = new FreezeStateBrick(this);
         state = idleStateBrick;
 
         lootBag = GetComponent<LootBag>();
@@ -176,72 +185,20 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
 
     public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize)
     { 
-        animator.Play("takeDamage");
-        m_currentBrickHealth = m_currentBrickHealth - appliedDamage;
-        m_Text.text = m_currentBrickHealth.ToString();
-        healthBar.SaveCurrentBrickHealth();
-        healthBar.ShowHealth();
-        EventManager.OnBrickHit();
-
-        // Create DamagePopup with damage above the BRICK
-        InitBrickDamagePopupPosition();
-        DamagePopupController.Instance.CreateTextPopup(brickCoordAbove, textPopupTextValue, textColor, textFontSize);
-
-        if (m_currentBrickHealth <= 0)
-        {
-            DeathOfBrick();
-        }
+        state.TakeDamage(appliedDamage, textPopupTextValue, textColor, textFontSize);
     }
 
     public void DeathOfBrick () {
-        // 1 - play a particle
-        Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
-        m_ParentParticle.startColor = color;
-        m_ParentParticle.Play();
-        //2 - set Grid to 0
-        //gameObject.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
-        //gameObject.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
-            // 3 - hide this Brick or this row
-        gameObject.SetActive(false);
-            //m_Parent.CheckBricksActivation();
-            // 4 - Set coin 
-        EventManager.OnBrickDestroyed();
-
-        // Drop loot if has a chance
-        lootBag.InstantiateLoot();
-
-        //   WalletController.Instance.AddCoinAndShow();
-        //destroy parent gameObject
-        Destroy(parent, 1);
+        state.DeathOfBrick();
     }
 
     public void Suicide () {
-        // 1 - play a particle
-        Color color = new Color(m_SpriteRenderer.color.r, m_SpriteRenderer.color.g, m_SpriteRenderer.color.b, 0.5f);
-        m_ParentParticle.startColor = color;
-        m_ParentParticle.Play();
-        //2 - set Grid to 0
-        //gameObject.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
-        //gameObject.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
-            // 3 - hide this Brick or this row
-        gameObject.SetActive(false);
-        EventManager.OnBrickDestroyed();
-
-        // Drop loot if has a chance
-        lootBag.InstantiateLoot();
-
-            //m_Parent.CheckBricksActivation();
-            //destroy parent gameObject
-        Destroy(parent, 0.1f);
+        state.Suicide();
     }
 
     public void KillBrick(string textPopupTextValue)
     {
-        appliedDamage = m_maxBrickHealth;
-        damageTextColor = TextController.COLOR_BLACK;
-        damageTextFontSize = TextController.FONT_SIZE_MAX;
-        TakeDamage(appliedDamage, textPopupTextValue, damageTextColor, damageTextFontSize);
-       // Debug.Log("Kill brick applied");
+        state.KillBrick(textPopupTextValue);
     }
 
     public void ChangeRigidbodyType (RigidbodyType2D rigidbodyType)
@@ -264,6 +221,11 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public override IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos)
     {
         yield return state.MoveToTarget(startPos, endPos);
+    }
+
+    public void Destroy() {
+        //Debug.Log("DESTROY THIS");
+        Destroy(parent, 1);
     }
 
 }

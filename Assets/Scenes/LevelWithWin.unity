@@ -168,8 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b89429486f8f894e88e26b1bf8673f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboAttacks:
-  - {fileID: 11400000, guid: a7ab98fcec9376b428b7f529a08d234e, type: 2}
+  comboAttacks: []
   canPlay: 0
   comboAmountOnScenes: 0
   PercentageToTriggerComboTwice: 0
@@ -1725,7 +1724,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 4712be3c7be654c4fb4c760e0994e7f0, type: 3}
-  m_Color: {r: 0, g: 0.68235296, b: 0.93725497, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5367,7 +5366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8c5748d38a6c648915cdc6ff8b6a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brickPrefab: {fileID: 1388506910491776577, guid: b2625f53eedb0c7de84006e65299f0b7,
+  brickPrefab: {fileID: 7552852164469017996, guid: b2625f53eedb0c7de84006e65299f0b7,
     type: 3}
   scoreBallPrefab: {fileID: 2466504055430407184, guid: b88c498b211824a7ba9c4fcb138fc67c,
     type: 3}
@@ -5839,12 +5838,12 @@ PrefabInstance:
     - target: {fileID: 1303595325216086738, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
         type: 3}
       propertyPath: heroBuffsSO.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1303595325216086738, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
         type: 3}
       propertyPath: comboAttacksSO.Array.size
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1303595325216086738, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
         type: 3}
@@ -5972,6 +5971,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1549437315}
     m_Modifications:
+    - target: {fileID: 2365796386131134172, guid: 2c292e703fd22b9df8790345502fa7ac,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365796386131134172, guid: 2c292e703fd22b9df8790345502fa7ac,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.98929524
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365796386131134172, guid: 2c292e703fd22b9df8790345502fa7ac,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.98589355
+      objectReference: {fileID: 0}
     - target: {fileID: 2365796386131134176, guid: 2c292e703fd22b9df8790345502fa7ac,
         type: 3}
       propertyPath: m_Camera

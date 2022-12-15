@@ -65,7 +65,8 @@ public class MenuController : MonoBehaviour
     public void StartGame()
     {
         if (energy.CurrentEnergy >= energy.startGameEnergy) {
-            Application.LoadLevel("LevelWithWin");
+            //Application.LoadLevel("LevelWithWin");
+            SceneManager.LoadScene("LevelWithWin");
           //  energy.currentEnergy -= energy.startGameEnergy;
           energy.ChangeCurrentEnergy(energy.CurrentEnergy - energy.startGameEnergy);
             TimeController.SaveLastPlayTime();
@@ -169,8 +170,8 @@ public class MenuController : MonoBehaviour
             }
             catch (Exception e)
             {
-                Application.OpenURL("https://cafebazaar.ir/developer/scientist_studio");   // open in browser instead
-              //  Debug.LogAssertion(e.StackTrace);   // was not installed!
+              //  Application.OpenURL("https://cafebazaar.ir/developer/scientist_studio");   // open in browser instead
+                Debug.LogAssertion(e.StackTrace);   // was not installed!
             }
 #endif
         }
@@ -210,8 +211,8 @@ public class MenuController : MonoBehaviour
         }
         catch (Exception e)
         {
-            Application.OpenURL("https://www.instagram.com/gameditors/");   // open in browser instead
-           // Debug.LogAssertion(e.StackTrace);   // was not installed!
+            //Application.OpenURL("https://www.instagram.com/gameditors/");   // open in browser instead
+            Debug.LogAssertion(e.StackTrace);   // was not installed!
         }
 #endif
     }
@@ -240,8 +241,8 @@ public class MenuController : MonoBehaviour
             }
             catch (Exception e)
             {
-                Application.OpenURL("https://cafebazaar.ir/app/com.gameditors.ballz");
-              //  Debug.LogAssertion(e.StackTrace);   // maybe Bazaar was not installed!
+               // Application.OpenURL("https://cafebazaar.ir/app/com.gameditors.ballz");
+                Debug.LogAssertion(e.StackTrace);   // maybe Bazaar was not installed!
             }
 #endif
         }
@@ -361,7 +362,8 @@ public class MenuController : MonoBehaviour
     #region Pause Menu
     public void GotoMainMenu()
     {
-        Application.LoadLevel("Main");
+        //Application.LoadLevel("Main");
+        SceneManager.LoadScene("Main");
         HidePauseMenu();
     }
 

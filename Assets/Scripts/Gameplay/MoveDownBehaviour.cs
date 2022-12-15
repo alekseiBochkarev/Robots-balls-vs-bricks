@@ -44,7 +44,7 @@ public class MoveDownBehaviour : MonoBehaviour
     }
 
     private void UpdateCurrentPosition () {
-        Debug.Log("updateCurrentPos (parent position is)" + this.transform.parent.position);
+        //Debug.Log("updateCurrentPos (parent position is)" + this.transform.parent.position);
         try
         {
             //LevelConfig.Instance.grid.GetXY(this.transform.parent.position, out x, out y);
@@ -52,10 +52,11 @@ public class MoveDownBehaviour : MonoBehaviour
         }
         catch (System.Exception e)
         {
-            Debug.Log(this.transform.parent.name);
+            //Debug.Log(this.transform.parent.name);
+            Debug.LogAssertion(e.StackTrace);
             throw;
         }
-        Debug.Log("current position after update x y " + x + " " + y);
+        //Debug.Log("current position after update x y " + x + " " + y);
     }
 
     private void SetZeroToCurrentPosition() {
@@ -69,7 +70,7 @@ public class MoveDownBehaviour : MonoBehaviour
         if (m_levelConfig.grid.GetValue(x, y+1) == 0) {
             SetFreeXY();
             Vector3 target = m_levelConfig.grid.GetWorldPosition(x, y+1);
-            Debug.Log("Move DOWN TARGET is " + target);
+            //Debug.Log("Move DOWN TARGET is " + target);
             //iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
             StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.parent.position, target));
         } else if (m_levelConfig.grid.GetValue(x, y+1) == 2) {

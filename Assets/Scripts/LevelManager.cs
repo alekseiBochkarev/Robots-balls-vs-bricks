@@ -97,7 +97,7 @@ public class LevelManager : MonoBehaviour
     }
 
     private void CheckBallsAndOpenSpecAttackPanelAndContinuePlaying () {
-        Debug.Log("CheckBallsAndOpenSpecAttackPanelAndContinuePlaying");
+       // Debug.Log("CheckBallsAndOpenSpecAttackPanelAndContinuePlaying");
         s_ReturnedBallsAmount ++;
         if (s_ReturnedBallsAmount >= Balls.Instance.PlayerBallsAmount)  
         StartCoroutine(OpenSpecAttackPanelAndContinuePlaying());
@@ -114,13 +114,13 @@ public class LevelManager : MonoBehaviour
         if (LevelManager.Instance.m_LevelState == LevelManager.LevelState.PLAYABLE)
         {
             int magicBallCount = m_SpecialAttackPanelController.GetMagicBallAmount();
-            Debug.Log("magicBallCount = " + magicBallCount);
+            //Debug.Log("magicBallCount = " + magicBallCount);
             for (int i = 0; i < magicBallCount; i++)
             {
                 yield return StartCoroutine(ShowSpecAttackPanelAndClose());
             }
         }
-        Debug.Log("invoke continuePlaying");
+        //Debug.Log("invoke continuePlaying");
         BallLauncher.Instance.ContinuePlaying();
         //m_SpriteRenderer.enabled = false;
     }
@@ -141,7 +141,7 @@ public class LevelManager : MonoBehaviour
 
     public void ResetReturningBallsAmount()
     {
-        Debug.Log("ResetReturningBallsAmount");
+        //Debug.Log("ResetReturningBallsAmount");
         s_ReturnedBallsAmount = 0;
     }
 }

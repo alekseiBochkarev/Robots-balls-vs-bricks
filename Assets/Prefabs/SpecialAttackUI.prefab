@@ -218,10 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   specialAttacksSO:
-  - {fileID: 11400000, guid: 246589332802c1249b79bd21e9c2a141, type: 2}
-  - {fileID: 11400000, guid: 5d71d9b7406b07241ae2808d6e5b766b, type: 2}
-  - {fileID: 11400000, guid: 98e610454b044aa46a0a04c58bf7f9c4, type: 2}
-  - {fileID: 11400000, guid: fa691d4e6e3b24e49b8ec34eec98bd3d, type: 2}
+  - {fileID: 11400000, guid: 36fbce7746d7723179224619e830f32c, type: 2}
   comboAttacksSO:
   - {fileID: 11400000, guid: 5d71d9b7406b07241ae2808d6e5b766b, type: 2}
   - {fileID: 11400000, guid: 98e610454b044aa46a0a04c58bf7f9c4, type: 2}
