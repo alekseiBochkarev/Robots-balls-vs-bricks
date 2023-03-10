@@ -1200,8 +1200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48998d3b14f840e8887171dde4c6a801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridWidth: 6
+  gridWidth: 12
   gridHeight: 0
+  scaleCoefficient: 0
   originPosition: {x: -2.15, y: 2.664, z: 0}
 --- !u!1 &539004127
 GameObject:
@@ -4183,7 +4184,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 97bddf49aa1744031a42e7cc776142d1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aaeb9aea470f2364c825a4cb9a3aecca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
