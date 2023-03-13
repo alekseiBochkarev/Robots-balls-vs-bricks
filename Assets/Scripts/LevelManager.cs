@@ -39,6 +39,7 @@ public class LevelManager : MonoBehaviour
                     {
                         m_GameMenuPanel.SetActive(true);
                         m_GameOverPanel.SetActive(false);
+                        m_GameWinPanel.SetActive(false);
                         m_Scores.SetActive(true);
                     
                         BallLauncher.Instance.m_CanPlay = true;
@@ -52,6 +53,7 @@ public class LevelManager : MonoBehaviour
                 case LevelState.GAMEOVER:
                     m_GameMenuPanel.SetActive(false);
                     m_GameOverPanel.SetActive(true);
+                    m_GameWinPanel.SetActive(false);
                     m_Scores.SetActive(false);
 
                     m_GameOverFinalScore.text = "Final Score : " + (ScoreManager.Instance.m_LevelOfFinalBrick - 1).ToString();
@@ -60,7 +62,8 @@ public class LevelManager : MonoBehaviour
                     break;
                 case LevelState.WIN:
                     m_GameMenuPanel.SetActive(false);
-                    m_GameOverPanel.SetActive(true);
+                    m_GameOverPanel.SetActive(false);
+                    m_GameWinPanel.SetActive(true);
                     m_Scores.SetActive(false);
 
                     m_GameOverFinalScore.text = "You win";

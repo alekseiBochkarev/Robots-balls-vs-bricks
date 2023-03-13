@@ -344,6 +344,17 @@ public class MenuController : MonoBehaviour
         Saver.Instance.Save(true);
     }
 
+    public void RestartCurrentSceneAfterLose()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void OpenNextSceneAfterWin()
+    {
+        PlayerPrefs.SetInt("currentScene", SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public void ReplayAfterGameOver()
     {
         if (energy.CurrentEnergy >= energy.startGameEnergy) {
