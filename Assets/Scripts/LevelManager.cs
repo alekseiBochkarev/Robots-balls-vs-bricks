@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
 
     public GameObject m_GameMenuPanel;
     public GameObject m_GameOverPanel;
+    public GameObject m_GameWinPanel;
     public GameObject m_Scores;
     public Text m_GameOverFinalScore;
 
