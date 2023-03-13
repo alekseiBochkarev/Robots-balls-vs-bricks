@@ -347,12 +347,14 @@ public class MenuController : MonoBehaviour
     public void RestartCurrentSceneAfterLose()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Saver.Instance.Save(true);
     }
 
     public void OpenNextSceneAfterWin()
     {
         PlayerPrefs.SetInt("currentScene", SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Saver.Instance.Save(true);
     }
 
     public void ReplayAfterGameOver()
