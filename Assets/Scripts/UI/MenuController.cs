@@ -330,7 +330,7 @@ public class MenuController : MonoBehaviour
         }
 #endif
     }
-
+    /*
     #region GameOver Menu
     public void GotoMainMenuAfterGameOver()
     {
@@ -342,7 +342,7 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(0);
         //GameManager.Instance.m_GameState = GameManager.GameState.MainMenu;
         Saver.Instance.Save(true);
-    }
+    }*/
 
     public void RestartCurrentSceneAfterLose()
     {
@@ -353,7 +353,8 @@ public class MenuController : MonoBehaviour
     public void OpenNextSceneAfterWin()
     {
         PlayerPrefs.SetInt("currentScene", SceneManager.GetActiveScene().buildIndex);
-        if ((SceneManager.GetActiveScene().buildIndex + 1) != null)
+        Debug.Log(SceneManager.sceneCount);
+       if ((SceneManager.GetActiveScene().buildIndex + 1) < SceneManager.sceneCount)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         } else
@@ -362,7 +363,7 @@ public class MenuController : MonoBehaviour
         }
         Saver.Instance.Save(true);
     }
-
+    /*
     public void ReplayAfterGameOver()
     {
         if (energy.CurrentEnergy >= energy.startGameEnergy) {
@@ -377,6 +378,8 @@ public class MenuController : MonoBehaviour
         }
     }
     #endregion
+    */
+
 
     #region Pause Menu
     public void GotoMainMenu()
