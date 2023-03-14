@@ -353,7 +353,13 @@ public class MenuController : MonoBehaviour
     public void OpenNextSceneAfterWin()
     {
         PlayerPrefs.SetInt("currentScene", SceneManager.GetActiveScene().buildIndex);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if ((SceneManager.GetActiveScene().buildIndex + 1) != null)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        } else
+        {
+            SceneManager.LoadScene(0);
+        }
         Saver.Instance.Save(true);
     }
 
