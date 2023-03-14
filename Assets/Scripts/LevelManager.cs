@@ -78,6 +78,7 @@ public class LevelManager : MonoBehaviour
             return m_State;
         }
     }
+    
     private void Awake()
     {
         Instance = this;
@@ -115,16 +116,18 @@ public class LevelManager : MonoBehaviour
                 colliders[i].gameObject.GetComponent<IBall>().DestroyBall();
             }
         }
-        if (LevelManager.Instance.m_LevelState == LevelManager.LevelState.PLAYABLE)
+        Debug.Log("OpenSpecAttackPanelAndContinuePlaying");
+        if (m_LevelState == LevelState.PLAYABLE)
         {
             int magicBallCount = m_SpecialAttackPanelController.GetMagicBallAmount();
             //Debug.Log("magicBallCount = " + magicBallCount);
             for (int i = 0; i < magicBallCount; i++)
             {
+                Debug.Log("try to execute ShowSpecAttackPanelAndClose");
                 yield return StartCoroutine(ShowSpecAttackPanelAndClose());
             }
         }
-        //Debug.Log("invoke continuePlaying");
+        Debug.Log("invoke continuePlaying");
         BallLauncher.Instance.ContinuePlaying();
         //m_SpriteRenderer.enabled = false;
     }
@@ -147,5 +150,11 @@ public class LevelManager : MonoBehaviour
     {
         //Debug.Log("ResetReturningBallsAmount");
         s_ReturnedBallsAmount = 0;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.BallsReturned -= CheckBallsAndOpenSpecAttackPanelAndContinuePlaying;
+        EventManager.ResetReturningBallsAmount -= ResetReturningBallsAmount;
     }
 }
