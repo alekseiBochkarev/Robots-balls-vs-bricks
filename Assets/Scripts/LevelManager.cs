@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
     Collider2D[] colliders;
     private float vision = 10f;
 
-    public enum LevelState { PLAYABLE, GAMEOVER, WIN }
+    public enum LevelState {BEFOREPLAYABLE, PLAYABLE, GAMEOVER, WIN }
     private LevelState m_State; //= GameState.MainMenu;
 
     public LevelState m_LevelState
@@ -31,6 +31,16 @@ public class LevelManager : MonoBehaviour
 
             switch(value)
             {
+                case LevelState.BEFOREPLAYABLE:
+                    m_GameMenuPanel.SetActive(false);
+                    m_BeforeStartPanel.SetActive(true);
+                    m_GameOverPanel.SetActive(false);
+                    m_GameWinPanel.SetActive(false);
+                    m_Scores.SetActive(false);
+
+                    BallLauncher.Instance.m_CanPlay = false;
+                    BallLauncher.Instance.ResetPositions();
+                    break;
                 case LevelState.PLAYABLE:
                     if(Saver.Instance.HasSave())
                     {
@@ -39,6 +49,7 @@ public class LevelManager : MonoBehaviour
                     else
                     {
                         m_GameMenuPanel.SetActive(true);
+                        m_BeforeStartPanel.SetActive(false);
                         m_GameOverPanel.SetActive(false);
                         m_GameWinPanel.SetActive(false);
                         m_Scores.SetActive(true);
@@ -53,6 +64,7 @@ public class LevelManager : MonoBehaviour
                     break;
                 case LevelState.GAMEOVER:
                     m_GameMenuPanel.SetActive(false);
+                    m_BeforeStartPanel.SetActive(false);
                     m_GameOverPanel.SetActive(true);
                     m_GameWinPanel.SetActive(false);
                     m_Scores.SetActive(false);
@@ -63,6 +75,7 @@ public class LevelManager : MonoBehaviour
                     break;
                 case LevelState.WIN:
                     m_GameMenuPanel.SetActive(false);
+                    m_BeforeStartPanel.SetActive(false);
                     m_GameOverPanel.SetActive(false);
                     m_GameWinPanel.SetActive(true);
                     m_Scores.SetActive(false);
@@ -90,7 +103,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        m_LevelState = LevelState.PLAYABLE;
+        m_LevelState = LevelState.BEFOREPLAYABLE;
        // Debug.Log("start gameManager LevelState " + m_LevelState);
       //  Debug.Log("instanse state " + Instance.m_LevelState);
     }

@@ -61,7 +61,7 @@ public class MenuController : MonoBehaviour
         }
         */
     }
-
+    /*
     public void StartGame()
     {
         if (energy.CurrentEnergy >= energy.startGameEnergy) {
@@ -73,7 +73,13 @@ public class MenuController : MonoBehaviour
         }
         //GameManager.Instance.m_GameState = GameManager.GameState.Playable;
         //Debug.Log("gamestate " + GameManager.Instance.m_GameState);
+    }*/
+
+    public void PlayGameLevel()
+    {
+        LevelManager.Instance.m_LevelState = LevelManager.LevelState.PLAYABLE;
     }
+
 
     public void OpenUpgradePanel() // nice to add some animation on openning
     {
