@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
 
     public GameObject m_GameMenuPanel;
+    public GameObject m_BeforeStartPanel;
     public GameObject m_GameOverPanel;
     public GameObject m_GameWinPanel;
     public GameObject m_Scores;
