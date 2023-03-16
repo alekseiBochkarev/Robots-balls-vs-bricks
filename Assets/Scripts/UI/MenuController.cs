@@ -10,6 +10,8 @@ public class MenuController : MonoBehaviour
 
     private Energy energy;
 
+    private int controlSceneIndex = 0;
+
     public GameObject m_MainMenuQuitPanel;
     public GameObject m_SettingsPanel;
     public GameObject m_PauseMenu;  // or backMenu (panel)
@@ -78,6 +80,11 @@ public class MenuController : MonoBehaviour
     public void PlayGameLevel()
     {
         LevelManager.Instance.m_LevelState = LevelManager.LevelState.PLAYABLE;
+    }
+
+    public void DebugWin()
+    {
+        LevelManager.Instance.m_LevelState = LevelManager.LevelState.WIN;
     }
 
 
@@ -352,17 +359,18 @@ public class MenuController : MonoBehaviour
 
     public void RestartCurrentSceneAfterLose()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Saver.Instance.Save(true);
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(controlSceneIndex);
     }
 
     public void OpenNextSceneAfterWin()
     {
-        int nextScene = ((SceneManager.GetActiveScene().buildIndex + 1) <= SceneManager.sceneCount) ? SceneManager.GetActiveScene().buildIndex + 1 : 0;
-        if ((SceneManager.GetActiveScene().buildIndex + 1) <= SceneManager.sceneCount)
-        PlayerPrefs.SetInt("currentScene", nextScene);
-        SceneManager.LoadScene(nextScene);
-        Saver.Instance.Save(true);
+        int defaultScene = 1;
+        int nextScene = ((SceneManager.GetActiveScene().buildIndex + 1) < SceneManager.sceneCountInBuildSettings) ? (SceneManager.GetActiveScene().buildIndex + 1) : defaultScene;
+        Debug.LogError("SceneManager.sceneCount =" + SceneManager.sceneCountInBuildSettings);
+        Debug.LogError("nextScene = " + nextScene + " because SceneManager.GetActiveScene().buildIndex + 1  =" + (SceneManager.GetActiveScene().buildIndex + 1) );
+        SaveManager.SaveScene(nextScene);
+        SceneManager.LoadScene(controlSceneIndex);
     }
     /*
     public void ReplayAfterGameOver()
@@ -381,7 +389,7 @@ public class MenuController : MonoBehaviour
     #endregion
     */
 
-
+    
     #region Pause Menu
     public void GotoMainMenu()
     {
