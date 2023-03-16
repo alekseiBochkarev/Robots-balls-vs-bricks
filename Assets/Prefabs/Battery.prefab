@@ -282,6 +282,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasEnergy: 1
   IsActive: 0
+  chargeIndicator: {fileID: 766730012799007610}
+  topLeftIndicator: {fileID: 2121057759372364593}
+  topRightIndicator: {fileID: 7009918478523234621}
+  dischargedIndicatorSprite: {fileID: 21300000, guid: e837dda3fff47cd42b81039f2db9f032,
+    type: 3}
+  activeChargeIndicatorSprite: {fileID: 21300000, guid: 1eb3f63b0999ca5488dd741c1b070ad9,
+    type: 3}
+  chargedIndicatorSprite: {fileID: 21300000, guid: a6dc788a804110e4abd77d0ac7909c7a,
+    type: 3}
+  dischargedTopIndicatorSprite: {fileID: 21300000, guid: cd295eece163e3e488c205c8f8b257d7,
+    type: 3}
+  activeTopIndicatorSprite: {fileID: 21300000, guid: 0af6d928b9d747b45b840b2cb6ede667,
+    type: 3}
+  chargedTopIndicatorSprite: {fileID: 21300000, guid: 8ee70a938d651a14d8eaa0db565aa7db,
+    type: 3}
 --- !u!1 &5899487891424230670
 GameObject:
   m_ObjectHideFlags: 0

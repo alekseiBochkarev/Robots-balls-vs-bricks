@@ -23,7 +23,6 @@ public class BatteryController : MonoBehaviour
             batteriesAmount = BASE_BATTERY_AMOUNT;
         }
         ShowCounterText();
-
     }
 
     private void ShowCounterText()
@@ -37,27 +36,33 @@ public class BatteryController : MonoBehaviour
         batteryEnergy.SetBatteryEnergy(false);
 
         ShowCounterText();
-        //Add logic for sprites
+
+        batteryEnergy.SetIndicatorSprites(BatteryStates.DISCHARGED);
 
     }
 
     public void ChargeTheBattery()
     {
-        batteryEnergy.SetBatteryEnergy(true);
-        batteryEnergy.SetBatteryActive(false);
+        if (batteriesAmount > 0 && !batteryEnergy.IsBatteryActive())
+        {
+            batteryEnergy.SetBatteryEnergy(true);
+            batteryEnergy.SetBatteryActive(false);
 
-        ShowCounterText();
-        //Add logic for sprites
+            batteriesAmount--;
+            ShowCounterText();
 
+            batteryEnergy.SetIndicatorSprites(BatteryStates.CHARGED);
+        }
     }
 
     public void ActivateTheBattery()
     {
-        batteryEnergy.SetBatteryActive(true);
-        batteryEnergy.SetBatteryEnergy(true);
+        if (batteryEnergy.HasBatteryEnergy())
+        {
+            batteryEnergy.SetBatteryActive(true);
 
-        //Add logic for sprites
-
+            batteryEnergy.SetIndicatorSprites(BatteryStates.ACTIVE);
+        }
     }
 
     public void AddAdditionalBattery()
@@ -85,7 +90,6 @@ public class BatteryController : MonoBehaviour
         {
             AddAdditionalBattery();
         }
-
         if (Input.GetKeyDown(KeyCode.Y))
         {
             ClearAdditionalBatteries();
@@ -98,7 +102,10 @@ public class BatteryController : MonoBehaviour
         {
             ChargeTheBattery();
         }
-
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            ActivateTheBattery();
+        }
     }
 }
    
