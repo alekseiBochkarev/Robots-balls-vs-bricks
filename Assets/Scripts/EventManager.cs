@@ -41,6 +41,7 @@ public class EventManager : MonoBehaviour
     
     public static void OnGameWon() 
     {
+        Debug.Log("Game won event");
         GameWon?.Invoke();
     }
 

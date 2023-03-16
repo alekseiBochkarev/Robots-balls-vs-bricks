@@ -83,6 +83,7 @@ public class LevelManager : MonoBehaviour
                     m_GameOverFinalScore.text = "You win";
                     BallLauncher.Instance.m_CanPlay = false;
                     BallLauncher.Instance.ResetPositions();
+                    EventManager.OnGameWon();
                     break;
 
             }
