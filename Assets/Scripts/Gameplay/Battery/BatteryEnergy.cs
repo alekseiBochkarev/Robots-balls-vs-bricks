@@ -61,22 +61,23 @@ public class BatteryEnergy : MonoBehaviour
     {
         if (state == BatteryStates.DISCHARGED)
         {
-            topLeftSprite.sprite = dischargedTopIndicatorSprite;
-            topRightSprite.sprite = dischargedTopIndicatorSprite;
-            chargeIndicatorSprite.sprite = dischargedIndicatorSprite;
+            ChangeSprites(dischargedTopIndicatorSprite, dischargedIndicatorSprite);
         }
         if (state == BatteryStates.ACTIVE)
         {
-            topLeftSprite.sprite = activeTopIndicatorSprite;
-            topRightSprite.sprite = activeTopIndicatorSprite;
-            chargeIndicatorSprite.sprite = activeChargeIndicatorSprite;
+            ChangeSprites(activeTopIndicatorSprite, activeChargeIndicatorSprite);
         }
         if (state == BatteryStates.CHARGED)
         {
-            topLeftSprite.sprite = chargedTopIndicatorSprite;
-            topRightSprite.sprite = chargedTopIndicatorSprite;
-            chargeIndicatorSprite.sprite = chargedIndicatorSprite;
+            ChangeSprites(chargedTopIndicatorSprite, chargedIndicatorSprite);
         }
+    }
+
+    private void ChangeSprites(Sprite topIndicatorSprite, Sprite indicatorSprite)
+    {
+        topLeftSprite.sprite = topIndicatorSprite;
+        topRightSprite.sprite = topIndicatorSprite;
+        chargeIndicatorSprite.sprite = indicatorSprite;
     }
 }
 
