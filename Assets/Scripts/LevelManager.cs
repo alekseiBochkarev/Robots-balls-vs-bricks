@@ -8,7 +8,9 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
 
     public GameObject m_GameMenuPanel;
+    public GameObject m_BeforeStartPanel;
     public GameObject m_GameOverPanel;
+    public GameObject m_GameWinPanel;
     public GameObject m_Scores;
     public Text m_GameOverFinalScore;
 
@@ -18,7 +20,7 @@ public class LevelManager : MonoBehaviour
     Collider2D[] colliders;
     private float vision = 10f;
 
-    public enum LevelState { PLAYABLE, GAMEOVER, WIN }
+    public enum LevelState {BEFOREPLAYABLE, PLAYABLE, GAMEOVER, WIN }
     private LevelState m_State; //= GameState.MainMenu;
 
     public LevelState m_LevelState
@@ -29,6 +31,16 @@ public class LevelManager : MonoBehaviour
 
             switch(value)
             {
+                case LevelState.BEFOREPLAYABLE:
+                    m_GameMenuPanel.SetActive(false);
+                    m_BeforeStartPanel.SetActive(true);
+                    m_GameOverPanel.SetActive(false);
+                    m_GameWinPanel.SetActive(false);
+                    m_Scores.SetActive(false);
+
+                    BallLauncher.Instance.m_CanPlay = false;
+                    BallLauncher.Instance.ResetPositions();
+                    break;
                 case LevelState.PLAYABLE:
                     if(Saver.Instance.HasSave())
                     {
@@ -37,7 +49,9 @@ public class LevelManager : MonoBehaviour
                     else
                     {
                         m_GameMenuPanel.SetActive(true);
+                        m_BeforeStartPanel.SetActive(false);
                         m_GameOverPanel.SetActive(false);
+                        m_GameWinPanel.SetActive(false);
                         m_Scores.SetActive(true);
                     
                         BallLauncher.Instance.m_CanPlay = true;
@@ -50,7 +64,9 @@ public class LevelManager : MonoBehaviour
                     break;
                 case LevelState.GAMEOVER:
                     m_GameMenuPanel.SetActive(false);
+                    m_BeforeStartPanel.SetActive(false);
                     m_GameOverPanel.SetActive(true);
+                    m_GameWinPanel.SetActive(false);
                     m_Scores.SetActive(false);
 
                     m_GameOverFinalScore.text = "Final Score : " + (ScoreManager.Instance.m_LevelOfFinalBrick - 1).ToString();
@@ -59,12 +75,15 @@ public class LevelManager : MonoBehaviour
                     break;
                 case LevelState.WIN:
                     m_GameMenuPanel.SetActive(false);
-                    m_GameOverPanel.SetActive(true);
+                    m_BeforeStartPanel.SetActive(false);
+                    m_GameOverPanel.SetActive(false);
+                    m_GameWinPanel.SetActive(true);
                     m_Scores.SetActive(false);
 
                     m_GameOverFinalScore.text = "You win";
                     BallLauncher.Instance.m_CanPlay = false;
                     BallLauncher.Instance.ResetPositions();
+                    EventManager.OnGameWon();
                     break;
 
             }
@@ -74,6 +93,7 @@ public class LevelManager : MonoBehaviour
             return m_State;
         }
     }
+    
     private void Awake()
     {
         Instance = this;
@@ -84,7 +104,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        m_LevelState = LevelState.PLAYABLE;
+        m_LevelState = LevelState.BEFOREPLAYABLE;
        // Debug.Log("start gameManager LevelState " + m_LevelState);
       //  Debug.Log("instanse state " + Instance.m_LevelState);
     }
@@ -111,16 +131,18 @@ public class LevelManager : MonoBehaviour
                 colliders[i].gameObject.GetComponent<IBall>().DestroyBall();
             }
         }
-        if (LevelManager.Instance.m_LevelState == LevelManager.LevelState.PLAYABLE)
+        Debug.Log("OpenSpecAttackPanelAndContinuePlaying");
+        if (m_LevelState == LevelState.PLAYABLE)
         {
             int magicBallCount = m_SpecialAttackPanelController.GetMagicBallAmount();
             //Debug.Log("magicBallCount = " + magicBallCount);
             for (int i = 0; i < magicBallCount; i++)
             {
+                Debug.Log("try to execute ShowSpecAttackPanelAndClose");
                 yield return StartCoroutine(ShowSpecAttackPanelAndClose());
             }
         }
-        //Debug.Log("invoke continuePlaying");
+        Debug.Log("invoke continuePlaying");
         BallLauncher.Instance.ContinuePlaying();
         //m_SpriteRenderer.enabled = false;
     }
@@ -143,5 +165,11 @@ public class LevelManager : MonoBehaviour
     {
         //Debug.Log("ResetReturningBallsAmount");
         s_ReturnedBallsAmount = 0;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.BallsReturned -= CheckBallsAndOpenSpecAttackPanelAndContinuePlaying;
+        EventManager.ResetReturningBallsAmount -= ResetReturningBallsAmount;
     }
 }
