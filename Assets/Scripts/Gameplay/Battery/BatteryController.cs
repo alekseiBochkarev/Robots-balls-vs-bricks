@@ -1,110 +1,107 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class BatteryController : MonoBehaviour
+namespace Gameplay.Battery
 {
-    [Header("Settings")]
-    [SerializeField] private int BASE_BATTERY_AMOUNT = 3;
-    [SerializeField] private int MAX_BATTERY_AMOUNT = 10;
-
-    [SerializeField] private int batteriesAmount;
-    [SerializeField] private GameObject batteryPrefab;
-    [SerializeField] private GameObject batteryGameObject;
-
-    [SerializeField] private TextMeshProUGUI counterText;
-    [SerializeField] private BatteryEnergy batteryEnergy;
-
-    public void Awake()
+    public class BatteryController : MonoBehaviour
     {
-        if (batteriesAmount == 0)
+        [Header("Settings")] 
+        private const int BaseBatteryAmount = 3;
+        private const int MaxBatteryAmount = 10;
+
+        [SerializeField] private int batteriesAmount;
+        [SerializeField] private TextMeshProUGUI counterText;
+        [SerializeField] private BatteryEnergy batteryEnergy;
+
+        public void Awake()
         {
-            batteriesAmount = BASE_BATTERY_AMOUNT;
+            if (batteriesAmount == 0)
+            {
+                batteriesAmount = BaseBatteryAmount;
+            }
+            ShowCounterText();
         }
-        ShowCounterText();
-    }
 
-    private void ShowCounterText()
-    {
-        counterText.text = batteriesAmount.ToString();
-    }
-
-    public void DischargeTheBattery()
-    {
-        batteryEnergy.SetBatteryActive(false);
-        batteryEnergy.SetBatteryEnergy(false);
-
-        ShowCounterText();
-
-        batteryEnergy.SetIndicatorSprites(BatteryStates.DISCHARGED);
-
-    }
-
-    public void ChargeTheBattery()
-    {
-        if (batteriesAmount > 0 && !batteryEnergy.IsBatteryActive())
+        private void ShowCounterText()
         {
-            batteryEnergy.SetBatteryEnergy(true);
+            counterText.text = batteriesAmount.ToString();
+        }
+
+        public void DischargeTheBattery()
+        {
             batteryEnergy.SetBatteryActive(false);
+            batteryEnergy.SetBatteryEnergy(false);
 
-            batteriesAmount--;
             ShowCounterText();
 
-            batteryEnergy.SetIndicatorSprites(BatteryStates.CHARGED);
+            batteryEnergy.SetIndicatorSprites(BatteryStates.Discharged);
         }
-    }
 
-    public void ActivateTheBattery()
-    {
-        if (batteryEnergy.HasBatteryEnergy())
+        public void ChargeTheBattery()
         {
-            batteryEnergy.SetBatteryActive(true);
+            if (batteriesAmount > 0 && !batteryEnergy.IsBatteryActive())
+            {
+                batteryEnergy.SetBatteryEnergy(true);
+                batteryEnergy.SetBatteryActive(false);
 
-            batteryEnergy.SetIndicatorSprites(BatteryStates.ACTIVE);
-        }
-    }
+                batteriesAmount--;
+                ShowCounterText();
 
-    public void AddAdditionalBattery()
-    {
-        if (batteriesAmount != MAX_BATTERY_AMOUNT)
-        {
-            batteriesAmount++;
-            ShowCounterText();
+                batteryEnergy.SetIndicatorSprites(BatteryStates.Charged);
+            }
         }
-    }
 
-    public void ClearAdditionalBatteries()
-    {
-        if (batteriesAmount != BASE_BATTERY_AMOUNT)
+        public void ActivateTheBattery()
         {
-            batteriesAmount = BASE_BATTERY_AMOUNT;
-            ShowCounterText();
-        }
-    }
+            if (batteryEnergy.HasBatteryEnergy())
+            {
+                batteryEnergy.SetBatteryActive(true);
 
-    private void Update()
-    {
-        //For Debug
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            AddAdditionalBattery();
+                batteryEnergy.SetIndicatorSprites(BatteryStates.Active);
+            }
         }
-        if (Input.GetKeyDown(KeyCode.Y))
+
+        public void AddAdditionalBattery()
         {
-            ClearAdditionalBatteries();
+            if (batteriesAmount != MaxBatteryAmount)
+            {
+                batteriesAmount++;
+                ShowCounterText();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.D))
+
+        public void ClearAdditionalBatteries()
         {
-            DischargeTheBattery();
+            if (batteriesAmount != BaseBatteryAmount)
+            {
+                batteriesAmount = BaseBatteryAmount;
+                ShowCounterText();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.C))
+
+        private void Update()
         {
-            ChargeTheBattery();
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            ActivateTheBattery();
+            //For Debug
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                AddAdditionalBattery();
+            }
+            if (Input.GetKeyDown(KeyCode.Y))
+            {
+                ClearAdditionalBatteries();
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                DischargeTheBattery();
+            }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                ChargeTheBattery();
+            }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                ActivateTheBattery();
+            }
         }
     }
 }

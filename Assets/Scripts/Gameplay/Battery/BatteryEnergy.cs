@@ -1,87 +1,90 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BatteryEnergy : MonoBehaviour
+namespace Gameplay.Battery
 {
-    //ToDo Добавить логику сохранения/загрузки данных в PlayerPrefs или Json в другом скрипте
-    // Здесь должна быть логика конкретной одной батареи
-
-    [SerializeField] private bool HasEnergy = true;
-    [SerializeField] private bool IsActive = false;
-
-    [Header("Child objects")]
-    [SerializeField] private Transform chargeIndicator;
-    [SerializeField] private Transform topLeftIndicator;
-    [SerializeField] private Transform topRightIndicator;
-
-    [Header("Charge indicator sprites")]
-    [SerializeField] private Sprite dischargedIndicatorSprite;
-    [SerializeField] private Sprite activeChargeIndicatorSprite;
-    [SerializeField] private Sprite chargedIndicatorSprite;
-
-    [Header("Top indicator sprites")]
-    [SerializeField] private Sprite dischargedTopIndicatorSprite;
-    [SerializeField] private Sprite activeTopIndicatorSprite;
-    [SerializeField] private Sprite chargedTopIndicatorSprite;
-
-    private Image topLeftSprite;
-    private Image topRightSprite;
-    private Image chargeIndicatorSprite;
-
-    private void Awake()
-    {   
-        topLeftSprite = topLeftIndicator.GetComponent<Image>();
-        topRightSprite = topRightIndicator.GetComponent<Image>();
-        chargeIndicatorSprite = chargeIndicator.GetComponent<Image>();
-    }
-
-    public bool HasBatteryEnergy()
+    public class BatteryEnergy : MonoBehaviour
     {
-        return HasEnergy;
-    }
+        //ToDo Add json/playerprefs saves
+        [SerializeField] private bool hasEnergy = true;
+        [SerializeField] private bool isActive;
 
-    public bool IsBatteryActive()
-    {
-        return IsActive;
-    }
+        [Header("Child objects")] 
+        [SerializeField] private Transform chargeIndicator;
+        [SerializeField] private Transform topLeftIndicator;
+        [SerializeField] private Transform topRightIndicator;
 
-    public void SetBatteryEnergy(bool IsCharged)
-    {
-        HasEnergy = IsCharged;
-    }
+        [Header("Charge indicator sprites")] 
+        [SerializeField] private Sprite dischargedIndicatorSprite;
+        [SerializeField] private Sprite activeChargeIndicatorSprite;
+        [SerializeField] private Sprite chargedIndicatorSprite;
 
-    public void SetBatteryActive(bool isActive)
-    {
-        IsActive = isActive;
-    }
+        [Header("Top indicator sprites")] 
+        [SerializeField] private Sprite dischargedTopIndicatorSprite;
+        [SerializeField] private Sprite activeTopIndicatorSprite;
+        [SerializeField] private Sprite chargedTopIndicatorSprite;
 
-    public void SetIndicatorSprites(BatteryStates state)
-    {
-        if (state == BatteryStates.DISCHARGED)
+        private Image _topLeftSprite;
+        private Image _topRightSprite;
+        private Image _chargeIndicatorSprite;
+
+        private void Awake()
         {
-            ChangeSprites(dischargedTopIndicatorSprite, dischargedIndicatorSprite);
+            _topLeftSprite = topLeftIndicator.GetComponent<Image>();
+            _topRightSprite = topRightIndicator.GetComponent<Image>();
+            _chargeIndicatorSprite = chargeIndicator.GetComponent<Image>();
         }
-        if (state == BatteryStates.ACTIVE)
-        {
-            ChangeSprites(activeTopIndicatorSprite, activeChargeIndicatorSprite);
-        }
-        if (state == BatteryStates.CHARGED)
-        {
-            ChangeSprites(chargedTopIndicatorSprite, chargedIndicatorSprite);
-        }
-    }
 
-    private void ChangeSprites(Sprite topIndicatorSprite, Sprite indicatorSprite)
-    {
-        topLeftSprite.sprite = topIndicatorSprite;
-        topRightSprite.sprite = topIndicatorSprite;
-        chargeIndicatorSprite.sprite = indicatorSprite;
+        public bool HasBatteryEnergy()
+        {
+            return hasEnergy;
+        }
+
+        public bool IsBatteryActive()
+        {
+            return isActive;
+        }
+
+        public void SetBatteryEnergy(bool isCharged)
+        {
+            hasEnergy = isCharged;
+        }
+
+        public void SetBatteryActive(bool isBatteryActive)
+        {
+            this.isActive = isBatteryActive;
+        }
+
+        public void SetIndicatorSprites(BatteryStates state)
+        {
+            if (state == BatteryStates.Discharged)
+            {
+                ChangeSprites(dischargedTopIndicatorSprite, dischargedIndicatorSprite);
+            }
+
+            if (state == BatteryStates.Active)
+            {
+                ChangeSprites(activeTopIndicatorSprite, activeChargeIndicatorSprite);
+            }
+
+            if (state == BatteryStates.Charged)
+            {
+                ChangeSprites(chargedTopIndicatorSprite, chargedIndicatorSprite);
+            }
+        }
+
+        private void ChangeSprites(Sprite topIndicatorSprite, Sprite indicatorSprite)
+        {
+            _topLeftSprite.sprite = topIndicatorSprite;
+            _topRightSprite.sprite = topIndicatorSprite;
+            _chargeIndicatorSprite.sprite = indicatorSprite;
+        }
     }
 }
 
 public enum BatteryStates
 {
-    CHARGED, ACTIVE, DISCHARGED
+    Charged,
+    Active,
+    Discharged
 }

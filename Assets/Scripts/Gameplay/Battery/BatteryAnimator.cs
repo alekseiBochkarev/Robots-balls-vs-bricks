@@ -1,21 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BatteryAnimator : MonoBehaviour
+namespace Gameplay.Battery
 {
-    private const string HAS_ENERGY = "HasEnergy";
-
-    [SerializeField] private BatteryEnergy batteryEnergy;
-    private Animator animator;
-
-    private void Awake()
+    public class BatteryAnimator : MonoBehaviour
     {
-        animator = GetComponent<Animator>();
-    }
+        private const string HasEnergy = "HasEnergy";
+        private static readonly int HasEnergy1 = Animator.StringToHash(HasEnergy);
 
-    private void Update()
-    {
-        animator.SetBool(HAS_ENERGY, batteryEnergy.HasBatteryEnergy());
+        [SerializeField] private BatteryEnergy batteryEnergy;
+        private Animator _animator;
+
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+        }
+
+        private void Update()
+        {
+            _animator.SetBool(HasEnergy1, batteryEnergy.HasBatteryEnergy());
+        }
     }
 }
