@@ -1,76 +1,129 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UpgradeStats
 {
+    //ToDo needs to be done:
+    //1) Health
+    //2) Battery Energy
+    //3) Attack Power
+    //4) Starter balls amount
+    //5) Sight length
+
+    //vars -> Coins required for upgrading
     public float UpgradeHealthCoinsRequired { private set; get; }
-    public float UpgradeAttackPowerCoinsRequired { private set; get; }
+    public float UpgradeBatteryEnergyCoinsRequired { private set; get; }
+    public float UpgradeAttackCoinsRequired { private set; get; }
+    public float UpgradeStarterBallsCoinsRequired { private set; get; }
+    public float UpgradeSightLengthCoinsRequired { private set; get; }
+
+
+    //Upgrade multipliers
+    private readonly float _defaultUpgradeMult = 1;
     public float HealthUpgradeMult { private set; get; }
+    public float BatteryEnergyUpgradeMult { private set; get; }
     public float AttackUpgradeMult { private set; get; }
+    public float StarterBallsUpgradeMult { private set; get; }
+    public float SightLengthUpgradeMult { private set; get; }
+
+    // Values for next upgrading stats
     public float UpgradeHealthValue { private set; get; }
-    public float UpgradeAttackPowerValue { private set; get; }
-    private float startCoinsUpgradeValue = 480;
-    private float startHealthUpgradeValue = 30;
-    private float startAttackUpgradeValue = 1;
+    public float UpgradeBatteryEnergyValue { private set; get; }
+    public float UpgradeAttackValue { private set; get; }
+    public float UpgradeStarterBallsValue { private set; get; }
+    public float UpgradeSightLengthValue { private set; get; }
+
+    // Default values for upgrading stats
+    private readonly float _startCoinsUpgradeValue = 480;
+
+    private readonly float _startHealthUpgradeValue = 30;
+    private readonly float _startBatteryEnergyUpgradeValue = 30;
+    private readonly float _startAttackUpgradeValue = 1;
+    private readonly float _startStarterBallsUpgradeValue = 1;
+    private readonly float _startSightLengthUpgradeValue = 1;
+
     public enum UpgradeMultipliersEnum
     {
         HealthMultiplier,
-        AttackPowerMultiplier
+        BatteryEnergyMultiplier,
+        AttackMultiplier,
+        StarterBallsMultiplier,
+        SightLengthMultiplier
     }
 
-    public enum RequiredCoinsStatsEnum
+    private enum RequiredCoinsStatsEnum
     {
         HealthUpgradeCost,
-        AttackPowerUpgradeCost
+        BatteryEnergyUpgradeCost,
+        AttackUpgradeCost,
+        StarterBallsUpgradeCost,
+        SightLengthUpgradeCost
     }
 
     public UpgradeStats()
     {
-        SetMultiplier();
+        SetMultipliers();
         InitRequiredCoins();
         InitStatsUpgrading();
     }
 
     public void InitRequiredCoins()
     {
-        UpgradeHealthCoinsRequired = startCoinsUpgradeValue * HealthUpgradeMult;
-        SaveRequiredCoins(RequiredCoinsStatsEnum.HealthUpgradeCost, UpgradeHealthCoinsRequired);
-      //  Debug.Log("UpgradeHealthCoinsRequired is ->" + UpgradeHealthCoinsRequired);
+        // init How many coins required for upgrading all stats
+        UpgradeHealthCoinsRequired =
+            InitRequiredCoinsForUpgrading(RequiredCoinsStatsEnum.HealthUpgradeCost, HealthUpgradeMult);
+        UpgradeBatteryEnergyCoinsRequired =
+            InitRequiredCoinsForUpgrading(RequiredCoinsStatsEnum.BatteryEnergyUpgradeCost, BatteryEnergyUpgradeMult);
+        UpgradeAttackCoinsRequired =
+            InitRequiredCoinsForUpgrading(RequiredCoinsStatsEnum.AttackUpgradeCost, AttackUpgradeMult);
+        UpgradeStarterBallsCoinsRequired =
+            InitRequiredCoinsForUpgrading(RequiredCoinsStatsEnum.StarterBallsUpgradeCost, StarterBallsUpgradeMult);
+        UpgradeSightLengthCoinsRequired =
+            InitRequiredCoinsForUpgrading(RequiredCoinsStatsEnum.SightLengthUpgradeCost, SightLengthUpgradeMult);
+    }
 
-        UpgradeAttackPowerCoinsRequired = startCoinsUpgradeValue * AttackUpgradeMult;
-        SaveRequiredCoins(RequiredCoinsStatsEnum.AttackPowerUpgradeCost, UpgradeAttackPowerCoinsRequired);
-       // Debug.Log("UpgradeAttackPowerCoinsRequired is ->" + UpgradeAttackPowerCoinsRequired);
+
+    // init How many coins required for upgrading single stat
+    private float InitRequiredCoinsForUpgrading(RequiredCoinsStatsEnum requiredCoinsStatsEnum, float upgradeMult)
+    {
+        var upgradeCoinsRequired = _startCoinsUpgradeValue * upgradeMult;
+        SaveRequiredCoins(requiredCoinsStatsEnum, upgradeCoinsRequired);
+
+        //  Debug.Log("UpgradeHealthCoinsRequired is ->" + UpgradeHealthCoinsRequired);
+        return upgradeCoinsRequired;
     }
 
     public void InitStatsUpgrading()
     {
-        UpgradeHealthValue = startHealthUpgradeValue * HealthUpgradeMult;
-        UpgradeAttackPowerValue = startAttackUpgradeValue * AttackUpgradeMult;
+        UpgradeHealthValue = _startHealthUpgradeValue * HealthUpgradeMult;
+        UpgradeBatteryEnergyValue = _startBatteryEnergyUpgradeValue * BatteryEnergyUpgradeMult;
+        UpgradeAttackValue = _startAttackUpgradeValue * AttackUpgradeMult;
+        UpgradeStarterBallsValue = _startStarterBallsUpgradeValue * StarterBallsUpgradeMult;
+        UpgradeSightLengthValue = _startSightLengthUpgradeValue * SightLengthUpgradeMult;
     }
 
-    public void SetMultiplier()
+    public void SetMultipliers()
     {
-        if (LoadUpgradeMultiplier(UpgradeMultipliersEnum.HealthMultiplier) != 0)
+        // Set multipliers for all upgrading stats
+        HealthUpgradeMult = SetUpgradeMultiplier(UpgradeMultipliersEnum.HealthMultiplier);
+        BatteryEnergyUpgradeMult = SetUpgradeMultiplier(UpgradeMultipliersEnum.BatteryEnergyMultiplier);
+        AttackUpgradeMult = SetUpgradeMultiplier(UpgradeMultipliersEnum.AttackMultiplier);
+        StarterBallsUpgradeMult = SetUpgradeMultiplier(UpgradeMultipliersEnum.StarterBallsMultiplier);
+        SightLengthUpgradeMult = SetUpgradeMultiplier(UpgradeMultipliersEnum.SightLengthMultiplier);
+    }
+
+    private float SetUpgradeMultiplier(UpgradeMultipliersEnum multipliersEnum)
+    {
+        float upgradeMult;
+        if (LoadUpgradeMultiplier(multipliersEnum) != 0)
         {
-            HealthUpgradeMult = LoadUpgradeMultiplier(UpgradeMultipliersEnum.HealthMultiplier);
+            upgradeMult = LoadUpgradeMultiplier(multipliersEnum);
         }
         else
         {
-            HealthUpgradeMult = 1;
-            SaveUpgradeMultiplier(UpgradeMultipliersEnum.HealthMultiplier, HealthUpgradeMult);
+            upgradeMult = _defaultUpgradeMult;
+            SaveUpgradeMultiplier(multipliersEnum, upgradeMult);
         }
-       // Debug.Log("HealthUpgradeMult is ->" + HealthUpgradeMult);
-        if (LoadUpgradeMultiplier(UpgradeMultipliersEnum.AttackPowerMultiplier) != 0)
-        {
-            AttackUpgradeMult = LoadUpgradeMultiplier(UpgradeMultipliersEnum.AttackPowerMultiplier);
-        }
-        else
-        {
-            AttackUpgradeMult = 1;
-            SaveUpgradeMultiplier(UpgradeMultipliersEnum.AttackPowerMultiplier, AttackUpgradeMult);
-        }
-      //  Debug.Log("AttackUpgradeMult is ->" + AttackUpgradeMult);
+        return upgradeMult;
     }
 
     public void SaveUpgradeMultiplier(UpgradeMultipliersEnum multiplierEnum, float multValue)

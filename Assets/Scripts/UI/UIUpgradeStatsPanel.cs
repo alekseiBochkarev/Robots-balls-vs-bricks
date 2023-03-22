@@ -6,12 +6,14 @@ using TMPro;
 
 public class UIUpgradeStatsPanel : MonoBehaviour
 {
+    // Need to rework for new STATS, use Transform/gameobject Instea
     private HeroStats heroStats;
     private Coins coins;
     private UpgradeStats upgradeStats;
 
     [Header("Current Hero Stats")]
     [SerializeField] private TextMeshProUGUI currentHealthText;
+    [SerializeField] private TextMeshProUGUI currentBatteryEnergyText;
     [SerializeField] private TextMeshProUGUI currentAttackPowerText;
 
     [Header("Upgrade Buttons")]
@@ -19,69 +21,74 @@ public class UIUpgradeStatsPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI upgradeHealthButtonText;
     [SerializeField] private Button upgradeAttackPowerButton;
     [SerializeField] private TextMeshProUGUI upgradeAttackPowerButtonText;
-    private float _upgradePoints;
     private float _playerCoins;
     private float _addUpgradeMult = 1;
     private float _playerHealth;
-    private float _playerAttackPower;
+    private float _playerBatteryEnergy;
+    private float _playerAttack;
+    private float _playerStarterBalls;
+    private float _playerSightLength;
 
     private void Start() 
     {
         upgradeStats = new UpgradeStats();
         heroStats = new HeroStats();
         coins = new Coins();
+        
         //Init players stats for UI and future upgrade
-        _upgradePoints = heroStats.UpgradePoints;
         _playerCoins = coins.m_Coins;
+        
         _playerHealth = heroStats.Health;
-        _playerAttackPower = heroStats.AttackPower;
+        _playerBatteryEnergy = heroStats.BatteryEnergy;
+        _playerAttack = heroStats.Attack;
+        _playerStarterBalls = heroStats.StarterBalls;
+        _playerSightLength = heroStats.SightLength;
     }
 
     /*
-        If coins and upgrade points aren't enough -> disable exact upgrade button
+        If coins aren't enough -> disable exact upgrade button
     */
     private void Update() 
     {
-        GetCoinsAndUpgradePoints();
+        GetCoins();
         ShowCurrentStats(currentHealthText, _playerHealth);
-        ShowCurrentStats(currentAttackPowerText, _playerAttackPower);
+        ShowCurrentStats(currentAttackPowerText, _playerAttack);
         ShowUpgradePrice(upgradeHealthButtonText, upgradeStats.UpgradeHealthCoinsRequired);
-        ShowUpgradePrice(upgradeAttackPowerButtonText, upgradeStats.UpgradeAttackPowerCoinsRequired);
-        if (_playerCoins < upgradeStats.UpgradeHealthCoinsRequired || _upgradePoints <= 0) // check for Health Button
+        ShowUpgradePrice(upgradeAttackPowerButtonText, upgradeStats.UpgradeAttackCoinsRequired);
+        if (_playerCoins < upgradeStats.UpgradeHealthCoinsRequired) // check for Health Button
         {
             DisableUpgradeButton(upgradeHealthButton);
         }
         else
         {
-            EnableUpgradeButon(upgradeHealthButton);
+            EnableUpgradeButton(upgradeHealthButton);
         }
-        if (_playerCoins < upgradeStats.UpgradeAttackPowerCoinsRequired || _upgradePoints <= 0) // check for AttackPower Button
+        if (_playerCoins < upgradeStats.UpgradeAttackCoinsRequired) // check for AttackPower Button
         {
             DisableUpgradeButton(upgradeAttackPowerButton);
         }
         else
         {
-            EnableUpgradeButon(upgradeAttackPowerButton);
+            EnableUpgradeButton(upgradeAttackPowerButton);
         }
-        AddUpgradePoints(); // this one only for debugging
+        DebugMethod(); // this one only for debugging
     }
 
     public void UpgradeHealthOnClick() // It upgrades health on click
     {   
-        // remove coins after buying, remove 1 upgradePoint
-        coins.RemoveCoins(upgradeStats.UpgradeHealthCoinsRequired); 
-        heroStats.RemoveOneUpgradePoints();
+        // remove coins after buying
+        coins.RemoveCoins(upgradeStats.UpgradeHealthCoinsRequired);
 
         // Add Health to the player
-        heroStats.UpgradeStats(HeroStats.HeroStatsEnum.HeroHealth, upgradeStats.UpgradeHealthValue);
+        heroStats.UpgradeStats(HeroStats.HeroStatsEnum.Health, upgradeStats.UpgradeHealthValue);
 
         // Reinit local values for health
         _playerHealth = heroStats.Health;
 
         // Update UpgradeMultiplier and reinit RequiredCoins, StatsUpgrading
-        GetCoinsAndUpgradePoints();
+        GetCoins();
         upgradeStats.SaveUpgradeMultiplier(UpgradeStats.UpgradeMultipliersEnum.HealthMultiplier, _addUpgradeMult);
-        upgradeStats.SetMultiplier();
+        upgradeStats.SetMultipliers();
         upgradeStats.InitRequiredCoins();
         upgradeStats.InitStatsUpgrading();
 
@@ -95,32 +102,30 @@ public class UIUpgradeStatsPanel : MonoBehaviour
     public void UpgradeAttackPowerOnClick() // It upgrades Attack Power on click
     {   
         // remove coins after buying, remove 1 upgradePoint
-        coins.RemoveCoins(upgradeStats.UpgradeAttackPowerCoinsRequired); 
-        heroStats.RemoveOneUpgradePoints();
+        coins.RemoveCoins(upgradeStats.UpgradeAttackCoinsRequired); 
 
         // Add Attack Power to the player
-        heroStats.UpgradeStats(HeroStats.HeroStatsEnum.HeroAttackPower, upgradeStats.UpgradeAttackPowerValue);
+        heroStats.UpgradeStats(HeroStats.HeroStatsEnum.Attack, upgradeStats.UpgradeAttackValue);
 
         // Reinit local values for Attack Power
-        _playerAttackPower = heroStats.AttackPower;
+        _playerAttack = heroStats.Attack;
 
         // Update UpgradeMultiplier and reinit RequiredCoins, StatsUpgrading
-        GetCoinsAndUpgradePoints();
-        upgradeStats.SaveUpgradeMultiplier(UpgradeStats.UpgradeMultipliersEnum.AttackPowerMultiplier, _addUpgradeMult);
-        upgradeStats.SetMultiplier();
+        GetCoins();
+        upgradeStats.SaveUpgradeMultiplier(UpgradeStats.UpgradeMultipliersEnum.AttackMultiplier, _addUpgradeMult);
+        upgradeStats.SetMultipliers();
         upgradeStats.InitRequiredCoins();
         upgradeStats.InitStatsUpgrading();
 
         //Show new values on UpgradeButton after changing (DO WE NEED REALLY NEED THIS?)
-        ShowUpgradePrice(upgradeAttackPowerButtonText, upgradeStats.UpgradeAttackPowerCoinsRequired);
+        ShowUpgradePrice(upgradeAttackPowerButtonText, upgradeStats.UpgradeAttackCoinsRequired);
 
         //EventManager to show changes in other classes
         EventManager.OnUpgradeStats();
     }
     
-    private void GetCoinsAndUpgradePoints()
+    private void GetCoins()
     {
-        _upgradePoints = heroStats.GetStats(HeroStats.HeroStatsEnum.HeroUpgradePoints);
         _playerCoins = coins.m_Coins;
     }
 
@@ -140,19 +145,14 @@ public class UIUpgradeStatsPanel : MonoBehaviour
         upgradeButton.interactable = false;
     }
 
-    private void EnableUpgradeButon(Button upgradeButton)
+    private void EnableUpgradeButton(Button upgradeButton)
     {
         upgradeButton.interactable = true;
     }
 
 
-    public void AddUpgradePoints() // this one only for debugging
+    public void DebugMethod() // this one only for debugging
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            heroStats.AddUpgradePoints();
-            _upgradePoints = heroStats.GetStats(HeroStats.HeroStatsEnum.HeroUpgradePoints);
-        }
         if (Input.GetKeyDown(KeyCode.X))
         {
             coins.AddCoin(100000);
