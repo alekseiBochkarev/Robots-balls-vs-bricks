@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class UIUpgradeStatsPanel : MonoBehaviour
 {
@@ -11,18 +12,38 @@ public class UIUpgradeStatsPanel : MonoBehaviour
     private Coins coins;
     private UpgradeStats upgradeStats;
 
+    [FormerlySerializedAs("currentHealthText")]
     [Header("Current Hero Stats")]
-    [SerializeField] private TextMeshProUGUI currentHealthText;
-    [SerializeField] private TextMeshProUGUI currentBatteryEnergyText;
-    [SerializeField] private TextMeshProUGUI currentAttackPowerText;
+    [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private TextMeshProUGUI batteryCellsText;
+    [SerializeField] private TextMeshProUGUI attackText;
+    [SerializeField] private TextMeshProUGUI starterBallsText;
+    [SerializeField] private TextMeshProUGUI sightLengthText;
 
     [Header("Upgrade Buttons")]
     [SerializeField] private Button upgradeHealthButton;
-    [SerializeField] private TextMeshProUGUI upgradeHealthButtonText;
+    [SerializeField] private Button upgradeBatteryCellsButton;
     [SerializeField] private Button upgradeAttackPowerButton;
+    [SerializeField] private Button upgradeStarterBallsButton;
+    [SerializeField] private Button upgradeSightLengthButton;
+    
+    [Header("Upgrade Cost Text")]
+    [SerializeField] private TextMeshProUGUI upgradeHealthButtonText;
+    [SerializeField] private TextMeshProUGUI upgradeBatteryCellsButtonText;
     [SerializeField] private TextMeshProUGUI upgradeAttackPowerButtonText;
+    [SerializeField] private TextMeshProUGUI upgradeStarterBallsButtonText;
+    [SerializeField] private TextMeshProUGUI upgradeSightLengthButtonText;
+
+    private const string HealthStatText = "Health";
+    private const string BatteryCellsStatText = "Battery cells";
+    private const string AttackStatText = "Attack";
+    private const string StarterBallsStatText = "Starter balls";
+    private const string SightLengthStatText = "Sight length";
+    private const string MaxLevelStatText = "MAX";
+
+    private const float _addUpgradeMult = 1;
+    private const float _addUpgradeLevel = 1;
     private float _playerCoins;
-    private float _addUpgradeMult = 1;
     private float _playerHealth;
     private float _playerBatteryEnergy;
     private float _playerAttack;
@@ -36,7 +57,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour
         coins = new Coins();
         
         //Init players stats for UI and future upgrade
-        _playerCoins = coins.m_Coins;
+        GetCoins();
         
         _playerHealth = heroStats.Health;
         _playerBatteryEnergy = heroStats.BatteryEnergy;
@@ -48,30 +69,78 @@ public class UIUpgradeStatsPanel : MonoBehaviour
     /*
         If coins aren't enough -> disable exact upgrade button
     */
+    //ToDo нужно избавиться от Update и перевести все это дело на события
     private void Update() 
     {
         GetCoins();
-        ShowCurrentStats(currentHealthText, _playerHealth);
-        ShowCurrentStats(currentAttackPowerText, _playerAttack);
+        
+        ShowCurrentStatsName(healthText, HealthStatText);
+        ShowCurrentStatsName(batteryCellsText, BatteryCellsStatText);
+        ShowCurrentStatsName(attackText, AttackStatText);
+        ShowCurrentStatsName(starterBallsText, StarterBallsStatText);
+        ShowCurrentStatsName(sightLengthText, SightLengthStatText);
+        
         ShowUpgradePrice(upgradeHealthButtonText, upgradeStats.UpgradeHealthCoinsRequired);
+        ShowUpgradePrice(upgradeBatteryCellsButtonText, upgradeStats.UpgradeBatteryEnergyCoinsRequired);
         ShowUpgradePrice(upgradeAttackPowerButtonText, upgradeStats.UpgradeAttackCoinsRequired);
-        if (_playerCoins < upgradeStats.UpgradeHealthCoinsRequired) // check for Health Button
-        {
-            DisableUpgradeButton(upgradeHealthButton);
-        }
-        else
-        {
-            EnableUpgradeButton(upgradeHealthButton);
-        }
-        if (_playerCoins < upgradeStats.UpgradeAttackCoinsRequired) // check for AttackPower Button
-        {
-            DisableUpgradeButton(upgradeAttackPowerButton);
-        }
-        else
-        {
-            EnableUpgradeButton(upgradeAttackPowerButton);
-        }
+        ShowUpgradePrice(upgradeStarterBallsButtonText, upgradeStats.UpgradeStarterBallsCoinsRequired);
+        ShowUpgradePrice(upgradeSightLengthButtonText, upgradeStats.UpgradeSightLengthCoinsRequired);
+
+        RuleUpgradeButtonState(upgradeHealthButton, upgradeStats.UpgradeHealthCoinsRequired);
+        RuleUpgradeButtonState(upgradeBatteryCellsButton, upgradeStats.UpgradeBatteryEnergyCoinsRequired);
+        RuleUpgradeButtonState(upgradeAttackPowerButton, upgradeStats.UpgradeAttackCoinsRequired);
+        RuleUpgradeButtonState(upgradeStarterBallsButton, upgradeStats.UpgradeStarterBallsCoinsRequired);
+        RuleUpgradeButtonState(upgradeSightLengthButton, upgradeStats.UpgradeSightLengthCoinsRequired);
+
         DebugMethod(); // this one only for debugging
+    }
+
+    /**
+     * Включает/выключает определенную кнопку апгрейда, если монеток недостаточно
+     */
+    private void RuleUpgradeButtonState(Button upgradeButton, float coinsRequiredToEnable)
+    {
+        if (_playerCoins < coinsRequiredToEnable) // check for Health Button
+        {
+            DisableUpgradeButton(upgradeButton);
+        }
+        else
+        {
+            // for health
+            if (upgradeButton.Equals(upgradeHealthButton))
+            {
+                Debug.Log("UpgradeHealthLevel is -> " + upgradeStats.UpgradeHealthLevel);
+                if (upgradeStats.UpgradeHealthLevel == UpgradeStats.MaxUpgradeHealthLevel)
+                {
+                    ShowMaxLevelInsteadPrice(upgradeHealthButtonText);
+                }
+                if (upgradeStats.UpgradeHealthLevel < UpgradeStats.MaxUpgradeHealthLevel)
+                {
+                    EnableUpgradeButton(upgradeButton);
+                }
+                else
+                {
+                    DisableUpgradeButton(upgradeButton);
+                }
+            }
+            // for attack
+            if (upgradeButton.Equals(upgradeAttackPowerButton))
+            {
+                Debug.Log("UpgradeAttackLevel is -> " + upgradeStats.UpgradeAttackLevel);
+                if (upgradeStats.UpgradeAttackLevel == UpgradeStats.MaxUpgradeAttackLevel)
+                {
+                    ShowMaxLevelInsteadPrice(upgradeAttackPowerButtonText);
+                }
+                if (upgradeStats.UpgradeAttackLevel < UpgradeStats.MaxUpgradeAttackLevel)
+                {
+                    EnableUpgradeButton(upgradeButton);
+                }
+                else
+                {
+                    DisableUpgradeButton(upgradeButton);
+                }
+            }
+        }
     }
 
     public void UpgradeHealthOnClick() // It upgrades health on click
@@ -88,6 +157,8 @@ public class UIUpgradeStatsPanel : MonoBehaviour
         // Update UpgradeMultiplier and reinit RequiredCoins, StatsUpgrading
         GetCoins();
         upgradeStats.SaveUpgradeMultiplier(UpgradeStats.UpgradeMultipliersEnum.HealthMultiplier, _addUpgradeMult);
+        upgradeStats.SaveUpgradeLevel(UpgradeStats.UpgradeStatLevel.UpgradeHealthLevel, _addUpgradeLevel);
+        upgradeStats.SetUpgradeLevels();
         upgradeStats.SetMultipliers();
         upgradeStats.InitRequiredCoins();
         upgradeStats.InitStatsUpgrading();
@@ -101,7 +172,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour
 
     public void UpgradeAttackPowerOnClick() // It upgrades Attack Power on click
     {   
-        // remove coins after buying, remove 1 upgradePoint
+        // remove coins after buying
         coins.RemoveCoins(upgradeStats.UpgradeAttackCoinsRequired); 
 
         // Add Attack Power to the player
@@ -113,6 +184,8 @@ public class UIUpgradeStatsPanel : MonoBehaviour
         // Update UpgradeMultiplier and reinit RequiredCoins, StatsUpgrading
         GetCoins();
         upgradeStats.SaveUpgradeMultiplier(UpgradeStats.UpgradeMultipliersEnum.AttackMultiplier, _addUpgradeMult);
+        upgradeStats.SaveUpgradeLevel(UpgradeStats.UpgradeStatLevel.UpgradeAttackLevel, _addUpgradeLevel);
+        upgradeStats.SetUpgradeLevels();
         upgradeStats.SetMultipliers();
         upgradeStats.InitRequiredCoins();
         upgradeStats.InitStatsUpgrading();
@@ -120,6 +193,43 @@ public class UIUpgradeStatsPanel : MonoBehaviour
         //Show new values on UpgradeButton after changing (DO WE NEED REALLY NEED THIS?)
         ShowUpgradePrice(upgradeAttackPowerButtonText, upgradeStats.UpgradeAttackCoinsRequired);
 
+        //EventManager to show changes in other classes
+        EventManager.OnUpgradeStats();
+    }
+    
+    public void ResetStatsOnClick() // Resets all stats DEBUG
+    {   
+        // Add Attack Power to the player
+        // heroStats.UpgradeStats(HeroStats.HeroStatsEnum.Attack, upgradeStats.UpgradeAttackValue);
+        //
+        // // Reinit local values for Attack Power
+        // _playerAttack = heroStats.Attack;
+        //
+        // // Update UpgradeMultiplier and reinit RequiredCoins, StatsUpgrading
+        // GetCoins();
+        // upgradeStats.SaveUpgradeMultiplier(UpgradeStats.UpgradeMultipliersEnum.AttackMultiplier, _addUpgradeMult);
+        // upgradeStats.SetMultipliers();
+        // upgradeStats.InitRequiredCoins();
+        // upgradeStats.InitStatsUpgrading();
+        //
+        // //Show new values on UpgradeButton after changing (DO WE NEED REALLY NEED THIS?)
+        // ShowUpgradePrice(upgradeAttackPowerButtonText, upgradeStats.UpgradeAttackCoinsRequired);
+        
+        // Сброс статов, множителей и уровней прокачки до дефолтных значений
+        heroStats.ClearStatsToDefault();
+        upgradeStats.ClearUpgradeMultipliersToDefault();
+        upgradeStats.ClearUpgradeLevelsToDefault();
+        
+        //Отобразить цену после сброса до дефолтных значений
+        ShowUpgradePrice(upgradeHealthButtonText, upgradeStats.UpgradeHealthCoinsRequired);
+        ShowUpgradePrice(upgradeBatteryCellsButtonText, upgradeStats.UpgradeBatteryEnergyCoinsRequired);
+        ShowUpgradePrice(upgradeAttackPowerButtonText, upgradeStats.UpgradeAttackCoinsRequired);
+        ShowUpgradePrice(upgradeStarterBallsButtonText, upgradeStats.UpgradeStarterBallsCoinsRequired);
+        ShowUpgradePrice(upgradeSightLengthButtonText, upgradeStats.UpgradeSightLengthCoinsRequired);
+        
+        //ToDo Отобразить префабы статов уже на сброшенных значениях
+        
+        
         //EventManager to show changes in other classes
         EventManager.OnUpgradeStats();
     }
@@ -133,8 +243,13 @@ public class UIUpgradeStatsPanel : MonoBehaviour
     {
         upgradeButtonText.text = $"{priceWithCoins} Coins";
     }
+    
+    private void ShowMaxLevelInsteadPrice(TextMeshProUGUI upgradeButtonText)
+    {
+        upgradeButtonText.text = $"{MaxLevelStatText}";
+    }
 
-    private void ShowCurrentStats(TextMeshProUGUI currentStatsText, float statsValue)
+    private void ShowCurrentStatsName(TextMeshProUGUI currentStatsText, string statsValue)
     {
         currentStatsText.text = $"{statsValue}";
     }
@@ -151,7 +266,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour
     }
 
 
-    public void DebugMethod() // this one only for debugging
+    private void DebugMethod() // this one only for debugging
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
@@ -159,5 +274,4 @@ public class UIUpgradeStatsPanel : MonoBehaviour
             WalletController.Instance.ShowCoins();
         }
     }
-    
 }

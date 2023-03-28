@@ -9,7 +9,7 @@ public class UpgradeButtonPanel : MonoBehaviour
      * зашит метод типа Upgrade, к которому и будет идти обращение
      * 3) Все префабы интерактивные, чтобы наглядно показать прокачку героя
      */
-    [SerializeField] private Transform statObject;
+    [SerializeField] private GameObject statObject;
 
     private string statNameText;
     private string upgradePrice;

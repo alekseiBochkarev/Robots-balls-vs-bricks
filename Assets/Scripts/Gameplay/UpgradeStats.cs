@@ -2,13 +2,6 @@ using UnityEngine;
 
 public class UpgradeStats
 {
-    //ToDo needs to be done:
-    //1) Health
-    //2) Battery Energy
-    //3) Attack Power
-    //4) Starter balls amount
-    //5) Sight length
-
     //vars -> Coins required for upgrading
     public float UpgradeHealthCoinsRequired { private set; get; }
     public float UpgradeBatteryEnergyCoinsRequired { private set; get; }
@@ -16,6 +9,12 @@ public class UpgradeStats
     public float UpgradeStarterBallsCoinsRequired { private set; get; }
     public float UpgradeSightLengthCoinsRequired { private set; get; }
 
+    //Upgrade levels
+    public float UpgradeHealthLevel { private set; get; }
+    public float UpgradeBatteryEnergyLevel { private set; get; }
+    public float UpgradeAttackLevel { private set; get; }
+    public float UpgradeStarterBallsLevel { private set; get; }
+    public float UpgradeSightLengthLevel { private set; get; }
 
     //Upgrade multipliers
     private readonly float _defaultUpgradeMult = 1;
@@ -41,6 +40,19 @@ public class UpgradeStats
     private readonly float _startStarterBallsUpgradeValue = 1;
     private readonly float _startSightLengthUpgradeValue = 1;
 
+    // Min and Max levels for upgrading
+    private const float MinUpgradeHealthLevel = 1;
+    private const float MinUpgradeBatteryEnergyLevel = 3;
+    private const float MinUpgradeAttackLevel = 1;
+    private const float MinUpgradeStarterBallsLevel = 3;
+    private const float MinUpgradeSightLengthLevel = 1;
+
+    public const float MaxUpgradeHealthLevel = 10;
+    public const float MaxUpgradeBatteryEnergyLevel = 12;
+    public const float MaxUpgradeAttackLevel = 10;
+    public const float MaxUpgradeStarterBallsLevel = 8;
+    public const float MaxUpgradeSightLengthLevel = 5;
+
     public enum UpgradeMultipliersEnum
     {
         HealthMultiplier,
@@ -59,9 +71,19 @@ public class UpgradeStats
         SightLengthUpgradeCost
     }
 
+    public enum UpgradeStatLevel
+    {
+        UpgradeHealthLevel,
+        UpgradeBatteryEnergyLevel,
+        UpgradeAttackLevel,
+        UpgradeStarterBallsLevel,
+        UpgradeSightLengthLevel,
+    }
+
     public UpgradeStats()
     {
         SetMultipliers();
+        SetUpgradeLevels();
         InitRequiredCoins();
         InitStatsUpgrading();
     }
@@ -101,6 +123,44 @@ public class UpgradeStats
         UpgradeSightLengthValue = _startSightLengthUpgradeValue * SightLengthUpgradeMult;
     }
 
+    public void SetUpgradeLevels()
+    {
+        UpgradeHealthLevel = SetUpgradeLevel(UpgradeStatLevel.UpgradeHealthLevel);
+        UpgradeBatteryEnergyLevel = SetUpgradeLevel(UpgradeStatLevel.UpgradeBatteryEnergyLevel);
+        UpgradeAttackLevel = SetUpgradeLevel(UpgradeStatLevel.UpgradeAttackLevel);
+        UpgradeStarterBallsLevel = SetUpgradeLevel(UpgradeStatLevel.UpgradeStarterBallsLevel);
+        UpgradeSightLengthLevel = SetUpgradeLevel(UpgradeStatLevel.UpgradeSightLengthLevel);
+    }
+
+    private float LoadUpgradeLevel(UpgradeStatLevel upgradeLevel)
+    {
+        return PlayerPrefs.GetFloat(upgradeLevel.ToString());
+    }
+
+    public void SaveUpgradeLevel(UpgradeStatLevel upgradeLevel, float levelValue)
+    {
+        float newMultValue = LoadUpgradeLevel(upgradeLevel);
+        newMultValue += levelValue;
+        PlayerPrefs.SetFloat(upgradeLevel.ToString(), newMultValue);
+        Debug.Log(upgradeLevel + " after saving is -> " + newMultValue);
+    }
+
+    private float SetUpgradeLevel(UpgradeStatLevel upgradeLevelEnum)
+    {
+        float upgradeLevelValue;
+        if (LoadUpgradeLevel(upgradeLevelEnum) != 0)
+        {
+            upgradeLevelValue = LoadUpgradeLevel(upgradeLevelEnum);
+        }
+        else
+        {
+            upgradeLevelValue = _defaultUpgradeMult;
+            SaveUpgradeLevel(upgradeLevelEnum, upgradeLevelValue);
+        }
+
+        return upgradeLevelValue;
+    }
+
     public void SetMultipliers()
     {
         // Set multipliers for all upgrading stats
@@ -123,6 +183,7 @@ public class UpgradeStats
             upgradeMult = _defaultUpgradeMult;
             SaveUpgradeMultiplier(multipliersEnum, upgradeMult);
         }
+
         return upgradeMult;
     }
 
@@ -131,6 +192,36 @@ public class UpgradeStats
         float newMultValue = LoadUpgradeMultiplier(multiplierEnum);
         newMultValue += multValue;
         PlayerPrefs.SetFloat(multiplierEnum.ToString(), newMultValue);
+    }
+
+    /**
+     * Сбрасывает множитель апргрейда до дефолтного значения _defaultUpgradeMult
+     */
+    public void ClearUpgradeMultipliersToDefault()
+    {
+        PlayerPrefs.SetFloat(UpgradeMultipliersEnum.HealthMultiplier.ToString(), _defaultUpgradeMult);
+        PlayerPrefs.SetFloat(UpgradeMultipliersEnum.BatteryEnergyMultiplier.ToString(), _defaultUpgradeMult);
+        PlayerPrefs.SetFloat(UpgradeMultipliersEnum.AttackMultiplier.ToString(), _defaultUpgradeMult);
+        PlayerPrefs.SetFloat(UpgradeMultipliersEnum.StarterBallsMultiplier.ToString(), _defaultUpgradeMult);
+        PlayerPrefs.SetFloat(UpgradeMultipliersEnum.SightLengthMultiplier.ToString(), _defaultUpgradeMult);
+
+        SetMultipliers();
+        InitStatsUpgrading();
+        InitRequiredCoins();
+    }
+
+    /**
+     * Сбрасывает уровень апргрейда до дефолтного значения _defaultUpgradeLevel
+     */
+    public void ClearUpgradeLevelsToDefault()
+    {
+        PlayerPrefs.SetFloat(UpgradeStatLevel.UpgradeHealthLevel.ToString(), MinUpgradeHealthLevel);
+        PlayerPrefs.SetFloat(UpgradeStatLevel.UpgradeBatteryEnergyLevel.ToString(), MinUpgradeBatteryEnergyLevel);
+        PlayerPrefs.SetFloat(UpgradeStatLevel.UpgradeAttackLevel.ToString(), MinUpgradeAttackLevel);
+        PlayerPrefs.SetFloat(UpgradeStatLevel.UpgradeStarterBallsLevel.ToString(), MinUpgradeStarterBallsLevel);
+        PlayerPrefs.SetFloat(UpgradeStatLevel.UpgradeSightLengthLevel.ToString(), MinUpgradeSightLengthLevel);
+
+        SetUpgradeLevels();
     }
 
     private float LoadUpgradeMultiplier(UpgradeMultipliersEnum multiplierEnum)
