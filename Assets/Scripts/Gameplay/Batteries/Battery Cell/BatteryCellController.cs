@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Gameplay.Batteries.Battery_Cell
 {
-    public sealed class BatteryCellController : MonoBehaviour
+    public class BatteryCellController : MonoBehaviour
     {
         /**
      * Для отображения корректного спрайта ячеек нужно просчитать в процентах от MaxBatteryAmount
@@ -48,7 +48,7 @@ namespace Gameplay.Batteries.Battery_Cell
             ShowBatteryCells();
         }
 
-        private void AddCell()
+        public void AddCell()
         {
             if (batteryCellsAmount < MaxBatteryCellsAmount)
             {
@@ -154,7 +154,7 @@ namespace Gameplay.Batteries.Battery_Cell
         /**
          * Сбрасывает и удаляет прокачанные ячейки батареи до базового значения BaseBatteryCellsAmount
          */
-        private void ResetAdditionalCells()
+        public void ResetAdditionalCells()
         {
             _cells = GetCells();
             if (_cells.Length is 0 or BaseBatteryCellsAmount) return;
