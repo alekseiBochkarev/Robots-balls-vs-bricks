@@ -1,6 +1,7 @@
+using Interfaces;
 using UnityEngine;
 
-public class UpgradeStats
+public class UpgradeStats : IResetToDefaultValues
 {
     //vars -> Coins required for upgrading
     public float UpgradeHealthCoinsRequired { private set; get; }
@@ -35,7 +36,7 @@ public class UpgradeStats
     private readonly float _startCoinsUpgradeValue = 480;
 
     private readonly float _startHealthUpgradeValue = 30;
-    private readonly float _startBatteryEnergyUpgradeValue = 30;
+    private readonly float _startBatteryEnergyUpgradeValue = 1;
     private readonly float _startAttackUpgradeValue = 1;
     private readonly float _startStarterBallsUpgradeValue = 1;
     private readonly float _startSightLengthUpgradeValue = 1;
@@ -44,7 +45,7 @@ public class UpgradeStats
     private const float MinUpgradeHealthLevel = 1;
     private const float MinUpgradeBatteryEnergyLevel = 3;
     private const float MinUpgradeAttackLevel = 1;
-    private const float MinUpgradeStarterBallsLevel = 3;
+    private const float MinUpgradeStarterBallsLevel = 1;
     private const float MinUpgradeSightLengthLevel = 1;
 
     public const float MaxUpgradeHealthLevel = 10;
@@ -197,7 +198,7 @@ public class UpgradeStats
     /**
      * Сбрасывает множитель апргрейда до дефолтного значения _defaultUpgradeMult
      */
-    public void ClearUpgradeMultipliersToDefault()
+    private void ClearUpgradeMultipliersToDefault()
     {
         PlayerPrefs.SetFloat(UpgradeMultipliersEnum.HealthMultiplier.ToString(), _defaultUpgradeMult);
         PlayerPrefs.SetFloat(UpgradeMultipliersEnum.BatteryEnergyMultiplier.ToString(), _defaultUpgradeMult);
@@ -213,7 +214,7 @@ public class UpgradeStats
     /**
      * Сбрасывает уровень апргрейда до дефолтного значения _defaultUpgradeLevel
      */
-    public void ClearUpgradeLevelsToDefault()
+    private void ClearUpgradeLevelsToDefault()
     {
         PlayerPrefs.SetFloat(UpgradeStatLevel.UpgradeHealthLevel.ToString(), MinUpgradeHealthLevel);
         PlayerPrefs.SetFloat(UpgradeStatLevel.UpgradeBatteryEnergyLevel.ToString(), MinUpgradeBatteryEnergyLevel);
@@ -237,5 +238,14 @@ public class UpgradeStats
     private float LoadRequiredCoins(RequiredCoinsStatsEnum statsEnum)
     {
         return PlayerPrefs.GetFloat(statsEnum.ToString());
+    }
+
+    /**
+     * Сбрасывает множитель и уровень апгрейда до дефолтных значений _defaultUpgradeMult и _defaultUpgradeLevel
+     */
+    public void ClearStatsToDefault()
+    {
+        ClearUpgradeMultipliersToDefault();
+        ClearUpgradeLevelsToDefault();
     }
 }

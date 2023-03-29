@@ -1,9 +1,10 @@
 using Gameplay.Batteries.Battery_Cell;
+using Interfaces;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIUpgradeStatsPanel : MonoBehaviour
+public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 {
     // Need to rework for new STATS, use Transform/gameobject Instea
     private HeroStats heroStats;
@@ -19,7 +20,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour
     [SerializeField] private GameObject starterBallsPrefab;
     [SerializeField] private GameObject sightLengthPrefab;
 
-    [Header("Current Hero Stats")] 
+    [Header("Hero Stats Names")] 
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private TextMeshProUGUI batteryCellsText;
     [SerializeField] private TextMeshProUGUI attackText;
@@ -65,7 +66,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour
 
         _batteryCellController = batteryCellsPrefab.GetComponentInChildren<BatteryCellController>();
 
-        EventManager.GameWon += ResetStatsToDefault;
+        EventManager.GameWon += ClearStatsToDefault;
         EventManager.CoinsChanged += ShowStatsDataAndRuleButtons;
         EventManager.UpgradeStats += ShowStatsDataAndRuleButtons;
     }
@@ -89,15 +90,11 @@ public class UIUpgradeStatsPanel : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventManager.GameWon -= ResetStatsToDefault;
+        EventManager.GameWon -= ClearStatsToDefault;
         EventManager.CoinsChanged -= ShowStatsDataAndRuleButtons;
         EventManager.UpgradeStats -= ShowStatsDataAndRuleButtons;
     }
 
-    /*
-        If coins aren't enough -> disable exact upgrade button
-    */
-    //ToDo нужно избавиться от Update и перевести все это дело на события
     private void Update()
     {
         DebugMethod(); // this one only for debugging
@@ -107,7 +104,6 @@ public class UIUpgradeStatsPanel : MonoBehaviour
      * Отображает информацию о статах
      * Также управляет жизненным циклом кнопки в зависимости от уровня прокачки статов и кол-ва монеток (вкл/выкл)
      */
-    //ToDo продумать, как связать это все в события, чтобы в Update не гонять
     private void ShowStatsDataAndRuleButtons()
     {
         GetCoins();
@@ -160,7 +156,6 @@ public class UIUpgradeStatsPanel : MonoBehaviour
                     DisableUpgradeButton(upgradeButton);
                 }
             }
-
             // for Battery Cells
             if (upgradeButton.Equals(upgradeBatteryCellsButton))
             {
@@ -179,7 +174,6 @@ public class UIUpgradeStatsPanel : MonoBehaviour
                     DisableUpgradeButton(upgradeButton);
                 }
             }
-
             // for Attack
             if (upgradeButton.Equals(upgradeAttackPowerButton))
             {
@@ -190,6 +184,23 @@ public class UIUpgradeStatsPanel : MonoBehaviour
                 }
 
                 if (upgradeStats.UpgradeAttackLevel < UpgradeStats.MaxUpgradeAttackLevel)
+                {
+                    EnableUpgradeButton(upgradeButton);
+                }
+                else
+                {
+                    DisableUpgradeButton(upgradeButton);
+                }
+            }
+            // for StarterBalls
+            if (upgradeButton.Equals(upgradeStarterBallsButton))
+            {
+                Debug.Log("UpgradeStarterBallsLevel is -> " + upgradeStats.UpgradeStarterBallsLevel);
+                if (upgradeStats.UpgradeStarterBallsLevel == UpgradeStats.MaxUpgradeStarterBallsLevel)
+                {
+                    ShowMaxLevelInsteadPrice(upgradeStarterBallsButtonText);
+                }
+                if (upgradeStats.UpgradeStarterBallsLevel < UpgradeStats.MaxUpgradeStarterBallsLevel)
                 {
                     EnableUpgradeButton(upgradeButton);
                 }
@@ -292,19 +303,49 @@ public class UIUpgradeStatsPanel : MonoBehaviour
         //EventManager to show changes in other classes
         EventManager.OnUpgradeStats();
     }
-
-    public void ResetStatsToDefault() // Resets all stats DEBUG
+    
+    public void UpgradeStarterBallsOnClick() // It upgrades Starter Balls amount on click
     {
-        Debug.Log("ResetStartsOnClick works when Event GameWon is played!!!");
+        // remove coins after buying
+        coins.RemoveCoins(upgradeStats.UpgradeStarterBallsCoinsRequired);
+
+        // Add Starter Balls to the player
+        heroStats.UpgradeStats(HeroStats.HeroStatsEnum.StarterBalls, upgradeStats.UpgradeStarterBallsValue);
+
+        // Reinit local values for Starter Balls
+        _playerStarterBalls = heroStats.StarterBalls;
+
+        // Update UpgradeMultiplier and reinit RequiredCoins, StatsUpgrading
+        GetCoins();
+        upgradeStats.SaveUpgradeMultiplier(UpgradeStats.UpgradeMultipliersEnum.StarterBallsMultiplier, _addUpgradeMult);
+        upgradeStats.SaveUpgradeLevel(UpgradeStats.UpgradeStatLevel.UpgradeStarterBallsLevel, _addUpgradeLevel);
+        upgradeStats.SetUpgradeLevels();
+        upgradeStats.SetMultipliers();
+        upgradeStats.InitRequiredCoins();
+        upgradeStats.InitStatsUpgrading();
+
+        //Show new values on UpgradeButton after changing (DO WE NEED REALLY NEED THIS?)
+        ShowUpgradePrice(upgradeStarterBallsButtonText, upgradeStats.UpgradeStarterBallsCoinsRequired);
+
+        //ToDo Отобразить префабы статов уже на сброшенных значениях
+
+        // Добавляем базовый мяч в лист шаров
+        Balls.Instance.AddBallToList(BallsTypeEnum.Ball);
+        
+        //EventManager to show changes in other classes
+        EventManager.OnUpgradeStats();
+    }
+
+    public void ClearStatsToDefault()
+    {
         // Сброс статов, множителей и уровней прокачки до дефолтных значений
         heroStats.ClearStatsToDefault();
-        upgradeStats.ClearUpgradeMultipliersToDefault();
-        upgradeStats.ClearUpgradeLevelsToDefault();
+        upgradeStats.ClearStatsToDefault();
 
         Hero.Instance.SetMaxHealth(heroStats.Health);
 
         //Сброс скриптов у префабов до дефолтных значений
-        _batteryCellController.ResetAdditionalCells();
+        _batteryCellController.ClearStatsToDefault();
 
         //Отобразить цену после сброса до дефолтных значений
         ShowUpgradePrice(upgradeHealthButtonText, upgradeStats.UpgradeHealthCoinsRequired);

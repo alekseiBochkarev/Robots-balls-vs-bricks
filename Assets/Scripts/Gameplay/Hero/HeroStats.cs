@@ -1,6 +1,7 @@
+using Interfaces;
 using UnityEngine;
 
-public class HeroStats
+public class HeroStats : IResetToDefaultValues
 {
     // Vars
     public float Attack { private set; get; }
@@ -13,7 +14,7 @@ public class HeroStats
     private readonly int _defaultAttackValue = 1;
     private readonly int _defaultBatteryEnergyValue = 3;
     private readonly int _defaultHealthValue = 100;
-    private readonly int _defaultStarterBallsValue = 3;
+    private readonly int _defaultStarterBallsValue = 1;
     private readonly int _defaultSightLengthValue = 1;
 
     public enum HeroStatsEnum

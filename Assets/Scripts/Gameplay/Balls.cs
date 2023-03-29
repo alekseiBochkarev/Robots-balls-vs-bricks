@@ -4,10 +4,12 @@ using UnityEngine;
 public class Balls : MonoBehaviour
 {
     public static Balls Instance;
+
+    private HeroStats _heroStats;
     public static Dictionary<int, GameObject> ballsInScene; 
     private AbstractBall m_BallPrefab;
     public List<AbstractBall> PlayerBalls {private set; get; } 
-    [SerializeField] private int startBallsAmount = 1;
+    [SerializeField] private int startBallsAmount;
     public int PlayerBallsAmount { private set; get; }
     public bool IsBallAmountChanged;
 
@@ -23,6 +25,10 @@ public class Balls : MonoBehaviour
     private void Awake() 
     {
         Instance = this;
+
+        _heroStats = new HeroStats();
+        startBallsAmount = (int) _heroStats.StarterBalls;
+        
         PlayerBalls = new List<AbstractBall>(startBallsAmount);
         SpawnNewBall(startBallsAmount, BallsTypeEnum.Ball);
         PlayerBallsAmount = PlayerBalls.Count;

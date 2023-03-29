@@ -1,10 +1,11 @@
 using System;
 using System.ComponentModel;
+using Interfaces;
 using UnityEngine;
 
 namespace Gameplay.Batteries.Battery_Cell
 {
-    public class BatteryCellController : MonoBehaviour
+    public class BatteryCellController : MonoBehaviour, IResetToDefaultValues
     {
         /**
      * Для отображения корректного спрайта ячеек нужно просчитать в процентах от MaxBatteryAmount
@@ -146,7 +147,7 @@ namespace Gameplay.Batteries.Battery_Cell
         /**
          * Сбрасывает и удаляет прокачанные ячейки батареи до базового значения BaseBatteryCellsAmount
          */
-        public void ResetAdditionalCells()
+        private void ResetAdditionalCells()
         {
             _cells = GetCells();
             switch (_cells.Length)
@@ -218,6 +219,11 @@ namespace Gameplay.Batteries.Battery_Cell
         private double CalculateCellsFillPercentage()
         {
             return Math.Round(batteryCellsAmount / (double)MaxBatteryCellsAmount * 100);
+        }
+
+        public void ClearStatsToDefault()
+        {
+            ResetAdditionalCells();
         }
     }
 }

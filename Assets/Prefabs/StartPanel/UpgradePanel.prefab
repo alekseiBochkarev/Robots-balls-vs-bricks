@@ -124,7 +124,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8107047401990882820}
         m_TargetAssemblyTypeName: UIUpgradeStatsPanel, Assembly-CSharp
-        m_MethodName: ResetStatsToDefault
+        m_MethodName: ClearStatsToDefault
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
