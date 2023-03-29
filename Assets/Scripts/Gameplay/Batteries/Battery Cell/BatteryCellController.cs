@@ -43,8 +43,13 @@ namespace Gameplay.Batteries.Battery_Cell
         */
         public void Awake()
         {
-            LoadBatteryCellsAmount();
             _cellPrefab = Resources.Load<GameObject>("Cell");
+            LoadAndShowBatteryCells();
+        }
+
+        public void LoadAndShowBatteryCells()
+        {
+            LoadBatteryCellsAmount();
             ShowBatteryCells();
         }
 
@@ -57,19 +62,6 @@ namespace Gameplay.Batteries.Battery_Cell
                 batteryCellsAmount++;
                 SaveBatteryCellsAmount();
                 ShowBatteryCells();
-            }
-        }
-
-        private void Update()
-        {
-            //For Debug1
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                AddCell();
-            }
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                ResetAdditionalCells();
             }
         }
 
@@ -157,15 +149,23 @@ namespace Gameplay.Batteries.Battery_Cell
         public void ResetAdditionalCells()
         {
             _cells = GetCells();
-            if (_cells.Length is 0 or BaseBatteryCellsAmount) return;
-
-            var batteryCellsQuantity = batteryCellsAmount;
-            for (var i = batteryCellsQuantity; i > BaseBatteryCellsAmount; i--)
+            switch (_cells.Length)
             {
-                //Destroy(_cells[i - 1]);
-                DestroyImmediate(_cells[i - 1]);
+                case BaseBatteryCellsAmount:
+                    return;
+                case 0:
+                    batteryCellsAmount = BaseBatteryCellsAmount;
+                    break;
+                default:
+                    var batteryCellsQuantity = batteryCellsAmount;
+                    for (var i = batteryCellsQuantity; i > BaseBatteryCellsAmount; i--)
+                    {
+                        //Destroy(_cells[i - 1]);
+                        DestroyImmediate(_cells[i - 1]);
+                    }
+                    batteryCellsAmount = BaseBatteryCellsAmount;
+                    break;
             }
-            batteryCellsAmount = BaseBatteryCellsAmount;
             SaveBatteryCellsAmount();
             ShowBatteryCells();
         }

@@ -12,6 +12,7 @@ public class EventManager : MonoBehaviour
     public static event Action GameWon;
     public static event Action LevelUp;
     public static event Action UpgradeStats;
+    public static event Action CoinsChanged;
     public static event Action<HeroBuffSO> HeroBuffAdded;
     public static event Action<int> ComboCounterChanged;
 
@@ -32,6 +33,11 @@ public class EventManager : MonoBehaviour
     public static void OnUpgradeStats()
     {
         UpgradeStats?.Invoke();
+    }
+    
+    public static void OnCoinsChanged()
+    {
+        CoinsChanged?.Invoke();
     }
     
     public static void OnLevelUp()
