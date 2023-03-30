@@ -16,20 +16,17 @@ public class Coins : WalletController
     }
     
     // Add coin and UpdateCoins
-    public void AddCoin() {
-        m_Coins++;
-       // Debug.Log("+ 1 Coin, total = "+ m_Coins);
-    }
-
     public void AddCoin(float amount) {
         m_Coins += (int) amount;
         SaveCoins();
+        EventManager.OnCoinsChanged();
     }
 
     public void RemoveCoins(float amount)
     {
         m_Coins -= (int) amount;
         SaveCoins();
+        EventManager.OnCoinsChanged();
     }
 
     public bool IsPurchisable(int price) { // checks if coins are enough to buy something

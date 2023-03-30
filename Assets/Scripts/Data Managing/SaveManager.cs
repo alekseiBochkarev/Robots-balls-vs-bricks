@@ -1,17 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-    
-    public static void SaveScene (int scene)
+    public static void SaveScene(int scene)
     {
         PlayerPrefs.SetInt("CurrentScene", scene);
         PlayerPrefs.Save();
     }
 
-    public static int LoadSceneData ()
+    public static int LoadSceneData()
     {
         int defaultScene = 1;
         if (PlayerPrefs.HasKey("CurrentScene"))
@@ -20,10 +17,8 @@ public class SaveManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("That's OK. Just There is no save data!"); //- красиво подчеркивается красным
+            Debug.LogError("That's OK. Just There is no save data!"); //- РєСЂР°СЃРёРІРѕ РїРѕРґС‡РµСЂРєРёРІР°РµС‚СЃСЏ РєСЂР°СЃРЅС‹Рј
             return defaultScene;
         }
-
     }
-    
 }
