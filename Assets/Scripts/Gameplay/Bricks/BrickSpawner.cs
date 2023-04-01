@@ -15,6 +15,7 @@ public class BrickSpawner : MonoBehaviour
     public GameObject brickPrefab;
     public GameObject scoreBallPrefab;
     public GameObject magicBallPrefab;
+    public GameObject mainCamera;
     private int maxObjectsInRow;
     private LevelConfig m_levelConfig;
     [SerializeField] private bool allBricksMovedDown;
@@ -29,13 +30,13 @@ public class BrickSpawner : MonoBehaviour
     [Header("Win Manager")]
     public WinManager winManager;
 
-    private void Awake()
+    private void Start()
     {
         Instance = this;
 
         //m_BricksRow = new List<BricksRow>();
-        winManager = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<WinManager>();
-        m_levelConfig = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelConfig>();
+        winManager = mainCamera.GetComponent<WinManager>();
+        m_levelConfig = mainCamera.GetComponent<LevelConfig>();
         maxObjectsInRow = m_levelConfig.grid.GridWidth;
 
     }

@@ -21,7 +21,7 @@ public class BallLauncher : MonoBehaviour
     [Header("For all bricks and scoreballs and magicballs")]
     public float m_FloorPosition = -4.25f;
 
-    public SpriteRenderer m_BallSprite;
+    private SpriteRenderer m_BallSprite;
     public bool colliderTriggered = false;
 
     public bool m_CanPlay = true;
@@ -48,7 +48,8 @@ public class BallLauncher : MonoBehaviour
     public GameObject leftBorder;
     public GameObject rightBorder;
     public GameObject bottomBorder;
-    public GameObject ballStartPosition;
+    public GameObject ballStartPrefab;
+    private GameObject ballStartPosition;
 
     // public enum BallsType
     // {
@@ -65,6 +66,9 @@ public class BallLauncher : MonoBehaviour
     {
         Instance = this;
         m_CanPlay = true;
+        ballStartPosition = Instantiate(ballStartPrefab, new Vector3(0, -4.163f), new Quaternion(0, 180, 0, 1));
+        ballStartPosition.transform.SetParent(this.transform.parent, false);
+        m_BallSprite = ballStartPosition.GetComponent<SpriteRenderer>();
         m_LineRenderer = GetComponent<LineRenderer>();
         edgeCollider2D = gameObject.AddComponent<EdgeCollider2D>();
         edgeCollider2D.isTrigger = false;
@@ -93,6 +97,12 @@ public class BallLauncher : MonoBehaviour
     {
         m_BallsScript.SavePlayerBallsAmount();
         m_BallsText.text = "x" + m_BallsScript.PlayerBallsAmount.ToString();
+    }
+    
+    public void ChangePositionAndSetTrue(Vector3 s_FirstCollisionPoint)
+    {
+        m_BallSprite.transform.position = s_FirstCollisionPoint;
+        m_BallSprite.enabled = true;
     }
 
     private void Update()
@@ -230,7 +240,7 @@ public class BallLauncher : MonoBehaviour
         m_DeactivatableChildren.SetActive(true);
 
         transform.position = m_DefaultStartPosition;
-        m_BallSprite.transform.position = m_DefaultStartPosition;
+       // m_BallSprite.transform.position = m_DefaultStartPosition;
 
         ResetPositions();
 

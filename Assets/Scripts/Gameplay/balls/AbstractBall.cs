@@ -84,8 +84,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
             if (s_FirstCollisionPoint == Vector3.zero)
             {
                 s_FirstCollisionPoint = transform.position;
-                BallLauncher.Instance.m_BallSprite.transform.position = s_FirstCollisionPoint;
-                BallLauncher.Instance.m_BallSprite.enabled = true;
+                BallLauncher.Instance.ChangePositionAndSetTrue(s_FirstCollisionPoint);
             }
 
             DisablePhysics();

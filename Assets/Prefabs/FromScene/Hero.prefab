@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: 21300000, guid: 9ba1063b4998d4e96be6c458d73a1f1c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9e1e26889187b6344b5b693dc0d47128, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,7 +129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroBuffs:
   - {fileID: 11400000, guid: 2135372fb34863c47995cde170b40148, type: 2}
-  increasedCountComboValue: 0
 --- !u!1 &6422487429084728365
 GameObject:
   m_ObjectHideFlags: 0
