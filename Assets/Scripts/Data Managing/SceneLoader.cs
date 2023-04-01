@@ -8,7 +8,7 @@ public class SceneLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadScene(SaveManager.LoadSceneData());
+        SceneManager.LoadScene("LevelWithWin " + SaveManager.LoadSceneData());
     }
 
    
