@@ -12,6 +12,7 @@ TagManager:
   - Hero
   - Cannon
   - DamagePopups
+  - Cell
   layers:
   - Default
   - TransparentFX

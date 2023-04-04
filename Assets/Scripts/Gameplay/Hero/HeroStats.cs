@@ -1,72 +1,70 @@
-using System.Collections;
-using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
-public class HeroStats
+public class HeroStats : IResetToDefaultValues
 {
-    public float AttackPower {private set; get;}
-    public float Health {private set; get;}
-    public float UpgradePoints {private set; get;}
+    // Vars
+    public float Attack { private set; get; }
+    public float BatteryEnergy { private set; get; }
+    public float Health { private set; get; }
+    public float StarterBalls { private set; get; }
+    public float SightLength { private set; get; }
+
+    // default stats values
+    private readonly int _defaultAttackValue = 1;
+    private readonly int _defaultBatteryEnergyValue = 3;
+    private readonly int _defaultHealthValue = 100;
+    private readonly int _defaultStarterBallsValue = 1;
+    private readonly int _defaultSightLengthValue = 1;
 
     public enum HeroStatsEnum
     {
-        HeroAttackPower,
-        HeroHealth,
-        HeroUpgradePoints
+        Health,
+        BatteryEnergy,
+        Attack,
+        StarterBalls,
+        SightLength
     }
 
     public HeroStats()
     {
         LoadStats();
-        EventManager.LevelUp += AddUpgradePoints;
-    }
-
-    private void OnDestroy() 
-    {
-        EventManager.LevelUp -= AddUpgradePoints;
     }
 
     private void LoadStats()
     {
-        if (GetStats(HeroStatsEnum.HeroAttackPower) != 0)
+        // Load all HeroStats
+        Health = SetStatsAndSave(HeroStatsEnum.Health, _defaultHealthValue);
+        BatteryEnergy = SetStatsAndSave(HeroStatsEnum.BatteryEnergy, _defaultBatteryEnergyValue);
+        Attack = SetStatsAndSave(HeroStatsEnum.Attack, _defaultAttackValue);
+        StarterBalls = SetStatsAndSave(HeroStatsEnum.StarterBalls, _defaultStarterBallsValue);
+        SightLength = SetStatsAndSave(HeroStatsEnum.SightLength, _defaultSightLengthValue);
+    }
+
+    // Load stat from PlayerPrefs, if no value present -> set defaultStatsValue and SaveIt
+    private float SetStatsAndSave(HeroStatsEnum statsEnum, float defaultStatsValue)
+    {
+        float statValue;
+        if (GetStats(statsEnum) != 0)
         {
-            AttackPower = GetStats(HeroStatsEnum.HeroAttackPower);
+            statValue = GetStats(statsEnum);
         }
         else
         {
-            AttackPower = 1;
-            SaveStats(HeroStatsEnum.HeroAttackPower, AttackPower);
+            statValue = defaultStatsValue;
+            SaveStats(statsEnum, statValue);
         }
-        if (GetStats(HeroStatsEnum.HeroHealth) != 0)
-        {
-            Health = GetStats(HeroStatsEnum.HeroHealth);
-        }
-        else
-        {
-            Health = 100;
-            SaveStats(HeroStatsEnum.HeroHealth, Health);
-        }
-        if (GetStats(HeroStatsEnum.HeroUpgradePoints) != 0)
-        {
-            UpgradePoints = GetStats(HeroStatsEnum.HeroUpgradePoints);
-        }
-        else
-        {
-            UpgradePoints = 0;
-            SaveStats(HeroStatsEnum.HeroUpgradePoints, UpgradePoints);
-        }
+        return statValue;
     }
 
     public float GetStats(HeroStatsEnum statsEnum)
     {
-        //Debug.Log(PlayerPrefs.GetFloat(statsEnum.ToString()) + " == "+statsEnum+" == GET that hero stats");
         return PlayerPrefs.GetFloat(statsEnum.ToString());
     }
+
     private void SaveStats(HeroStatsEnum statsEnum, float statsValue)
     {
-        // AttackPower = statsValue;
         PlayerPrefs.SetFloat(statsEnum.ToString(), statsValue);
-       // Debug.Log(PlayerPrefs.GetFloat(statsEnum.ToString()) + " == "+statsEnum+" == SAVED that hero stats");
     }
 
     public void UpgradeStats(HeroStatsEnum statsEnum, float upgradeAmount)
@@ -77,15 +75,12 @@ public class HeroStats
         LoadStats();
     }
 
-    public void AddUpgradePoints()
+    public void ClearStatsToDefault()
     {
-        UpgradePoints++;
-        SaveStats(HeroStatsEnum.HeroUpgradePoints, UpgradePoints);
-    }
-
-    public void RemoveOneUpgradePoints()
-    {
-        UpgradePoints--;
-        SaveStats(HeroStatsEnum.HeroUpgradePoints, UpgradePoints);
+        SaveStats(HeroStatsEnum.Health, _defaultHealthValue);
+        SaveStats(HeroStatsEnum.BatteryEnergy, _defaultBatteryEnergyValue);
+        SaveStats(HeroStatsEnum.Attack, _defaultAttackValue);
+        SaveStats(HeroStatsEnum.StarterBalls, _defaultStarterBallsValue);
+        SaveStats(HeroStatsEnum.SightLength, _defaultSightLengthValue);
     }
 }
