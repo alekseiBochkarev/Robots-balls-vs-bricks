@@ -47,6 +47,10 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
 
         DamagePopupController.Instance.CreateDamagePopup(heroCoord, appliedDamage, false,
             isDamage, TextController.COLOR_RED, TextController.FONT_SIZE_MAX);
+        if (CurrentHealth) <= 0
+        {
+            EventManager.OnLifeIsOverEvent();
+        }
     }
 
     public void HealUp(float healHealthUpAmount)
