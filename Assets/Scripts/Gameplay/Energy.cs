@@ -8,7 +8,9 @@ public class Energy
     public int CurrentEnergy {private set; get;}
     public int energyRefreshentTime = 60;
     public int startGameEnergy = 10;
-
+    /// <summary>
+    /// насколько я понимаю это старая логика энергии (не та энергия которая внутри уровня, а та что между уровнями (пока не знаю будем ее использовать или нет)
+    /// </summary>
     public Energy() {
        CurrentEnergy = PlayerPrefs.GetInt("energy", defaultEnergy);
       // Debug.Log("Current energy before CalculateEnergy -> " + CurrentEnergy);
