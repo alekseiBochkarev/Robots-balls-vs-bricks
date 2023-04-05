@@ -1285,6 +1285,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 5791293125028329431, guid: 040699065a08ed843a7214f627d6b647,
+        type: 3}
+      propertyPath: _percentageValueOfHealth
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7433770354790282917, guid: 040699065a08ed843a7214f627d6b647,
         type: 3}
       propertyPath: m_AnchorMax.x
