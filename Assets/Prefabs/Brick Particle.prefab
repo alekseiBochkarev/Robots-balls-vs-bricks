@@ -5057,6 +5057,11 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[12].y
       value: 2.7062626
       objectReference: {fileID: 0}
+    - target: {fileID: 9046373954102932149, guid: 2448ac433eae27f469cb254c9354c2aa,
+        type: 3}
+      propertyPath: m_attackPower
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9146324641245280145, guid: 2448ac433eae27f469cb254c9354c2aa,
         type: 3}
       propertyPath: m_Sprite

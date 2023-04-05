@@ -14,6 +14,9 @@ public class LevelManager : MonoBehaviour
     public GameObject m_Scores;
     public Text m_GameOverFinalScore;
 
+	private bool energyIsOver;
+	private bool lifeIsOver;
+
     [SerializeField] private int s_ReturnedBallsAmount = 0;
     [SerializeField] private int playerBallsAmount;
     private SpecialAttackPanelController m_SpecialAttackPanelController;
@@ -69,9 +72,18 @@ public class LevelManager : MonoBehaviour
                     m_GameWinPanel.SetActive(false);
                     m_Scores.SetActive(false);
 
-                    m_GameOverFinalScore.text = "Final Score : " + (ScoreManager.Instance.m_LevelOfFinalBrick - 1).ToString();
+                   // m_GameOverFinalScore.text = "Final Score : " + (ScoreManager.Instance.m_LevelOfFinalBrick - 1).ToString();
+					if (energyIsOver) {
+					m_GameOverFinalScore.text = "energy is over"; 
+					} else 
+					if (lifeIsOver) {
+					m_GameOverFinalScore.text = "life is over";
+					} else {
+					m_GameOverFinalScore.text = "I don't know why you are over";
+					}
                     BallLauncher.Instance.m_CanPlay = false;
                     BallLauncher.Instance.ResetPositions();
+					EventManager.OnGameLose();
                     break;
                 case LevelState.WIN:
                     m_GameMenuPanel.SetActive(false);
@@ -99,6 +111,8 @@ public class LevelManager : MonoBehaviour
         Instance = this;
         EventManager.BallsReturned += CheckBallsAndOpenSpecAttackPanelAndContinuePlaying;
         EventManager.ResetReturningBallsAmount += ResetReturningBallsAmount;
+		EventManager.EnergyIsOverEvent += ShowLosePanelBecauseEnergyIsOver;
+		EventManager.LifeIsOverEvent += ShowLosePanelBecauseLifeIsOver;
         m_SpecialAttackPanelController = GameObject.Find("SpecialAttackUI").GetComponent<SpecialAttackPanelController>();
     }
 
@@ -115,6 +129,16 @@ public class LevelManager : MonoBehaviour
         ScoreManager.Instance.m_ScoreText.text = ScoreManager.Instance.m_LevelOfFinalBrick.ToString();
         playerBallsAmount = Balls.Instance.PlayerBallsAmount;
     }
+
+	private void ShowLosePanelBecauseEnergyIsOver () {
+		energyIsOver = true;
+		m_LevelState = LevelState.GAMEOVER;
+	}
+
+	private void ShowLosePanelBecauseLifeIsOver () {
+		lifeIsOver = true;
+		m_LevelState = LevelState.GAMEOVER;
+	}
 
     private void CheckBallsAndOpenSpecAttackPanelAndContinuePlaying () {
        // Debug.Log("CheckBallsAndOpenSpecAttackPanelAndContinuePlaying");
@@ -171,5 +195,7 @@ public class LevelManager : MonoBehaviour
     {
         EventManager.BallsReturned -= CheckBallsAndOpenSpecAttackPanelAndContinuePlaying;
         EventManager.ResetReturningBallsAmount -= ResetReturningBallsAmount;
+		EventManager.EnergyIsOverEvent -= ShowLosePanelBecauseEnergyIsOver;
+		EventManager.LifeIsOverEvent -= ShowLosePanelBecauseLifeIsOver;
     }
 }

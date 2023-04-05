@@ -8,6 +8,9 @@ public class EventManager : MonoBehaviour
     public static event Action BrickHit;
 
     public static event Action GameWon;
+    public static event Action GameLose;
+    public static event Action EnergyIsOverEvent;
+    public static event Action LifeIsOverEvent;
     public static event Action LevelUp;
     public static event Action UpgradeStats;
     public static event Action CoinsChanged;
@@ -47,6 +50,22 @@ public class EventManager : MonoBehaviour
     {
         Debug.Log("Game won event");
         GameWon?.Invoke();
+    }
+
+    public static void OnGameLose()
+    {
+        Debug.Log("Game lose event");
+        GameLose?.Invoke();
+    }
+
+    public static void OnEnergyIsOverEvent()
+    {
+        EnergyIsOverEvent?.Invoke();
+    }
+    
+    public static void OnLifeIsOverEvent()
+    {
+        LifeIsOverEvent?.Invoke();
     }
 
     public static void OnBrickDestroyed()

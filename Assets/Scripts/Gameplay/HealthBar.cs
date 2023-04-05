@@ -16,10 +16,10 @@ public class HealthBar : MonoBehaviour
         healthBarSlider.value = startSliderValue;
     }
 
-    public void SaveCurrentBrickHealth() 
+    public void SaveCurrentBrickHealth()
     {
         if (gameObject.GetComponentInParent<Brick>() != null)
-        CurrentHealth = (float) gameObject.GetComponentInParent<Brick>().m_currentBrickHealth;
+            CurrentHealth = (float)gameObject.GetComponentInParent<Brick>().m_currentBrickHealth;
     }
 
     public void SaveMaxBrickHealth() 
