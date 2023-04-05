@@ -5146,6 +5146,11 @@ PrefabInstance:
       propertyPath: ice
       value: 
       objectReference: {fileID: 9009871455773978892}
+    - target: {fileID: 9046373954102932149, guid: 2448ac433eae27f469cb254c9354c2aa,
+        type: 3}
+      propertyPath: m_attackPower
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9146324641245280145, guid: 2448ac433eae27f469cb254c9354c2aa,
         type: 3}
       propertyPath: m_Sprite
@@ -5202,7 +5207,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &4250372058668262357
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5219,7 +5224,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!4 &1130854795132473613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8938643718245067077, guid: 2448ac433eae27f469cb254c9354c2aa,

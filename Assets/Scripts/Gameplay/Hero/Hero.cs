@@ -10,7 +10,18 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
     private bool isDamage;
 
     private Vector3 heroCoord;
-    [SerializeField] public float CurrentHealth { private set; get; }
+    [SerializeField] private float m_currentHealth;
+    public float CurrentHealth 
+    {
+        private set
+        {
+            m_currentHealth = value;
+        }
+        get
+        {
+            return m_currentHealth;
+        } 
+    }
     [SerializeField] public float MaxHealth { private set; get; }
 
     public void Awake()
@@ -47,7 +58,7 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
 
         DamagePopupController.Instance.CreateDamagePopup(heroCoord, appliedDamage, false,
             isDamage, TextController.COLOR_RED, TextController.FONT_SIZE_MAX);
-        if (CurrentHealth) <= 0
+        if (CurrentHealth <= 0)
         {
             EventManager.OnLifeIsOverEvent();
         }

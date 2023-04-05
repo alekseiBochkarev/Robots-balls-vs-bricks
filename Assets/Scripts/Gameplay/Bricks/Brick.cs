@@ -12,6 +12,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public GameObject ice;
     public int m_maxBrickHealth;
     public int m_currentBrickHealth;    // it's gonna be public because the GameManager needs to setup each brick
+    [SerializeField] private int m_attackPower; //атакующая сила 1 брика, если их несколько то умножается на количество
     public PolygonCollider2D polygonCollider2D;
     private Rigidbody2D rigidbody2D;
 
@@ -206,11 +207,14 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         rigidbody2D.bodyType = rigidbodyType;
     }
     
-
+/// <summary>
+/// похоже это лишний метд Аттака (так как есть ДуДемедж), хотя я наверно просто могу в нем вызывать дуДемедж
+/// </summary>
+/// <returns></returns>
     public void Attack ()
-    {
-      //  Debug.Log("Attack");
-    }
+{
+    DoDamage(m_attackPower*m_currentBrickHealth);
+}
     
     public void ChangeColor()
     {
