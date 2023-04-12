@@ -142,6 +142,16 @@ public class BrickSpawner : MonoBehaviour
         }
        // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
     }
+    
+    private void CreateObject(GameObject prefab, int numberInRow, int yPosition)
+    {
+        if (m_levelConfig.grid.GetValue(numberInRow, yPosition+1) == 0) {
+            GameObject newObject = Instantiate(prefab, m_levelConfig.grid.GetWorldPosition(numberInRow, yPosition), new Quaternion(0, 180, 0, 1));
+            newObject.transform.localScale *= m_levelConfig.ScaleCoefficient;
+            newObject.GetComponentInChildren<MoveDownBehaviour>().MoveDown();
+        }
+        // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
+    }
 
 //check it should not be used now
     private float getPositionX (int number)
