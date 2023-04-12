@@ -5,14 +5,15 @@ public class BrickSpawner : MonoBehaviour
 {
     public static BrickSpawner Instance;
 
-    
+
 
     [Header("Spawning informations")]
-   // [SerializeField] private int m_SpawningRows = 8;
-   // public BricksRow m_BricksRowPrefab;
-   // public float m_SpawningTopPosition = 2.88f;   // top position
+    // [SerializeField] private int m_SpawningRows = 8;
+    // public BricksRow m_BricksRowPrefab;
+    // public float m_SpawningTopPosition = 2.88f;   // top position
     //public float m_SpawningDistance = 0.8f; // distance of rows
     public GameObject brickPrefab;
+
     public GameObject scoreBallPrefab;
     public GameObject magicBallPrefab;
     public GameObject mainCamera;
@@ -22,7 +23,22 @@ public class BrickSpawner : MonoBehaviour
     [SerializeField] private bool allBricksMovedHorizontal;
     [SerializeField] private bool allObjectsCreated;
 
-    private float vision;
+    public BrickPosition[] _brickPositions =
+        { new BrickPosition(1, 0), new BrickPosition(2, 0), new BrickPosition(3, 3) };
+
+private float vision;
+
+    public class BrickPosition
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+
+        public BrickPosition(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
+    }
     Collider2D[] colliders;
 
     [Header("Bricks Row")]
@@ -95,6 +111,11 @@ public class BrickSpawner : MonoBehaviour
 
     private void CreateBrickRow()
     {
+        for (int i = 0; i < _brickPositions.Length; i++)
+        {
+            CreateObject(brickPrefab, _brickPositions[i].X, _brickPositions[i].Y);
+        }
+        /*
         allObjectsCreated = false;
         int numberOfScoreBallInRow = Random.Range(0, maxObjectsInRow);
         if (CheckIfICanCreateScoreBall()) {
@@ -131,6 +152,7 @@ public class BrickSpawner : MonoBehaviour
             }
         }
         allObjectsCreated = true;
+        */
     }
 
     private void CreateObject(GameObject prefab, int numberInRow)
