@@ -23,33 +23,21 @@ public class BrickSpawner : MonoBehaviour
     [SerializeField] private bool allBricksMovedHorizontal;
     [SerializeField] private bool allObjectsCreated;
 
-    public BrickPosition[] _brickPositions =
+    public ObjectGamePosition[] _objectGamePositions =
     {
-        new BrickPosition("enemies/Brick2",1, 0), new BrickPosition("enemies/Brick2", 2, 0), new BrickPosition("enemies/Brick2", 3, 3),
-        new BrickPosition("extras/Magic Ball Particle", 4, 2), new BrickPosition("extras/Score Ball Particle", 4, 4)
+        new ObjectGamePosition("enemies/Brick2",1, 0), new ObjectGamePosition("enemies/Brick2", 2, 0), new ObjectGamePosition("enemies/Brick2", 3, 3),
+        new ObjectGamePosition("extras/Magic Ball Particle", 4, 2), new ObjectGamePosition("extras/Score Ball Particle", 4, 4)
     };
 
-private float vision;
-
-    public class BrickPosition
-    {
-        public string Name { get; set; }
-        public int X { get; set; }
-        public int Y { get; set; }
-
-        public BrickPosition(string name, int x, int y)
-        {
-            Name = name;
-            X = x;
-            Y = y;
-        }
-    }
+    private float vision;
     Collider2D[] colliders;
 
     [Header("Bricks Row")]
     //public List<BricksRow> m_BricksRow;
     [Header("Win Manager")]
     public WinManager winManager;
+
+    public SceneConfiguration sceneConfiguration;
 
     private void Awake()
     {
@@ -59,7 +47,8 @@ private float vision;
     private void Start()
     {
         Instance = this;
-
+        sceneConfiguration = mainCamera.GetComponent<SceneConfiguration>();
+        _objectGamePositions = sceneConfiguration._objectGamePositions;
         //m_BricksRow = new List<BricksRow>();
         winManager = mainCamera.GetComponent<WinManager>();
         m_levelConfig = mainCamera.GetComponent<LevelConfig>();
@@ -114,16 +103,15 @@ private float vision;
 
     public void SpawnBricks ()
     {
-        ScoreManager.Instance.m_LevelOfFinalBrick++;
         CreateBrickRow();
 
     }
 
     private void CreateBrickRow()
     {
-        for (int i = 0; i < _brickPositions.Length; i++)
+        for (int i = 0; i < _objectGamePositions.Length; i++)
         {
-            CreateObject(_brickPositions[i].Name, _brickPositions[i].X, _brickPositions[i].Y);
+            CreateObject(_objectGamePositions[i].Name, _objectGamePositions[i].X, _objectGamePositions[i].Y);
         }
         /*
         allObjectsCreated = false;
@@ -220,6 +208,7 @@ private float vision;
 
     public void MoveDownBricksRows()
     {
+        ScoreManager.Instance.m_LevelOfFinalBrick++;
         //Debug.Log("MOVE DOWN BRICK ROWS");
         allBricksMovedDown = false;
         vision = 10f; //need to check maybe we should set more than 10

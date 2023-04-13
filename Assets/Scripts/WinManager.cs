@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WinManager : MonoBehaviour
 {
-    private int maxSpawn = 1;
+    private int maxSpawn = 2;
     public int GetMaxSpawn
     {
         get
@@ -15,7 +15,7 @@ public class WinManager : MonoBehaviour
 
     public void CheckIfWin ()
     {
-        if (ScoreManager.Instance.m_LevelOfFinalBrick == GetMaxSpawn)
+        if (ScoreManager.Instance.m_LevelOfFinalBrick >= GetMaxSpawn)
         {
             GameObject[] bricks = GameObject.FindGameObjectsWithTag("Brick");
             if (bricks.Length == 0)
