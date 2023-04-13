@@ -67,9 +67,9 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     {
         //GOOD DECISION BUT I SHOULD CHANGE THIS BOCHKAREV ALEKSEI
        // m_currentBrickHealth = ScoreManager.Instance.m_LevelOfFinalBrick +1;
-        m_maxBrickHealth = m_currentBrickHealth;
+      //  m_maxBrickHealth = m_currentBrickHealth;
        // Debug.Log("Brick OnEnable m_Health " + m_currentBrickHealth);
-        m_Text.text = m_currentBrickHealth.ToString();
+     //   m_Text.text = m_currentBrickHealth.ToString();
 
         // Set HealthBar and show health of brick
         healthBar = gameObject.GetComponentInChildren<HealthBar>();
@@ -159,7 +159,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         state.HealUp(healHealthUpAmount);
     }
 
-    private void Update() { // ONLY FOR DEBUGGING AND TESTING
+    private void Update() { // ONLY FOR DEBUGGING AND TESTING  - ОБРАТИТЬ ВНИМАНИЕ ПЕРЕД РЕЛИЗОМ УДАЛИТЬ
         if (Input.GetMouseButtonDown(1))
         {
             TakeDamage(1);
@@ -167,11 +167,6 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         if (Input.GetMouseButtonDown(2))
         {
             HealUp(5);
-        }
-        if(transform.localPosition.y <= BallLauncher.Instance.m_FloorPosition)
-        {
-            LevelManager.Instance.m_LevelState = LevelManager.LevelState.GAMEOVER;
-            //AttackPlayer();
         }
     }
 

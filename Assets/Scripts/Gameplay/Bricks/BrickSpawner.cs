@@ -163,9 +163,11 @@ public class BrickSpawner : MonoBehaviour
     {
         if (m_levelConfig.grid.GetValue(numberInRow, yPosition+1) == 0) {
             GameObject newObject = Instantiate(Resources.Load (prefabName) as GameObject, m_levelConfig.grid.GetWorldPosition(numberInRow, yPosition), new Quaternion(0, 180, 0, 1));
-            if (newObject.GetComponent<Brick>() != null)
+            if (newObject.GetComponentInChildren<Brick>() != null)
             {
-                newObject.GetComponent<Brick>().m_currentBrickHealth = health;
+                newObject.GetComponentInChildren<Brick>().m_currentBrickHealth = health;
+                newObject.GetComponentInChildren<Brick>().m_maxBrickHealth = health;
+                newObject.GetComponentInChildren<Brick>().m_Text.text = health.ToString();
             }
             newObject.transform.localScale *= m_levelConfig.ScaleCoefficient;
             newObject.GetComponentInChildren<MoveDownBehaviour>().MoveDown();
