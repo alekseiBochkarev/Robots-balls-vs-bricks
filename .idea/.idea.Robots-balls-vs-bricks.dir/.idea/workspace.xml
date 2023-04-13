@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f7a12e7-3117-49e5-b950-126538c99e2e" name="Changes" comment="add changes from battery branch">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brick2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brick2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/Main Camera (LevelManager).prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/Main Camera (LevelManager).prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Magic Ball Particle.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Magic Ball Particle.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Score Ball Particle.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Score Ball Particle.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/BallLauncher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/BallLauncher.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/BrickSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/BrickSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WinManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WinManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

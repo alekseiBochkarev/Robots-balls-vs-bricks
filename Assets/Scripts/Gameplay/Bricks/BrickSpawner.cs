@@ -12,11 +12,11 @@ public class BrickSpawner : MonoBehaviour
     // public BricksRow m_BricksRowPrefab;
     // public float m_SpawningTopPosition = 2.88f;   // top position
     //public float m_SpawningDistance = 0.8f; // distance of rows
-    public GameObject brickPrefab;
+ //   public GameObject brickPrefab;
 
-    public GameObject scoreBallPrefab;
-    public GameObject magicBallPrefab;
-    public GameObject mainCamera;
+  //  public GameObject scoreBallPrefab;
+   // public GameObject magicBallPrefab;
+    private GameObject mainCamera;
     private int maxObjectsInRow;
     private LevelConfig m_levelConfig;
     [SerializeField] private bool allBricksMovedDown;
@@ -24,17 +24,22 @@ public class BrickSpawner : MonoBehaviour
     [SerializeField] private bool allObjectsCreated;
 
     public BrickPosition[] _brickPositions =
-        { new BrickPosition(1, 0), new BrickPosition(2, 0), new BrickPosition(3, 3) };
+    {
+        new BrickPosition("enemies/Brick2",1, 0), new BrickPosition("enemies/Brick2", 2, 0), new BrickPosition("enemies/Brick2", 3, 3),
+        new BrickPosition("extras/Magic Ball Particle", 4, 2), new BrickPosition("extras/Score Ball Particle", 4, 4)
+    };
 
 private float vision;
 
     public class BrickPosition
     {
+        public string Name { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
 
-        public BrickPosition(int x, int y)
+        public BrickPosition(string name, int x, int y)
         {
+            Name = name;
             X = x;
             Y = y;
         }
@@ -45,6 +50,11 @@ private float vision;
     //public List<BricksRow> m_BricksRow;
     [Header("Win Manager")]
     public WinManager winManager;
+
+    private void Awake()
+    {
+        mainCamera = GameObject.Find("MainCamera");
+    }
 
     private void Start()
     {
@@ -113,7 +123,7 @@ private float vision;
     {
         for (int i = 0; i < _brickPositions.Length; i++)
         {
-            CreateObject(brickPrefab, _brickPositions[i].X, _brickPositions[i].Y);
+            CreateObject(_brickPositions[i].Name, _brickPositions[i].X, _brickPositions[i].Y);
         }
         /*
         allObjectsCreated = false;
@@ -154,7 +164,7 @@ private float vision;
         allObjectsCreated = true;
         */
     }
-
+/*
     private void CreateObject(GameObject prefab, int numberInRow)
     {
         if (m_levelConfig.grid.GetValue(numberInRow, 0+1) == 0) {
@@ -163,8 +173,18 @@ private float vision;
             newObject.GetComponentInChildren<MoveDownBehaviour>().MoveDown();
         }
        // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
-    }
+    }*/
     
+    private void CreateObject(string prefabName, int numberInRow, int yPosition)
+    {
+        if (m_levelConfig.grid.GetValue(numberInRow, yPosition+1) == 0) {
+            GameObject newObject = Instantiate(Resources.Load (prefabName) as GameObject, m_levelConfig.grid.GetWorldPosition(numberInRow, yPosition), new Quaternion(0, 180, 0, 1));
+            newObject.transform.localScale *= m_levelConfig.ScaleCoefficient;
+            newObject.GetComponentInChildren<MoveDownBehaviour>().MoveDown();
+        }
+        // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
+    }
+    /*
     private void CreateObject(GameObject prefab, int numberInRow, int yPosition)
     {
         if (m_levelConfig.grid.GetValue(numberInRow, yPosition+1) == 0) {
@@ -174,7 +194,7 @@ private float vision;
         }
         // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
     }
-
+*/
 //check it should not be used now
     private float getPositionX (int number)
     {
