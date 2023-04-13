@@ -23,11 +23,7 @@ public class BrickSpawner : MonoBehaviour
     [SerializeField] private bool allBricksMovedHorizontal;
     [SerializeField] private bool allObjectsCreated;
 
-    public ObjectGamePosition[] _objectGamePositions =
-    {
-        new ObjectGamePosition("enemies/Brick2",1, 0), new ObjectGamePosition("enemies/Brick2", 2, 0), new ObjectGamePosition("enemies/Brick2", 3, 3),
-        new ObjectGamePosition("extras/Magic Ball Particle", 4, 2), new ObjectGamePosition("extras/Score Ball Particle", 4, 4)
-    };
+    public ObjectGamePosition[] _objectGamePositions;
 
     private float vision;
     Collider2D[] colliders;
