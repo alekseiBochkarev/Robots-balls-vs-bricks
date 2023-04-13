@@ -5,22 +5,25 @@ public class BrickSpawner : MonoBehaviour
 {
     public static BrickSpawner Instance;
 
-    
+
 
     [Header("Spawning informations")]
-   // [SerializeField] private int m_SpawningRows = 8;
-   // public BricksRow m_BricksRowPrefab;
-   // public float m_SpawningTopPosition = 2.88f;   // top position
+    // [SerializeField] private int m_SpawningRows = 8;
+    // public BricksRow m_BricksRowPrefab;
+    // public float m_SpawningTopPosition = 2.88f;   // top position
     //public float m_SpawningDistance = 0.8f; // distance of rows
-    public GameObject brickPrefab;
-    public GameObject scoreBallPrefab;
-    public GameObject magicBallPrefab;
-    public GameObject mainCamera;
+ //   public GameObject brickPrefab;
+
+  //  public GameObject scoreBallPrefab;
+   // public GameObject magicBallPrefab;
+    private GameObject mainCamera;
     private int maxObjectsInRow;
     private LevelConfig m_levelConfig;
     [SerializeField] private bool allBricksMovedDown;
     [SerializeField] private bool allBricksMovedHorizontal;
     [SerializeField] private bool allObjectsCreated;
+
+    public ObjectGamePosition[] _objectGamePositions;
 
     private float vision;
     Collider2D[] colliders;
@@ -30,10 +33,18 @@ public class BrickSpawner : MonoBehaviour
     [Header("Win Manager")]
     public WinManager winManager;
 
+    public SceneConfiguration sceneConfiguration;
+
+    private void Awake()
+    {
+        mainCamera = GameObject.Find("MainCamera");
+    }
+
     private void Start()
     {
         Instance = this;
-
+        sceneConfiguration = mainCamera.GetComponent<SceneConfiguration>();
+        _objectGamePositions = sceneConfiguration._objectGamePositions;
         //m_BricksRow = new List<BricksRow>();
         winManager = mainCamera.GetComponent<WinManager>();
         m_levelConfig = mainCamera.GetComponent<LevelConfig>();
@@ -88,13 +99,17 @@ public class BrickSpawner : MonoBehaviour
 
     public void SpawnBricks ()
     {
-        ScoreManager.Instance.m_LevelOfFinalBrick++;
         CreateBrickRow();
 
     }
 
     private void CreateBrickRow()
     {
+        for (int i = 0; i < _objectGamePositions.Length; i++)
+        {
+            CreateObject(_objectGamePositions[i].Name, _objectGamePositions[i].X, _objectGamePositions[i].Y);
+        }
+        /*
         allObjectsCreated = false;
         int numberOfScoreBallInRow = Random.Range(0, maxObjectsInRow);
         if (CheckIfICanCreateScoreBall()) {
@@ -131,8 +146,9 @@ public class BrickSpawner : MonoBehaviour
             }
         }
         allObjectsCreated = true;
+        */
     }
-
+/*
     private void CreateObject(GameObject prefab, int numberInRow)
     {
         if (m_levelConfig.grid.GetValue(numberInRow, 0+1) == 0) {
@@ -141,8 +157,28 @@ public class BrickSpawner : MonoBehaviour
             newObject.GetComponentInChildren<MoveDownBehaviour>().MoveDown();
         }
        // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
+    }*/
+    
+    private void CreateObject(string prefabName, int numberInRow, int yPosition)
+    {
+        if (m_levelConfig.grid.GetValue(numberInRow, yPosition+1) == 0) {
+            GameObject newObject = Instantiate(Resources.Load (prefabName) as GameObject, m_levelConfig.grid.GetWorldPosition(numberInRow, yPosition), new Quaternion(0, 180, 0, 1));
+            newObject.transform.localScale *= m_levelConfig.ScaleCoefficient;
+            newObject.GetComponentInChildren<MoveDownBehaviour>().MoveDown();
+        }
+        // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
     }
-
+    /*
+    private void CreateObject(GameObject prefab, int numberInRow, int yPosition)
+    {
+        if (m_levelConfig.grid.GetValue(numberInRow, yPosition+1) == 0) {
+            GameObject newObject = Instantiate(prefab, m_levelConfig.grid.GetWorldPosition(numberInRow, yPosition), new Quaternion(0, 180, 0, 1));
+            newObject.transform.localScale *= m_levelConfig.ScaleCoefficient;
+            newObject.GetComponentInChildren<MoveDownBehaviour>().MoveDown();
+        }
+        // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
+    }
+*/
 //check it should not be used now
     private float getPositionX (int number)
     {
@@ -168,6 +204,7 @@ public class BrickSpawner : MonoBehaviour
 
     public void MoveDownBricksRows()
     {
+        ScoreManager.Instance.m_LevelOfFinalBrick++;
         //Debug.Log("MOVE DOWN BRICK ROWS");
         allBricksMovedDown = false;
         vision = 10f; //need to check maybe we should set more than 10
