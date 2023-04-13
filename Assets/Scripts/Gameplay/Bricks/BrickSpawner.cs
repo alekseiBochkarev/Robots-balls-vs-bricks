@@ -107,7 +107,7 @@ public class BrickSpawner : MonoBehaviour
     {
         for (int i = 0; i < _objectGamePositions.Length; i++)
         {
-            CreateObject(_objectGamePositions[i].Name, _objectGamePositions[i].X, _objectGamePositions[i].Y);
+            CreateObject(_objectGamePositions[i].Name, _objectGamePositions[i].X, _objectGamePositions[i].Y, _objectGamePositions[i].Health);
         }
         /*
         allObjectsCreated = false;
@@ -159,10 +159,14 @@ public class BrickSpawner : MonoBehaviour
        // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
     }*/
     
-    private void CreateObject(string prefabName, int numberInRow, int yPosition)
+    private void CreateObject(string prefabName, int numberInRow, int yPosition, int health)
     {
         if (m_levelConfig.grid.GetValue(numberInRow, yPosition+1) == 0) {
             GameObject newObject = Instantiate(Resources.Load (prefabName) as GameObject, m_levelConfig.grid.GetWorldPosition(numberInRow, yPosition), new Quaternion(0, 180, 0, 1));
+            if (newObject.GetComponent<Brick>() != null)
+            {
+                newObject.GetComponent<Brick>().m_currentBrickHealth = health;
+            }
             newObject.transform.localScale *= m_levelConfig.ScaleCoefficient;
             newObject.GetComponentInChildren<MoveDownBehaviour>().MoveDown();
         }
