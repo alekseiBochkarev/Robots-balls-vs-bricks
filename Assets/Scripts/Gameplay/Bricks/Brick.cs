@@ -66,7 +66,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     private void OnEnable()
     {
         //GOOD DECISION BUT I SHOULD CHANGE THIS BOCHKAREV ALEKSEI
-        m_currentBrickHealth = ScoreManager.Instance.m_LevelOfFinalBrick +1;
+       // m_currentBrickHealth = ScoreManager.Instance.m_LevelOfFinalBrick +1;
         m_maxBrickHealth = m_currentBrickHealth;
        // Debug.Log("Brick OnEnable m_Health " + m_currentBrickHealth);
         m_Text.text = m_currentBrickHealth.ToString();
