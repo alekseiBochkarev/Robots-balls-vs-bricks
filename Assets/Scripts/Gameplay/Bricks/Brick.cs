@@ -11,7 +11,8 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public Hero hero;
     public GameObject ice;
     public int m_maxBrickHealth;
-    public int m_currentBrickHealth;    // it's gonna be public because the GameManager needs to setup each brick
+    //установим каррентБрикХелф в БрикСпавнере
+    public int m_currentBrickHealth;    // it's gonna be public because the GameManager needs to setup each brick - это старый скрипт возможно его нужно удалить но мы будем устанавливать здоровье в БрикСпаунере
     [SerializeField] private int m_attackPower; //атакующая сила 1 брика, если их несколько то умножается на количество
     public PolygonCollider2D polygonCollider2D;
     private Rigidbody2D rigidbody2D;
