@@ -44,14 +44,14 @@ public class UpgradeStats : IResetToDefaultValues
     // Min and Max levels for upgrading
     public const float MinUpgradeHealthLevel = 1;
     private const float MinUpgradeBatteryEnergyLevel = 3;
-    private const float MinUpgradeAttackLevel = 1;
-    private const float MinUpgradeStarterBallsLevel = 1;
-    private const float MinUpgradeSightLengthLevel = 1;
+    public const float MinUpgradeAttackLevel = 1;
+    public const float MinUpgradeStarterBallsLevel = 1;
+    public const float MinUpgradeSightLengthLevel = 1;
 
     public const float MaxUpgradeHealthLevel = 7;
     public const float MaxUpgradeBatteryEnergyLevel = 12;
     public const float MaxUpgradeAttackLevel = 10;
-    public const float MaxUpgradeStarterBallsLevel = 8;
+    public const float MaxUpgradeStarterBallsLevel = 10;
     public const float MaxUpgradeSightLengthLevel = 5;
 
     public enum UpgradeMultipliersEnum

@@ -1,51 +1,34 @@
 using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
-public class Balls : MonoBehaviour
+public class Balls : MonoBehaviour, IResetToDefaultValues
 {
     public static Balls Instance;
 
     private HeroStats _heroStats;
-    public static Dictionary<int, GameObject> ballsInScene; 
+    public static Dictionary<int, GameObject> ballsInScene;
     private AbstractBall m_BallPrefab;
-    public List<AbstractBall> PlayerBalls {private set; get; } 
+    public List<AbstractBall> PlayerBalls { private set; get; }
     [SerializeField] private int startBallsAmount;
     public int PlayerBallsAmount { private set; get; }
     public bool IsBallAmountChanged;
 
-    // public Balls()
-    // {
-    //     Instance = this;
-    //     PlayerBalls = new List<AbstractBall>(startBallsAmount);
-    //     SpawnNewBall(startBallsAmount, BallsTypeEnum.Ball);
-    //     PlayerBallsAmount = PlayerBalls.Count;
-    //     IsBallAmountChanged = false;
-    // }
-
-    private void Awake() 
+    private void Awake()
     {
         Instance = this;
 
         _heroStats = new HeroStats();
-        startBallsAmount = (int) _heroStats.StarterBalls;
-        
+        startBallsAmount = (int)_heroStats.StarterBalls;
+
         PlayerBalls = new List<AbstractBall>(startBallsAmount);
         SpawnNewBall(startBallsAmount, BallsTypeEnum.Ball);
         PlayerBallsAmount = PlayerBalls.Count;
         IsBallAmountChanged = false;
     }
 
-    // public void AddBall(BallsTypeEnum ballsType)
-    // {
-    //     IncreaseBallsAmountFromOutSide(1);
-    //    // m_BallsAmount++;
-    //    // m_BallsText.text = "x" + m_BallsAmount.ToString();
-    //     AddBallToList(ballsType);
-    // }
-
     public void SpawnNewBall(int ballsToAddAmount, BallsTypeEnum ballsType)
     {
-        
         for (int i = 0; i < ballsToAddAmount; i++)
         {
             AddBallToList(ballsType);
@@ -54,7 +37,7 @@ public class Balls : MonoBehaviour
 
     public void SetSpecialAttack(BallSO _specialBall)
     {
-      //  Debug.Log("SetSpecialAttack ---> " + _specialBall.name);
+        //  Debug.Log("SetSpecialAttack ---> " + _specialBall.name);
         AddBallToList(_specialBall.ballsType);
     }
 
@@ -87,10 +70,11 @@ public class Balls : MonoBehaviour
         PlayerBalls[PlayerBalls.Count - 1].Disable();
         SavePlayerBallsAmount();
     }
+
     public void ReplaceBallInList(BallsTypeEnum replaceableBall, BallsTypeEnum newBallType)
     {
         int ballIndex = GetIndexByBallTypeInList(replaceableBall);
-      //  Debug.Log("ballIndex is -> " + ballIndex);
+        //  Debug.Log("ballIndex is -> " + ballIndex);
         m_BallPrefab = Resources.Load<GameObject>(newBallType.ToString()).GetComponent<AbstractBall>();
 
         PlayerBalls[ballIndex].DestroyAfterTime();
@@ -103,19 +87,21 @@ public class Balls : MonoBehaviour
     {
         for (int i = 0; i < PlayerBalls.Count; i++)
         {
-           // Debug.Log("Balls names are -> " + PlayerBalls[i].name);
-         //   if (PlayerBalls[i].name.Contains(ballType.ToString()))
+            // Debug.Log("Balls names are -> " + PlayerBalls[i].name);
+            //   if (PlayerBalls[i].name.Contains(ballType.ToString()))
             if (PlayerBalls[i].name == ballType.ToString() + "(Clone)")
             {
-               // Debug.Log("Return index is -> " + i);
+                // Debug.Log("Return index is -> " + i);
                 return i;
-            }                
+            }
         }
+
         return -1;
     }
+
     public AbstractBall GetFirstBallInList()
     {
-       // Debug.Log("GetFirstBallInList -> " + PlayerBalls[0]);
+        // Debug.Log("GetFirstBallInList -> " + PlayerBalls[0]);
         return PlayerBalls[0];
     }
 
@@ -123,16 +109,17 @@ public class Balls : MonoBehaviour
     {
         foreach (AbstractBall ball in PlayerBalls)
         {
-            if (ball.name.Contains(" " + ballsType.ToString())) 
+            if (ball.name.Contains(" " + ballsType.ToString()))
             {
                 //Debug.Log("GetBallByBallTypeInList  -> " + ball.name);
                 return ball;
             }
         }
+
         return null;
     }
 
-    private void Update() 
+    private void Update()
     {
         if (Input.GetMouseButtonDown(2))
         {
@@ -145,6 +132,25 @@ public class Balls : MonoBehaviour
     public void IncreaseBallsAmountFromOutSide(int amount)
     {
         PlayerBallsAmount += amount;
+    }
+
+    public void ClearStatsToDefault()
+    {
+        DestroyBallsOnScene();
+        
+        startBallsAmount = (int)_heroStats.StarterBalls;
+        
+        PlayerBalls = new List<AbstractBall>(startBallsAmount);
+        SpawnNewBall(startBallsAmount, BallsTypeEnum.Ball);
+        PlayerBallsAmount = PlayerBalls.Count;
+    }
+
+    private void DestroyBallsOnScene()
+    {
+        foreach (var ball in PlayerBalls)
+        {
+            Destroy(ball);
+        }
     }
 }
 
@@ -159,4 +165,3 @@ public enum BallsTypeEnum
     LaserCrossBall,
     InstaKillBall
 }
-    

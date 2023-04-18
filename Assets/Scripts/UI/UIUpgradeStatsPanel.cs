@@ -1,4 +1,5 @@
 using Gameplay.Batteries.Battery_Cell;
+using Gameplay.StatsPanel.StarterBalls;
 using Interfaces;
 using TMPro;
 using UnityEngine;
@@ -22,6 +23,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
     private BatteryCellController _batteryCellController;
     private HealthPrefabController _healthPrefabController;
+    private StarterBallsPrefabController _starterBallsPrefabController;
 
     [Header("Stat Prefabs")]
     [SerializeField] private GameObject healthPrefab;
@@ -77,9 +79,12 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         heroStats = new HeroStats();
         coins = new Coins();
 
+        // Получаем контроллеры всех статов из их префабов
         _batteryCellController = batteryCellsPrefab.GetComponentInChildren<BatteryCellController>();
         _healthPrefabController = healthPrefab.GetComponent<HealthPrefabController>();
+        _starterBallsPrefabController = starterBallsPrefab.GetComponent<StarterBallsPrefabController>();
 
+        // Подписываемся на ивенты
         EventManager.GameWon += ClearStatsToDefault;
         EventManager.CoinsChanged += ShowStatsDataAndRuleButtons;
         EventManager.UpgradeStats += ShowStatsDataAndRuleButtons;
@@ -101,6 +106,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         //Init prefab scripts
         _batteryCellController.LoadAndShowBatteryCells();
         _healthPrefabController.LoadHealthLevelAndShowSprite();
+        _starterBallsPrefabController.LoadStarterBallsLevelAndShowSprite();
     }
 
     private void OnDestroy()
@@ -257,7 +263,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
        // Hero.Instance.SetMaxHealth(heroStats.Health);
        Hero.Instance.UpdateHeroHealthAndHealthBar(_playerHealth);
 
-        //ToDo Отобразить префабы статов уже на сброшенных значениях
+        // Отобразить префабы статов уже на сброшенных значениях
         _healthPrefabController.LoadHealthLevelAndShowSprite();
 
         //EventManager to show changes in other classes
@@ -347,8 +353,9 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         //Show new values on UpgradeButton after changing (DO WE NEED REALLY NEED THIS?)
         ShowUpgradePrice(upgradeStarterBallsButtonText, upgradeStats.UpgradeStarterBallsCoinsRequired);
 
-        //ToDo Отобразить префабы статов уже на сброшенных значениях
-
+        // Отобразить префабы статов уже на сброшенных значениях
+        _starterBallsPrefabController.LoadStarterBallsLevelAndShowSprite();
+        
         // Добавляем базовый мяч в лист шаров
         Balls.Instance.AddBallToList(BallsTypeEnum.Ball);
 
@@ -363,12 +370,15 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         upgradeStats.ClearStatsToDefault();
 
         _playerHealth = heroStats.GetStats(HeroStats.HeroStatsEnum.Health);
+        _playerStarterBalls = heroStats.GetStats(HeroStats.HeroStatsEnum.StarterBalls);
 
         Hero.Instance.UpdateHeroHealthAndHealthBar(_playerHealth);
+        Balls.Instance.ClearStatsToDefault();
 
         //Сброс скриптов у префабов до дефолтных значений
         _batteryCellController.ClearStatsToDefault();
         _healthPrefabController.ClearStatsToDefault();
+        _starterBallsPrefabController.ClearStatsToDefault();
 
         //Отобразить цену после сброса до дефолтных значений
         ShowUpgradePrice(upgradeHealthButtonText, upgradeStats.UpgradeHealthCoinsRequired);
