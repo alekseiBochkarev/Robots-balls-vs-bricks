@@ -21,6 +21,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
     private Coins coins;
     private UpgradeStats upgradeStats;
 
+    private AttackPrefabController _attackPrefabController;
     private BatteryCellController _batteryCellController;
     private HealthPrefabController _healthPrefabController;
     private StarterBallsPrefabController _starterBallsPrefabController;
@@ -80,6 +81,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         coins = new Coins();
 
         // Получаем контроллеры всех статов из их префабов
+        _attackPrefabController = attackPrefab.GetComponentInChildren<AttackPrefabController>();
         _batteryCellController = batteryCellsPrefab.GetComponentInChildren<BatteryCellController>();
         _healthPrefabController = healthPrefab.GetComponent<HealthPrefabController>();
         _starterBallsPrefabController = starterBallsPrefab.GetComponent<StarterBallsPrefabController>();
@@ -104,6 +106,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         ShowStatsDataAndRuleButtons();
 
         //Init prefab scripts
+        _attackPrefabController.LoadAttackLevelAndShowSprite();
         _batteryCellController.LoadAndShowBatteryCells();
         _healthPrefabController.LoadHealthLevelAndShowSprite();
         _starterBallsPrefabController.LoadStarterBallsLevelAndShowSprite();
@@ -261,7 +264,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         ShowUpgradePrice(upgradeHealthButtonText, upgradeStats.UpgradeHealthCoinsRequired);
 
        // Hero.Instance.SetMaxHealth(heroStats.Health);
-       Hero.Instance.UpdateHeroHealthAndHealthBar(_playerHealth);
+        Hero.Instance.UpdateHeroHealthAndHealthBar(_playerHealth);
 
         // Отобразить префабы статов уже на сброшенных значениях
         _healthPrefabController.LoadHealthLevelAndShowSprite();
@@ -324,7 +327,11 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         //Show new values on UpgradeButton after changing (DO WE NEED REALLY NEED THIS?)
         ShowUpgradePrice(upgradeAttackPowerButtonText, upgradeStats.UpgradeAttackCoinsRequired);
 
-        //ToDo Отобразить префабы статов уже на сброшенных значениях
+        // Отобразить префаб уже с обновленной атакой
+        _attackPrefabController.LoadAttackLevelAndShowSprite();
+        
+        // Проапргрейдить аттаку
+        Hero.Instance.attackSkill = (int)_playerAttack;
 
         //EventManager to show changes in other classes
         EventManager.OnUpgradeStats();
@@ -370,14 +377,18 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         upgradeStats.ClearStatsToDefault();
 
         _playerHealth = heroStats.GetStats(HeroStats.HeroStatsEnum.Health);
+        _playerAttack = heroStats.GetStats(HeroStats.HeroStatsEnum.Attack);
         _playerStarterBalls = heroStats.GetStats(HeroStats.HeroStatsEnum.StarterBalls);
 
         Hero.Instance.UpdateHeroHealthAndHealthBar(_playerHealth);
+        Hero.Instance.attackSkill = (int)_playerAttack;
         Balls.Instance.ClearStatsToDefault();
+        //ToDO Сбросить аттаку
 
         //Сброс скриптов у префабов до дефолтных значений
         _batteryCellController.ClearStatsToDefault();
         _healthPrefabController.ClearStatsToDefault();
+        _attackPrefabController.ClearStatsToDefault();
         _starterBallsPrefabController.ClearStatsToDefault();
 
         //Отобразить цену после сброса до дефолтных значений
@@ -386,9 +397,6 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         ShowUpgradePrice(upgradeAttackPowerButtonText, upgradeStats.UpgradeAttackCoinsRequired);
         ShowUpgradePrice(upgradeStarterBallsButtonText, upgradeStats.UpgradeStarterBallsCoinsRequired);
         ShowUpgradePrice(upgradeSightLengthButtonText, upgradeStats.UpgradeSightLengthCoinsRequired);
-
-        //ToDo Отобразить префабы статов уже на сброшенных значениях
-
 
         //EventManager to show changes in other classes
         EventManager.OnUpgradeStats();

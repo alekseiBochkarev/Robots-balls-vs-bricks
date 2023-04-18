@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackPrefab : MonoBehaviour
+namespace Gameplay.StatsPanel.Attack
 {
-    // Start is called before the first frame update
-    void Start()
+    public class AttackPrefab : AbstractStatPrefab
     {
-        
-    }
+        private const string PathToSprites = "AttackPrefabSprites";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void Awake()
+        {
+            LoadSprites(PathToSprites);
+        }
     }
 }
