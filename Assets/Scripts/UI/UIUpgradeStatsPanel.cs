@@ -335,6 +335,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
         //EventManager to show changes in other classes
         EventManager.OnUpgradeStats();
+        EventManager.OnUpgradeAttackPowerStat();
     }
 
     public void UpgradeStarterBallsOnClick() // It upgrades Starter Balls amount on click
