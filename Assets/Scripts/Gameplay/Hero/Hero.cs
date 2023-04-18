@@ -29,7 +29,7 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
         heroStats = new HeroStats();
         // LoadHeroSkill();
         SetMaxHealth(heroStats.Health);
-        CurrentHealth = MaxHealth;
+       // CurrentHealth = MaxHealth;
         attackSkill = (int)heroStats.GetStats(HeroStats.HeroStatsEnum.Attack);
         Instance = this;
     }
@@ -42,9 +42,27 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
         healthBar.ShowHealth();
     }
 
+    
     public void SetMaxHealth(float maxHealth)
     {
         MaxHealth = maxHealth;
+        SetCurrentHealth();
+    }
+
+    private void SetCurrentHealth()
+    {
+        CurrentHealth = MaxHealth;
+    }
+
+    /**
+     * Записывает максимальное здоровье игрока и выставляет его текущим здоровьем, также для HealthBar
+     * Нужно так, чтобы после прокачки здоровья у нас здоровье у игрока изменилось
+     */
+    public void UpdateHeroHealthAndHealthBar(float maxHealth)
+    {
+        SetMaxHealth(maxHealth);
+        healthBar.SaveMaxHealth(maxHealth);
+        healthBar.SaveCurrentHealth(CurrentHealth);
     }
 
     public void TakeDamage(int appliedDamage)

@@ -33,10 +33,13 @@ public class HealthPrefabController : MonoBehaviour, IResetToDefaultValues
         _healthPrefab.ChangeHealthSprite(_currentHealthLevel);
     }
 
+    /**
+        Сбросить спрайт и уровень здоровья до 0-го уровня
+    */
     public void ClearStatsToDefault()
     {
-        //ToDo Сбросить спрайт до 0-го уровня
         _healthPrefab.ChangeHealthSprite(_baseHealthLevel);
-        _currentHealthLevel = (int)upgradeStats.LoadUpgradeLevel(UpgradeStats.UpgradeStatLevel.UpgradeHealthLevel);
+        //_currentHealthLevel = (int)upgradeStats.LoadUpgradeLevel(UpgradeStats.UpgradeStatLevel.UpgradeHealthLevel);
+        _currentHealthLevel = _baseHealthLevel;
     }
 }

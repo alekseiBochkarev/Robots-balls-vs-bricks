@@ -254,7 +254,8 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         //Show new values on UpgradeButton after changing (DO WE NEED REALLY NEED THIS?)
         ShowUpgradePrice(upgradeHealthButtonText, upgradeStats.UpgradeHealthCoinsRequired);
 
-        Hero.Instance.SetMaxHealth(heroStats.Health);
+       // Hero.Instance.SetMaxHealth(heroStats.Health);
+       Hero.Instance.UpdateHeroHealthAndHealthBar(_playerHealth);
 
         //ToDo Отобразить префабы статов уже на сброшенных значениях
         _healthPrefabController.LoadHealthLevelAndShowSprite();
@@ -361,7 +362,9 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         heroStats.ClearStatsToDefault();
         upgradeStats.ClearStatsToDefault();
 
-        Hero.Instance.SetMaxHealth(heroStats.Health);
+        _playerHealth = heroStats.GetStats(HeroStats.HeroStatsEnum.Health);
+
+        Hero.Instance.UpdateHeroHealthAndHealthBar(_playerHealth);
 
         //Сброс скриптов у префабов до дефолтных значений
         _batteryCellController.ClearStatsToDefault();

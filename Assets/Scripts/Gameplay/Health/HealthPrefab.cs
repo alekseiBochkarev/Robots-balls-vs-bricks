@@ -20,7 +20,7 @@ namespace Gameplay.Health
 
         public void ChangeHealthSprite(int level)
         {
-            _healthPrefabSprite.sprite = sprites[level];
+            _healthPrefabSprite.sprite = sprites[level - 1];
         }
 
         private void LoadSprites()
