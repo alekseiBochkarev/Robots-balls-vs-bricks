@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Gameplay.StatsPanel;
 using UnityEngine;
 
-public class SightLengthPrefab : MonoBehaviour
+public class SightLengthPrefab : AbstractStatPrefab
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private const string PathToSprites = "SightLengthPrefabSprites";
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        LoadSprites(PathToSprites);
     }
 }

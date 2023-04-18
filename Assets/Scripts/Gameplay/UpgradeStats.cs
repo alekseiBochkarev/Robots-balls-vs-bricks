@@ -52,7 +52,7 @@ public class UpgradeStats : IResetToDefaultValues
     public const float MaxUpgradeBatteryEnergyLevel = 12;
     public const float MaxUpgradeAttackLevel = 10;
     public const float MaxUpgradeStarterBallsLevel = 10;
-    public const float MaxUpgradeSightLengthLevel = 5;
+    public const float MaxUpgradeSightLengthLevel = 10;
 
     public enum UpgradeMultipliersEnum
     {

@@ -25,6 +25,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
     private BatteryCellController _batteryCellController;
     private HealthPrefabController _healthPrefabController;
     private StarterBallsPrefabController _starterBallsPrefabController;
+    private SightLengthPrefabController _sightLengthPrefabController;
 
     [Header("Stat Prefabs")]
     [SerializeField] private GameObject healthPrefab;
@@ -85,6 +86,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         _batteryCellController = batteryCellsPrefab.GetComponentInChildren<BatteryCellController>();
         _healthPrefabController = healthPrefab.GetComponent<HealthPrefabController>();
         _starterBallsPrefabController = starterBallsPrefab.GetComponent<StarterBallsPrefabController>();
+        _sightLengthPrefabController = sightLengthPrefab.GetComponent<SightLengthPrefabController>();
 
         // Подписываемся на ивенты
         EventManager.GameWon += ClearStatsToDefault;
@@ -110,6 +112,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         _batteryCellController.LoadAndShowBatteryCells();
         _healthPrefabController.LoadHealthLevelAndShowSprite();
         _starterBallsPrefabController.LoadStarterBallsLevelAndShowSprite();
+        _sightLengthPrefabController.LoadSightLengthLevelAndShowSprite();
     }
 
     private void OnDestroy()
@@ -229,6 +232,25 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
                 }
 
                 if (upgradeStats.UpgradeStarterBallsLevel < UpgradeStats.MaxUpgradeStarterBallsLevel)
+                {
+                    EnableUpgradeButton(upgradeButton);
+                }
+                else
+                {
+                    DisableUpgradeButton(upgradeButton);
+                }
+            }
+            
+            // for SightLength
+            if (upgradeButton.Equals(upgradeSightLengthButton))
+            {
+                Debug.Log("UpgradeSightLengthLevel is -> " + upgradeStats.UpgradeSightLengthLevel);
+                if (upgradeStats.UpgradeSightLengthLevel == UpgradeStats.MaxUpgradeSightLengthLevel)
+                {
+                    ShowMaxLevelInsteadPrice(upgradeSightLengthButtonText);
+                }
+
+                if (upgradeStats.UpgradeSightLengthLevel < UpgradeStats.MaxUpgradeSightLengthLevel)
                 {
                     EnableUpgradeButton(upgradeButton);
                 }
@@ -370,6 +392,39 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         //EventManager to show changes in other classes
         EventManager.OnUpgradeStats();
     }
+    
+    public void UpgradeSightLengthsOnClick() // It upgrades Sight Length on click
+    {
+        // remove coins after buying
+        coins.RemoveCoins(upgradeStats.UpgradeSightLengthCoinsRequired);
+
+        // Add Sight Length to the player
+        heroStats.UpgradeStats(HeroStats.HeroStatsEnum.SightLength, upgradeStats.UpgradeSightLengthValue);
+
+        // Reinit local values for Sight Length
+        _playerSightLength = heroStats.SightLength;
+
+        // Update UpgradeMultiplier and reinit RequiredCoins, StatsUpgrading
+        GetCoins();
+        upgradeStats.SaveUpgradeMultiplier(UpgradeStats.UpgradeMultipliersEnum.SightLengthMultiplier, _addUpgradeMult);
+        upgradeStats.SaveUpgradeLevel(UpgradeStats.UpgradeStatLevel.UpgradeSightLengthLevel, _addUpgradeLevel);
+        upgradeStats.SetUpgradeLevels();
+        upgradeStats.SetMultipliers();
+        upgradeStats.InitRequiredCoins();
+        upgradeStats.InitStatsUpgrading();
+
+        //Show new values on UpgradeButton after changing
+        ShowUpgradePrice(upgradeSightLengthButtonText, upgradeStats.UpgradeSightLengthCoinsRequired);
+
+        // Отобразить префабы статов уже на сброшенных значениях
+        _sightLengthPrefabController.LoadSightLengthLevelAndShowSprite();
+        
+        //ToDo Добавляем длину прицела 
+       // Balls.Instance.AddBallToList(BallsTypeEnum.Ball);
+
+        //EventManager to show changes in other classes
+        EventManager.OnUpgradeStats();
+    }
 
     public void ClearStatsToDefault()
     {
@@ -384,13 +439,14 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         Hero.Instance.UpdateHeroHealthAndHealthBar(_playerHealth);
         Hero.Instance.attackSkill = (int)_playerAttack;
         Balls.Instance.ClearStatsToDefault();
-        //ToDO Сбросить аттаку
+        //ToDO Сбросить Длину прицела, когда будет соответствующий скрипт
 
         //Сброс скриптов у префабов до дефолтных значений
         _batteryCellController.ClearStatsToDefault();
         _healthPrefabController.ClearStatsToDefault();
         _attackPrefabController.ClearStatsToDefault();
         _starterBallsPrefabController.ClearStatsToDefault();
+        _sightLengthPrefabController.ClearStatsToDefault();
 
         //Отобразить цену после сброса до дефолтных значений
         ShowUpgradePrice(upgradeHealthButtonText, upgradeStats.UpgradeHealthCoinsRequired);
