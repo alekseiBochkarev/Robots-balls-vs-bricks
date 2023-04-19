@@ -42,17 +42,17 @@ public class UpgradeStats : IResetToDefaultValues
     private readonly float _startSightLengthUpgradeValue = 1;
 
     // Min and Max levels for upgrading
-    private const float MinUpgradeHealthLevel = 1;
+    public const float MinUpgradeHealthLevel = 1;
     private const float MinUpgradeBatteryEnergyLevel = 3;
-    private const float MinUpgradeAttackLevel = 1;
-    private const float MinUpgradeStarterBallsLevel = 1;
-    private const float MinUpgradeSightLengthLevel = 1;
+    public const float MinUpgradeAttackLevel = 1;
+    public const float MinUpgradeStarterBallsLevel = 1;
+    public const float MinUpgradeSightLengthLevel = 1;
 
-    public const float MaxUpgradeHealthLevel = 10;
+    public const float MaxUpgradeHealthLevel = 7;
     public const float MaxUpgradeBatteryEnergyLevel = 12;
     public const float MaxUpgradeAttackLevel = 10;
-    public const float MaxUpgradeStarterBallsLevel = 8;
-    public const float MaxUpgradeSightLengthLevel = 5;
+    public const float MaxUpgradeStarterBallsLevel = 10;
+    public const float MaxUpgradeSightLengthLevel = 10;
 
     public enum UpgradeMultipliersEnum
     {
@@ -133,7 +133,7 @@ public class UpgradeStats : IResetToDefaultValues
         UpgradeSightLengthLevel = SetUpgradeLevel(UpgradeStatLevel.UpgradeSightLengthLevel);
     }
 
-    private float LoadUpgradeLevel(UpgradeStatLevel upgradeLevel)
+    public float LoadUpgradeLevel(UpgradeStatLevel upgradeLevel)
     {
         return PlayerPrefs.GetFloat(upgradeLevel.ToString());
     }

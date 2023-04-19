@@ -1,3 +1,4 @@
+using System;
 using Assets.Scripts.Gameplay.Combo;
 using System.Collections;
 using System.Collections.Generic;
@@ -48,12 +49,23 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_TrailRenderer = GetComponent<TrailRenderer>();
 
+        EventManager.UpgradeAttackPowerStat += InitAttackPower;
         //m_SpecialAttackPanelController = GameObject.Find("SpecialAttackUI").GetComponent<SpecialAttackPanelController>();
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.UpgradeAttackPowerStat -= InitAttackPower;
     }
 
     public AbstractBall ()
     {
 
+    }
+
+    private void InitAttackPower()
+    {
+        attackPower = hero.GetComponent<Hero>().attackSkill;
     }
 
     public void DestroyAfterTime()
@@ -96,7 +108,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     void Start()
     {
         hero = GameObject.Find("Hero");
-        attackPower = hero.GetComponent<Hero>().attackSkill;
+        InitAttackPower();
         afterCollisionBehaviour = this.gameObject.GetComponent<AfterCollisionBehaviour>();
     }
 
