@@ -50,6 +50,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1352a88fe163141479cf94ce9fa66351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _baseSightLengthLevel: 0
+  _maxSightLengthLevel: 0
+  _currentSightLengthLevel: 0
 --- !u!1 &5638293539199454709
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +120,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8d5ffa5327cd1c543b2c4ee66ec48686, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
