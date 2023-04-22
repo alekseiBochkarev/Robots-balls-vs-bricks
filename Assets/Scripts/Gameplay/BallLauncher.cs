@@ -142,7 +142,10 @@ public class BallLauncher : MonoBehaviour
     
     private void ContinueDrag(Vector3 worldPosition)
     {
-        if (worldPosition.x >= leftBorder.transform.position.x
+        GetComponent<AimLine>().AimLineDraw(ballStartPosition.transform.position, worldPosition);
+		m_EndPosition = worldPosition;
+		ChangeCollider();
+	/*		if (worldPosition.x >= leftBorder.transform.position.x
             && worldPosition.x <= rightBorder.transform.position.x
             && worldPosition.y <= topBorder.transform.position.y
             && worldPosition.y >= bottomBorder.transform.position.y)
@@ -167,7 +170,7 @@ public class BallLauncher : MonoBehaviour
             {
                 tempEndposition = topPosition;
             }
-
+			
             Vector3 tempDirection = tempEndposition - ballStartPosition.transform.position;
             tempDirection.Normalize();
             // getting the angle in radians. you can replace 1.35f with any number or without hardcode like this
@@ -187,7 +190,7 @@ public class BallLauncher : MonoBehaviour
             m_EndPosition = tempEndposition;
             m_LineRenderer.SetPosition(1, m_EndPosition - ballStartPosition.transform.position);
             ChangeCollider();
-        }
+        }*/
         
     }
 
@@ -195,10 +198,10 @@ public class BallLauncher : MonoBehaviour
     {
         if (m_StartPosition == m_EndPosition)
             return;
-
+		GetComponent<AimLine>().RemoveDraw();
        // m_Direction = m_EndPosition - m_StartPosition;
         m_Direction = m_EndPosition - ballStartPosition.transform.position;
-        m_Direction.Normalize();
+       /* m_Direction.Normalize();
 
         m_LineRenderer.SetPosition(1, Vector3.zero);
         ChangeCollider();
@@ -211,7 +214,11 @@ public class BallLauncher : MonoBehaviour
 
             m_CanPlay = false;
             StartCoroutine(StartShootingBalls());
-        }
+        }*/
+			ChangeCollider();
+			FindBricksAndSetRigidbodyType(RigidbodyType2D.Static);
+ 			m_CanPlay = false;
+            StartCoroutine(StartShootingBalls());
     }
 
     public void FindBricksAndSetRigidbodyType (RigidbodyType2D rigidbodyType)
