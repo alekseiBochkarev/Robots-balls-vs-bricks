@@ -418,6 +418,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8451208924720014892}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &592738861 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2499601659937266902, guid: cd7d4bd231b534c46ab1819c6b65f4c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2499601660216410040}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &598517269 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8451208925300162617, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
@@ -1384,6 +1390,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2450759191794639295, guid: 040699065a08ed843a7214f627d6b647,
+        type: 3}
+      propertyPath: topBorder
+      value: 
+      objectReference: {fileID: 592738861}
     - target: {fileID: 2450759191794639295, guid: 040699065a08ed843a7214f627d6b647,
         type: 3}
       propertyPath: m_ReturnBallsButton
