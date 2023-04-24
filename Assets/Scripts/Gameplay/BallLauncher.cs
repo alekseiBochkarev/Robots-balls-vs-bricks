@@ -90,9 +90,13 @@ public class BallLauncher : MonoBehaviour
         if(Time.timeScale != 0 && LevelManager.Instance.m_LevelState != LevelManager.LevelState.GAMEOVER)
             m_WorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.back * -10;
 
-        /*
-        if (Input.GetMouseButtonDown(0))
-          //  StartDrag(m_WorldPosition);
+        
+       /* if (Input.GetMouseButtonDown(0)
+            && m_WorldPosition.x >= leftBorder.transform.position.x
+            && m_WorldPosition.x <= rightBorder.transform.position.x
+            && m_WorldPosition.y <= topBorder.transform.position.y
+            && m_WorldPosition.y >= bottomBorder.transform.position.y)
+            StartDrag(m_WorldPosition);
         else */
         if (Input.GetMouseButton(0)
             && m_WorldPosition.x >= leftBorder.transform.position.x
@@ -110,7 +114,9 @@ public class BallLauncher : MonoBehaviour
 
     private void StartDrag(Vector3 worldPosition)
     {
-        m_StartPosition = worldPosition;
+        GetComponent<AimLine>().AimLineDraw(ballStartPosition.transform.position, worldPosition);
+        m_EndPosition = worldPosition;
+        //m_StartPosition = worldPosition;
        // Debug.Log("startPosition " + m_StartPosition);
     }
     
@@ -127,25 +133,10 @@ public class BallLauncher : MonoBehaviour
 		GetComponent<AimLine>().RemoveDraw();
        // m_Direction = m_EndPosition - m_StartPosition;
         m_Direction = m_EndPosition - ballStartPosition.transform.position;
-		
-			FindBricksAndSetRigidbodyType(RigidbodyType2D.Static);
- 			m_CanPlay = false;
-            StartCoroutine(StartShootingBalls());
+        m_CanPlay = false;
+        StartCoroutine(StartShootingBalls());
     }
-
-    public void FindBricksAndSetRigidbodyType (RigidbodyType2D rigidbodyType)
-    {
-        colliders = Physics2D.OverlapCircleAll(transform.position, 100);
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            if (colliders[i].gameObject.GetComponent<Brick>() != null)
-            {
-                colliders[i].gameObject.GetComponent<Brick>().ChangeRigidbodyType(rigidbodyType);
-                colliders[i].gameObject.GetComponent<Brick>().polygonCollider2D.isTrigger = true;
-            }
-        }
-    }
-
+    
     public void OnMainMenuActions()
     {
         m_CanPlay = false;
@@ -187,32 +178,6 @@ public class BallLauncher : MonoBehaviour
             m_BallsScript.PlayerBalls[i].Disable();
         }
     }
-
-    // public void AddBallToList (BallsType ballsType)
-    // {
-    //     m_BallPrefab = Resources.Load<GameObject>(ballsType.ToString()).GetComponent<AbstractBall>();
-    //     m_Balls.Add(Instantiate(m_BallPrefab, transform.parent, false));
-    //     m_Balls[m_Balls.Count - 1].transform.localPosition = transform.localPosition;
-    //     m_Balls[m_Balls.Count - 1].transform.localScale = transform.localScale;
-    //     m_Balls[m_Balls.Count - 1].Disable();
-    // }
-
-    // public void AddBall(BallsType ballsType)
-    // {
-    //     IncreaseBallsAmountFromOutSide(1);
-    //    // m_BallsAmount++;
-    //    // m_BallsText.text = "x" + m_BallsAmount.ToString();
-    //     AddBallToList(ballsType);
-    // }
-
-    // private void SpawNewBall(int Amount, BallsType ballsType)
-    // {
-        
-    //     for (int i = 0; i < Amount; i++)
-    //     {
-    //         AddBallToList(ballsType);
-    //     }
-    // }
 
     IEnumerator StartShootingBalls()
     {
@@ -305,8 +270,7 @@ public class BallLauncher : MonoBehaviour
         EventManager.OnAllBallsReturned();
         EventManager.OnResetReturningBallsAmount();
         //AbstractBall.ResetReturningBallsAmount();
-
-        FindBricksAndSetRigidbodyType(RigidbodyType2D.Dynamic);
+        
         StartCoroutine(WaitAndCanPlay());
     }
 
