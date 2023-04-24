@@ -12,10 +12,7 @@ public class BallLauncher : MonoBehaviour
     private Vector3 m_WorldPosition;
 
     private Vector3 m_Direction;
-
-    private LineRenderer m_LineRenderer;
     private Balls m_BallsScript;
-    private EdgeCollider2D edgeCollider2D;
 
     private Vector3 m_DefaultStartPosition;
     [Header("For all bricks and scoreballs and magicballs")]
@@ -51,17 +48,6 @@ public class BallLauncher : MonoBehaviour
     public GameObject ballStartPrefab;
     private GameObject ballStartPosition;
 
-    // public enum BallsType
-    // {
-    //     Ball,
-    //     RocketBall,
-    //     RocketClone,
-    //     LaserHorizontalBall,
-    //     LaserVerticalBall,
-    //     LaserCrossBall,
-    //     InstaKillBall
-    // }
-
     private void Awake()
     {
         Instance = this;
@@ -69,10 +55,6 @@ public class BallLauncher : MonoBehaviour
         ballStartPosition = Instantiate(ballStartPrefab, new Vector3(0, -4.163f), new Quaternion(0, 180, 0, 1));
         ballStartPosition.transform.SetParent(this.transform.parent, false);
         m_BallSprite = ballStartPosition.GetComponent<SpriteRenderer>();
-        m_LineRenderer = GetComponent<LineRenderer>();
-        edgeCollider2D = gameObject.AddComponent<EdgeCollider2D>();
-        edgeCollider2D.isTrigger = false;
-
         m_DefaultStartPosition = transform.position;
 
         //m_BallsAmount = PlayerPrefs.GetInt("balls", 1);
@@ -81,16 +63,8 @@ public class BallLauncher : MonoBehaviour
 
     private void Start()
     {
-        // m_Balls = new List<AbstractBall>(m_BallsAmount);
-        // m_BallsText.text = "x" + m_BallsAmount.ToString();
         ShowBallsAmountOnHUD(); 
         m_ReturnBallsButton.SetActive(false);
-        // SpawNewBall(m_BallsAmount, BallsType.Ball);
-        //below is temprory decision just for test. next time it will be special method to set special attack
-        //AddBall(BallsType.InstaKillBall);
-        //AddBall(BallsType.LaserVerticalBall);
-        // AddBall(BallsType.RocketBall);
-        // AddBall(BallsType.LaserHorizontalBall);
     }
 
     public void ShowBallsAmountOnHUD()
@@ -144,54 +118,6 @@ public class BallLauncher : MonoBehaviour
     {
         GetComponent<AimLine>().AimLineDraw(ballStartPosition.transform.position, worldPosition);
 		m_EndPosition = worldPosition;
-		ChangeCollider();
-	/*		if (worldPosition.x >= leftBorder.transform.position.x
-            && worldPosition.x <= rightBorder.transform.position.x
-            && worldPosition.y <= topBorder.transform.position.y
-            && worldPosition.y >= bottomBorder.transform.position.y)
-        {
-            //Debug.Log("topBorder.transform.position" + topBorder.transform.position);
-            // Debug.Log("endPosition " + worldPosition);
-            Vector3 tempEndposition;
-
-            Vector3 topPosition = new Vector3(((topBorder.transform.position.y - ballStartPosition.transform.position.y) * (worldPosition.x - ballStartPosition.transform.position.x)) / (worldPosition.y - ballStartPosition.transform.position.y) + ballStartPosition.transform.position.x, topBorder.transform.position.y, worldPosition.z);
-            Vector3 leftPositionPoint = new Vector3(leftBorder.transform.position.x, ((leftBorder.transform.position.x - ballStartPosition.transform.position.x) * (worldPosition.y - ballStartPosition.transform.position.y)) / (worldPosition.x - ballStartPosition.transform.position.x) + ballStartPosition.transform.position.y, worldPosition.z);
-            Vector3 rightPositionPoint = new Vector3(rightBorder.transform.position.x, ((rightBorder.transform.position.x - ballStartPosition.transform.position.x) * (worldPosition.y - ballStartPosition.transform.position.y)) / (worldPosition.x - ballStartPosition.transform.position.x) + ballStartPosition.transform.position.y, worldPosition.z);
-            // Debug.Log("topPosition " + topPosition);
-            if (topPosition.x < leftBorder.transform.position.x)
-            {
-                tempEndposition = leftPositionPoint;
-            }
-            else if (topPosition.x > rightBorder.transform.position.x)
-            {
-                tempEndposition = rightPositionPoint;
-            }
-            else
-            {
-                tempEndposition = topPosition;
-            }
-			
-            Vector3 tempDirection = tempEndposition - ballStartPosition.transform.position;
-            tempDirection.Normalize();
-            // getting the angle in radians. you can replace 1.35f with any number or without hardcode like this
-            if (Mathf.Abs(Mathf.Atan2(tempDirection.x, tempDirection.y)) < 1.45f)
-            {
-                // Debug.Log("Color is correct");
-                m_LineRenderer.startColor = m_CorrectLineColor;
-                m_LineRenderer.endColor = m_CorrectLineColor;
-            }
-            else
-            {
-                // Debug.Log("Color is incorrect");
-                m_LineRenderer.startColor = m_WrongLineColor;
-                m_LineRenderer.endColor = m_WrongLineColor;
-            }
-
-            m_EndPosition = tempEndposition;
-            m_LineRenderer.SetPosition(1, m_EndPosition - ballStartPosition.transform.position);
-            ChangeCollider();
-        }*/
-        
     }
 
     private void EndDrag()
@@ -201,21 +127,7 @@ public class BallLauncher : MonoBehaviour
 		GetComponent<AimLine>().RemoveDraw();
        // m_Direction = m_EndPosition - m_StartPosition;
         m_Direction = m_EndPosition - ballStartPosition.transform.position;
-       /* m_Direction.Normalize();
-
-        m_LineRenderer.SetPosition(1, Vector3.zero);
-        ChangeCollider();
-        if (Mathf.Abs(Mathf.Atan2(m_Direction.x, m_Direction.y)) < 1.45f)   // hardcode for this time. fix it!
-        {
-            //set RigidbodyType for all bricks
-            FindBricksAndSetRigidbodyType(RigidbodyType2D.Static);
-            if (m_BallsScript.PlayerBalls.Count < m_BallsScript.PlayerBallsAmount)
-                m_BallsScript.SpawnNewBall(m_BallsScript.PlayerBallsAmount - m_BallsScript.PlayerBalls.Count, BallsTypeEnum.Ball);
-
-            m_CanPlay = false;
-            StartCoroutine(StartShootingBalls());
-        }*/
-			ChangeCollider();
+		
 			FindBricksAndSetRigidbodyType(RigidbodyType2D.Static);
  			m_CanPlay = false;
             StartCoroutine(StartShootingBalls());
@@ -437,19 +349,7 @@ public class BallLauncher : MonoBehaviour
         }
     }
 
-    public void ChangeCollider()
-    {
-        var line = GetComponent<LineRenderer>();
-
-        //get pos
-        var pos = new Vector3[line.positionCount];
-        line.GetPositions(pos);
-
-        Vector2[] pos2 = ConvertArray(pos);
-
-        //change points of edgeCollider
-        edgeCollider2D.points = pos2;
-    }
+   
 
     // public void IncreaseBallsAmountFromOutSide(int amout)
     // {
@@ -475,16 +375,6 @@ public class BallLauncher : MonoBehaviour
         {
             colliderTriggered = true;
         }   
-    }
-
-    void OnTriggerStay2D(Collider2D col)
-    {
-        //Debug.Log("GameObject2 stay with " + col.name);
-        if (col.gameObject.GetComponent<Brick>() != null)
-        {
-            //m_LineRenderer.SetPosition(1, col.transform.position - ballStartPosition.transform.position);
-            //Debug.Log("position " + new Vector3(((col.transform.position.y - ballStartPosition.transform.position.y) * (worldPosition.x - ballStartPosition.transform.position.x)) / (worldPosition.y - ballStartPosition.transform.position.y) + ballStartPosition.transform.position.x, col.transform.position.y, worldPosition.z));
-        }
     }
 
     void OnTriggerExit2D (Collider2D col)
