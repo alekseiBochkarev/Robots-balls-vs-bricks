@@ -54,35 +54,21 @@ public class AimLine : MonoBehaviour
             {
                 parts[i].transform.SetParent(this.transform, true);
                 Vector3 currentPosition = (endPosition - startPosition).normalized * partLength * (i + 1);
+				float positionX = currentPosition.x + startPosition.x;
+				float positionY = currentPosition.y + startPosition.y;
                 if ((currentPosition.x + startPosition.x) > rightBorderX)
                 {
-                    currentPosition =
-                        new Vector3(
-                            rightBorderX - ((currentPosition.x + startPosition.x) - rightBorderX), currentPosition.y,
-                            currentPosition.z);
-                    parts[i].transform.position = new Vector3((currentPosition.x), currentPosition.y + startPosition.y,
-                        currentPosition.z + startPosition.z);
+                    positionX = rightBorderX - ((currentPosition.x + startPosition.x) - rightBorderX);
                 }
-                else if (currentPosition.x + startPosition.x < leftBorderX)
+                if ((currentPosition.x + startPosition.x) < leftBorderX)
                 {
-                    currentPosition = new Vector3(leftBorderX - ((currentPosition.x + startPosition.x) - leftBorderX),
-                        currentPosition.y, currentPosition.z);
-                    parts[i].transform.position = new Vector3((currentPosition.x), currentPosition.y + startPosition.y,
-                        currentPosition.z + startPosition.z);
+                    positionX = leftBorderX - ((currentPosition.x + startPosition.x) - leftBorderX);
                 }
-                else if (currentPosition.y + startPosition.y > topBorderY)
+                if ((currentPosition.y + startPosition.y) > topBorderY)
                 {
-                    currentPosition = new Vector3(currentPosition.x,
-                        topBorderY - ((currentPosition.y + startPosition.y) - topBorderY),
-                        currentPosition.z);
-                    parts[i].transform.position = new Vector3((currentPosition.x + startPosition.x), currentPosition.y,
-                        currentPosition.z + startPosition.z);
+                    positionY = topBorderY - ((currentPosition.y + startPosition.y) - topBorderY);
                 }
-                else
-                {
-                    parts[i].transform.position = new Vector3((currentPosition.x + startPosition.x),
-                        currentPosition.y + startPosition.y, currentPosition.z + startPosition.z);
-                }
+                parts[i].transform.position = new Vector3(positionX, positionY, currentPosition.z + startPosition.z);
             }
         }
         else

@@ -15,7 +15,7 @@ public class HeroStats : IResetToDefaultValues
     private readonly int _defaultBatteryEnergyValue = 3;
     private readonly int _defaultHealthValue = 100;
     private readonly int _defaultStarterBallsValue = 1;
-    private readonly int _defaultSightLengthValue = 1;
+    private readonly int _defaultSightLengthValue = 2;
 
     public enum HeroStatsEnum
     {
