@@ -15,7 +15,6 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
      * 3) Все префабы интерактивные, чтобы наглядно показать прокачку героя
      */
 
-    // Need to rework for new STATS, use Transform/gameobject Instea
     private HeroStats heroStats;
 
     private Coins coins;
@@ -419,8 +418,8 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         // Отобразить префабы статов уже на сброшенных значениях
         _sightLengthPrefabController.LoadSightLengthLevelAndShowSprite();
         
-        //ToDo Добавляем длину прицела 
-       // Balls.Instance.AddBallToList(BallsTypeEnum.Ball);
+        //Добавляем длину прицела 
+        AimLine.Instance.ChangePartLength((int)_playerSightLength);
 
         //EventManager to show changes in other classes
         EventManager.OnUpgradeStats();
@@ -435,11 +434,12 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         _playerHealth = heroStats.GetStats(HeroStats.HeroStatsEnum.Health);
         _playerAttack = heroStats.GetStats(HeroStats.HeroStatsEnum.Attack);
         _playerStarterBalls = heroStats.GetStats(HeroStats.HeroStatsEnum.StarterBalls);
+        _playerSightLength = heroStats.GetStats(HeroStats.HeroStatsEnum.SightLength);
 
         Hero.Instance.UpdateHeroHealthAndHealthBar(_playerHealth);
         Hero.Instance.attackSkill = (int)_playerAttack;
         Balls.Instance.ClearStatsToDefault();
-        //ToDO Сбросить Длину прицела, когда будет соответствующий скрипт
+        AimLine.Instance.ChangePartLength((int)_playerSightLength);
 
         //Сброс скриптов у префабов до дефолтных значений
         _batteryCellController.ClearStatsToDefault();

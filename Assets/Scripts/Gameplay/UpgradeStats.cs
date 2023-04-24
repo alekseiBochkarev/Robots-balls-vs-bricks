@@ -19,6 +19,7 @@ public class UpgradeStats : IResetToDefaultValues
 
     //Upgrade multipliers
     private readonly float _defaultUpgradeMult = 1;
+    private readonly float _sightLengthMult = 3;
     public float HealthUpgradeMult { private set; get; }
     public float BatteryEnergyUpgradeMult { private set; get; }
     public float AttackUpgradeMult { private set; get; }
@@ -121,7 +122,7 @@ public class UpgradeStats : IResetToDefaultValues
         UpgradeBatteryEnergyValue = _startBatteryEnergyUpgradeValue * BatteryEnergyUpgradeMult;
         UpgradeAttackValue = _startAttackUpgradeValue * AttackUpgradeMult;
         UpgradeStarterBallsValue = _startStarterBallsUpgradeValue * StarterBallsUpgradeMult;
-        UpgradeSightLengthValue = _startSightLengthUpgradeValue * SightLengthUpgradeMult;
+        UpgradeSightLengthValue = _startSightLengthUpgradeValue * _sightLengthMult;
     }
 
     public void SetUpgradeLevels()
