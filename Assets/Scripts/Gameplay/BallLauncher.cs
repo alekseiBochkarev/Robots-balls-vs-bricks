@@ -16,8 +16,6 @@ public class BallLauncher : MonoBehaviour
 
     private Vector3 m_DefaultStartPosition;
     [Header("For all bricks and scoreballs and magicballs")]
-  //  public float m_FloorPosition = -4.25f;
-
     private SpriteRenderer m_BallSprite;
     public bool colliderTriggered = false;
 
