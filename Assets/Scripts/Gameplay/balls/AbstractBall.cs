@@ -83,7 +83,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     {
         if (collision.gameObject.GetComponent<Brick>() != null) {
             afterCollisionBehaviour.BehaviourAfterCollision();
-        } else if (collision.gameObject.name == "BORDER") {
+        } else if (collision.gameObject.tag.Equals("Floor")) {
             transform.localPosition = new Vector3(transform.localPosition.x, m_MinimumYPosition, 0);
             Debug.Log("BORDER");
             if (s_FirstCollisionPoint == Vector3.zero)
