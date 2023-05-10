@@ -26,31 +26,24 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
     [SerializeField] private float m_MoveSpeed = 10;
 
-    public float m_MinimumYPosition = -4.09f;
+    private float m_MinimumYPosition;
     float rot_z;
 
     public void Init() {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
-
+        m_MinimumYPosition = BallLauncher.ballStartPositionCoordinatesY;
         m_Collider2D = GetComponent<CircleCollider2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_TrailRenderer = GetComponent<TrailRenderer>();
+        EventManager.UpgradeAttackPowerStat += InitAttackPower;
 
         //m_SpecialAttackPanelController = GameObject.Find("SpecialAttackUI").GetComponent<SpecialAttackPanelController>();
     }
 
     private void Awake()
     {
-        m_Rigidbody2D = GetComponent<Rigidbody2D>();
-        m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
-
-        m_Collider2D = GetComponent<CircleCollider2D>();
-        m_SpriteRenderer = GetComponent<SpriteRenderer>();
-        m_TrailRenderer = GetComponent<TrailRenderer>();
-
-        EventManager.UpgradeAttackPowerStat += InitAttackPower;
-        //m_SpecialAttackPanelController = GameObject.Find("SpecialAttackUI").GetComponent<SpecialAttackPanelController>();
+        Init();
     }
 
     private void OnDestroy()
@@ -90,9 +83,9 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     {
         if (collision.gameObject.GetComponent<Brick>() != null) {
             afterCollisionBehaviour.BehaviourAfterCollision();
-        } else if (collision.gameObject.name == "BORDER") {
+        } else if (collision.gameObject.tag.Equals("Floor")) {
             transform.localPosition = new Vector3(transform.localPosition.x, m_MinimumYPosition, 0);
-            //Debug.Log("BORDER");
+            Debug.Log("BORDER");
             if (s_FirstCollisionPoint == Vector3.zero)
             {
                 s_FirstCollisionPoint = transform.position;

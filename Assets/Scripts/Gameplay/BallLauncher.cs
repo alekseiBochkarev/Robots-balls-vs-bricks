@@ -6,18 +6,19 @@ using UnityEngine.UI;
 public class BallLauncher : MonoBehaviour
 {
     public static BallLauncher Instance;
-
+    [SerializeField]
     private Vector3 m_StartPosition;
     private Vector3 m_EndPosition;
     private Vector3 m_WorldPosition;
+
+    private Vector3 ballStartPostitionCoordinates = new Vector3(0, ballStartPositionCoordinatesY);
+    public static float ballStartPositionCoordinatesY = -4.32f;
 
     private Vector3 m_Direction;
     private Balls m_BallsScript;
 
     private Vector3 m_DefaultStartPosition;
     [Header("For all bricks and scoreballs and magicballs")]
-    public float m_FloorPosition = -4.25f;
-
     private SpriteRenderer m_BallSprite;
     public bool colliderTriggered = false;
 
@@ -52,7 +53,7 @@ public class BallLauncher : MonoBehaviour
     {
         Instance = this;
         m_CanPlay = true;
-        ballStartPosition = Instantiate(ballStartPrefab, new Vector3(0, -4.163f), new Quaternion(0, 180, 0, 1));
+        ballStartPosition = Instantiate(ballStartPrefab, ballStartPostitionCoordinates, new Quaternion(0, 180, 0, 1));
         ballStartPosition.transform.SetParent(this.transform.parent, false);
         m_BallSprite = ballStartPosition.GetComponent<SpriteRenderer>();
         m_DefaultStartPosition = transform.position;

@@ -51,11 +51,7 @@ public class ScoreBall : MoveDownBehaviour
 
     private void Update()
     {
-        if(transform.localPosition.y <= BallLauncher.Instance.m_FloorPosition)
-        {
-            BallLauncher.Instance.m_TempAmount++;    // increase balls amount
-            PlayParticle();
-        }
+       
     }
 
     private void PlayParticle()
