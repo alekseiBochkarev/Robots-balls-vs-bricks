@@ -23,7 +23,8 @@ public class WalkStateBrick : IStateBrick
     }
 
     public void DoDamage(int applyDamage) {
-        
+        brick.SetState(brick.attackStateBrick);
+        brick.DoDamage(applyDamage);
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK
