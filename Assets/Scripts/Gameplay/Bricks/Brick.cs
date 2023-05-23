@@ -43,7 +43,6 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     private void Awake()
     {
         InitMoveDown();
-
         parent = transform.parent.gameObject;
         polygonCollider2D = gameObject.GetComponent<PolygonCollider2D>();
         rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
@@ -151,7 +150,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
 
     public void DoDamage(int applyDamage)
     {
-       state.DoDamage(applyDamage);
+        state.DoDamage(applyDamage);
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK

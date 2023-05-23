@@ -11,18 +11,19 @@ public class WalkStateBrick : IStateBrick
     }
 
     public void Enter() {
+        brick.animator.Play("walk");
         //Debug.Log("Enter Walk behaviour");
-        brick.animator.SetBool("walk", true);
-
-        
+       // brick.animator.SetBool("walk", true);
     }
 
     public void Exit() {
         //Debug.Log("Exit Walk behaviour");
-        brick.animator.SetBool("walk", false);
+       // brick.animator.SetBool("walk", false);
+      // brick.animator.Play("walk");
     }
 
     public void DoDamage(int applyDamage) {
+        Debug.Log("do Attack ");
         brick.SetState(brick.attackStateBrick);
         brick.DoDamage(applyDamage);
     }
@@ -59,8 +60,8 @@ public class WalkStateBrick : IStateBrick
     }
 
     public void Suicide () {
-        brick.SetState(brick.deathStateBrick);
-        brick.Suicide();
+      //  brick.SetState(brick.deathStateBrick);
+      //  brick.Suicide();
     }
     
     public void KillBrick(string textPopupTextValue) {}
@@ -78,7 +79,6 @@ public class WalkStateBrick : IStateBrick
             brick.transform.parent.position = Vector3.Lerp(startPos, endPos, progress);
             if (progress  >= 1) {
                 brick.isMovingNow = false;
-                
                 yield break; // выход из корутины, если находимся в конечной позиции
             }
             yield return null; // если выхода из корутины не произошло, то продолжаем выполнять цикл while в следующем кадре

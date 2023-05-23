@@ -23,7 +23,7 @@ public class FreezeStateBrick : IStateBrick
     }
 
     public void DoDamage(int applyDamage) {
-        
+       
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK

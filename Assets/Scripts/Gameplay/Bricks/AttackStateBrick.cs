@@ -11,16 +11,20 @@ public class AttackStateBrick : IStateBrick
     }
 
     public void Enter() {
-        //Debug.Log("Enter Idle behaviour");
+       // brick.animator.SetBool("attack", true);
+       brick.animator.Play("attack"); 
+       Debug.Log("Enter Attack behaviour");
         //brick.animator.SetBool("walk", false);
     }
 
     public void Exit() {
+      //  brick.animator.SetBool("attack", false);
         //Debug.Log("Exit Idle behaviour");
     }
 
-    public void DoDamage(int applyDamage) {
-        brick.animator.SetBool("attack", true);
+    public void DoDamage(int applyDamage)
+    {
+        //DoDamageCoroutine(applyDamage);
         brick.hero.TakeDamage(applyDamage);
         brick.SetState(brick.idleStateBrick);
     }
@@ -66,8 +70,8 @@ public class AttackStateBrick : IStateBrick
     }
 
     public void Suicide () {
-        brick.SetState(brick.deathStateBrick);
-        brick.Suicide();
+      //  brick.SetState(brick.deathStateBrick);
+     //   brick.Suicide();
     }
 
     public void KillBrick(string textPopupTextValue) {
