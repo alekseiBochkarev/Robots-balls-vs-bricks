@@ -11,15 +11,10 @@ public class AttackStateBrick : IStateBrick
     }
 
     public void Enter() {
-       // brick.animator.SetBool("attack", true);
-       brick.animator.Play("attack"); 
-       Debug.Log("Enter Attack behaviour");
-        //brick.animator.SetBool("walk", false);
+        brick.animator.Play("attack");
     }
 
     public void Exit() {
-      //  brick.animator.SetBool("attack", false);
-        //Debug.Log("Exit Idle behaviour");
     }
 
     public void DoDamage(int applyDamage)

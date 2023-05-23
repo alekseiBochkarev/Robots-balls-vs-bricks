@@ -12,7 +12,6 @@ public class HealthBar : MonoBehaviour
     private int startSliderValue = 1;
 
     private void Awake() {
-      //  Debug.Log("Awake the HealthBar");
         healthBarSlider.value = startSliderValue;
     }
 
@@ -20,14 +19,12 @@ public class HealthBar : MonoBehaviour
     {
         if (gameObject.GetComponent<Brick>() != null)
             CurrentHealth = (float)GetComponent<Brick>().MCurrentBrickHealth;
-        Debug.Log("SaveCurrentBrickHealth" + " CurrentHealth " + CurrentHealth);
     }
 
     public void SaveMaxBrickHealth() 
     {   
         if (gameObject.GetComponent<Brick>() != null)
-        MaxHealth = (float)gameObject.GetComponent<Brick>().MMaxBrickHealth;
-        Debug.Log("SaveMaxBrickHealth" + " MaxHealth " + MaxHealth);
+            MaxHealth = (float)gameObject.GetComponent<Brick>().MMaxBrickHealth;
     }
 
     public void SaveCurrentHealth(float currentHealth)
@@ -44,7 +41,6 @@ public class HealthBar : MonoBehaviour
     {
         _percentageValueOfHealth = SetCurrentHealthAsPercentage(CurrentHealth, MaxHealth);
         healthBarSlider.value = _percentageValueOfHealth;
-        //Debug.Log("Show Health percent in UI -> " + _percentageValueOfHealth);
     }
 
     public float SetCurrentHealthAsPercentage(float currentHealth, float maxHealth) 

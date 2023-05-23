@@ -12,24 +12,25 @@ public class MoveDownBehaviour : MonoBehaviour
     public bool isMovingNow = false;
     public bool canMove;
     Brick brick;
-    
-    public void InitMoveDown() {
-        //for movedownbehaviour
-        //Debug.Log("awake");
+
+    public void InitMoveDown()
+    {
         m_levelConfig = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelConfig>();
         UpdateCurrentPosition();
-       // EventManager.BrickDestroyed += GetPositionAndResetCell;
-       needHorizontalMove = false;
+        // EventManager.BrickDestroyed += GetPositionAndResetCell;
+        needHorizontalMove = false;
         canMove = true;
         //
     }
 
-    private void OnDestroy() {
+    private void OnDestroy()
+    {
         //EventManager.BrickDestroyed -= GetPositionAndResetCell;
         GetPositionAndResetCell();
     }
 
-    void Start() {
+    void Start()
+    {
         //m_levelConfig = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelConfig>();
         //UpdateCurrentPosition();
         //EventManager.BrickDestroyed += GetPositionAndResetCell;
@@ -37,53 +38,47 @@ public class MoveDownBehaviour : MonoBehaviour
         //Debug.Log("value x and y+1 = " + m_levelConfig.grid.GetValue(x, y+1));
     }
 
-  /*  public void MoveDown(float howMuch)
+    public void GetPositionAndResetCell()
     {
-        iTween.MoveTo(gameObject, new Vector3(transform.position.x, transform.position.y - howMuch, transform.position.z), 0.05f);
-    }*/
-
-    public void GetPositionAndResetCell () {
         UpdateCurrentPosition();
         SetZeroToCurrentPosition();
     }
 
-    private void UpdateCurrentPosition () {
-        //Debug.Log("updateCurrentPos (parent position is)" + this.transform.parent.position);
+    private void UpdateCurrentPosition()
+    {
         try
         {
-            //LevelConfig.Instance.grid.GetXY(this.transform.parent.position, out x, out y);
             m_levelConfig.grid.GetXY(this.transform.parent.position, out x, out y);
         }
         catch (System.Exception e)
         {
-            //Debug.Log(this.transform.parent.name);
             Debug.LogAssertion(e.StackTrace);
             throw;
         }
-        //Debug.Log("current position after update x y " + x + " " + y);
     }
 
-    private void SetZeroToCurrentPosition() {
+    private void SetZeroToCurrentPosition()
+    {
         SetFreeXY();
-        //Debug.Log("set zero to pos x y " + x + " " + y);
     }
 
     public void MoveDown()
     {
-        //UpdateCurrentPosition();
-        
-        if (canMove) {
-                if (m_levelConfig.grid.GetValue(x, y+1) == 0) {
-                    SetFreeXY();
-                    Vector3 target = m_levelConfig.grid.GetWorldPosition(x, y+1);
-                    //Debug.Log("Move DOWN TARGET is " + target);
-                    //iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
-                    StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.parent.position, target));
-                } else if (m_levelConfig.grid.GetValue(x, y+1) == 2) {
+        if (canMove)
+        {
+            if (m_levelConfig.grid.GetValue(x, y + 1) == 0)
+            {
+                SetFreeXY();
+                Vector3 target = m_levelConfig.grid.GetWorldPosition(x, y + 1);
+                StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.parent.position, target));
+            }
+            else if (m_levelConfig.grid.GetValue(x, y + 1) == 2)
+            {
                 needHorizontalMove = true;
-                }
-        }  else {
-           Debug.Log("CAN MOVE = FALSE" + "VALUE OF CURRENT POSITION X " + x + "Y " + y + "VALUE "+ m_levelConfig.grid.GetValue(x, y));
+            }
+        }
+        else
+        {
         }
     }
 
@@ -96,68 +91,68 @@ public class MoveDownBehaviour : MonoBehaviour
         {
             progress += speed;
             transform.parent.position = Vector3.Lerp(startPos, endPos, progress);
-            if (progress  >= 1) {
+            if (progress >= 1)
+            {
                 isMovingNow = false;
                 yield break; // выход из корутины, если находимся в конечной позиции
             }
-            yield return null; // если выхода из корутины не произошло, то продолжаем выполнять цикл while в следующем кадре
+
+            yield return
+                null; // если выхода из корутины не произошло, то продолжаем выполнять цикл while в следующем кадре
         }
     }
 
     IEnumerator MoveAndUpdateCurrentPosition(Vector3 startPos, Vector3 endPos)
     {
-	    yield return StartCoroutine(MoveToTarget(startPos, endPos));
-        //Debug.Log("transform position before waiting " + transform.position);
-        //yield return new WaitForSeconds(0.25f);
-        //Debug.Log("transform position after waiting " + transform.position);
+        yield return StartCoroutine(MoveToTarget(startPos, endPos));
         UpdateCurrentPosition();
         SetBusyXY();
     }
 
-    public void MoveHorizontal () {
-        if (needHorizontalMove) {
-            if (m_levelConfig.grid.GetValue(x-1, y) == 0) {
+    public void MoveHorizontal()
+    {
+        if (needHorizontalMove)
+        {
+            if (m_levelConfig.grid.GetValue(x - 1, y) == 0)
+            {
                 SetFreeXY();
-                Vector3 target = m_levelConfig.grid.GetWorldPosition(x-1, y);
-                //iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
-                //StartCoroutine(WaitAndUpdateCurrentPosition());
-                StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.position, target));
-                needHorizontalMove = false;
-            } else if (m_levelConfig.grid.GetValue(x+1, y) == 0) {
-                SetFreeXY();
-                Vector3 target = m_levelConfig.grid.GetWorldPosition(x+1, y);
+                Vector3 target = m_levelConfig.grid.GetWorldPosition(x - 1, y);
                 //iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
                 //StartCoroutine(WaitAndUpdateCurrentPosition());
                 StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.position, target));
                 needHorizontalMove = false;
             }
+            else if (m_levelConfig.grid.GetValue(x + 1, y) == 0)
+            {
+                SetFreeXY();
+                Vector3 target = m_levelConfig.grid.GetWorldPosition(x + 1, y);
+                //iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
+                //StartCoroutine(WaitAndUpdateCurrentPosition());
+                StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.position, target));
+                needHorizontalMove = false;
+            }
+
             needHorizontalMove = false;
         }
     }
 
-    private void SetBusyXY () {
-        m_levelConfig.grid.SetValue(x,y,1);
-      //  Debug.Log("VALUE OF CURRENT POSITION X " + x + "Y " + y + "VALUE "+ m_levelConfig.grid.GetValue(x, y));
+    private void SetBusyXY()
+    {
+        m_levelConfig.grid.SetValue(x, y, 1);
     }
 
-    private void SetFreeXY () {
-        m_levelConfig.grid.SetValue(x,y,0);
+    private void SetFreeXY()
+    {
+        m_levelConfig.grid.SetValue(x, y, 0);
     }
 
     public int X
     {
-        get
-        {
-            return x;
-        }
+        get { return x; }
     }
 
     public int Y
     {
-        get
-        {
-            return y;
-        }
+        get { return y; }
     }
-
 }
