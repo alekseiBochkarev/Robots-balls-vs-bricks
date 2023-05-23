@@ -49,7 +49,6 @@ public class BrickSpawner : MonoBehaviour
         winManager = mainCamera.GetComponent<WinManager>();
         m_levelConfig = mainCamera.GetComponent<LevelConfig>();
         maxObjectsInRow = m_levelConfig.grid.GridWidth;
-
     }
 
     public bool AllBricksMovedDown
@@ -165,8 +164,8 @@ public class BrickSpawner : MonoBehaviour
             GameObject newObject = Instantiate(Resources.Load (prefabName) as GameObject, m_levelConfig.grid.GetWorldPosition(numberInRow, yPosition), new Quaternion(0, 180, 0, 1));
             if (newObject.GetComponentInChildren<Brick>() != null)
             {
-                newObject.GetComponentInChildren<Brick>().m_currentBrickHealth = health;
-                newObject.GetComponentInChildren<Brick>().m_maxBrickHealth = health;
+                newObject.GetComponentInChildren<Brick>().MCurrentBrickHealth = health;
+                newObject.GetComponentInChildren<Brick>().MMaxBrickHealth = health;
                 newObject.GetComponentInChildren<Brick>().m_Text.text = health.ToString();
             }
             newObject.transform.localScale *= m_levelConfig.ScaleCoefficient;

@@ -18,13 +18,16 @@ public class HealthBar : MonoBehaviour
 
     public void SaveCurrentBrickHealth()
     {
-        if (gameObject.GetComponentInParent<Brick>() != null)
-            CurrentHealth = (float)gameObject.GetComponentInParent<Brick>().m_currentBrickHealth;
+        if (gameObject.GetComponent<Brick>() != null)
+            CurrentHealth = (float)GetComponent<Brick>().MCurrentBrickHealth;
+        Debug.Log("SaveCurrentBrickHealth" + " CurrentHealth " + CurrentHealth);
     }
 
     public void SaveMaxBrickHealth() 
     {   
-        MaxHealth = gameObject.GetComponentInParent<Brick>().m_maxBrickHealth;
+        if (gameObject.GetComponent<Brick>() != null)
+        MaxHealth = (float)gameObject.GetComponent<Brick>().MMaxBrickHealth;
+        Debug.Log("SaveMaxBrickHealth" + " MaxHealth " + MaxHealth);
     }
 
     public void SaveCurrentHealth(float currentHealth)

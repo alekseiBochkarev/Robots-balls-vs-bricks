@@ -10,9 +10,30 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public HealthBar healthBar;
     public Hero hero;
     public GameObject ice;
-    public int m_maxBrickHealth;
-    //установим каррентБрикХелф в БрикСпавнере
-    public int m_currentBrickHealth;    // it's gonna be public because the GameManager needs to setup each brick - это старый скрипт возможно его нужно удалить но мы будем устанавливать здоровье в БрикСпаунере
+    [SerializeField] private int m_maxBrickHealth;
+    [SerializeField] private int m_currentBrickHealth;   
+    public int MMaxBrickHealth
+    {
+        get => m_maxBrickHealth;
+        set
+        {
+            m_maxBrickHealth = value;
+            healthBar.SaveMaxBrickHealth();
+            healthBar.ShowHealth();
+        }
+    }
+
+    public int MCurrentBrickHealth
+    {
+        get => m_currentBrickHealth;
+        set
+        {
+            m_currentBrickHealth = value;
+            healthBar.SaveCurrentBrickHealth();
+        }
+    }
+
+    
     [SerializeField] private int m_attackPower; //атакующая сила 1 брика, если их несколько то умножается на количество
     public PolygonCollider2D polygonCollider2D;
     private Rigidbody2D rigidbody2D;
@@ -36,7 +57,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public IStateBrick freezeStateBrick;
 
     public LootBag lootBag;
-
+    
 
     public IStateBrick state;
 
@@ -65,19 +86,16 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     private void OnEnable()
     {
         //GOOD DECISION BUT I SHOULD CHANGE THIS BOCHKAREV ALEKSEI
-       // m_currentBrickHealth = ScoreManager.Instance.m_LevelOfFinalBrick +1;
-      //  m_maxBrickHealth = m_currentBrickHealth;
-       // Debug.Log("Brick OnEnable m_Health " + m_currentBrickHealth);
-     //   m_Text.text = m_currentBrickHealth.ToString();
+        // m_currentBrickHealth = ScoreManager.Instance.m_LevelOfFinalBrick +1;
+        //  m_maxBrickHealth = m_currentBrickHealth;
+        // Debug.Log("Brick OnEnable m_Health " + m_currentBrickHealth);
+        //   m_Text.text = m_currentBrickHealth.ToString();
 
         // Set HealthBar and show health of brick
         healthBar = gameObject.GetComponentInChildren<HealthBar>();
-        healthBar.SaveCurrentBrickHealth();
-        healthBar.SaveMaxBrickHealth();
-        healthBar.ShowHealth();
-        
-       // ChangeColor();
     }
+    
+    
 
     public void SetState (IStateBrick state) {
         if (this.state != null) {

@@ -71,7 +71,7 @@ public class ComboBallController : MonoBehaviour, IBall
         {
             if (brickObject.GetComponent<Brick>() != null)
             {
-                if (brickObject.GetComponent<Brick>().m_currentBrickHealth > 0)
+                if (brickObject.GetComponent<Brick>().MCurrentBrickHealth > 0)
                 {
                     transform.position = Vector3.MoveTowards(transform.position, brickObject.transform.position, MoveSpeed * Time.deltaTime);
                     RotateBall();

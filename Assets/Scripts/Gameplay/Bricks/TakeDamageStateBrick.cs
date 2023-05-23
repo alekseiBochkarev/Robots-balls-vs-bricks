@@ -30,7 +30,7 @@ public class TakeDamageStateBrick : IStateBrick
         brick.damageTextColor = TextController.COLOR_RED;
         brick.damageTextFontSize = TextController.FONT_SIZE_MAX;
         int healHealthUpAmountInt = (int) healHealthUpAmount;
-        brick.m_currentBrickHealth += healHealthUpAmountInt;
+        brick.MCurrentBrickHealth += healHealthUpAmountInt;
         brick.healthBar.SaveCurrentBrickHealth();
         brick.healthBar.ShowHealth();
 
@@ -49,8 +49,8 @@ public class TakeDamageStateBrick : IStateBrick
         brick.animator.Play("takeDamage");
         bool isDamage = true;
         bool isCriticalHit = false;
-        brick.m_currentBrickHealth = brick.m_currentBrickHealth - appliedDamage;
-        brick.m_Text.text = brick.m_currentBrickHealth.ToString();
+        brick.MCurrentBrickHealth -= appliedDamage;
+        brick.m_Text.text = brick.MCurrentBrickHealth.ToString();
         brick.healthBar.SaveCurrentBrickHealth();
         brick.healthBar.ShowHealth();
         EventManager.OnBrickHit();
@@ -60,7 +60,7 @@ public class TakeDamageStateBrick : IStateBrick
         DamagePopupController.Instance
         .CreateDamagePopup(brick.brickCoordAbove, appliedDamage, isCriticalHit, isDamage, brick.damageTextColor, brick.damageTextFontSize);
 
-        if (brick.m_currentBrickHealth <= 0)
+        if (brick.MCurrentBrickHealth <= 0)
         {
             brick.DeathOfBrick();
         }
@@ -70,8 +70,8 @@ public class TakeDamageStateBrick : IStateBrick
         brick.animator.Play("takeDamage");
         bool isDamage = true;
         bool isCriticalHit = false;
-        brick.m_currentBrickHealth = brick.m_currentBrickHealth - appliedDamage;
-        brick.m_Text.text = brick.m_currentBrickHealth.ToString();
+        brick.MCurrentBrickHealth -= appliedDamage;
+        brick.m_Text.text = brick.MCurrentBrickHealth.ToString();
         brick.healthBar.SaveCurrentBrickHealth();
         brick.healthBar.ShowHealth();
         EventManager.OnBrickHit();
@@ -81,7 +81,7 @@ public class TakeDamageStateBrick : IStateBrick
         DamagePopupController.Instance
         .CreateDamagePopup(brick.brickCoord, appliedDamage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
 
-        if (brick.m_currentBrickHealth <= 0)
+        if (brick.MCurrentBrickHealth <= 0)
         {
             brick.DeathOfBrick();
         }
@@ -89,8 +89,8 @@ public class TakeDamageStateBrick : IStateBrick
     
     public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize) {
         brick.animator.Play("takeDamage");
-        brick.m_currentBrickHealth = brick.m_currentBrickHealth - appliedDamage;
-        brick.m_Text.text = brick.m_currentBrickHealth.ToString();
+        brick.MCurrentBrickHealth -= appliedDamage;
+        brick.m_Text.text = brick.MCurrentBrickHealth.ToString();
         brick.healthBar.SaveCurrentBrickHealth();
         brick.healthBar.ShowHealth();
         EventManager.OnBrickHit();
@@ -100,7 +100,7 @@ public class TakeDamageStateBrick : IStateBrick
         DamagePopupController.Instance
         .CreateTextPopup(brick.brickCoordAbove, textPopupTextValue, textColor, textFontSize);
 
-        if (brick.m_currentBrickHealth <= 0)
+        if (brick.MCurrentBrickHealth <= 0)
         {
             brick.DeathOfBrick();
         }
@@ -117,7 +117,7 @@ public class TakeDamageStateBrick : IStateBrick
     }
 
     public void KillBrick(string textPopupTextValue) {
-        brick.appliedDamage = brick.m_maxBrickHealth;
+        brick.appliedDamage = brick.MMaxBrickHealth;
         brick.damageTextColor = TextController.COLOR_BLACK;
         brick.damageTextFontSize = TextController.FONT_SIZE_MAX;
         TakeDamage(brick.appliedDamage, textPopupTextValue, brick.damageTextColor, brick.damageTextFontSize);

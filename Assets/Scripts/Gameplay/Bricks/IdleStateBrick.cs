@@ -33,7 +33,7 @@ public class IdleStateBrick : IStateBrick
         brick.damageTextColor = TextController.COLOR_RED;
         brick.damageTextFontSize = TextController.FONT_SIZE_MAX;
         int healHealthUpAmountInt = (int) healHealthUpAmount;
-        brick.m_currentBrickHealth += healHealthUpAmountInt;
+        brick.MCurrentBrickHealth += healHealthUpAmountInt;
         brick.healthBar.SaveCurrentBrickHealth();
         brick.healthBar.ShowHealth();
 
