@@ -116,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialAttacksSO:
   - {fileID: 11400000, guid: 36fbce7746d7723179224619e830f32c, type: 2}
+  - {fileID: 11400000, guid: f6916cb4382f30d4983d9fc0d3563059, type: 2}
   comboAttacksSO: []
   heroBuffsSO: []
   amountOfUpgradeTabs: 3

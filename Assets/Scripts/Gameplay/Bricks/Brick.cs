@@ -10,6 +10,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public HealthBar healthBar;
     public Hero hero;
     public GameObject ice;
+    public GameObject fire;
     [SerializeField] private int m_maxBrickHealth;
     [SerializeField] private int m_currentBrickHealth;   
     public int MMaxBrickHealth
@@ -55,6 +56,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public IStateBrick takeDamageStateBrick;
     public IStateBrick attackStateBrick;
     public IStateBrick freezeStateBrick;
+    public IStateBrick fireStateBrick;
 
     public LootBag lootBag;
     
@@ -77,6 +79,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         takeDamageStateBrick = new TakeDamageStateBrick(this);
         attackStateBrick = new AttackStateBrick(this);
         freezeStateBrick = new FreezeStateBrick(this);
+        fireStateBrick = new FireStateBrick(this);
         state = idleStateBrick;
 
         lootBag = GetComponent<LootBag>();
@@ -92,6 +95,11 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         if (this.state != null) {
             this.state.Exit();
         }
+        this.state = state;
+        this.state.Enter();
+    }
+    
+    public void SetStateWithoutExit (IStateBrick state) {
         this.state = state;
         this.state.Enter();
     }

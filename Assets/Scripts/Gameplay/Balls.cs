@@ -163,5 +163,6 @@ public enum BallsTypeEnum
     LaserHorizontalBall,
     LaserVerticalBall,
     LaserCrossBall,
-    InstaKillBall
+    InstaKillBall,
+    FireBall
 }

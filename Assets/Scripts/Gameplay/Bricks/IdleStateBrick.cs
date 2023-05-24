@@ -12,12 +12,11 @@ public class IdleStateBrick : IStateBrick
     }
 
     public void Enter() {
-        //Debug.Log("Enter Idle behaviour");
-        //brick.animator.SetBool("walk", false);
+        
     }
 
     public void Exit() {
-        //Debug.Log("Exit Idle behaviour");
+        
     }
 
     public void DoDamage(int applyDamage) {
@@ -49,19 +48,19 @@ public class IdleStateBrick : IStateBrick
     }
 
     public void TakeDamage (int appliedDamage) {
-        brick.SetState(brick.takeDamageStateBrick);
+        brick.SetStateWithoutExit(brick.takeDamageStateBrick);
         brick.TakeDamage(appliedDamage);
         brick.SetState(this);
     }
 
     public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize) {
-        brick.SetState(brick.takeDamageStateBrick);
+        brick.SetStateWithoutExit(brick.takeDamageStateBrick);
         brick.TakeDamage(appliedDamage, damageTextColor, damageTextFontSize);
         brick.SetState(this);
     }
     
     public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize) {
-        brick.SetState(brick.takeDamageStateBrick);
+        brick.SetStateWithoutExit(brick.takeDamageStateBrick);
         brick.TakeDamage(appliedDamage, textPopupTextValue, textColor, textFontSize);
         brick.SetState(this);
     }
@@ -87,6 +86,7 @@ public class IdleStateBrick : IStateBrick
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos) {
         brick.SetState(brick.walkStateBrick);
         yield return brick.MoveToTarget(startPos, endPos);
+        brick.SetState(this);
     }
 
 }
