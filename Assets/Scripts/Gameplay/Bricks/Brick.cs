@@ -87,8 +87,6 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     {
         healthBar = gameObject.GetComponentInChildren<HealthBar>();
     }
-    
-    
 
     public void SetState (IStateBrick state) {
         if (this.state != null) {
@@ -234,7 +232,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     }
 
     public void Destroy() {
-        Destroy(parent, 1);
+        Destroy(parent, 3);
     }
 
 }

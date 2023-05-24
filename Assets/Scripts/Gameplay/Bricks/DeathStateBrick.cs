@@ -49,8 +49,7 @@ public class DeathStateBrick : IStateBrick
 
         //   WalletController.Instance.AddCoinAndShow();
         //destroy parent gameObject
-       brick.Destroy();  
-        
+       brick.Destroy();
     }
 
     public void Suicide (){

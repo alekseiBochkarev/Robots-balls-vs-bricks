@@ -87,8 +87,6 @@ public class IdleStateBrick : IStateBrick
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos) {
         brick.SetState(brick.walkStateBrick);
         yield return brick.MoveToTarget(startPos, endPos);
-        brick.SetState(this);
-        yield break;
     }
 
 }

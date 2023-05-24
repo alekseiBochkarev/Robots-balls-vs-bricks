@@ -6,20 +6,18 @@ using Assets.Scripts.Gameplay;
 public class FreezeStateBrick : IStateBrick
 {
     Brick brick;
+    private int countOfFreezeStep;
+    private int maxCountOfFreezeStep = 1;
     public FreezeStateBrick(Brick brick) {
         this.brick = brick;
-        
     }
 
     public void Enter() {
         brick.ice.SetActive(true);
-        brick.canMove = false;
-        Debug.Log("CAN MOVE = " + brick.canMove);
     }
 
     public void Exit() {
         brick.ice.SetActive(false);
-        brick.canMove = true;
     }
 
     public void DoDamage(int applyDamage) {
@@ -38,7 +36,6 @@ public class FreezeStateBrick : IStateBrick
         brick.healthBar.SaveCurrentBrickHealth();
         brick.healthBar.ShowHealth();
 
-        
         DamagePopupController.Instance.CreateDamagePopup(brick.brickCoord, healHealthUpAmountInt, isCriticalHit, isDamage, brick.damageTextColor, brick.damageTextFontSize);
     }
 
@@ -85,7 +82,14 @@ public class FreezeStateBrick : IStateBrick
     public void Attack () {}
     public void ChangeColor() {} //hmm its a quastion
     
-    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos) {
-        yield break;
+    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos)
+    {
+        countOfFreezeStep++;
+        if (countOfFreezeStep > maxCountOfFreezeStep)
+        {
+            countOfFreezeStep = 0;
+            brick.SetState(brick.walkStateBrick);
+            yield return brick.MoveToTarget(startPos, endPos);
+        }
     }
 }
