@@ -47,19 +47,19 @@ public class FreezeStateBrick : IStateBrick
     }
 
     public void TakeDamage (int appliedDamage) {
-        brick.SetState(brick.takeDamageStateBrick);
+        brick.SetStateWithoutExit(brick.takeDamageStateBrick);
         brick.TakeDamage(appliedDamage);
         brick.SetState(this);
     }
 
     public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize) {
-        brick.SetState(brick.takeDamageStateBrick);
+        brick.SetStateWithoutExit(brick.takeDamageStateBrick);
         brick.TakeDamage(appliedDamage, damageTextColor, damageTextFontSize);
         brick.SetState(this);
     }
     
     public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize) {
-        brick.SetState(brick.takeDamageStateBrick);
+        brick.SetStateWithoutExit(brick.takeDamageStateBrick);
         brick.TakeDamage(appliedDamage, textPopupTextValue, textColor, textFontSize);
         brick.SetState(this);
     }
@@ -90,6 +90,7 @@ public class FreezeStateBrick : IStateBrick
             countOfFreezeStep = 0;
             brick.SetState(brick.walkStateBrick);
             yield return brick.MoveToTarget(startPos, endPos);
+            brick.SetState(brick.idleStateBrick);
         }
     }
 }

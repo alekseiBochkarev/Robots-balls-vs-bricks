@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 58845583564804158}
   - component: {fileID: 96846943280894102}
   - component: {fileID: 8581837554429278974}
-  - component: {fileID: 8367334929118268219}
+  - component: {fileID: -7499848337556718353}
   m_Layer: 8
-  m_Name: IceBall
+  m_Name: FireBall
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1054516289806286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1.15}
+  m_LocalScale: {x: 1.4375, y: 1.916666, z: 1.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: c493e49928a2d1b46bb26bcf9af6358a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8cf612bdce7d12a41a586e9e15c0127c, type: 3}
   m_Color: {r: 0.5981666, g: 0.71668375, b: 0.8867924, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b602585c43715462abbea1b3e7474609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8367334929118268219
+--- !u!114 &-7499848337556718353
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1054516289806286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fc8b23c003fdcff38c412c6c22fe9dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 15108d281b654b2182c7ac62d697e7bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hero: {fileID: 0}
