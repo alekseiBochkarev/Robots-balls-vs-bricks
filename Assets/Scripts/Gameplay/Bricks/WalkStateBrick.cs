@@ -12,14 +12,11 @@ public class WalkStateBrick : IStateBrick
 
     public void Enter() {
         brick.animator.Play("walk");
-        //Debug.Log("Enter Walk behaviour");
-       // brick.animator.SetBool("walk", true);
+
     }
 
     public void Exit() {
-        //Debug.Log("Exit Walk behaviour");
-       // brick.animator.SetBool("walk", false);
-      // brick.animator.Play("walk");
+
     }
 
     public void DoDamage(int applyDamage) {
@@ -79,6 +76,7 @@ public class WalkStateBrick : IStateBrick
             brick.transform.parent.position = Vector3.Lerp(startPos, endPos, progress);
             if (progress  >= 1) {
                 brick.isMovingNow = false;
+                brick.SetState(brick.idleStateBrick);
                 yield break; // выход из корутины, если находимся в конечной позиции
             }
             yield return null; // если выхода из корутины не произошло, то продолжаем выполнять цикл while в следующем кадре
