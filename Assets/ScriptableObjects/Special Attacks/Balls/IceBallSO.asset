@@ -16,7 +16,7 @@ MonoBehaviour:
   specialAttackName: Ice Ball
   specialAttackDescription: Have a change to freeze
   specialAttackImage: {fileID: 21300000, guid: 4712be3c7be654c4fb4c760e0994e7f0, type: 3}
-  maxUseAmount: 99
+  maxUseAmount: 1
   currentUseAmount: 1
   attackTypeEnum: 0
   ballsType: 2
