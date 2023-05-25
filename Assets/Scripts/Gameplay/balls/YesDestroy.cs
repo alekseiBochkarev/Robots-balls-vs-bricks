@@ -8,7 +8,7 @@ public class YesDestroy : MonoBehaviour, AfterCollisionBehaviour
     {
        // Debug.Log("destroy");
         //Destroy(this.gameObject, .00000005f);
-        this.gameObject.GetComponent<AbstractBall>().Disable();
+        this.gameObject.GetComponent<AbstractBall>().DestroyBall();
        // Destroy(this.gameObject);
     }
 }

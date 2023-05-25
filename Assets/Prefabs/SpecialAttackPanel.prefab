@@ -118,6 +118,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5d71d9b7406b07241ae2808d6e5b766b, type: 2}
   - {fileID: 11400000, guid: c2a2f3401598c4547ba00b4e956facb7, type: 2}
   - {fileID: 11400000, guid: 98e610454b044aa46a0a04c58bf7f9c4, type: 2}
+  - {fileID: 11400000, guid: 0ca9321a37686774a87f6e171a746cf3, type: 2}
   comboAttacksSO: []
   heroBuffsSO: []
   amountOfUpgradeTabs: 3
