@@ -11,6 +11,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public Hero hero;
     public GameObject ice;
     public GameObject fire;
+    public GameObject poison;
     [SerializeField] private int m_maxBrickHealth;
     [SerializeField] private int m_currentBrickHealth;   
     public int MMaxBrickHealth
@@ -57,6 +58,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public IStateBrick attackStateBrick;
     public IStateBrick freezeStateBrick;
     public IStateBrick fireStateBrick;
+    public IStateBrick poisonStateBrick;
 
     public LootBag lootBag;
     
@@ -80,6 +82,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         attackStateBrick = new AttackStateBrick(this);
         freezeStateBrick = new FreezeStateBrick(this);
         fireStateBrick = new FireStateBrick(this);
+        poisonStateBrick = new PoisonStateBrick(this);
         state = idleStateBrick;
 
         lootBag = GetComponent<LootBag>();
@@ -102,6 +105,11 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public void SetStateWithoutExit (IStateBrick state) {
         this.state = state;
         this.state.Enter();
+    }
+
+    public IStateBrick getState()
+    {
+        return this.state;
     }
 
     private void SetDefaultTextParams()

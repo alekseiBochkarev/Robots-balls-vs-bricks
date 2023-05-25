@@ -8,11 +8,12 @@ public class IceAttack : MonoBehaviour, AttackBehaviour
   {
     System.Random rn = new System.Random();
     int rnNum = rn.Next(1, 2);
-   // Debug.Log("Random Num for InstaKill Ball is -> " + rnNum);
     if (rnNum == 1)
     {
-      //  Debug.Log("Try Kill Brick with InstaKill Ball");
-        brick.GetComponent<Brick>().SetState(brick.GetComponent<Brick>().freezeStateBrick);
+        if (brick.GetComponent<Brick>().getState() == brick.GetComponent<Brick>().idleStateBrick)
+        {
+            brick.GetComponent<Brick>().SetState(brick.GetComponent<Brick>().freezeStateBrick);
+        }
     }
   }
 }

@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Gameplay;
 
-public class FireStateBrick : IStateBrick
+public class PoisonStateBrick : IStateBrick
 {
     Brick brick;
-    private int countOfFireStep;
-    private int maxCountOfFireStep = 1;
-    private int fireDamage = 2;
+    private int countOfPoisonStep;
+    private int maxCountOfPoisonStep = 2;
+    private int poisonDamage = 1;
     
-    public FireStateBrick(Brick brick) {
+    public PoisonStateBrick(Brick brick) {
         this.brick = brick;
     }
 
     public void Enter() {
-        brick.fire.SetActive(true);
+        brick.poison.SetActive(true);
     }
 
     public void Exit() {
-        brick.fire.SetActive(false);
+        brick.poison.SetActive(false);
     }
 
     public void DoDamage(int applyDamage) {
@@ -86,11 +86,11 @@ public class FireStateBrick : IStateBrick
     
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos)
     {
-        TakeDamage(fireDamage);
-        countOfFireStep++;
-        if (countOfFireStep > maxCountOfFireStep)
+        TakeDamage(poisonDamage);
+        countOfPoisonStep++;
+        if (countOfPoisonStep > maxCountOfPoisonStep)
         {
-            countOfFireStep = 0;
+            countOfPoisonStep = 0;
             brick.SetState(brick.walkStateBrick);
             yield return brick.MoveToTarget(startPos, endPos);
             brick.SetState(brick.idleStateBrick);

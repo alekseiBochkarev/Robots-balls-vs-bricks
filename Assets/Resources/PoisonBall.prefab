@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 58845583564804158}
   - component: {fileID: 96846943280894102}
   - component: {fileID: 8581837554429278974}
-  - component: {fileID: -7499848337556718353}
+  - component: {fileID: 418016659076341570}
   m_Layer: 8
-  m_Name: FireBall
+  m_Name: PoisonBall
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 8cf612bdce7d12a41a586e9e15c0127c, type: 3}
-  m_Color: {r: 0.5981666, g: 0.71668375, b: 0.8867924, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5ca00084e9a99eb4da432f9441608049, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -123,9 +123,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.003169889, y: 0.0019019356}
   serializedVersion: 2
-  m_Radius: 0.09
+  m_Radius: 0.075
 --- !u!96 &96846943280894102
 TrailRenderer:
   serializedVersion: 2
@@ -168,7 +168,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Time: 0.15
+  m_Time: 0.1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.2
@@ -189,7 +189,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.27261692, b: 0, a: 1}
+      key0: {r: 0.11310065, g: 1, b: 0, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 1, g: 1, b: 1, a: 0}
       key3: {r: 1, g: 1, b: 1, a: 0}
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b602585c43715462abbea1b3e7474609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-7499848337556718353
+--- !u!114 &418016659076341570
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1054516289806286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15108d281b654b2182c7ac62d697e7bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 238405c9b45e4d5f8b3621904d20481d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hero: {fileID: 0}

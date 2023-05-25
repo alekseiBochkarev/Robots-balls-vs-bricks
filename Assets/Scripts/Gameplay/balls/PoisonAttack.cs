@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireAttack : MonoBehaviour, AttackBehaviour
+public class PoisonAttack : MonoBehaviour, AttackBehaviour
 {
    public void SpecialAttack(Vector3 position, GameObject brick)
   {
@@ -12,7 +12,7 @@ public class FireAttack : MonoBehaviour, AttackBehaviour
     {
         if (brick.GetComponent<Brick>().getState() == brick.GetComponent<Brick>().idleStateBrick)
         {
-            brick.GetComponent<Brick>().SetState(brick.GetComponent<Brick>().fireStateBrick);
+            brick.GetComponent<Brick>().SetState(brick.GetComponent<Brick>().poisonStateBrick);
         }
     }
   }
