@@ -8,7 +8,7 @@ public class PoisonBall : AbstractBall
       Init();
       attackBehaviour = gameObject.AddComponent<PoisonAttack>();
       //  afterCollisionBehaviour = new NoDestroy();
-        damageTextColor = TextController.COLOR_BLACK;
+        damageTextColor = TextController.COLOR_GREEN;
         damageTextFontSize = TextController.FONT_SIZE_MAX;
     } 
 }
