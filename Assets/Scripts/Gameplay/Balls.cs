@@ -165,5 +165,6 @@ public enum BallsTypeEnum
     LaserCrossBall,
     InstaKillBall,
     FireBall,
-    BombBall
+    BombBall,
+    PoisonBall
 }
