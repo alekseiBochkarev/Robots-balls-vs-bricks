@@ -51,6 +51,10 @@
             new ObjectGamePosition("enemies/Brick3", 8, 9, 20),
 
             new ObjectGamePosition("extras/Magic Ball Particle", 11, 7, 1),
+            new ObjectGamePosition("extras/Magic Ball Particle", 11, 8, 1),
+            new ObjectGamePosition("extras/Magic Ball Particle", 11, 9, 1),
+            new ObjectGamePosition("extras/Magic Ball Particle", 11, 10, 1),
+            new ObjectGamePosition("extras/Magic Ball Particle", 11, 11, 1),
             
             new ObjectGamePosition("extras/Score Ball Particle", 0, 7, 1),
         };

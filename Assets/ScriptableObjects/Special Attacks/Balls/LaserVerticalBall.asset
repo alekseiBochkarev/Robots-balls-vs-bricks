@@ -15,8 +15,8 @@ MonoBehaviour:
   specialAttackIndex: 0
   specialAttackName: Laser Vertical Ball
   specialAttackDescription: Creates a vertical laser on hit
-  specialAttackImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  specialAttackImage: {fileID: 21300000, guid: 8c9e8fa917d905d459232eda8b6ff6d0, type: 3}
   maxUseAmount: 99
-  currentUseAmount: 0
+  currentUseAmount: 1
   attackTypeEnum: 0
   ballsType: 5

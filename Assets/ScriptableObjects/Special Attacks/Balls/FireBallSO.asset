@@ -16,7 +16,7 @@ MonoBehaviour:
   specialAttackName: Fire Ball
   specialAttackDescription: Have a change to burn
   specialAttackImage: {fileID: 21300000, guid: 31457461d3aa62240aab889aaed94923, type: 3}
-  maxUseAmount: 99
+  maxUseAmount: 1
   currentUseAmount: 1
   attackTypeEnum: 0
   ballsType: 8
