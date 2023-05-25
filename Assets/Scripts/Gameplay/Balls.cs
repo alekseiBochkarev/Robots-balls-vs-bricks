@@ -166,5 +166,6 @@ public enum BallsTypeEnum
     InstaKillBall,
     FireBall,
     BombBall,
-    PoisonBall
+    PoisonBall,
+    BlackHoleBall
 }
