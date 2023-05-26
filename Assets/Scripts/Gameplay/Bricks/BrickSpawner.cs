@@ -215,23 +215,33 @@ public class BrickSpawner : MonoBehaviour
         allBricksMovedDown = false;
         vision = 10f; //need to check maybe we should set more than 10
         colliders = Physics2D.OverlapCircleAll(transform.position, vision);
-        for (int y = m_levelConfig.grid.GridHeight-1; y >= 0; y--) {
-            for (int x = 0; x <= m_levelConfig.grid.GridWidth-1; x++) {
-                
-                    for (int i = 0; i < colliders.Length; i ++) {
-                        if (colliders[i].gameObject == gameObject) continue;
-                        if (colliders[i].gameObject.GetComponent<MoveDownBehaviour>() != null) {
-                            //Debug.Log("component MOVEDOWNBEHAVIOUR not null");
-                            if (colliders[i].gameObject.GetComponent<MoveDownBehaviour>().X == x && colliders[i].gameObject.GetComponent<MoveDownBehaviour>().Y == y) {
-                                //Debug.Log("component MOVEDOWN concrete COLLIDER");
-                               yield return colliders[i].gameObject.GetComponent<MoveDownBehaviour>().MoveDown();
-                            }
-                        }
-                    }
-                
-            }
+        for (var y = m_levelConfig.grid.GridHeight-1; y >= 0; y--)
+        {
+            yield return MoveRow(y);
         } 
         allBricksMovedDown = true;
+    }
+
+    public IEnumerator MoveRow(int y)
+    {
+        for (var x = 0; x <= m_levelConfig.grid.GridWidth-1; x++)
+        {
+            foreach (var t in colliders)
+            {
+                if (t.gameObject == gameObject) continue;
+                if (t.gameObject.GetComponent<MoveDownBehaviour>() != null)
+                {
+                    //Debug.Log("component MOVEDOWNBEHAVIOUR not null");
+                    if (t.gameObject.GetComponent<MoveDownBehaviour>().X == x &&
+                        t.gameObject.GetComponent<MoveDownBehaviour>().Y == y)
+                    {
+                        //Debug.Log("component MOVEDOWN concrete COLLIDER");
+                        StartCoroutine(t.gameObject.GetComponent<MoveDownBehaviour>().MoveDown());
+                    }
+                }
+            }
+        }
+        yield return null;
     }
 
     public void MoveHorizontalBricksRows()
