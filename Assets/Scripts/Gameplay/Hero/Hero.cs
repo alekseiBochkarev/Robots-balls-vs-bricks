@@ -11,17 +11,13 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
 
     private Vector3 heroCoord;
     [SerializeField] private float m_currentHealth;
-    public float CurrentHealth 
+
+    public float CurrentHealth
     {
-        private set
-        {
-            m_currentHealth = value;
-        }
-        get
-        {
-            return m_currentHealth;
-        } 
+        private set { m_currentHealth = value; }
+        get { return m_currentHealth; }
     }
+
     [SerializeField] public float MaxHealth { private set; get; }
 
     public void Awake()
@@ -29,7 +25,7 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
         heroStats = new HeroStats();
         // LoadHeroSkill();
         SetMaxHealth(heroStats.Health);
-       // CurrentHealth = MaxHealth;
+        // CurrentHealth = MaxHealth;
         attackSkill = (int)heroStats.GetStats(HeroStats.HeroStatsEnum.Attack);
         Instance = this;
     }
@@ -42,7 +38,7 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
         healthBar.ShowHealth();
     }
 
-    
+
     public void SetMaxHealth(float maxHealth)
     {
         MaxHealth = maxHealth;
@@ -52,6 +48,13 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
     private void SetCurrentHealth()
     {
         CurrentHealth = MaxHealth;
+    }
+
+    public void Move(Vector3 targetPosition)
+    {
+        iTween.MoveTo(this.gameObject,
+            iTween.Hash("position", new Vector3(targetPosition.x, transform.position.y, transform.position.z),
+                "easetype", iTween.EaseType.linear, "time", (Vector2.Distance(transform.position, targetPosition))/5));
     }
 
     /**

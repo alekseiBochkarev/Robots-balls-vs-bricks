@@ -10,6 +10,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     public AfterCollisionBehaviour afterCollisionBehaviour;
     
     public GameObject hero;
+    private Hero m_hero;
     public static Vector3 s_FirstCollisionPoint { private set; get; }
     //private static int s_ReturnedBallsAmount = 0;
     public int attackPower;
@@ -30,12 +31,14 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     float rot_z;
 
     public void Init() {
+        hero = GameObject.Find("Hero");
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
         m_MinimumYPosition = BallLauncher.ballStartPositionCoordinatesY;
         m_Collider2D = GetComponent<CircleCollider2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_TrailRenderer = GetComponent<TrailRenderer>();
+        m_hero = hero.GetComponent<Hero>();
         EventManager.UpgradeAttackPowerStat += InitAttackPower;
 
         //m_SpecialAttackPanelController = GameObject.Find("SpecialAttackUI").GetComponent<SpecialAttackPanelController>();
@@ -90,6 +93,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
             {
                 s_FirstCollisionPoint = transform.position;
                 BallLauncher.Instance.ChangePositionAndSetTrue(s_FirstCollisionPoint);
+                m_hero.Move(s_FirstCollisionPoint);
             }
 
             DisablePhysics();
@@ -100,7 +104,6 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
     void Start()
     {
-        hero = GameObject.Find("Hero");
         InitAttackPower();
         afterCollisionBehaviour = this.gameObject.GetComponent<AfterCollisionBehaviour>();
     }
