@@ -250,7 +250,7 @@ public class BallLauncher : MonoBehaviour
             ball.MoveToStartPosition(transform.position, iTween.EaseType.easeInOutQuart, (Vector2.Distance(transform.position, ball.transform.position) / 6.0f), "Deactive");
     }
 
-    public void ContinuePlaying()
+    public IEnumerator ContinuePlaying()
     {
        // Debug.Log("ContinuePlaying");
         
@@ -266,13 +266,15 @@ public class BallLauncher : MonoBehaviour
         ScoreManager.Instance.UpdateScore();
 
         //BrickSpawner.Instance.MoveDownBricksRows();
+        
+        yield return AttackBricks(); // - НАПИСАТЬ МЕТОД, и ожидать его окончания!!!!
         StartCoroutine(MoveBricksAndSpawnNewBricks());
 
         EventManager.OnAllBallsReturned();
         EventManager.OnResetReturningBallsAmount();
         //AbstractBall.ResetReturningBallsAmount();
         
-        StartCoroutine(WaitAndCanPlay());
+        yield return WaitAndCanPlay();
     }
 
 
@@ -280,6 +282,12 @@ public class BallLauncher : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         m_CanPlay = true;
+    }
+
+    IEnumerator AttackBricks()
+    {
+        //////////////// ОПИСАТЬ ВЫЗОВ АТАКИ БРИКОВ
+        yield return null;
     }
 
     IEnumerator MoveBricksAndSpawnNewBricks()

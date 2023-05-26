@@ -167,7 +167,7 @@ public class LevelManager : MonoBehaviour
             }
         }
         Debug.Log("invoke continuePlaying");
-        BallLauncher.Instance.ContinuePlaying();
+        StartCoroutine(BallLauncher.Instance.ContinuePlaying());
         //m_SpriteRenderer.enabled = false;
     }
     
