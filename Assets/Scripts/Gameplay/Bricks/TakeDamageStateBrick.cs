@@ -18,7 +18,7 @@ public class TakeDamageStateBrick : IStateBrick
         
     }
 
-    public IEnumerable DoDamage(int applyDamage)
+    public IEnumerator DoDamage(int applyDamage)
     {
         return null;
     }

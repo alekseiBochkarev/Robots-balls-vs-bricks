@@ -18,7 +18,7 @@ public class WalkStateBrick : IStateBrick
 
     }
 
-    public IEnumerable DoDamage(int applyDamage) {
+    public IEnumerator DoDamage(int applyDamage) {
         Debug.Log("do Attack ");
         brick.SetState(brick.attackStateBrick);
         yield return brick.DoDamage(applyDamage);

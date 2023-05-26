@@ -18,7 +18,7 @@ public class AttackStateBrick : IStateBrick
     public void Exit() {
     }
 
-    public IEnumerable DoDamage(int applyDamage)
+    public IEnumerator DoDamage(int applyDamage)
     {
         Debug.Log("DOOOOOOOOO DAMAGE");
         //DoDamageCoroutine(applyDamage);

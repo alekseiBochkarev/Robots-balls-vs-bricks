@@ -19,7 +19,7 @@ public class IdleStateBrick : IStateBrick
         
     }
 
-    public IEnumerable DoDamage(int applyDamage) {
+    public IEnumerator DoDamage(int applyDamage) {
         Debug.Log("brick idle Attack");
         brick.SetState(brick.attackStateBrick);
         yield return brick.DoDamage(applyDamage);

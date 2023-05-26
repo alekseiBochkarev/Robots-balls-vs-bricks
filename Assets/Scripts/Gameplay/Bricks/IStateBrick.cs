@@ -6,7 +6,7 @@ public interface IStateBrick
 {
     public void Enter();
     public void Exit();
-    public IEnumerable DoDamage(int applyDamage);
+    public IEnumerator DoDamage(int applyDamage);
     public void HealUp(float healHealthUpAmount);
     public void TakeDamage (int appliedDamage);
     public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize);

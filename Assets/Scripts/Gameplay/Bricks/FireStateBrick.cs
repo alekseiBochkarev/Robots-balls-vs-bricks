@@ -22,7 +22,7 @@ public class FireStateBrick : IStateBrick
         brick.fire.SetActive(false);
     }
 
-    public IEnumerable DoDamage(int applyDamage)
+    public IEnumerator DoDamage(int applyDamage)
     {
         return null;
     }

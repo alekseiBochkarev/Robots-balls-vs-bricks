@@ -20,7 +20,7 @@ public class FreezeStateBrick : IStateBrick
         brick.ice.SetActive(false);
     }
 
-    public IEnumerable DoDamage(int applyDamage)
+    public IEnumerator DoDamage(int applyDamage)
     {
         return null;
     }

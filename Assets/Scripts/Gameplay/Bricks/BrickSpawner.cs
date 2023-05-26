@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BrickSpawner : MonoBehaviour
@@ -106,7 +107,7 @@ public class BrickSpawner : MonoBehaviour
     {
         for (int i = 0; i < _objectGamePositions.Length; i++)
         {
-            CreateObject(_objectGamePositions[i].Name, _objectGamePositions[i].X, _objectGamePositions[i].Y, _objectGamePositions[i].Health);
+            StartCoroutine(CreateObject(_objectGamePositions[i].Name, _objectGamePositions[i].X, _objectGamePositions[i].Y, _objectGamePositions[i].Health));
         }
         /*
         allObjectsCreated = false;
@@ -158,7 +159,7 @@ public class BrickSpawner : MonoBehaviour
        // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
     }*/
     
-    private void CreateObject(string prefabName, int numberInRow, int yPosition, int health)
+    private IEnumerator CreateObject(string prefabName, int numberInRow, int yPosition, int health)
     {
         if (m_levelConfig.grid.GetValue(numberInRow, yPosition+1) == 0) {
             GameObject newObject = Instantiate(Resources.Load (prefabName) as GameObject, m_levelConfig.grid.GetWorldPosition(numberInRow, yPosition), new Quaternion(0, 180, 0, 1));
@@ -169,7 +170,7 @@ public class BrickSpawner : MonoBehaviour
                 newObject.GetComponentInChildren<Brick>().m_Text.text = health.ToString();
             }
             newObject.transform.localScale *= m_levelConfig.ScaleCoefficient;
-            newObject.GetComponentInChildren<MoveDownBehaviour>().MoveDown();
+           yield return newObject.GetComponentInChildren<MoveDownBehaviour>().MoveDown();
         }
         // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
     }
@@ -207,7 +208,7 @@ public class BrickSpawner : MonoBehaviour
         return Random.Range(0, 2) == 1 ? true : false;
     }
 
-    public void MoveDownBricksRows()
+    public IEnumerator MoveDownBricksRows()
     {
         ScoreManager.Instance.m_LevelOfFinalBrick++;
         //Debug.Log("MOVE DOWN BRICK ROWS");
@@ -223,7 +224,7 @@ public class BrickSpawner : MonoBehaviour
                             //Debug.Log("component MOVEDOWNBEHAVIOUR not null");
                             if (colliders[i].gameObject.GetComponent<MoveDownBehaviour>().X == x && colliders[i].gameObject.GetComponent<MoveDownBehaviour>().Y == y) {
                                 //Debug.Log("component MOVEDOWN concrete COLLIDER");
-                                colliders[i].gameObject.GetComponent<MoveDownBehaviour>().MoveDown();
+                               yield return colliders[i].gameObject.GetComponent<MoveDownBehaviour>().MoveDown();
                             }
                         }
                     }

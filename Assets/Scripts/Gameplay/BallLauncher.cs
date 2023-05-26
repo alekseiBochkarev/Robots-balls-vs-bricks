@@ -291,7 +291,7 @@ public class BallLauncher : MonoBehaviour
     }
 
     IEnumerator MoveDownBricks() {
-        BrickSpawner.Instance.MoveDownBricksRows();
+        yield return BrickSpawner.Instance.MoveDownBricksRows();
         while (BrickSpawner.Instance.AllBricksMovedDown == false)
         {
             yield return null;

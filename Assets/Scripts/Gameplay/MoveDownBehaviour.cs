@@ -62,7 +62,7 @@ public class MoveDownBehaviour : MonoBehaviour
         SetFreeXY();
     }
 
-    public void MoveDown()
+    public IEnumerator MoveDown()
     {
         if (canMove)
         {
@@ -70,7 +70,7 @@ public class MoveDownBehaviour : MonoBehaviour
             {
                 SetFreeXY();
                 Vector3 target = m_levelConfig.grid.GetWorldPosition(x, y + 1);
-                StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.parent.position, target, y+2, m_levelConfig.GetHeight()));
+               yield return MoveAndUpdateCurrentPosition(gameObject.transform.parent.position, target, y+2, m_levelConfig.GetHeight());
             }
             else if (m_levelConfig.grid.GetValue(x, y + 1) == 2)
             {
@@ -79,6 +79,7 @@ public class MoveDownBehaviour : MonoBehaviour
         }
         else
         {
+            yield return null;
         }
     }
 

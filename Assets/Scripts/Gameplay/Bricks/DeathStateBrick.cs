@@ -18,7 +18,7 @@ public class DeathStateBrick : IStateBrick
     }
 
     public void Exit(){}
-    public IEnumerable DoDamage(int applyDamage)
+    public IEnumerator DoDamage(int applyDamage)
     {
         return null;
     }
