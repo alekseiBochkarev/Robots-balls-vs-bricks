@@ -189,7 +189,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.27058825, g: 0.007843138, b: 0.015686275, a: 1}
+      key0: {r: 0.73333335, g: 0.03529412, b: 0.043137256, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 1, g: 1, b: 1, a: 0}
       key3: {r: 1, g: 1, b: 1, a: 0}
@@ -241,7 +241,6 @@ MonoBehaviour:
   attackPower: 0
   m_WallCollisionDuration: 0
   m_MoveSpeed: 10
-  m_MinimumYPosition: -4.7
 --- !u!114 &-4250334627223494274
 MonoBehaviour:
   m_ObjectHideFlags: 0

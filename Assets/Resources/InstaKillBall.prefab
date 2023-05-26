@@ -176,8 +176,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
+        time: 0.01190567
+        value: 0.765625
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -189,7 +189,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 0.5382376, b: 1, a: 1}
+      key0: {r: 0.21698111, g: 0.13824615, b: 0.10153078, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 1, g: 1, b: 1, a: 0}
       key3: {r: 1, g: 1, b: 1, a: 0}
@@ -241,7 +241,6 @@ MonoBehaviour:
   attackPower: 0
   m_WallCollisionDuration: 0
   m_MoveSpeed: 10
-  m_MinimumYPosition: -4.09
   instaKillMessageText: INSTAKILL
 --- !u!114 &8581837554429278974
 MonoBehaviour:
