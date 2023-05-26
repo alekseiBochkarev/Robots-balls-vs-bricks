@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IDamage
 {
-    void DoDamage(int appliedDamage);
+    IEnumerator DoDamage(int appliedDamage);
 }

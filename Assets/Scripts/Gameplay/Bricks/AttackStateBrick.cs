@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using Assets.Scripts.Gameplay;
 
@@ -17,10 +18,12 @@ public class AttackStateBrick : IStateBrick
     public void Exit() {
     }
 
-    public void DoDamage(int applyDamage)
+    public IEnumerable DoDamage(int applyDamage)
     {
+        Debug.Log("DOOOOOOOOO DAMAGE");
         //DoDamageCoroutine(applyDamage);
         brick.hero.TakeDamage(applyDamage);
+        yield return new WaitForSeconds(3);
         brick.SetState(brick.idleStateBrick);
     }
 
@@ -78,7 +81,7 @@ public class AttackStateBrick : IStateBrick
     public void Attack () {}
     public void ChangeColor() {} //hmm its a quastion
     
-    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos) {
+    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY) {
         yield break;
     }
 }

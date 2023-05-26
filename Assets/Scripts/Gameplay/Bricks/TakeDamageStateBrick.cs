@@ -18,8 +18,9 @@ public class TakeDamageStateBrick : IStateBrick
         
     }
 
-    public void DoDamage(int applyDamage) {
-        
+    public IEnumerable DoDamage(int applyDamage)
+    {
+        return null;
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK
@@ -127,7 +128,7 @@ public class TakeDamageStateBrick : IStateBrick
     public void Attack () {}
     public void ChangeColor() {} //hmm its a quastion
     
-    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos) {
+    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY) {
         yield break;
     }
 }

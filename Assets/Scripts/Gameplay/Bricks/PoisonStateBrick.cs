@@ -22,8 +22,9 @@ public class PoisonStateBrick : IStateBrick
         brick.poison.SetActive(false);
     }
 
-    public void DoDamage(int applyDamage) {
-       
+    public IEnumerable DoDamage(int applyDamage)
+    {
+        return null;
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK
@@ -84,7 +85,7 @@ public class PoisonStateBrick : IStateBrick
     public void Attack () {}
     public void ChangeColor() {} //hmm its a quastion
     
-    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos)
+    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
     {
         TakeDamage(poisonDamage);
         countOfPoisonStep++;
@@ -92,13 +93,13 @@ public class PoisonStateBrick : IStateBrick
         {
             countOfPoisonStep = 0;
             brick.SetState(brick.walkStateBrick);
-            yield return brick.MoveToTarget(startPos, endPos);
+            yield return brick.MoveToTarget(startPos, endPos, currentY, maxY);
             brick.SetState(brick.idleStateBrick);
         }
         else
         {
             brick.SetState(brick.walkStateBrick);
-            yield return brick.MoveToTarget(startPos, endPos);
+            yield return brick.MoveToTarget(startPos, endPos, currentY, maxY);
             brick.SetState(this);
         }
     }

@@ -173,9 +173,10 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     }
     //*/
 
-    public void DoDamage(int applyDamage)
+    public IEnumerator DoDamage(int applyDamage)
     {
-        state.DoDamage(applyDamage);
+        Debug.Log("brick Attack");
+        yield return state.DoDamage(applyDamage);
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK
@@ -233,7 +234,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
 /// <returns></returns>
     public void Attack ()
 {
-    DoDamage(m_attackPower*m_currentBrickHealth);
+    StartCoroutine(DoDamage(m_attackPower*m_currentBrickHealth));
 }
     
     public void ChangeColor()
@@ -242,9 +243,9 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     }
 
     
-    public override IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos)
+    public override IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
     {
-        yield return state.MoveToTarget(startPos, endPos);
+        yield return state.MoveToTarget(startPos, endPos, currentY, maxY);
     }
 
     public void Destroy() {

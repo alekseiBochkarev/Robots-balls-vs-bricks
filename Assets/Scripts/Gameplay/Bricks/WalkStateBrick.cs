@@ -18,10 +18,10 @@ public class WalkStateBrick : IStateBrick
 
     }
 
-    public void DoDamage(int applyDamage) {
+    public IEnumerable DoDamage(int applyDamage) {
         Debug.Log("do Attack ");
         brick.SetState(brick.attackStateBrick);
-        brick.DoDamage(applyDamage);
+        yield return brick.DoDamage(applyDamage);
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK
@@ -65,19 +65,27 @@ public class WalkStateBrick : IStateBrick
     public void Attack () {}
     public void ChangeColor() {} //hmm its a quastion
 
-    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos) {
-        brick.isMovingNow = true;
-        float speed = 0.1f; //  скорость прогресса (от начальной до конечной позиции)
-        float progress = 0;
-        while (true)
+    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
+    {
+        Debug.Log("currentY " + currentY + " maxY " + maxY);
+        if (currentY + 1 < maxY)
         {
-            progress += speed;
-            brick.transform.parent.position = Vector3.Lerp(startPos, endPos, progress);
-            if (progress  >= 1) {
-                brick.isMovingNow = false;
-                yield break; // выход из корутины, если находимся в конечной позиции
+            brick.isMovingNow = true;
+            float speed = 0.1f; //  скорость прогресса (от начальной до конечной позиции)
+            float progress = 0;
+            while (true)
+            {
+                progress += speed;
+                brick.transform.parent.position = Vector3.Lerp(startPos, endPos, progress);
+                if (progress  >= 1) {
+                    brick.isMovingNow = false;
+                    yield break; // выход из корутины, если находимся в конечной позиции
+                }
+                yield return null; // если выхода из корутины не произошло, то продолжаем выполнять цикл while в следующем кадре
             }
-            yield return null; // если выхода из корутины не произошло, то продолжаем выполнять цикл while в следующем кадре
         }
+
+        brick.Attack();
+       // brick.DeathOfBrick();
     }
 }

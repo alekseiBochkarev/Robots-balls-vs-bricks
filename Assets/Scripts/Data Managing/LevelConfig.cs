@@ -5,8 +5,8 @@ using CodeMonkey.Utils;
 
 public class LevelConfig : MonoBehaviour
 {
-    [SerializeField] private int gridWidth;
-    [SerializeField] private int gridHeight;
+    [SerializeField] private int gridWidth; //ширина
+    [SerializeField] private int gridHeight; //высота
     private float cellSize;
     private float baseCellSize = 0.72f;
     [SerializeField] private float scaleCoefficient;
@@ -33,6 +33,11 @@ public class LevelConfig : MonoBehaviour
                 gridObj.GetComponent<GridCollider>().Y = y;
             }
         } */
+    }
+
+    public int GetHeight()
+    {
+        return gridHeight;
     }
 
     public float ScaleCoefficient
