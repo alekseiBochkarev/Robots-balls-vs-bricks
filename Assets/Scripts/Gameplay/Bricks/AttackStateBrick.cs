@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using Assets.Scripts.Gameplay;
 
@@ -11,17 +12,40 @@ public class AttackStateBrick : IStateBrick
     }
 
     public void Enter() {
-        brick.animator.Play("attack");
+        
     }
 
     public void Exit() {
     }
 
-    public void DoDamage(int applyDamage)
+    public IEnumerator DoDamage(int applyDamage)
     {
-        //DoDamageCoroutine(applyDamage);
-        brick.hero.TakeDamage(applyDamage);
+        if (brick.IsWaitMeleeAttack)
+        {
+            Debug.Log("MeleeAttack DAMAGE");
+            iTween.MoveTo(brick.parent,
+                iTween.Hash("position", new Vector3(brick.hero.transform.position.x, brick.hero.transform.position.y, brick.hero.transform.position.z),
+                    "easetype", iTween.EaseType.linear, "time", (Vector2.Distance(this.brick.transform.position, brick.hero.transform.position))/10));
+            brick.animator.Play("attack");
+            brick.hero.TakeDamage(applyDamage); // later remove it
+            yield return new WaitForSeconds(0.1f);
+            brick.SetState(brick.idleStateBrick);
+            brick.DeathOfBrick(false);
+            yield break;
+        }
+
+        if (brick.CanRangeAttack)
+        {
+            Debug.Log("Range attack");
+            brick.animator.Play("attack");
+            brick.hero.TakeDamage(applyDamage); // later remove it
+            yield return new WaitForSeconds(0.1f);
+            brick.SetState(brick.idleStateBrick);
+            yield break;
+        }
+
         brick.SetState(brick.idleStateBrick);
+        yield break;
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK
@@ -59,9 +83,9 @@ public class AttackStateBrick : IStateBrick
         
     }
 
-    public void DeathOfBrick () {
+    public void DeathOfBrick (bool isInstantiateLoot) {
         brick.SetState(brick.deathStateBrick);
-        brick.DeathOfBrick();
+        brick.DeathOfBrick(isInstantiateLoot);
     }
 
     public void Suicide () {
@@ -78,7 +102,7 @@ public class AttackStateBrick : IStateBrick
     public void Attack () {}
     public void ChangeColor() {} //hmm its a quastion
     
-    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos) {
+    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY) {
         yield break;
     }
 }

@@ -19,9 +19,10 @@ public class IdleStateBrick : IStateBrick
         
     }
 
-    public void DoDamage(int applyDamage) {
+    public IEnumerator DoDamage(int applyDamage) {
+        Debug.Log("brick idle Attack");
         brick.SetState(brick.attackStateBrick);
-        brick.DoDamage(applyDamage);
+        yield return brick.DoDamage(applyDamage);
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK
@@ -65,9 +66,9 @@ public class IdleStateBrick : IStateBrick
         brick.SetState(this);
     }
 
-    public void DeathOfBrick () {
+    public void DeathOfBrick (bool isInstantiateLoot) {
         brick.SetState(brick.deathStateBrick);
-        brick.DeathOfBrick();
+        brick.DeathOfBrick(isInstantiateLoot);
     }
 
     public void Suicide () {
@@ -83,9 +84,9 @@ public class IdleStateBrick : IStateBrick
     public void Attack () {}
     public void ChangeColor() {} //hmm its a quastion
     
-    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos) {
+    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY) {
         brick.SetState(brick.walkStateBrick);
-        yield return brick.MoveToTarget(startPos, endPos);
+        yield return brick.MoveToTarget(startPos, endPos, currentY, maxY);
         brick.SetState(this);
     }
 

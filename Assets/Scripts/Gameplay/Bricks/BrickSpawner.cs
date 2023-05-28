@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BrickSpawner : MonoBehaviour
@@ -106,7 +107,7 @@ public class BrickSpawner : MonoBehaviour
     {
         for (int i = 0; i < _objectGamePositions.Length; i++)
         {
-            CreateObject(_objectGamePositions[i].Name, _objectGamePositions[i].X, _objectGamePositions[i].Y, _objectGamePositions[i].Health);
+            StartCoroutine(CreateObject(_objectGamePositions[i].Name, _objectGamePositions[i].X, _objectGamePositions[i].Y, _objectGamePositions[i].Health));
         }
         /*
         allObjectsCreated = false;
@@ -158,7 +159,7 @@ public class BrickSpawner : MonoBehaviour
        // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
     }*/
     
-    private void CreateObject(string prefabName, int numberInRow, int yPosition, int health)
+    private IEnumerator CreateObject(string prefabName, int numberInRow, int yPosition, int health)
     {
         if (m_levelConfig.grid.GetValue(numberInRow, yPosition+1) == 0) {
             GameObject newObject = Instantiate(Resources.Load (prefabName) as GameObject, m_levelConfig.grid.GetWorldPosition(numberInRow, yPosition), new Quaternion(0, 180, 0, 1));
@@ -169,7 +170,7 @@ public class BrickSpawner : MonoBehaviour
                 newObject.GetComponentInChildren<Brick>().m_Text.text = health.ToString();
             }
             newObject.transform.localScale *= m_levelConfig.ScaleCoefficient;
-            newObject.GetComponentInChildren<MoveDownBehaviour>().MoveDown();
+           yield return newObject.GetComponentInChildren<MoveDownBehaviour>().MoveDown();
         }
         // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
     }
@@ -207,30 +208,72 @@ public class BrickSpawner : MonoBehaviour
         return Random.Range(0, 2) == 1 ? true : false;
     }
 
-    public void MoveDownBricksRows()
+    public IEnumerator MoveDownBricksRows()
     {
         ScoreManager.Instance.m_LevelOfFinalBrick++;
         //Debug.Log("MOVE DOWN BRICK ROWS");
         allBricksMovedDown = false;
         vision = 10f; //need to check maybe we should set more than 10
         colliders = Physics2D.OverlapCircleAll(transform.position, vision);
-        for (int y = m_levelConfig.grid.GridHeight-1; y >= 0; y--) {
-            for (int x = 0; x <= m_levelConfig.grid.GridWidth-1; x++) {
-                
-                    for (int i = 0; i < colliders.Length; i ++) {
-                        if (colliders[i].gameObject == gameObject) continue;
-                        if (colliders[i].gameObject.GetComponent<MoveDownBehaviour>() != null) {
-                            //Debug.Log("component MOVEDOWNBEHAVIOUR not null");
-                            if (colliders[i].gameObject.GetComponent<MoveDownBehaviour>().X == x && colliders[i].gameObject.GetComponent<MoveDownBehaviour>().Y == y) {
-                                //Debug.Log("component MOVEDOWN concrete COLLIDER");
-                                colliders[i].gameObject.GetComponent<MoveDownBehaviour>().MoveDown();
-                            }
-                        }
-                    }
-                
-            }
+        for (var y = m_levelConfig.grid.GridHeight-1; y >= 0; y--)
+        {
+            yield return MoveRow(y);
         } 
         allBricksMovedDown = true;
+    }
+
+    public IEnumerator AttackBrickRows()
+    {
+        vision = 10f; 
+        colliders = Physics2D.OverlapCircleAll(transform.position, vision);
+        for (var y = m_levelConfig.grid.GridHeight-1; y >= 0; y--)
+        {
+            yield return AttackRow(y);
+        } 
+    }
+
+    public IEnumerator MoveRow(int y)
+    {
+        for (var x = 0; x <= m_levelConfig.grid.GridWidth-1; x++)
+        {
+            foreach (var t in colliders)
+            {
+                if (t.gameObject == gameObject) continue;
+                if (t.gameObject.GetComponent<MoveDownBehaviour>() != null)
+                {
+                    //Debug.Log("component MOVEDOWNBEHAVIOUR not null");
+                    if (t.gameObject.GetComponent<MoveDownBehaviour>().X == x &&
+                        t.gameObject.GetComponent<MoveDownBehaviour>().Y == y)
+                    {
+                        //Debug.Log("component MOVEDOWN concrete COLLIDER");
+                        StartCoroutine(t.gameObject.GetComponent<MoveDownBehaviour>().MoveDown());
+                    }
+                }
+            }
+        }
+        yield return null;
+    }
+    
+    public IEnumerator AttackRow(int y)
+    {
+        for (var x = 0; x <= m_levelConfig.grid.GridWidth-1; x++)
+        {
+            foreach (var t in colliders)
+            {
+                if (t.gameObject == gameObject) continue;
+                if (t.gameObject.GetComponent<Brick>() != null)
+                {
+                    //Debug.Log("component MOVEDOWNBEHAVIOUR not null");
+                    if (t.gameObject.GetComponent<Brick>().X == x &&
+                        t.gameObject.GetComponent<Brick>().Y == y)
+                    {
+                        Debug.Log("component MOVEDOWN Attack");
+                        yield return t.gameObject.GetComponent<Brick>().Attack();
+                    }
+                }
+            }
+        }
+        yield break;
     }
 
     public void MoveHorizontalBricksRows()

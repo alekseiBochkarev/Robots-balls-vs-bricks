@@ -20,8 +20,20 @@ public class FreezeStateBrick : IStateBrick
         brick.ice.SetActive(false);
     }
 
-    public void DoDamage(int applyDamage) {
-       
+    public IEnumerator DoDamage(int applyDamage)
+    {
+        countOfFreezeStep++;
+        if (countOfFreezeStep > maxCountOfFreezeStep)
+        {
+            countOfFreezeStep = 0;
+            brick.SetState(brick.attackStateBrick);
+            yield return brick.DoDamage(applyDamage);
+            brick.SetState(brick.idleStateBrick);
+        }
+        else
+        {
+            yield break;
+        }
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK
@@ -64,9 +76,9 @@ public class FreezeStateBrick : IStateBrick
         brick.SetState(this);
     }
 
-    public void DeathOfBrick () {
+    public void DeathOfBrick (bool isInstantiateLoot) {
         brick.SetState(brick.deathStateBrick);
-        brick.DeathOfBrick();
+        brick.DeathOfBrick(isInstantiateLoot);
     }
 
     public void Suicide () {
@@ -82,14 +94,14 @@ public class FreezeStateBrick : IStateBrick
     public void Attack () {}
     public void ChangeColor() {} //hmm its a quastion
     
-    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos)
+    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
     {
-        countOfFreezeStep++;
+        //countOfFreezeStep++;
         if (countOfFreezeStep > maxCountOfFreezeStep)
         {
             countOfFreezeStep = 0;
             brick.SetState(brick.walkStateBrick);
-            yield return brick.MoveToTarget(startPos, endPos);
+            yield return brick.MoveToTarget(startPos, endPos, currentY, maxY);
             brick.SetState(brick.idleStateBrick);
         }
     }

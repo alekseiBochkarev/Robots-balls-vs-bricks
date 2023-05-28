@@ -18,13 +18,16 @@ public class DeathStateBrick : IStateBrick
     }
 
     public void Exit(){}
-    public void DoDamage(int applyDamage){}
+    public IEnumerator DoDamage(int applyDamage)
+    {
+        return null;
+    }
     public void HealUp(float healHealthUpAmount){}
     public void TakeDamage (int appliedDamage){}
     public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize){}
     public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize){}
     
-    public void DeathOfBrick (){
+    public void DeathOfBrick (bool isInstantiateLoot){
         
         //AnimatorClipInfo[] m_AnimatorClipInfo = brick.animator.GetCurrentAnimatorClipInfo(0);
         //Output the name of the starting clip
@@ -43,22 +46,24 @@ public class DeathStateBrick : IStateBrick
             //m_Parent.CheckBricksActivation();
             // 4 - Set coin 
         EventManager.OnBrickDestroyed();
-
-        // Drop loot if has a chance
-        brick.lootBag.InstantiateLoot();
-
+        if (isInstantiateLoot)
+        {
+            // Drop loot if has a chance
+            brick.lootBag.InstantiateLoot();
+        }
+        
         //   WalletController.Instance.AddCoinAndShow();
         //destroy parent gameObject
        brick.Destroy();
     }
 
     public void Suicide (){
-        DeathOfBrick();
+        DeathOfBrick(true);
     }
 
     public void KillBrick(string textPopupTextValue){}
     public void ChangeRigidbodyType (RigidbodyType2D rigidbodyType){} //hmmm its a quastion
     public void Attack (){}
     public void ChangeColor(){} //hmm its a quastion
-    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos){yield break;}
+    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY){yield break;}
 }

@@ -250,7 +250,7 @@ public class BallLauncher : MonoBehaviour
             ball.MoveToStartPosition(transform.position, iTween.EaseType.easeInOutQuart, (Vector2.Distance(transform.position, ball.transform.position) / 6.0f), "Deactive");
     }
 
-    public void ContinuePlaying()
+    public IEnumerator ContinuePlaying()
     {
        // Debug.Log("ContinuePlaying");
         
@@ -266,13 +266,15 @@ public class BallLauncher : MonoBehaviour
         ScoreManager.Instance.UpdateScore();
 
         //BrickSpawner.Instance.MoveDownBricksRows();
+        
+        yield return AttackBricks(); 
         StartCoroutine(MoveBricksAndSpawnNewBricks());
 
         EventManager.OnAllBallsReturned();
         EventManager.OnResetReturningBallsAmount();
         //AbstractBall.ResetReturningBallsAmount();
         
-        StartCoroutine(WaitAndCanPlay());
+        yield return WaitAndCanPlay();
     }
 
 
@@ -280,6 +282,11 @@ public class BallLauncher : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         m_CanPlay = true;
+    }
+
+    IEnumerator AttackBricks()
+    {
+        yield return BrickSpawner.Instance.AttackBrickRows();
     }
 
     IEnumerator MoveBricksAndSpawnNewBricks()
@@ -291,7 +298,7 @@ public class BallLauncher : MonoBehaviour
     }
 
     IEnumerator MoveDownBricks() {
-        BrickSpawner.Instance.MoveDownBricksRows();
+        yield return BrickSpawner.Instance.MoveDownBricksRows();
         while (BrickSpawner.Instance.AllBricksMovedDown == false)
         {
             yield return null;

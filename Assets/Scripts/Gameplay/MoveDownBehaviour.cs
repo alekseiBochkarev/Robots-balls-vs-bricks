@@ -62,7 +62,7 @@ public class MoveDownBehaviour : MonoBehaviour
         SetFreeXY();
     }
 
-    public void MoveDown()
+    public IEnumerator MoveDown()
     {
         if (canMove)
         {
@@ -70,7 +70,7 @@ public class MoveDownBehaviour : MonoBehaviour
             {
                 SetFreeXY();
                 Vector3 target = m_levelConfig.grid.GetWorldPosition(x, y + 1);
-                StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.parent.position, target));
+               yield return MoveAndUpdateCurrentPosition(gameObject.transform.parent.position, target, y+2, m_levelConfig.GetHeight());
             }
             else if (m_levelConfig.grid.GetValue(x, y + 1) == 2)
             {
@@ -79,10 +79,11 @@ public class MoveDownBehaviour : MonoBehaviour
         }
         else
         {
+            yield return null;
         }
     }
 
-    public virtual IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos)
+    public virtual IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
     {
         isMovingNow = true;
         float speed = 0.1f; //  скорость прогресса (от начальной до конечной позиции)
@@ -102,9 +103,9 @@ public class MoveDownBehaviour : MonoBehaviour
         }
     }
 
-    IEnumerator MoveAndUpdateCurrentPosition(Vector3 startPos, Vector3 endPos)
+    IEnumerator MoveAndUpdateCurrentPosition(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
     {
-        yield return StartCoroutine(MoveToTarget(startPos, endPos));
+        yield return StartCoroutine(MoveToTarget(startPos, endPos, currentY, maxY));
         UpdateCurrentPosition();
         SetBusyXY();
     }
@@ -119,7 +120,7 @@ public class MoveDownBehaviour : MonoBehaviour
                 Vector3 target = m_levelConfig.grid.GetWorldPosition(x - 1, y);
                 //iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
                 //StartCoroutine(WaitAndUpdateCurrentPosition());
-                StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.position, target));
+                StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.position, target, y+1, m_levelConfig.GetHeight()));
                 needHorizontalMove = false;
             }
             else if (m_levelConfig.grid.GetValue(x + 1, y) == 0)
@@ -128,7 +129,7 @@ public class MoveDownBehaviour : MonoBehaviour
                 Vector3 target = m_levelConfig.grid.GetWorldPosition(x + 1, y);
                 //iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
                 //StartCoroutine(WaitAndUpdateCurrentPosition());
-                StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.position, target));
+                StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.position, target, y+1, m_levelConfig.GetHeight()));
                 needHorizontalMove = false;
             }
 
