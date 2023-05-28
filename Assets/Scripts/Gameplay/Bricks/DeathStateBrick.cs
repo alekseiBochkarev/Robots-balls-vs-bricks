@@ -27,7 +27,7 @@ public class DeathStateBrick : IStateBrick
     public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize){}
     public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize){}
     
-    public void DeathOfBrick (){
+    public void DeathOfBrick (bool isInstantiateLoot){
         
         //AnimatorClipInfo[] m_AnimatorClipInfo = brick.animator.GetCurrentAnimatorClipInfo(0);
         //Output the name of the starting clip
@@ -46,17 +46,19 @@ public class DeathStateBrick : IStateBrick
             //m_Parent.CheckBricksActivation();
             // 4 - Set coin 
         EventManager.OnBrickDestroyed();
-
-        // Drop loot if has a chance
-        brick.lootBag.InstantiateLoot();
-
+        if (isInstantiateLoot)
+        {
+            // Drop loot if has a chance
+            brick.lootBag.InstantiateLoot();
+        }
+        
         //   WalletController.Instance.AddCoinAndShow();
         //destroy parent gameObject
        brick.Destroy();
     }
 
     public void Suicide (){
-        DeathOfBrick();
+        DeathOfBrick(true);
     }
 
     public void KillBrick(string textPopupTextValue){}

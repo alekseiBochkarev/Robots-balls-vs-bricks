@@ -63,7 +63,7 @@ public class TakeDamageStateBrick : IStateBrick
 
         if (brick.MCurrentBrickHealth <= 0)
         {
-            brick.DeathOfBrick();
+            brick.DeathOfBrick(true);
         }
     }
 
@@ -84,7 +84,7 @@ public class TakeDamageStateBrick : IStateBrick
 
         if (brick.MCurrentBrickHealth <= 0)
         {
-            brick.DeathOfBrick();
+            brick.DeathOfBrick(true);
         }
     }
     
@@ -103,13 +103,13 @@ public class TakeDamageStateBrick : IStateBrick
 
         if (brick.MCurrentBrickHealth <= 0)
         {
-            brick.DeathOfBrick();
+            brick.DeathOfBrick(true);
         }
     }
 
-    public void DeathOfBrick () {
+    public void DeathOfBrick (bool isInstantiateLoot) {
         brick.SetState(brick.deathStateBrick);
-        brick.DeathOfBrick();
+        brick.DeathOfBrick(isInstantiateLoot);
     }
 
     public void Suicide () {

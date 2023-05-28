@@ -66,9 +66,9 @@ public class IdleStateBrick : IStateBrick
         brick.SetState(this);
     }
 
-    public void DeathOfBrick () {
+    public void DeathOfBrick (bool isInstantiateLoot) {
         brick.SetState(brick.deathStateBrick);
-        brick.DeathOfBrick();
+        brick.DeathOfBrick(isInstantiateLoot);
     }
 
     public void Suicide () {

@@ -267,7 +267,7 @@ public class BallLauncher : MonoBehaviour
 
         //BrickSpawner.Instance.MoveDownBricksRows();
         
-        yield return AttackBricks(); // - НАПИСАТЬ МЕТОД, и ожидать его окончания!!!!
+        yield return AttackBricks(); 
         StartCoroutine(MoveBricksAndSpawnNewBricks());
 
         EventManager.OnAllBallsReturned();
@@ -286,8 +286,7 @@ public class BallLauncher : MonoBehaviour
 
     IEnumerator AttackBricks()
     {
-        //////////////// ОПИСАТЬ ВЫЗОВ АТАКИ БРИКОВ
-        yield return null;
+        yield return BrickSpawner.Instance.AttackBrickRows();
     }
 
     IEnumerator MoveBricksAndSpawnNewBricks()

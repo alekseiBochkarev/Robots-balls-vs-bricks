@@ -11,7 +11,7 @@ public interface IStateBrick
     public void TakeDamage (int appliedDamage);
     public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize);
     public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize);
-    public void DeathOfBrick ();
+    public void DeathOfBrick(bool isInstantiateLoot); 
     public void Suicide ();
     public void KillBrick(string textPopupTextValue);
     public void ChangeRigidbodyType (RigidbodyType2D rigidbodyType); //hmmm its a quastion

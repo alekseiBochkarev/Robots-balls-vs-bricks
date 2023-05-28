@@ -13,7 +13,8 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public GameObject fire;
     public GameObject poison;
     [SerializeField] private int m_maxBrickHealth;
-    [SerializeField] private int m_currentBrickHealth;   
+    [SerializeField] private int m_currentBrickHealth;
+
     public int MMaxBrickHealth
     {
         get => m_maxBrickHealth;
@@ -35,10 +36,23 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         }
     }
 
-    
+
     [SerializeField] private int m_attackPower; //атакующая сила 1 брика, если их несколько то умножается на количество
     public PolygonCollider2D polygonCollider2D;
     private Rigidbody2D rigidbody2D;
+
+    [SerializeField]
+    private bool canRangeAttack;
+
+    public bool CanRangeAttack => canRangeAttack;
+
+    private bool isWaitMeleeAttack;
+
+    public bool IsWaitMeleeAttack
+    {
+        get => isWaitMeleeAttack;
+        set => isWaitMeleeAttack = value;
+    }
 
     public SpriteRenderer m_SpriteRenderer;
     public ParticleSystem m_ParentParticle;
@@ -61,7 +75,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public IStateBrick poisonStateBrick;
 
     public LootBag lootBag;
-    
+
 
     public IStateBrick state;
 
@@ -94,15 +108,19 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         healthBar = gameObject.GetComponentInChildren<HealthBar>();
     }
 
-    public void SetState (IStateBrick state) {
-        if (this.state != null) {
+    public void SetState(IStateBrick state)
+    {
+        if (this.state != null)
+        {
             this.state.Exit();
         }
+
         this.state = state;
         this.state.Enter();
     }
-    
-    public void SetStateWithoutExit (IStateBrick state) {
+
+    public void SetStateWithoutExit(IStateBrick state)
+    {
         this.state = state;
         this.state.Enter();
     }
@@ -117,12 +135,13 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         damageTextColor = TextController.COLOR_RED;
         damageTextFontSize = TextController.FONT_SIZE_MAX;
     }
-    
+
 
     public void SetMaxHealth(float maxHealth)
     {
-        m_maxBrickHealth = (int) maxHealth;
+        m_maxBrickHealth = (int)maxHealth;
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<IBall>() != null)
@@ -136,8 +155,9 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
             {
                 Vector3 position = collision.gameObject.transform.position;
                 collision.gameObject.GetComponent<AbstractBall>().SpecialAttack(position, this.gameObject);
-            }                 
-        } else if (collision.gameObject.tag == "Finish") 
+            }
+        }
+        else if (collision.gameObject.tag == "Finish")
         {
             Attack();
             Suicide();
@@ -158,7 +178,9 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
                 Vector3 position = collider.gameObject.transform.position;
                 collider.gameObject.GetComponent<AbstractBall>().SpecialAttack(position, this.gameObject);
             }
-        } else if (collider.gameObject.tag == "Finish") {
+        }
+        else if (collider.gameObject.tag == "Finish")
+        {
             Attack();
             Suicide();
         }
@@ -184,37 +206,42 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         state.HealUp(healHealthUpAmount);
     }
 
-    private void Update() { // ONLY FOR DEBUGGING AND TESTING  - ОБРАТИТЬ ВНИМАНИЕ ПЕРЕД РЕЛИЗОМ УДАЛИТЬ
+    private void Update()
+    {
+        // ONLY FOR DEBUGGING AND TESTING  - ОБРАТИТЬ ВНИМАНИЕ ПЕРЕД РЕЛИЗОМ УДАЛИТЬ
         if (Input.GetMouseButtonDown(1))
         {
             TakeDamage(1);
         }
+
         if (Input.GetMouseButtonDown(2))
         {
             HealUp(5);
         }
     }
 
-    public void TakeDamage (int appliedDamage)
-    {   
+    public void TakeDamage(int appliedDamage)
+    {
         state.TakeDamage(appliedDamage);
     }
 
     public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize)
-    {   
+    {
         state.TakeDamage(appliedDamage, damageTextColor, damageTextFontSize);
     }
 
     public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize)
-    { 
+    {
         state.TakeDamage(appliedDamage, textPopupTextValue, textColor, textFontSize);
     }
 
-    public void DeathOfBrick () {
-        state.DeathOfBrick();
+    public void DeathOfBrick(bool isInstantiateLoot)
+    {
+        state.DeathOfBrick(isInstantiateLoot);
     }
 
-    public void Suicide () {
+    public void Suicide()
+    {
         state.Suicide();
     }
 
@@ -223,33 +250,35 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         state.KillBrick(textPopupTextValue);
     }
 
-    public void ChangeRigidbodyType (RigidbodyType2D rigidbodyType)
+    public void ChangeRigidbodyType(RigidbodyType2D rigidbodyType)
     {
         rigidbody2D.bodyType = rigidbodyType;
     }
-    
-/// <summary>
-/// похоже это лишний метд Аттака (так как есть ДуДемедж), хотя я наверно просто могу в нем вызывать дуДемедж
-/// </summary>
-/// <returns></returns>
-    public void Attack ()
-{
-    StartCoroutine(DoDamage(m_attackPower*m_currentBrickHealth));
-}
-    
-    public void ChangeColor()
+
+    /// <summary>
+    /// похоже это лишний метд Аттака (так как есть ДуДемедж), хотя я наверно просто могу в нем вызывать дуДемедж
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator Attack()
     {
-        m_SpriteRenderer.color = Color.LerpUnclamped(new Color(1, 0.75f, 0, 1), Color.red, m_currentBrickHealth / (float)ScoreManager.Instance.m_LevelOfFinalBrick);
+        Debug.Log("brick IEnumerator Attack");
+        yield return DoDamage(m_attackPower * m_currentBrickHealth);
     }
 
-    
+    public void ChangeColor()
+    {
+        m_SpriteRenderer.color = Color.LerpUnclamped(new Color(1, 0.75f, 0, 1), Color.red,
+            m_currentBrickHealth / (float)ScoreManager.Instance.m_LevelOfFinalBrick);
+    }
+
+
     public override IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
     {
         yield return state.MoveToTarget(startPos, endPos, currentY, maxY);
     }
 
-    public void Destroy() {
+    public void Destroy()
+    {
         Destroy(parent, 3);
     }
-
 }

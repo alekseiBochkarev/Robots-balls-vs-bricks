@@ -222,6 +222,16 @@ public class BrickSpawner : MonoBehaviour
         allBricksMovedDown = true;
     }
 
+    public IEnumerator AttackBrickRows()
+    {
+        vision = 10f; 
+        colliders = Physics2D.OverlapCircleAll(transform.position, vision);
+        for (var y = m_levelConfig.grid.GridHeight-1; y >= 0; y--)
+        {
+            yield return AttackRow(y);
+        } 
+    }
+
     public IEnumerator MoveRow(int y)
     {
         for (var x = 0; x <= m_levelConfig.grid.GridWidth-1; x++)
@@ -242,6 +252,28 @@ public class BrickSpawner : MonoBehaviour
             }
         }
         yield return null;
+    }
+    
+    public IEnumerator AttackRow(int y)
+    {
+        for (var x = 0; x <= m_levelConfig.grid.GridWidth-1; x++)
+        {
+            foreach (var t in colliders)
+            {
+                if (t.gameObject == gameObject) continue;
+                if (t.gameObject.GetComponent<Brick>() != null)
+                {
+                    //Debug.Log("component MOVEDOWNBEHAVIOUR not null");
+                    if (t.gameObject.GetComponent<Brick>().X == x &&
+                        t.gameObject.GetComponent<Brick>().Y == y)
+                    {
+                        Debug.Log("component MOVEDOWN Attack");
+                        yield return t.gameObject.GetComponent<Brick>().Attack();
+                    }
+                }
+            }
+        }
+        yield break;
     }
 
     public void MoveHorizontalBricksRows()
