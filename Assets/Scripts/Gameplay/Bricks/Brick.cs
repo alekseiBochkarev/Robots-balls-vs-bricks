@@ -3,6 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Gameplay.Loot;
 
 public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
 {
