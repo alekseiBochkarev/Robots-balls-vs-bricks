@@ -7,7 +7,7 @@ public class LootBag : MonoBehaviour
     public GameObject droppedItemPrefab;
     public List<LootSO> lootList = new List<LootSO>();
 
-    private static int sortingOrder = 30;
+    private static readonly int sortingOrderThirty = 30;
 
     private SpriteRenderer sprRenderer;
 
@@ -31,20 +31,26 @@ public class LootBag : MonoBehaviour
     public void InstantiateLoot()
     {
         List<LootSO> droppedItems = GetDroppedItems();
+        var parentPosition = this.transform.position;
+        
         if (droppedItems != null)
         {
             foreach(LootSO singleItem in droppedItems)
             {
-                GameObject lootItem = Instantiate(droppedItemPrefab, transform.position, Quaternion.identity);
+                // Спавним Родитель лута
+                GameObject lootItem = Instantiate(droppedItemPrefab, parentPosition, Quaternion.identity);
 
-                //Init Sprite and sortingOrder for correct displaying
-                sprRenderer = lootItem.GetComponent<SpriteRenderer>();
-                sprRenderer.sprite = singleItem.lootSprite;
-                sprRenderer.sortingOrder = sortingOrder;
+                // Проставляем itemQuantity, lootSO
+                var lootItemComponent = lootItem.GetComponent<LootItem>();
+                
+                lootItemComponent.itemQuantity = singleItem.dropLootQuantity;
+                lootItemComponent.lootSO = singleItem;
 
-                lootItem.GetComponent<LootItem>().itemQuantity = singleItem.dropLootQuantity;
-
-                lootItem.GetComponent<LootItem>().lootSO = singleItem;
+                // Спавним лут и назначем его чайлдом Родителя лута (LootItem) и выставляем sortingOrder
+                var lootPrefab = Instantiate(lootItemComponent.lootSO.lootObject, parentPosition, Quaternion.identity);
+                lootPrefab.transform.SetParent(lootItem.transform);
+                
+                lootPrefab.GetComponent<SpriteRenderer>().sortingOrder = sortingOrderThirty;
             }
         }
     }

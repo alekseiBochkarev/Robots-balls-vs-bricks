@@ -17,3 +17,7 @@ MonoBehaviour:
   dropChance: 100
   dropLootQuantity: 10
   moneyType: 0
+  someValue: 0
+  CoinDropScript: {fileID: 0}
+  lootObject: {fileID: 7619973896848827718, guid: 0b766b54221cde2418e3267ad969eb4b,
+    type: 3}

@@ -1,6 +1,5 @@
 using Assets.Scripts.Data_Managing;
 using Assets.Scripts.DataManaging.Utills;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LootItem : MonoBehaviour
@@ -18,8 +17,9 @@ public class LootItem : MonoBehaviour
 
     public float itemQuantity;
 
-    [Header("Up And Down Animation Vars")]
-    [SerializeField] private float amplitude;
+    [Header("Up And Down Animation Vars")] [SerializeField]
+    private float amplitude;
+
     [SerializeField] private float frequency;
     Vector3 posOrigin = new Vector3();
     Vector3 temPos = new Vector3();
@@ -35,6 +35,7 @@ public class LootItem : MonoBehaviour
         amplitude = 0.1f;
         frequency = 0.8f;
     }
+
     private void Update()
     {
         DropLootAnimation();
@@ -61,8 +62,8 @@ public class LootItem : MonoBehaviour
         if (disappearTimer > 0)
         {
             temPos = posOrigin;
-        temPos.y += (Mathf.Sin(Time.fixedTime * Mathf.PI * frequency)) * amplitude;
-        transform.position = temPos;
+            temPos.y += (Mathf.Sin(Time.fixedTime * Mathf.PI * frequency)) * amplitude;
+            transform.position = temPos;
         }
     }
 
@@ -74,6 +75,7 @@ public class LootItem : MonoBehaviour
         {
             transform.localScale -= Vector3.one * decreaseScaleAmount * Time.deltaTime;
         }
+
         transform.position = Vector3.MoveTowards(transform.position, moveItemToTarget, MoveSpeed * Time.deltaTime);
 
         if (transform.position == moveItemToTarget)
@@ -82,14 +84,17 @@ public class LootItem : MonoBehaviour
             {
                 WalletController.Instance.AddMoneyAndShow(lootSO.dropLootQuantity);
             }
+
             if (lootSO.GetType() == typeof(HealLootSO))
             {
-                float healAfterCalculations = ProbalitiesController.Instance.GetCalculatedValueFromTotalByPercentage(Hero.Instance.MaxHealth, lootSO.dropLootQuantity);
+                float healAfterCalculations =
+                    ProbalitiesController.Instance.GetCalculatedValueFromTotalByPercentage(Hero.Instance.MaxHealth,
+                        lootSO.dropLootQuantity);
                 Hero.Instance.HealUp(healAfterCalculations);
             }
+
             // Destroy object after it reaches position
             Destroy(this.gameObject);
         }
     }
-
 }

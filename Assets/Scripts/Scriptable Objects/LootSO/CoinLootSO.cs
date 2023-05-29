@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Coin Loot", menuName = "Loot/Coins")]
+[CreateAssetMenu(fileName = "Coin Loot", menuName = "Loot/Coins")]
 public class CoinLootSO : LootSO
 {
-    public WalletMoneyEnum moneyType;
 }
