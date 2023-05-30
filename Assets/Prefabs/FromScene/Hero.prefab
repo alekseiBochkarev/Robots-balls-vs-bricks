@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4455049390096852879}
   - component: {fileID: 2224682512971057594}
   - component: {fileID: 3099995468502116795}
+  - component: {fileID: 1187449638300467195}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Hero
@@ -101,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSkill: 3
+  m_currentHealth: 0
 --- !u!114 &2224682512971057594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +131,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroBuffs:
   - {fileID: 11400000, guid: 2135372fb34863c47995cde170b40148, type: 2}
+--- !u!61 &1187449638300467195
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4455049390096852866}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.42, y: 5.12}
+    newSize: {x: 19.199999, y: 10.799999}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.42, y: 5.12}
+  m_EdgeRadius: 0
 --- !u!1 &6422487429084728365
 GameObject:
   m_ObjectHideFlags: 0

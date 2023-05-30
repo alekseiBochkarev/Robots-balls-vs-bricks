@@ -234,6 +234,8 @@ public class BrickSpawner : MonoBehaviour
 
     public IEnumerator MoveRow(int y)
     {
+        vision = 10f; //need to check maybe we should set more than 10
+        colliders = Physics2D.OverlapCircleAll(transform.position, vision);
         for (var x = 0; x <= m_levelConfig.grid.GridWidth-1; x++)
         {
             foreach (var t in colliders)

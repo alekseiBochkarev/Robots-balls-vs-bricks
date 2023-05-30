@@ -4,7 +4,7 @@ using System.Threading;
 using UnityEngine;
 using Assets.Scripts.Gameplay;
 
-public class AttackStateBrick : IStateBrick
+public class AttackStateBrick : MonoBehaviour, IStateBrick
 {
     Brick brick;
     public AttackStateBrick(Brick brick) {
@@ -38,7 +38,9 @@ public class AttackStateBrick : IStateBrick
         {
             Debug.Log("Range attack");
             brick.animator.Play("attack");
-            brick.hero.TakeDamage(applyDamage); // later remove it
+            var bullet = Instantiate(brick.bulletOnlyForRangeAttackedBricks, this.brick.transform.position, Quaternion.identity);
+            bullet.GetComponent<Bullet>().AttackPower = applyDamage;
+           // brick.hero.TakeDamage(applyDamage); // later remove it
             yield return new WaitForSeconds(0.1f);
             brick.SetState(brick.idleStateBrick);
             yield break;
@@ -59,7 +61,6 @@ public class AttackStateBrick : IStateBrick
         brick.MCurrentBrickHealth += healHealthUpAmountInt;
         brick.healthBar.SaveCurrentBrickHealth();
         brick.healthBar.ShowHealth();
-
         
         DamagePopupController.Instance.CreateDamagePopup(brick.brickCoord, healHealthUpAmountInt, isCriticalHit, isDamage, brick.damageTextColor, brick.damageTextFontSize);
     }

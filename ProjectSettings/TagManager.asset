@@ -13,6 +13,7 @@ TagManager:
   - Cannon
   - DamagePopups
   - Cell
+  - Bullet
   layers:
   - Default
   - TransparentFX
