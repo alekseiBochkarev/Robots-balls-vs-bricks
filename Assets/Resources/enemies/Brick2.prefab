@@ -5337,8 +5337,14 @@ PrefabInstance:
     - target: {fileID: 9046373954102932149, guid: 2448ac433eae27f469cb254c9354c2aa,
         type: 3}
       propertyPath: canRangeAttack
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9046373954102932149, guid: 2448ac433eae27f469cb254c9354c2aa,
+        type: 3}
+      propertyPath: bulletOnlyForRangeAttackedBricks
+      value: 
+      objectReference: {fileID: 1054516289806286, guid: 686d78e28339efe449537994c77f7004,
+        type: 3}
     - target: {fileID: 9146324641245280145, guid: 2448ac433eae27f469cb254c9354c2aa,
         type: 3}
       propertyPath: m_Sprite
@@ -5393,7 +5399,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8340080932365875272}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &4250372058668262357
+--- !u!95 &7346086198685504543
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

@@ -64,6 +64,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public Color damageTextColor;
     public int damageTextFontSize;
     public GameObject parent;
+    public GameObject bulletOnlyForRangeAttackedBricks;
     public Animator animator;
 
     public IStateBrick idleStateBrick;

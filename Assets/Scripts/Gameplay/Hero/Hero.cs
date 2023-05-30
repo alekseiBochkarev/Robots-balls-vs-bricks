@@ -8,6 +8,10 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
     private HealthBar healthBar;
     private HeroStats heroStats;
     private bool isDamage;
+    
+    public int appliedDamage;
+    public Color damageTextColor;
+    public int damageTextFontSize;
 
     private Vector3 heroCoord;
     [SerializeField] private float m_currentHealth;
@@ -82,6 +86,15 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
         if (CurrentHealth <= 0)
         {
             EventManager.OnLifeIsOverEvent();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.GetComponent<Bullet>() != null)
+        {
+            appliedDamage = collider.gameObject.GetComponent<Bullet>().GetAttackPower;
+            TakeDamage(appliedDamage);
         }
     }
 
