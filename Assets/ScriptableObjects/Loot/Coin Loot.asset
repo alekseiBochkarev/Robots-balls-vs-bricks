@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d75c654585aae2e49be3c1d8c4b673b1, type: 3}
   m_Name: Coin Loot
   m_EditorClassIdentifier: 
-  lootSprite: {fileID: 21300000, guid: 0ad9ec41d7e0ef947becb3a014e5b286, type: 3}
-  lootName: Coin
+  lootObject: {fileID: 3991406639087215284, guid: 71c0d4c437738104d9e4a09de49295bb,
+    type: 3}
   dropChance: 100
   dropLootQuantity: 10
-  moneyType: 0

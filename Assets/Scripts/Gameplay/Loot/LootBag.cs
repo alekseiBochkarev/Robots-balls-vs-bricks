@@ -1,50 +1,58 @@
 using System.Collections.Generic;
-using UnityEngine;
 using Assets.Scripts.Data_Managing;
+using UnityEngine;
 
-public class LootBag : MonoBehaviour
+namespace Gameplay.Loot
 {
-    public GameObject droppedItemPrefab;
-    public List<LootSO> lootList = new List<LootSO>();
-
-    private static int sortingOrder = 30;
-
-    private SpriteRenderer sprRenderer;
-
-    List<LootSO> GetDroppedItems()
+    public class LootBag : MonoBehaviour
     {
-        List<LootSO> possibleDrops = new List<LootSO>();
-        foreach (LootSO item in lootList)
+        public GameObject droppedItemPrefab;
+        public List<LootSO> lootList;
+
+        private readonly int _sortingOrderThirty = 30;
+
+        List<LootSO> GetDroppedItems()
         {
-            if (ProbalitiesController.Instance.CheckProbality(item.dropChance))
+            List<LootSO> possibleDrops = new List<LootSO>();
+            foreach (LootSO item in lootList)
             {
-                possibleDrops.Add(item);
+                if (ProbalitiesController.Instance.CheckProbality(item.dropChance))
+                {
+                    possibleDrops.Add(item);
+                }
             }
-        }
-        if (possibleDrops.Count > 0)
-        {
-            return possibleDrops; // returns list of loot
-        }
-        return null; // returns no loot, if CheckProbality is false
-    }
 
-    public void InstantiateLoot()
-    {
-        List<LootSO> droppedItems = GetDroppedItems();
-        if (droppedItems != null)
-        {
-            foreach(LootSO singleItem in droppedItems)
+            if (possibleDrops.Count > 0)
             {
-                GameObject lootItem = Instantiate(droppedItemPrefab, transform.position, Quaternion.identity);
+                return possibleDrops; // returns list of loot
+            }
 
-                //Init Sprite and sortingOrder for correct displaying
-                sprRenderer = lootItem.GetComponent<SpriteRenderer>();
-                sprRenderer.sprite = singleItem.lootSprite;
-                sprRenderer.sortingOrder = sortingOrder;
+            return null; // returns no loot, if CheckProbality is false
+        }
 
-                lootItem.GetComponent<LootItem>().itemQuantity = singleItem.dropLootQuantity;
+        public void InstantiateLoot()
+        {
+            List<LootSO> droppedItems = GetDroppedItems();
+            var parentPosition = this.transform.position;
 
-                lootItem.GetComponent<LootItem>().lootSO = singleItem;
+            if (droppedItems != null)
+            {
+                foreach (LootSO singleItem in droppedItems)
+                {
+                    // Спавним Родитель лута
+                    GameObject lootItem = Instantiate(droppedItemPrefab, parentPosition, Quaternion.identity);
+
+                    // Проставляем lootSO
+                    var lootItemComponent = lootItem.GetComponent<LootItem>();
+                    lootItemComponent.lootSo = singleItem;
+
+                    // Спавним лут и назначем его чайлдом Родителя лута (LootItem) и выставляем sortingOrder
+                    var lootPrefab = Instantiate(lootItemComponent.lootSo.lootObject, parentPosition,
+                        Quaternion.identity);
+                    lootPrefab.transform.SetParent(lootItem.transform);
+
+                    lootPrefab.GetComponent<SpriteRenderer>().sortingOrder = _sortingOrderThirty;
+                }
             }
         }
     }
