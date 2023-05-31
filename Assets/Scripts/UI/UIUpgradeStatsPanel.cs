@@ -1,5 +1,4 @@
 using Gameplay.Batteries.Battery_Cell;
-using Gameplay.StatsPanel.StarterBalls;
 using Interfaces;
 using TMPro;
 using UnityEngine;
@@ -88,7 +87,6 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         _sightLengthPrefabController = sightLengthPrefab.GetComponent<SightLengthPrefabController>();
 
         // Подписываемся на ивенты
-        EventManager.GameWon += ClearStatsToDefault;
         EventManager.CoinsChanged += ShowStatsDataAndRuleButtons;
         EventManager.UpgradeStats += ShowStatsDataAndRuleButtons;
     }
@@ -116,7 +114,6 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
     private void OnDestroy()
     {
-        EventManager.GameWon -= ClearStatsToDefault;
         EventManager.CoinsChanged -= ShowStatsDataAndRuleButtons;
         EventManager.UpgradeStats -= ShowStatsDataAndRuleButtons;
     }
@@ -365,7 +362,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         coins.RemoveCoins(upgradeStats.UpgradeStarterBallsCoinsRequired);
 
         // Add Starter Balls to the player
-        heroStats.UpgradeStats(HeroStats.HeroStatsEnum.StarterBalls, upgradeStats.UpgradeStarterBallsValue);
+        heroStats.UpgradeStats(HeroStats.HeroStatsEnum.StarterBalls, _addUpgradeLevel);
 
         // Reinit local values for Starter Balls
         _playerStarterBalls = heroStats.StarterBalls;

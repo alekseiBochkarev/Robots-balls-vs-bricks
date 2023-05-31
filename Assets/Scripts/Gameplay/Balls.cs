@@ -138,7 +138,7 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
     {
         DestroyBallsOnScene();
         
-        startBallsAmount = (int)_heroStats.StarterBalls;
+        startBallsAmount = (int)_heroStats.GetStats(HeroStats.HeroStatsEnum.StarterBalls);
         
         PlayerBalls = new List<AbstractBall>(startBallsAmount);
         SpawnNewBall(startBallsAmount, BallsTypeEnum.Ball);

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -60,6 +61,13 @@ public class BallLauncher : MonoBehaviour
 
         //m_BallsAmount = PlayerPrefs.GetInt("balls", 1);
         m_BallsScript = GetComponent<Balls>();
+
+        EventManager.UpgradeStats += ShowBallsAmountOnHUD;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.UpgradeStats -= ShowBallsAmountOnHUD;
     }
 
     private void Start()
