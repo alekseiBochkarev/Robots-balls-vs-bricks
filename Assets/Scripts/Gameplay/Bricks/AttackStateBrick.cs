@@ -22,7 +22,6 @@ public class AttackStateBrick : MonoBehaviour, IStateBrick
     {
         if (brick.IsWaitMeleeAttack)
         {
-            Debug.Log("MeleeAttack DAMAGE");
             iTween.MoveTo(brick.parent,
                 iTween.Hash("position", new Vector3(brick.hero.transform.position.x, brick.hero.transform.position.y, brick.hero.transform.position.z),
                     "easetype", iTween.EaseType.linear, "time", (Vector2.Distance(this.brick.transform.position, brick.hero.transform.position))/10));
@@ -36,11 +35,9 @@ public class AttackStateBrick : MonoBehaviour, IStateBrick
 
         if (brick.CanRangeAttack)
         {
-            Debug.Log("Range attack");
             brick.animator.Play("attack");
             var bullet = Instantiate(brick.bulletOnlyForRangeAttackedBricks, this.brick.transform.position, Quaternion.identity);
             bullet.GetComponent<Bullet>().AttackPower = applyDamage;
-           // brick.hero.TakeDamage(applyDamage); // later remove it
             yield return new WaitForSeconds(0.1f);
             brick.SetState(brick.idleStateBrick);
             yield break;
