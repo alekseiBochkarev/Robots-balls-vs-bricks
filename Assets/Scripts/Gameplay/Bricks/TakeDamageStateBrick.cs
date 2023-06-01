@@ -54,7 +54,6 @@ public class TakeDamageStateBrick : IStateBrick
         brick.m_Text.text = brick.MCurrentBrickHealth.ToString();
         brick.healthBar.SaveCurrentBrickHealth();
         brick.healthBar.ShowHealth();
-        EventManager.OnBrickHit();
 
         // Create DamagePopup with damage above the BRICK
         InitBrickDamagePopupPosition();
@@ -75,7 +74,6 @@ public class TakeDamageStateBrick : IStateBrick
         brick.m_Text.text = brick.MCurrentBrickHealth.ToString();
         brick.healthBar.SaveCurrentBrickHealth();
         brick.healthBar.ShowHealth();
-        EventManager.OnBrickHit();
 
         // Create DamagePopup with damage above the BRICK
         InitBrickDamagePopupPosition();
@@ -94,7 +92,6 @@ public class TakeDamageStateBrick : IStateBrick
         brick.m_Text.text = brick.MCurrentBrickHealth.ToString();
         brick.healthBar.SaveCurrentBrickHealth();
         brick.healthBar.ShowHealth();
-        EventManager.OnBrickHit();
 
         // Create DamagePopup with damage above the BRICK
         InitBrickDamagePopupPosition();

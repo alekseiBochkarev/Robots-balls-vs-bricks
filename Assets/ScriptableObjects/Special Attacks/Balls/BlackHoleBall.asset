@@ -16,7 +16,7 @@ MonoBehaviour:
   specialAttackName: Black Hole Ball
   specialAttackDescription: Creates a Black Hole on hit
   specialAttackImage: {fileID: 21300000, guid: 500e8394aee07014fb214bfcc3d1d57c, type: 3}
-  maxUseAmount: 99
-  currentUseAmount: 1
+  maxUseAmount: 3
+  currentUseAmount: 0
   attackTypeEnum: 0
   ballsType: 11

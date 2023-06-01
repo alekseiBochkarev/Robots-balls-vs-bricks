@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4305478479983705756}
   m_Layer: 8
   m_Name: LaserVerticalCombo
-  m_TagString: Ball
+  m_TagString: Combo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238,5 +238,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hero: {fileID: 0}
   attackPower: 0
-  MoveSpeed: 7
   ballToSpawnOnHit: 1

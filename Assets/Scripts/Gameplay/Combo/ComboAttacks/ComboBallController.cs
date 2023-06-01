@@ -11,7 +11,7 @@ public class ComboBallController : MonoBehaviour, IBall
     private int damageTextFontSize;
     private Color damageTextColor;
     private float vision;
-    public int MoveSpeed = 7;
+    private readonly int _moveSpeed = 10;
     private GameObject brickObject;
     private Transform cannonPosition;
     Vector3 diff;
@@ -73,7 +73,7 @@ public class ComboBallController : MonoBehaviour, IBall
             {
                 if (brickObject.GetComponent<Brick>().MCurrentBrickHealth > 0)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, brickObject.transform.position, MoveSpeed * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, brickObject.transform.position, _moveSpeed * Time.deltaTime);
                     RotateBall();
                     CheckAndDestroy();
                 }

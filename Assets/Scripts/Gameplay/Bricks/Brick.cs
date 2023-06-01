@@ -153,6 +153,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
             damageTextColor = collision.gameObject.GetComponent<IBall>().GetDamageTextColor;
             damageTextFontSize = collision.gameObject.GetComponent<IBall>().GetDamageTextFontSize;
             TakeDamage(appliedDamage, damageTextColor, damageTextFontSize);
+            EventManager.OnBrickHit();
             if (collision.gameObject.GetComponent<AbstractBall>() != null)
             {
                 Vector3 position = collision.gameObject.transform.position;
@@ -175,6 +176,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
             damageTextColor = collider.gameObject.GetComponent<IBall>().GetDamageTextColor;
             damageTextFontSize = collider.gameObject.GetComponent<IBall>().GetDamageTextFontSize;
             TakeDamage(appliedDamage, damageTextColor, damageTextFontSize);
+            EventManager.OnBrickHit();
             if (collider.gameObject.GetComponent<AbstractBall>() != null)
             {
                 Vector3 position = collider.gameObject.transform.position;
