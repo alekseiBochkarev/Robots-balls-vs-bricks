@@ -47,36 +47,13 @@ public class TakeDamageStateBrick : IStateBrick
     }
 
     public void TakeDamage (int appliedDamage) {
-        brick.animator.Play("takeDamage");
-        bool isDamage = true;
-        bool isCriticalHit = false;
-        brick.MCurrentBrickHealth -= appliedDamage;
-        brick.m_Text.text = brick.MCurrentBrickHealth.ToString();
-        brick.healthBar.SaveCurrentBrickHealth();
-        brick.healthBar.ShowHealth();
-
-        // Create DamagePopup with damage above the BRICK
-        InitBrickDamagePopupPosition();
-        DamagePopupController.Instance
-        .CreateDamagePopup(brick.brickCoordAbove, appliedDamage, isCriticalHit, isDamage, brick.damageTextColor, brick.damageTextFontSize);
-
-        if (brick.MCurrentBrickHealth <= 0)
-        {
-            brick.DeathOfBrick(true);
-        }
+        TakeDamage(appliedDamage, brick.damageTextColor, brick.damageTextFontSize);
     }
 
     public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize) {
-        brick.animator.Play("takeDamage");
+        BeHitGeneral(appliedDamage);
         bool isDamage = true;
         bool isCriticalHit = false;
-        brick.MCurrentBrickHealth -= appliedDamage;
-        brick.m_Text.text = brick.MCurrentBrickHealth.ToString();
-        brick.healthBar.SaveCurrentBrickHealth();
-        brick.healthBar.ShowHealth();
-
-        // Create DamagePopup with damage above the BRICK
-        InitBrickDamagePopupPosition();
         DamagePopupController.Instance
         .CreateDamagePopup(brick.brickCoord, appliedDamage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
 
@@ -86,7 +63,20 @@ public class TakeDamageStateBrick : IStateBrick
         }
     }
     
-    public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize) {
+    public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize)
+    {
+        BeHitGeneral(appliedDamage);
+        DamagePopupController.Instance
+        .CreateTextPopup(brick.brickCoordAbove, textPopupTextValue, textColor, textFontSize);
+
+        if (brick.MCurrentBrickHealth <= 0)
+        {
+            brick.DeathOfBrick(true);
+        }
+    }
+
+    private void BeHitGeneral(int appliedDamage)
+    {
         brick.animator.Play("takeDamage");
         brick.MCurrentBrickHealth -= appliedDamage;
         brick.m_Text.text = brick.MCurrentBrickHealth.ToString();
@@ -95,13 +85,6 @@ public class TakeDamageStateBrick : IStateBrick
 
         // Create DamagePopup with damage above the BRICK
         InitBrickDamagePopupPosition();
-        DamagePopupController.Instance
-        .CreateTextPopup(brick.brickCoordAbove, textPopupTextValue, textColor, textFontSize);
-
-        if (brick.MCurrentBrickHealth <= 0)
-        {
-            brick.DeathOfBrick(true);
-        }
     }
 
     public void DeathOfBrick (bool isInstantiateLoot) {
