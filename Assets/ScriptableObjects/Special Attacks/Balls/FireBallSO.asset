@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialAttackIndex: 0
   specialAttackName: Fire Ball
-  specialAttackDescription: Have a change to burn
+  specialAttackDescription: "Have a chan\u0441e to burn"
   specialAttackImage: {fileID: 21300000, guid: 31457461d3aa62240aab889aaed94923, type: 3}
-  maxUseAmount: 1
-  currentUseAmount: 1
+  maxUseAmount: 4
+  currentUseAmount: 0
   attackTypeEnum: 0
   ballsType: 8

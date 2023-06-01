@@ -1557,6 +1557,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 7314975993107830742, guid: 040699065a08ed843a7214f627d6b647,
+        type: 3}
+      propertyPath: heroBuffs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7433770354790282917, guid: 040699065a08ed843a7214f627d6b647,
         type: 3}
       propertyPath: m_AnchorMax.x
