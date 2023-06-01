@@ -4,10 +4,10 @@
     {
         _objectGamePositions = new[]
         {
-            new ObjectGamePosition("enemies/Brick3", 1, 2, 20),
-            new ObjectGamePosition("enemies/Brick3", 10, 2, 20),
+            new ObjectGamePosition("enemies/Brick3", 1, 2, 12),
+            new ObjectGamePosition("enemies/Brick3", 10, 2, 12),
             
-            new ObjectGamePosition("enemies/BrickBoss", 5, 4, 200),
+            new ObjectGamePosition("enemies/BrickBoss", 5, 4, 40),
 
             new ObjectGamePosition("extras/Magic Ball Particle", 5, 2, 1),
             
