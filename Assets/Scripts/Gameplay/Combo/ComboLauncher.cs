@@ -144,8 +144,8 @@ namespace Assets.Scripts.Gameplay.Combo
 
                     if (currentComboAmount % initComboOnValue == 0)
                     {
-                        Debug.Log("SHOULD COMBO ATTACK");
                         string comboTypeName = t.comboType.ToString();
+                        Debug.Log("SHOULD COMBO ATTACK - combo " + comboTypeName);
                         if (IsDoubleComboBuffActivated == true)
                         {
                             IsPossibleToDoubleAttack =
@@ -182,6 +182,7 @@ namespace Assets.Scripts.Gameplay.Combo
         BlackHoleCombo,
         LaserVerticalCombo,
         LaserHorizontalCombo,
-        LaserCrossCombo
+        LaserCrossCombo,
+        PoisonCombo
     }
 }

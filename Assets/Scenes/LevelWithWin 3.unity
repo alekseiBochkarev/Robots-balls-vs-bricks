@@ -1854,18 +1854,18 @@ PrefabInstance:
     - target: {fileID: 8172660406673986189, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
         type: 3}
       propertyPath: comboAttacksSO.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8172660406673986189, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
         type: 3}
       propertyPath: specialAttacksSO.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8172660406673986189, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
         type: 3}
       propertyPath: comboAttacksSO.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: a7ab98fcec9376b428b7f529a08d234e,
+      objectReference: {fileID: 11400000, guid: ad0a341e485199143a5a5397b276aaf7,
         type: 2}
     - target: {fileID: 8172660406673986189, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
         type: 3}
@@ -1878,6 +1878,18 @@ PrefabInstance:
       propertyPath: comboAttacksSO.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 92a64eabce1515d449aa15c95fc41e17,
+        type: 2}
+    - target: {fileID: 8172660406673986189, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
+        type: 3}
+      propertyPath: comboAttacksSO.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: ad0a341e485199143a5a5397b276aaf7,
+        type: 2}
+    - target: {fileID: 8172660406673986189, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
+        type: 3}
+      propertyPath: specialAttacksSO.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: fa691d4e6e3b24e49b8ec34eec98bd3d,
         type: 2}
     - target: {fileID: 8172660406673986189, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
         type: 3}

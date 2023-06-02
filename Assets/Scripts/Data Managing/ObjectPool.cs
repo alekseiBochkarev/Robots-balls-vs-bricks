@@ -40,20 +40,22 @@ namespace Assets.Scripts.Data_Managing
 
         public GameObject Instantiate(string comboTypeName, Vector3 position, Quaternion rotation)
         {
+            /*
             foreach (var item in pool)
             {
-                /* if current item is not active and haven't been used yet:
-                 * - return it to reuse it from pool
-                 */
+                // if current item is not active and haven't been used yet:
+                 // - return it to reuse it from pool
+                 //
                 if (item.name.StartsWith(comboTypeName) && !item.activeInHierarchy)
                 {
+                    Debug.Log("COMBO item name " + item.name);
                     item.transform.position = position;
                     item.transform.rotation = rotation;
                     item.transform.SetParent(this.transform);
                     item.SetActive(true);
                     return item;
                 }
-            }
+            }*/
 
             /* if there are no inactive items in the pool and we allowed to grow the pool:
              * - creates another instance of prefab
