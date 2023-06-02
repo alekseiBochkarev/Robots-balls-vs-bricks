@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 50932128715658944}
   - component: {fileID: 58845583564804158}
   - component: {fileID: 96846943280894102}
-  - component: {fileID: 964171199461278394}
+  - component: {fileID: 6801718700228594622}
   m_Layer: 8
   m_Name: RocketCombo
   m_TagString: Combo
@@ -224,7 +224,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &964171199461278394
+--- !u!114 &6801718700228594622
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

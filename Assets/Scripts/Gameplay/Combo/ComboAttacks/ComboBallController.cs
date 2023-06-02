@@ -13,6 +13,7 @@ public class ComboBallController : MonoBehaviour, IBall
     private float vision;
     private readonly int _moveSpeed = 10;
     private GameObject brickObject;
+    private Vector3 target;
     private Transform cannonPosition;
     Vector3 diff;
     float rot_z;
@@ -25,6 +26,7 @@ public class ComboBallController : MonoBehaviour, IBall
         //Debug.Log("combo ball enabled -> add combo amount on scene");
         cannonPosition = GameObject.Find("Cannon").transform;
         brickObject = FindBrickToMove();
+        target = brickObject.transform.position;
         ComboLauncher.Instance.AddComboAmountOnScene();
 
         hero = GameObject.Find("Hero");
@@ -67,7 +69,10 @@ public class ComboBallController : MonoBehaviour, IBall
 
     private void Update()
     {
-        if (brickObject != null)
+        transform.position = Vector3.MoveTowards(transform.position, target, _moveSpeed * Time.deltaTime);
+        RotateBall();
+        CheckAndDestroy();
+        /*if (brickObject != null)
         {
             if (brickObject.GetComponent<Brick>() != null)
             {
@@ -90,12 +95,12 @@ public class ComboBallController : MonoBehaviour, IBall
         else
         {
             brickObject = FindBrickToMove();
-        }
+        }*/
     }
 
     void RotateBall()
     {
-        diff = brickObject.transform.position - transform.position;
+        diff = target - transform.position;
         diff.Normalize();
         rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
@@ -103,24 +108,33 @@ public class ComboBallController : MonoBehaviour, IBall
 
     public void CheckAndDestroy()
     {
-        if (transform.position == brickObject.transform.position)
+        if (brickObject != null)
         {
-            if (CloneBallTypes.InstaKillBall == ballToSpawnOnHit)
+            if (transform.position == target)
             {
-                string instaKillMessageText = "INSTAKILL";
-                InstaKillAttack instaKillAttack = new InstaKillAttack(instaKillMessageText);
-                instaKillAttack.SpecialAttack(brickObject.transform.position, brickObject);
-            }
+                if (CloneBallTypes.InstaKillBall == ballToSpawnOnHit)
+                {
+                    string instaKillMessageText = "INSTAKILL";
+                    InstaKillAttack instaKillAttack = new InstaKillAttack(instaKillMessageText);
+                    instaKillAttack.SpecialAttack(brickObject.transform.position, brickObject);
+                    HideComboAttack();
+                }
 
-            if (CloneBallTypes.RocketClone != ballToSpawnOnHit && CloneBallTypes.InstaKillBall != ballToSpawnOnHit)
-            {
-                GameObject ballPrefab = Resources.Load<GameObject>(ballToSpawnOnHit.ToString());
-                GameObject ballPrefabToSpawn = Instantiate(ballPrefab, transform.position, Quaternion.identity);
+                if (CloneBallTypes.RocketClone != ballToSpawnOnHit && CloneBallTypes.InstaKillBall != ballToSpawnOnHit)
+                {
+                    GameObject ballPrefab = Resources.Load<GameObject>(ballToSpawnOnHit.ToString());
+                    GameObject ballPrefabToSpawn = Instantiate(ballPrefab, transform.position, Quaternion.identity);
+                    HideComboAttack();
+                }
+                else
+                {
+                    brickObject.GetComponent<Brick>().TakeDamage(attackPower, damageTextColor, damageTextFontSize);
+                    HideComboAttack();
+                }
             }
-            else
-            {
-                brickObject.GetComponent<Brick>().TakeDamage(attackPower, damageTextColor, damageTextFontSize);
-            }
+        }
+        else
+        {
             HideComboAttack();
         }
     }
