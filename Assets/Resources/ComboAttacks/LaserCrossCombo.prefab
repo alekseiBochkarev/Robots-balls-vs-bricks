@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8459259618117897333}
   - component: {fileID: 1554592291877676890}
   - component: {fileID: 3515405104819798745}
-  - component: {fileID: 6363039673066512828}
+  - component: {fileID: -2833092276821863818}
   m_Layer: 8
   m_Name: LaserCrossCombo
   m_TagString: Combo
@@ -224,7 +224,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &6363039673066512828
+--- !u!114 &-2833092276821863818
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5385733435678287018}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5be57b48455b85c4e8f15e97cec22e52, type: 3}
+  m_Script: {fileID: 11500000, guid: cdc9076cec6d48db9b9848a3cb758d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hero: {fileID: 0}

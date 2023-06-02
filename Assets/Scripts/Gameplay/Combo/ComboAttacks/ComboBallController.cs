@@ -4,12 +4,33 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ComboBallController : MonoBehaviour, IBall
+public class ComboBallController : MonoBehaviour //, IBall
 {
-    public GameObject hero;
-    public int attackPower;
+    public ComboAttackBehaviour comboAttackBehaviour;
+    [SerializeField] protected GameObject hero;
+    [SerializeField] private int attackPower;
     private int damageTextFontSize;
     private Color damageTextColor;
+
+    public int AttackPower
+    {
+        get => attackPower;
+        set => attackPower = value;
+    }
+    
+    public int DamageTextFontSize
+    {
+        get => damageTextFontSize;
+        set => damageTextFontSize = value;
+    }
+
+    public Color DamageTextColor
+    {
+        get => damageTextColor;
+        set => damageTextColor = value;
+    }
+
+
     private float vision;
     private readonly int _moveSpeed = 10;
     private GameObject brickObject;
@@ -23,6 +44,11 @@ public class ComboBallController : MonoBehaviour, IBall
 
     private void OnEnable()
     {
+        Init();
+    }
+
+    public void Init()
+    {
         //Debug.Log("combo ball enabled -> add combo amount on scene");
         cannonPosition = GameObject.Find("Cannon").transform;
         brickObject = FindBrickToMove();
@@ -32,13 +58,13 @@ public class ComboBallController : MonoBehaviour, IBall
         hero = GameObject.Find("Hero");
         m_Collider2D = GetComponent<CircleCollider2D>();
         DisablePhysics();
-
         attackPower = hero.GetComponent<Hero>().attackSkill;
         damageTextColor = TextController.COLOR_YELLOW;
         damageTextFontSize = TextController.FONT_SIZE_MAX;
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         ComboLauncher.Instance.DecreaseComboAmountOnScene();
     }
 
@@ -59,11 +85,12 @@ public class ComboBallController : MonoBehaviour, IBall
                 utills.Shuffle(activeBricks);
                 brickObject = activeBricks[0].gameObject;
             }
-        }       
+        }
         else
         {
             brickObject = GameObject.Find("topBorder");
         }
+
         return brickObject;
     }
 
@@ -106,31 +133,22 @@ public class ComboBallController : MonoBehaviour, IBall
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
     }
 
+    public void ComboAttack(Vector3 position, GameObject brick)
+    {
+        if (brick != null)
+        {
+            comboAttackBehaviour.ComboAttack(position, brick);
+        }
+    }
+
     public void CheckAndDestroy()
     {
         if (brickObject != null)
         {
             if (transform.position == target)
             {
-                if (CloneBallTypes.InstaKillBall == ballToSpawnOnHit)
-                {
-                    string instaKillMessageText = "INSTAKILL";
-                    InstaKillAttack instaKillAttack = new InstaKillAttack(instaKillMessageText);
-                    instaKillAttack.SpecialAttack(brickObject.transform.position, brickObject);
-                    HideComboAttack();
-                }
-
-                if (CloneBallTypes.RocketClone != ballToSpawnOnHit && CloneBallTypes.InstaKillBall != ballToSpawnOnHit)
-                {
-                    GameObject ballPrefab = Resources.Load<GameObject>(ballToSpawnOnHit.ToString());
-                    GameObject ballPrefabToSpawn = Instantiate(ballPrefab, transform.position, Quaternion.identity);
-                    HideComboAttack();
-                }
-                else
-                {
-                    brickObject.GetComponent<Brick>().TakeDamage(attackPower, damageTextColor, damageTextFontSize);
-                    HideComboAttack();
-                }
+                ComboAttack(target, brickObject);
+                HideComboAttack();
             }
         }
         else
@@ -139,14 +157,14 @@ public class ComboBallController : MonoBehaviour, IBall
         }
     }
 
-    public void DestroyBall () {
+    public void DestroyBall()
+    {
         HideComboAttack();
     }
 
     private void HideComboAttack() // needs to hide, if we want reuse this gameObject using ObjectPool
     {
         //ComboLauncher.Instance.DecreaseComboAmountOnScene();
-
         this.transform.position = cannonPosition.position;
         this.transform.rotation = Quaternion.identity;
         this.gameObject.SetActive(false);
@@ -156,30 +174,14 @@ public class ComboBallController : MonoBehaviour, IBall
     {
         m_Collider2D.enabled = false;
     }
-
+/*
     public int GetAttackPower
     {
         get
         {
             return attackPower;
         }
-    }
-
-    public int GetDamageTextFontSize
-    {
-        get
-        {
-            return damageTextFontSize;
-        }
-    }
-
-    public Color GetDamageTextColor
-    {
-        get
-        {
-            return damageTextColor;
-        }
-    }
+    }*/
 }
 
 public enum CloneBallTypes
