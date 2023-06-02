@@ -9,31 +9,35 @@ namespace Assets.Scripts.Gameplay.Combo
     {
         public static ComboLauncher Instance;
 
-        [Header("List of Combos")]
-        [SerializeField] List<ComboAttackSO> comboAttacks;
+        [Header("List of Combos")] [SerializeField]
+        List<ComboAttackSO> comboAttacks;
+
         private GameObject comboPrefab;
         private Vector3 cannonPosition = new Vector3(2f, -6.09f, 0f); //need to add cannon position instead hardcore
-        
+
         [SerializeField] private bool canPlay;
+
         public bool CanPlay
-        { 
-        set { canPlay = value;}
-        get { return canPlay; } 
+        {
+            set { canPlay = value; }
+            get { return canPlay; }
         }
-        
+
         [SerializeField] private int comboAmountOnScenes;
         private int currentComboAmount;
         private int initComboOnValue;
 
         private ObjectPool comboPool;
 
-        [Header("Double Combo Info")]
-        [SerializeField] private float PercentageToTriggerComboTwice;
+        [Header("Double Combo Info")] [SerializeField]
+        private float PercentageToTriggerComboTwice;
+
         [SerializeField] private bool IsDoubleComboBuffActivated;
         [SerializeField] private bool IsPossibleToDoubleAttack;
 
-        [Header("Discount Combo Info")]
-        [SerializeField] private bool IsDiscountComboBuffActivated;
+        [Header("Discount Combo Info")] [SerializeField]
+        private bool IsDiscountComboBuffActivated;
+
         [SerializeField] private float PercentageToSetComboDiscount;
 
         private void Awake()
@@ -49,6 +53,7 @@ namespace Assets.Scripts.Gameplay.Combo
             EventManager.HeroBuffAdded += InitComboBuffs;
             EventManager.ComboCounterChanged += AddComboPointAndStartComboAttack;
         }
+
         private void OnDestroy()
         {
             EventManager.HeroBuffAdded -= InitComboBuffs;
@@ -57,7 +62,7 @@ namespace Assets.Scripts.Gameplay.Combo
 
         private void Update()
         {
-            if (comboAmountOnScenes == 0)
+            if (comboAmountOnScenes <= 0)
             {
                 CanPlay = true;
                 comboAmountOnScenes = 0;
@@ -87,24 +92,22 @@ namespace Assets.Scripts.Gameplay.Combo
 
         private void InitDoubleComboBuff(HeroBuffSO buff)
         {
-
             //Debug.Log("InitDoubleComboBuff BEFORE IF");
             if (buff.heroBuffType.Equals(HeroBuffsEnum.DoubleComboBuff))
             {
                 IsDoubleComboBuffActivated = true;
-                PercentageToTriggerComboTwice = (float) buff.heroBuffValue;
+                PercentageToTriggerComboTwice = (float)buff.heroBuffValue;
                 //Debug.Log("InitDoubleComboBuff AFTER IF");
             }
         }
 
         private void InitDiscountComboBuff(HeroBuffSO buff)
         {
-
             //Debug.Log("InitDiscountComboBuff BEFORE IF");
             if (buff.heroBuffType.Equals(HeroBuffsEnum.DiscountComboBuff))
             {
                 IsDiscountComboBuffActivated = true;
-                PercentageToSetComboDiscount = (float) buff.heroBuffValue;
+                PercentageToSetComboDiscount = (float)buff.heroBuffValue;
                 //Debug.Log("InitDiscountComboBuff AFTER IF");
             }
         }
@@ -129,25 +132,31 @@ namespace Assets.Scripts.Gameplay.Combo
             SetCurrentComboAmount(_currentComboAmount);
             if (currentComboAmount != 0 && comboAttacks.Count != 0)
             {
-                for (int i = 0; i < comboAttacks.Count; i++)
+                foreach (var t in comboAttacks)
                 {
-                    initComboOnValue = comboAttacks[i].initComboOnValue;
+                    initComboOnValue = t.initComboOnValue;
                     if (IsDiscountComboBuffActivated)
                     {
-                        initComboOnValue = (int) ProbalitiesController.Instance.GetCalculatedValueFromTotalByPercentage(initComboOnValue, PercentageToSetComboDiscount);
+                        initComboOnValue =
+                            (int)ProbalitiesController.Instance.GetCalculatedValueFromTotalByPercentage(
+                                initComboOnValue, PercentageToSetComboDiscount);
                     }
+
                     if (currentComboAmount % initComboOnValue == 0)
                     {
-                        string comboTypeName = comboAttacks[i].comboType.ToString();
+                        string comboTypeName = t.comboType.ToString();
+                        Debug.Log("SHOULD COMBO ATTACK - combo " + comboTypeName);
                         if (IsDoubleComboBuffActivated == true)
                         {
-                            IsPossibleToDoubleAttack = ProbalitiesController.Instance.CheckProbality(PercentageToTriggerComboTwice);
+                            IsPossibleToDoubleAttack =
+                                ProbalitiesController.Instance.CheckProbality(PercentageToTriggerComboTwice);
                             //Debug.Log("IsPossibleToDoubleAttack -> " + IsPossibleToDoubleAttack);
                             if (IsPossibleToDoubleAttack == true)
                             {
                                 comboPool.Instantiate(comboTypeName, cannonPosition, Quaternion.identity);
                             }
                         }
+
                         comboPool.Instantiate(comboTypeName, cannonPosition, Quaternion.identity);
                         CanPlay = false;
                     }
@@ -157,10 +166,11 @@ namespace Assets.Scripts.Gameplay.Combo
 
         public void SetSpecialAttack(SpecialAttackSO _specialAttack)
         {
-            comboAttacks.Add( (ComboAttackSO) _specialAttack);
-            InitComboPrefabAndAddToPool( (ComboAttackSO) _specialAttack);
+            comboAttacks.Add((ComboAttackSO)_specialAttack);
+            InitComboPrefabAndAddToPool((ComboAttackSO)_specialAttack);
         }
     }
+
     public enum ComboAttackEnum
     {
         RocketCombo,
@@ -172,6 +182,7 @@ namespace Assets.Scripts.Gameplay.Combo
         BlackHoleCombo,
         LaserVerticalCombo,
         LaserHorizontalCombo,
-        LaserCrossCombo
+        LaserCrossCombo,
+        PoisonCombo
     }
 }

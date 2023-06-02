@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 50932128715658944}
   - component: {fileID: 58845583564804158}
   - component: {fileID: 96846943280894102}
-  - component: {fileID: 6801718700228594622}
+  - component: {fileID: 3777900411040999463}
   m_Layer: 8
   m_Name: RocketCombo
   m_TagString: Combo
@@ -224,7 +224,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &6801718700228594622
+--- !u!114 &3777900411040999463
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1054516289806286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5be57b48455b85c4e8f15e97cec22e52, type: 3}
+  m_Script: {fileID: 11500000, guid: 25611acdd21f454b9df96a5554774257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hero: {fileID: 0}
