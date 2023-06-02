@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 50932128715658944}
   - component: {fileID: 58845583564804158}
   - component: {fileID: 96846943280894102}
-  - component: {fileID: 1941239652188985523}
+  - component: {fileID: 3658735676091028141}
   m_Layer: 8
   m_Name: InstaKillCombo
   m_TagString: Combo
@@ -224,7 +224,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &1941239652188985523
+--- !u!114 &3658735676091028141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

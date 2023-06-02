@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8459259618117897333}
   - component: {fileID: 1554592291877676890}
   - component: {fileID: 3515405104819798745}
-  - component: {fileID: 6260434269040810117}
+  - component: {fileID: 995814469054010343}
   m_Layer: 8
   m_Name: LaserHorizontalCombo
   m_TagString: Combo
@@ -224,7 +224,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &6260434269040810117
+--- !u!114 &995814469054010343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
