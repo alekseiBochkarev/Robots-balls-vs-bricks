@@ -1854,7 +1854,7 @@ PrefabInstance:
     - target: {fileID: 8172660406673986189, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
         type: 3}
       propertyPath: comboAttacksSO.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8172660406673986189, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
         type: 3}
@@ -1872,6 +1872,12 @@ PrefabInstance:
       propertyPath: comboAttacksSO.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: da02843afcdf40045a8a371a4f4d8f28,
+        type: 2}
+    - target: {fileID: 8172660406673986189, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
+        type: 3}
+      propertyPath: comboAttacksSO.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 92a64eabce1515d449aa15c95fc41e17,
         type: 2}
     - target: {fileID: 8172660406673986189, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
         type: 3}

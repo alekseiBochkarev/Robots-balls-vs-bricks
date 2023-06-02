@@ -138,14 +138,13 @@ namespace Assets.Scripts.Gameplay.Combo
                     if (IsDiscountComboBuffActivated)
                     {
                         initComboOnValue =
-                           ( (int)ProbalitiesController.Instance.GetCalculatedValueFromTotalByPercentage(
-                                initComboOnValue, PercentageToSetComboDiscount) == 0) 
-                               ? 1 
-                               : (int)ProbalitiesController.Instance.GetCalculatedValueFromTotalByPercentage(
-                               initComboOnValue, PercentageToSetComboDiscount);
+                            (int)ProbalitiesController.Instance.GetCalculatedValueFromTotalByPercentage(
+                                initComboOnValue, PercentageToSetComboDiscount);
                     }
+
                     if (currentComboAmount % initComboOnValue == 0)
                     {
+                        Debug.Log("SHOULD COMBO ATTACK");
                         string comboTypeName = t.comboType.ToString();
                         if (IsDoubleComboBuffActivated == true)
                         {

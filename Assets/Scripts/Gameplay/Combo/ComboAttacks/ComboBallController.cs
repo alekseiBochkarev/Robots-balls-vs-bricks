@@ -1,3 +1,4 @@
+using System;
 using Assets.Scripts.Gameplay.Combo;
 using Assets.Scripts.DataManaging.Utills;
 using System.Collections.Generic;
@@ -53,7 +54,7 @@ public class ComboBallController : MonoBehaviour //, IBall
         cannonPosition = GameObject.Find("Cannon").transform;
         brickObject = FindBrickToMove();
         target = brickObject.transform.position;
-        ComboLauncher.Instance.AddComboAmountOnScene();
+       // ComboLauncher.Instance.AddComboAmountOnScene();
 
         hero = GameObject.Find("Hero");
         m_Collider2D = GetComponent<CircleCollider2D>();
@@ -62,6 +63,7 @@ public class ComboBallController : MonoBehaviour //, IBall
         damageTextColor = TextController.COLOR_YELLOW;
         damageTextFontSize = TextController.FONT_SIZE_MAX;
     }
+    
 
     private void OnDisable()
     {
