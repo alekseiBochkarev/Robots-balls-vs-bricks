@@ -13,7 +13,7 @@ public class RocketComboAttack : MonoBehaviour, ComboAttackBehaviour
         get => attackPower;
         set => attackPower = value;
     }
-    
+
     public int DamageTextFontSize
     {
         get => damageTextFontSize;
@@ -25,11 +25,12 @@ public class RocketComboAttack : MonoBehaviour, ComboAttackBehaviour
         get => damageTextColor;
         set => damageTextColor = value;
     }
+
     public void ComboAttack(Vector3 position, GameObject brick)
     {
         if (brick != null)
         {
-          //  Debug.Log("RocketComboAttack attack power " + attackPower);
+            //  Debug.Log("RocketComboAttack attack power " + attackPower);
             brick.GetComponent<Brick>().TakeDamage(attackPower, damageTextColor, damageTextFontSize);
         }
     }

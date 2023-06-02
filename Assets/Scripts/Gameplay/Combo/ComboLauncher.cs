@@ -62,7 +62,7 @@ namespace Assets.Scripts.Gameplay.Combo
 
         private void Update()
         {
-            if (comboAmountOnScenes == 0)
+            if (comboAmountOnScenes <= 0)
             {
                 CanPlay = true;
                 comboAmountOnScenes = 0;

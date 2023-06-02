@@ -38,11 +38,11 @@ public class ComboBallController : MonoBehaviour //, IBall
     private Transform cannonPosition;
     Vector3 diff;
     float rot_z;
-    [SerializeField] private CloneBallTypes ballToSpawnOnHit;
+ //   [SerializeField] private CloneBallTypes ballToSpawnOnHit;
 
     private CircleCollider2D m_Collider2D;
 
-    private void OnEnable()
+    private void Awake()
     {
         Init();
     }
@@ -99,30 +99,6 @@ public class ComboBallController : MonoBehaviour //, IBall
         transform.position = Vector3.MoveTowards(transform.position, target, _moveSpeed * Time.deltaTime);
         RotateBall();
         CheckAndDestroy();
-        /*if (brickObject != null)
-        {
-            if (brickObject.GetComponent<Brick>() != null)
-            {
-                if (brickObject.GetComponent<Brick>().MCurrentBrickHealth > 0)
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, brickObject.transform.position, _moveSpeed * Time.deltaTime);
-                    RotateBall();
-                    CheckAndDestroy();
-                }
-                else
-                {
-                    brickObject = FindBrickToMove();
-                }
-            }
-            else
-            {
-                HideComboAttack();
-            }
-        }
-        else
-        {
-            brickObject = FindBrickToMove();
-        }*/
     }
 
     void RotateBall()
@@ -174,14 +150,7 @@ public class ComboBallController : MonoBehaviour //, IBall
     {
         m_Collider2D.enabled = false;
     }
-/*
-    public int GetAttackPower
-    {
-        get
-        {
-            return attackPower;
-        }
-    }*/
+
 }
 
 public enum CloneBallTypes
