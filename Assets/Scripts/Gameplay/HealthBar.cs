@@ -4,15 +4,16 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {   
     [Header("HealthBar info")]
-    [SerializeField] private Slider healthBarSlider;
+    [SerializeField] private Image healthBarSlider;
     [SerializeField] private float _percentageValueOfHealth;
     public float CurrentHealth { private set; get;}
     public float MaxHealth { private set; get;}
     private float _noHealth = 0f;
     private int startSliderValue = 1;
+    [SerializeField] private Gradient _gradient;
 
     private void Awake() {
-        healthBarSlider.value = startSliderValue;
+        healthBarSlider.fillAmount = startSliderValue;
     }
 
     public void SaveCurrentBrickHealth()
@@ -40,7 +41,8 @@ public class HealthBar : MonoBehaviour
     public void ShowHealth() 
     {
         _percentageValueOfHealth = SetCurrentHealthAsPercentage(CurrentHealth, MaxHealth);
-        healthBarSlider.value = _percentageValueOfHealth;
+        healthBarSlider.fillAmount = _percentageValueOfHealth;
+        healthBarSlider.color = _gradient.Evaluate(_percentageValueOfHealth);
     }
 
     public float SetCurrentHealthAsPercentage(float currentHealth, float maxHealth) 
