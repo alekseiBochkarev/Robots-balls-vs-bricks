@@ -7,6 +7,7 @@ public class BombCloneBall : MonoBehaviour, IBall
     private int damageTextFontSize;
     private Color damageTextColor;
     private float destroyTimer = 0.2f;
+    private AudioSource audioSource;
 
     void Start ()
     {
@@ -14,6 +15,8 @@ public class BombCloneBall : MonoBehaviour, IBall
         attackPower = hero.GetComponent<Hero>().attackSkill;
         damageTextColor = TextController.COLOR_RED;
         damageTextFontSize = TextController.FONT_SIZE_MAX;
+        //audioSource = GetComponent<AudioSource>();
+        //audioSource.Play();
     }
 
     void Update ()
