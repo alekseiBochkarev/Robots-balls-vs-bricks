@@ -13,15 +13,15 @@
             
             new ObjectGamePosition("enemies/Brick2", 2, 3, 6), 
             new ObjectGamePosition("enemies/Brick2", 4, 3, 6),
-            new ObjectGamePosition("enemies/Brick2", 5, 3, 6), 
+            new ObjectGamePosition("enemies/BrickTriangle", 5, 3, 6), 
             new ObjectGamePosition("enemies/Brick2", 6, 3, 6), 
             new ObjectGamePosition("enemies/Brick2", 7, 3, 6), 
             new ObjectGamePosition("enemies/Brick2", 9, 3, 6), 
             
             new ObjectGamePosition("enemies/Brick3", 1, 4, 6), 
             new ObjectGamePosition("enemies/Brick3", 3, 4, 6), 
-            new ObjectGamePosition("enemies/Brick3", 8, 4, 6), 
-            new ObjectGamePosition("enemies/Brick3", 10, 4, 6),
+            new ObjectGamePosition("enemies/BrickBlue", 8, 4, 6), 
+            new ObjectGamePosition("enemies/BrickBlue", 10, 4, 6),
 
             new ObjectGamePosition("enemies/Brick3", 1, 5, 6), 
             new ObjectGamePosition("enemies/Brick3", 2, 5, 6),
@@ -30,13 +30,13 @@
             
             new ObjectGamePosition("enemies/Brick2", 1, 6, 6),
             new ObjectGamePosition("enemies/Brick2", 4, 6, 6),
-            new ObjectGamePosition("enemies/Brick2", 7, 6, 6),
-            new ObjectGamePosition("enemies/Brick2", 10, 6, 6),
+            new ObjectGamePosition("enemies/BrickBlue", 7, 6, 6),
+            new ObjectGamePosition("enemies/BrickBlue", 10, 6, 6),
 
             new ObjectGamePosition("enemies/Brick3", 1, 7, 6),
             new ObjectGamePosition("enemies/Brick3", 2, 7, 6),
             new ObjectGamePosition("enemies/Brick3", 9, 7, 6),
-            new ObjectGamePosition("enemies/Brick3", 10, 7, 6),
+            new ObjectGamePosition("enemies/BrickTriangle", 10, 7, 6),
             
             new ObjectGamePosition("enemies/Brick3", 2, 8, 6),
             new ObjectGamePosition("enemies/Brick3", 5, 8, 6),
