@@ -39,7 +39,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
 
 
     [SerializeField] private int m_attackPower; //атакующая сила 1 брика, если их несколько то умножается на количество
-    public PolygonCollider2D polygonCollider2D;
+   // public PolygonCollider2D polygonCollider2D;
     private Rigidbody2D rigidbody2D;
 
     [SerializeField]
@@ -85,7 +85,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     {
         InitMoveDown();
         parent = transform.parent.gameObject;
-        polygonCollider2D = gameObject.GetComponent<PolygonCollider2D>();
+     //   polygonCollider2D = gameObject.GetComponent<PolygonCollider2D>();
         rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_ParentParticle = GetComponentInParent<ParticleSystem>();
@@ -148,7 +148,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     {
         if (collision.gameObject.GetComponent<IBall>() != null)
         {
-            polygonCollider2D.isTrigger = false;
+           // polygonCollider2D.isTrigger = false;
             appliedDamage = collision.gameObject.GetComponent<IBall>().GetAttackPower;
             damageTextColor = collision.gameObject.GetComponent<IBall>().GetDamageTextColor;
             damageTextFontSize = collision.gameObject.GetComponent<IBall>().GetDamageTextFontSize;
@@ -171,7 +171,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     {
         if (collider.gameObject.GetComponent<IBall>() != null)
         {
-            polygonCollider2D.isTrigger = false;
+           // polygonCollider2D.isTrigger = false;
             appliedDamage = collider.gameObject.GetComponent<IBall>().GetAttackPower;
             damageTextColor = collider.gameObject.GetComponent<IBall>().GetDamageTextColor;
             damageTextFontSize = collider.gameObject.GetComponent<IBall>().GetDamageTextFontSize;
