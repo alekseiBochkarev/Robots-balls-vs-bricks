@@ -24,10 +24,10 @@
             new ObjectGamePosition("enemies/Brick3", 9, 5, 4), 
             
             new ObjectGamePosition("enemies/Brick2", 2, 6, 4),
-            new ObjectGamePosition("enemies/Brick2", 3, 6, 4),
+            new ObjectGamePosition("enemies/BrickTriangle", 3, 6, 8),
             new ObjectGamePosition("enemies/Brick2", 4, 6, 4),
             new ObjectGamePosition("enemies/Brick2", 7, 6, 4),
-            new ObjectGamePosition("enemies/Brick2", 8, 6, 4),
+            new ObjectGamePosition("enemies/BrickTriangle", 8, 6, 8),
             new ObjectGamePosition("enemies/Brick2", 9, 6, 4),
             
             new ObjectGamePosition("enemies/Brick3", 3, 7, 4),
