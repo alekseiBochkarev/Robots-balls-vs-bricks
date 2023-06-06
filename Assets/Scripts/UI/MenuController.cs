@@ -13,7 +13,7 @@ public class MenuController : MonoBehaviour
     private int controlSceneIndex = 0;
 
     public GameObject m_MainMenuQuitPanel;
-    public GameObject m_SettingsPanel;
+  //  public GameObject m_SettingsPanel;
     public GameObject m_PauseMenu;  // or backMenu (panel)
     public GameObject m_UpgradeButton; // on click -> opens Upgrade modal panel
     public GameObject m_UpgradePanel;
@@ -25,7 +25,7 @@ public class MenuController : MonoBehaviour
 
     void Start ()
     {
-        m_SettingsPanel.SetActive(false);
+      //  m_SettingsPanel.SetActive(false);
      //   energy = EnergyController.Instance.Energy;
     }
 
@@ -147,7 +147,7 @@ public class MenuController : MonoBehaviour
         m_timeScale = Time.timeScale;
         Time.timeScale = 0;
         BallLauncher.Instance.m_CanPlay = false;
-        m_SettingsPanel.SetActive(true);
+    //    m_SettingsPanel.SetActive(true);
     }
 
     public void HideSettingsPanel()
@@ -156,7 +156,7 @@ public class MenuController : MonoBehaviour
         Time.timeScale = m_timeScale;
         m_timeScale = 0;
         StartCoroutine("ResumeGameAfterPause");
-        m_SettingsPanel.SetActive(false);
+     //   m_SettingsPanel.SetActive(false);
     }
 
     public void OpenMoreGamesOnMarket()
