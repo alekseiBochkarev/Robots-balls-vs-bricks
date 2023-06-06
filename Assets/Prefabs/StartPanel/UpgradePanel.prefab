@@ -374,9 +374,9 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 130, y: 280}
-  m_Spacing: {x: 12, y: 0}
+  m_Spacing: {x: 20, y: 0}
   m_Constraint: 1
-  m_ConstraintCount: 5
+  m_ConstraintCount: 4
 --- !u!114 &8107047401990882820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,6 +889,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeButton BATTERY CELLS
       objectReference: {fileID: 0}
+    - target: {fileID: 96575319787375408, guid: 3258eda8603a7c742aab164c4e912807,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 96575319787375409, guid: 3258eda8603a7c742aab164c4e912807,
         type: 3}
       propertyPath: m_Pivot.x
@@ -912,7 +917,7 @@ PrefabInstance:
     - target: {fileID: 96575319787375409, guid: 3258eda8603a7c742aab164c4e912807,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 96575319787375409, guid: 3258eda8603a7c742aab164c4e912807,
         type: 3}
@@ -922,17 +927,17 @@ PrefabInstance:
     - target: {fileID: 96575319787375409, guid: 3258eda8603a7c742aab164c4e912807,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 96575319787375409, guid: 3258eda8603a7c742aab164c4e912807,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 96575319787375409, guid: 3258eda8603a7c742aab164c4e912807,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 280
       objectReference: {fileID: 0}
     - target: {fileID: 96575319787375409, guid: 3258eda8603a7c742aab164c4e912807,
         type: 3}
@@ -972,12 +977,12 @@ PrefabInstance:
     - target: {fileID: 96575319787375409, guid: 3258eda8603a7c742aab164c4e912807,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 218
       objectReference: {fileID: 0}
     - target: {fileID: 96575319787375409, guid: 3258eda8603a7c742aab164c4e912807,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 96575319787375409, guid: 3258eda8603a7c742aab164c4e912807,
         type: 3}

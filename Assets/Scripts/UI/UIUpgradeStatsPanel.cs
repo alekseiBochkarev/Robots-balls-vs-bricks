@@ -20,14 +20,14 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
     private UpgradeStats upgradeStats;
 
     private AttackPrefabController _attackPrefabController;
-    private BatteryCellController _batteryCellController;
+//    private BatteryCellController _batteryCellController;
     private HealthPrefabController _healthPrefabController;
     private StarterBallsPrefabController _starterBallsPrefabController;
     private SightLengthPrefabController _sightLengthPrefabController;
 
     [Header("Stat Prefabs")]
     [SerializeField] private GameObject healthPrefab;
-    [SerializeField] private GameObject batteryCellsPrefab;
+  //  [SerializeField] private GameObject batteryCellsPrefab;
     [SerializeField] private GameObject attackPrefab;
     [SerializeField] private GameObject starterBallsPrefab;
     [SerializeField] private GameObject sightLengthPrefab;
@@ -35,7 +35,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
     [Header("Hero Stats Names")] [SerializeField]
     private TextMeshProUGUI healthText;
 
-    [SerializeField] private TextMeshProUGUI batteryCellsText;
+//    [SerializeField] private TextMeshProUGUI batteryCellsText;
     [SerializeField] private TextMeshProUGUI attackText;
     [SerializeField] private TextMeshProUGUI starterBallsText;
     [SerializeField] private TextMeshProUGUI sightLengthText;
@@ -43,7 +43,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
     [Header("Upgrade Buttons")] [SerializeField]
     private Button upgradeHealthButton;
 
-    [SerializeField] private Button upgradeBatteryCellsButton;
+  //  [SerializeField] private Button upgradeBatteryCellsButton;
     [SerializeField] private Button upgradeAttackPowerButton;
     [SerializeField] private Button upgradeStarterBallsButton;
     [SerializeField] private Button upgradeSightLengthButton;
@@ -51,13 +51,13 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
     [Header("Upgrade Cost Text")] [SerializeField]
     private TextMeshProUGUI upgradeHealthButtonText;
 
-    [SerializeField] private TextMeshProUGUI upgradeBatteryCellsButtonText;
+  //  [SerializeField] private TextMeshProUGUI upgradeBatteryCellsButtonText;
     [SerializeField] private TextMeshProUGUI upgradeAttackPowerButtonText;
     [SerializeField] private TextMeshProUGUI upgradeStarterBallsButtonText;
     [SerializeField] private TextMeshProUGUI upgradeSightLengthButtonText;
 
     private const string HealthStatText = "Health";
-    private const string BatteryCellsStatText = "Battery cells";
+//    private const string BatteryCellsStatText = "Battery cells";
     private const string AttackStatText = "Attack";
     private const string StarterBallsStatText = "Starter balls";
     private const string SightLengthStatText = "Sight length";
@@ -67,7 +67,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
     private const float _addUpgradeLevel = 1;
     private float _playerCoins;
     private float _playerHealth;
-    private float _playerBatteryEnergy;
+  //  private float _playerBatteryEnergy;
     private float _playerAttack;
     private float _playerStarterBalls;
     private float _playerSightLength;
@@ -81,7 +81,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
         // Получаем контроллеры всех статов из их префабов
         _attackPrefabController = attackPrefab.GetComponentInChildren<AttackPrefabController>();
-        _batteryCellController = batteryCellsPrefab.GetComponentInChildren<BatteryCellController>();
+            //   _batteryCellController = batteryCellsPrefab.GetComponentInChildren<BatteryCellController>();
         _healthPrefabController = healthPrefab.GetComponent<HealthPrefabController>();
         _starterBallsPrefabController = starterBallsPrefab.GetComponent<StarterBallsPrefabController>();
         _sightLengthPrefabController = sightLengthPrefab.GetComponent<SightLengthPrefabController>();
@@ -97,7 +97,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         GetCoins();
 
         _playerHealth = heroStats.Health;
-        _playerBatteryEnergy = heroStats.BatteryEnergy;
+   //     _playerBatteryEnergy = heroStats.BatteryEnergy;
         _playerAttack = heroStats.Attack;
         _playerStarterBalls = heroStats.StarterBalls;
         _playerSightLength = heroStats.SightLength;
@@ -106,7 +106,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
         //Init prefab scripts
         _attackPrefabController.LoadAttackLevelAndShowSprite();
-        _batteryCellController.LoadAndShowBatteryCells();
+     //   _batteryCellController.LoadAndShowBatteryCells();
         _healthPrefabController.LoadHealthLevelAndShowSprite();
         _starterBallsPrefabController.LoadStarterBallsLevelAndShowSprite();
         _sightLengthPrefabController.LoadSightLengthLevelAndShowSprite();
@@ -132,19 +132,19 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         GetCoins();
 
         ShowCurrentStatsName(healthText, HealthStatText);
-        ShowCurrentStatsName(batteryCellsText, BatteryCellsStatText);
+     //   ShowCurrentStatsName(batteryCellsText, BatteryCellsStatText);
         ShowCurrentStatsName(attackText, AttackStatText);
         ShowCurrentStatsName(starterBallsText, StarterBallsStatText);
         ShowCurrentStatsName(sightLengthText, SightLengthStatText);
 
         ShowUpgradePrice(upgradeHealthButtonText, upgradeStats.UpgradeHealthCoinsRequired);
-        ShowUpgradePrice(upgradeBatteryCellsButtonText, upgradeStats.UpgradeBatteryEnergyCoinsRequired);
+      //  ShowUpgradePrice(upgradeBatteryCellsButtonText, upgradeStats.UpgradeBatteryEnergyCoinsRequired);
         ShowUpgradePrice(upgradeAttackPowerButtonText, upgradeStats.UpgradeAttackCoinsRequired);
         ShowUpgradePrice(upgradeStarterBallsButtonText, upgradeStats.UpgradeStarterBallsCoinsRequired);
         ShowUpgradePrice(upgradeSightLengthButtonText, upgradeStats.UpgradeSightLengthCoinsRequired);
 
         RuleUpgradeButtonState(upgradeHealthButton, upgradeStats.UpgradeHealthCoinsRequired);
-        RuleUpgradeButtonState(upgradeBatteryCellsButton, upgradeStats.UpgradeBatteryEnergyCoinsRequired);
+      //  RuleUpgradeButtonState(upgradeBatteryCellsButton, upgradeStats.UpgradeBatteryEnergyCoinsRequired);
         RuleUpgradeButtonState(upgradeAttackPowerButton, upgradeStats.UpgradeAttackCoinsRequired);
         RuleUpgradeButtonState(upgradeStarterBallsButton, upgradeStats.UpgradeStarterBallsCoinsRequired);
         RuleUpgradeButtonState(upgradeSightLengthButton, upgradeStats.UpgradeSightLengthCoinsRequired);
@@ -180,24 +180,24 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
                 }
             }
 
-            // for Battery Cells
-            if (upgradeButton.Equals(upgradeBatteryCellsButton))
-            {
-                Debug.Log("UpgradeBatteryEnergyLevel is -> " + upgradeStats.UpgradeBatteryEnergyLevel);
-                if (upgradeStats.UpgradeBatteryEnergyLevel == UpgradeStats.MaxUpgradeBatteryEnergyLevel)
-                {
-                    ShowMaxLevelInsteadPrice(upgradeBatteryCellsButtonText);
-                }
-
-                if (upgradeStats.UpgradeBatteryEnergyLevel < UpgradeStats.MaxUpgradeBatteryEnergyLevel)
-                {
-                    EnableUpgradeButton(upgradeButton);
-                }
-                else
-                {
-                    DisableUpgradeButton(upgradeButton);
-                }
-            }
+            // // for Battery Cells
+            // if (upgradeButton.Equals(upgradeBatteryCellsButton))
+            // {
+            //     Debug.Log("UpgradeBatteryEnergyLevel is -> " + upgradeStats.UpgradeBatteryEnergyLevel);
+            //     if (upgradeStats.UpgradeBatteryEnergyLevel == UpgradeStats.MaxUpgradeBatteryEnergyLevel)
+            //     {
+            //         ShowMaxLevelInsteadPrice(upgradeBatteryCellsButtonText);
+            //     }
+            //
+            //     if (upgradeStats.UpgradeBatteryEnergyLevel < UpgradeStats.MaxUpgradeBatteryEnergyLevel)
+            //     {
+            //         EnableUpgradeButton(upgradeButton);
+            //     }
+            //     else
+            //     {
+            //         DisableUpgradeButton(upgradeButton);
+            //     }
+            // }
 
             // for Attack
             if (upgradeButton.Equals(upgradeAttackPowerButton))
@@ -291,36 +291,36 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         EventManager.OnUpgradeStats();
     }
 
-    public void UpgradeBatteryEnergyOnClick() // It upgrades battery cells on click
-    {
-        // remove coins after buying
-        coins.RemoveCoins(upgradeStats.UpgradeHealthCoinsRequired);
-
-        // Add BatteryEnergy to the player
-        heroStats.UpgradeStats(HeroStats.HeroStatsEnum.BatteryEnergy, upgradeStats.UpgradeBatteryEnergyValue);
-
-        // Reinit local values for health
-        _playerBatteryEnergy = heroStats.BatteryEnergy;
-
-        // Update UpgradeMultiplier and reinit RequiredCoins, StatsUpgrading
-        GetCoins();
-        upgradeStats.SaveUpgradeMultiplier(UpgradeStats.UpgradeMultipliersEnum.BatteryEnergyMultiplier,
-            _addUpgradeMult);
-        upgradeStats.SaveUpgradeLevel(UpgradeStats.UpgradeStatLevel.UpgradeBatteryEnergyLevel, _addUpgradeLevel);
-        upgradeStats.SetUpgradeLevels();
-        upgradeStats.SetMultipliers();
-        upgradeStats.InitRequiredCoins();
-        upgradeStats.InitStatsUpgrading();
-
-        //Show new values on UpgradeButton after changing (DO WE NEED REALLY NEED THIS?)
-        ShowUpgradePrice(upgradeHealthButtonText, upgradeStats.UpgradeHealthCoinsRequired);
-
-        // Добавляем ячейку в батарею
-        _batteryCellController.AddCell();
-
-        //EventManager to show changes in other classes
-        EventManager.OnUpgradeStats();
-    }
+    // public void UpgradeBatteryEnergyOnClick() // It upgrades battery cells on click
+    // {
+    //     // remove coins after buying
+    //     coins.RemoveCoins(upgradeStats.UpgradeHealthCoinsRequired);
+    //
+    //     // Add BatteryEnergy to the player
+    //     heroStats.UpgradeStats(HeroStats.HeroStatsEnum.BatteryEnergy, upgradeStats.UpgradeBatteryEnergyValue);
+    //
+    //     // Reinit local values for health
+    //     _playerBatteryEnergy = heroStats.BatteryEnergy;
+    //
+    //     // Update UpgradeMultiplier and reinit RequiredCoins, StatsUpgrading
+    //     GetCoins();
+    //     upgradeStats.SaveUpgradeMultiplier(UpgradeStats.UpgradeMultipliersEnum.BatteryEnergyMultiplier,
+    //         _addUpgradeMult);
+    //     upgradeStats.SaveUpgradeLevel(UpgradeStats.UpgradeStatLevel.UpgradeBatteryEnergyLevel, _addUpgradeLevel);
+    //     upgradeStats.SetUpgradeLevels();
+    //     upgradeStats.SetMultipliers();
+    //     upgradeStats.InitRequiredCoins();
+    //     upgradeStats.InitStatsUpgrading();
+    //
+    //     //Show new values on UpgradeButton after changing (DO WE NEED REALLY NEED THIS?)
+    //     ShowUpgradePrice(upgradeHealthButtonText, upgradeStats.UpgradeHealthCoinsRequired);
+    //
+    //     // Добавляем ячейку в батарею
+    //     _batteryCellController.AddCell();
+    //
+    //     //EventManager to show changes in other classes
+    //     EventManager.OnUpgradeStats();
+    // }
 
     public void UpgradeAttackPowerOnClick() // It upgrades Attack Power on click
     {
@@ -439,7 +439,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         AimLine.Instance.ChangePartLength((int)_playerSightLength);
 
         //Сброс скриптов у префабов до дефолтных значений
-        _batteryCellController.ClearStatsToDefault();
+     //   _batteryCellController.ClearStatsToDefault();
         _healthPrefabController.ClearStatsToDefault();
         _attackPrefabController.ClearStatsToDefault();
         _starterBallsPrefabController.ClearStatsToDefault();
@@ -447,7 +447,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
         //Отобразить цену после сброса до дефолтных значений
         ShowUpgradePrice(upgradeHealthButtonText, upgradeStats.UpgradeHealthCoinsRequired);
-        ShowUpgradePrice(upgradeBatteryCellsButtonText, upgradeStats.UpgradeBatteryEnergyCoinsRequired);
+   //     ShowUpgradePrice(upgradeBatteryCellsButtonText, upgradeStats.UpgradeBatteryEnergyCoinsRequired);
         ShowUpgradePrice(upgradeAttackPowerButtonText, upgradeStats.UpgradeAttackCoinsRequired);
         ShowUpgradePrice(upgradeStarterBallsButtonText, upgradeStats.UpgradeStarterBallsCoinsRequired);
         ShowUpgradePrice(upgradeSightLengthButtonText, upgradeStats.UpgradeSightLengthCoinsRequired);
