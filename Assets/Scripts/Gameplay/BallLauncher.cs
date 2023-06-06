@@ -13,7 +13,7 @@ public class BallLauncher : MonoBehaviour
     private Vector3 m_WorldPosition;
 
     private Vector3 ballStartPostitionCoordinates = new Vector3(0, ballStartPositionCoordinatesY);
-    public static float ballStartPositionCoordinatesY = -4.32f;
+    public static float ballStartPositionCoordinatesY = -5.00f;
 
     private Vector3 m_Direction;
     private Balls m_BallsScript;
@@ -111,13 +111,13 @@ public class BallLauncher : MonoBehaviour
             && m_WorldPosition.x >= leftBorder.transform.position.x
             && m_WorldPosition.x <= rightBorder.transform.position.x
             && m_WorldPosition.y <= topBorder.transform.position.y
-            && m_WorldPosition.y >= bottomBorder.transform.position.y)
+            && m_WorldPosition.y >= (bottomBorder.transform.position.y + 0.3))
             ContinueDrag(m_WorldPosition);
         else if (Input.GetMouseButtonUp(0)
             && m_WorldPosition.x >= leftBorder.transform.position.x
             && m_WorldPosition.x <= rightBorder.transform.position.x
             && m_WorldPosition.y <= topBorder.transform.position.y
-            && m_WorldPosition.y >= bottomBorder.transform.position.y)
+            && m_WorldPosition.y >= (bottomBorder.transform.position.y + 0.3))
             EndDrag();
     }
 

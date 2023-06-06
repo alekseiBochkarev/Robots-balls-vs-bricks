@@ -5,12 +5,12 @@ using CodeMonkey.Utils;
 
 public class LevelConfig : MonoBehaviour
 {
-    [SerializeField] private int gridWidth; //ширина
+    [SerializeField] private int gridWidth; //ширина (количество клеточек)
     [SerializeField] private int gridHeight; //высота
     private float cellSize;
-    private float baseCellSize = 0.72f;
+    private float baseCellSize = 0.93f; //= 0.72f;
     [SerializeField] private float scaleCoefficient;
-    [SerializeField] private Vector3 originPosition;
+    private Vector3 originPosition = new Vector3(-2.79f, 4.3f);
     public Grid grid;
     public static LevelConfig Instance;
    // public GameObject gridColliderPrefab;
@@ -18,6 +18,8 @@ public class LevelConfig : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        Resolution[] resolutions = Screen.resolutions;
+       // baseCellSize = resolutions[0].width / gridWidth;
         //Debug.Log("level config init");
         gridHeight = gridWidth * 4 / 3 + 1;
         //Debug.Log("gridHeight " + gridHeight);
