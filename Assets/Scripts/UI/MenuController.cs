@@ -8,7 +8,7 @@ public class MenuController : MonoBehaviour
     public enum Market { PlayStore, CafeBazaar, }
     public Market m_Market = Market.PlayStore;
 
-    private Energy energy;
+ //   private Energy energy;
 
     private int controlSceneIndex = 0;
 
@@ -26,7 +26,7 @@ public class MenuController : MonoBehaviour
     void Start ()
     {
         m_SettingsPanel.SetActive(false);
-        energy = EnergyController.Instance.Energy;
+     //   energy = EnergyController.Instance.Energy;
     }
 
     void Update()

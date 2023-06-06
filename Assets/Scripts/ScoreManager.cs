@@ -10,9 +10,9 @@ public class ScoreManager : MonoBehaviour
     public int m_Rings { private set; get; }
     public int m_LevelOfFinalBrick;
 
-    public TextMeshProUGUI m_BestScoreText;
+  //  public TextMeshProUGUI m_BestScoreText;
     public TextMeshProUGUI m_ScoreText;
-    public TextMeshProUGUI m_UpgradePoints;
+  //  public TextMeshProUGUI m_UpgradePoints;
     
     private void Awake()
     {
@@ -29,8 +29,8 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         m_BestScore = PlayerPrefs.GetInt("best_score", 0);
-        m_BestScoreText.text = m_BestScore.ToString();
-        m_UpgradePoints.text = PlayerPrefs.GetFloat("HeroUpgradePoints").ToString();
+       // m_BestScoreText.text = m_BestScore.ToString();
+      //  m_UpgradePoints.text = PlayerPrefs.GetFloat("HeroUpgradePoints").ToString();
 
         m_ScoreText.text = m_LevelOfFinalBrick.ToString();
     }
@@ -48,12 +48,12 @@ public class ScoreManager : MonoBehaviour
         if (m_LevelOfFinalBrick > m_BestScore)
         {
             m_BestScore = m_LevelOfFinalBrick;
-            m_BestScoreText.text = m_BestScore.ToString();
+          //  m_BestScoreText.text = m_BestScore.ToString();
 
             PlayerPrefs.SetInt("best_score", m_BestScore);
         }
 
         m_ScoreText.text = m_LevelOfFinalBrick.ToString();
-        m_UpgradePoints.text = PlayerPrefs.GetFloat("HeroUpgradePoints").ToString();
+     //   m_UpgradePoints.text = PlayerPrefs.GetFloat("HeroUpgradePoints").ToString();
     }
 }
