@@ -42,7 +42,7 @@ public class BallLauncher : MonoBehaviour
     // [SerializeField] private List<AbstractBall> m_Balls;
 
     [Header("UI Elements")]
-    [SerializeField] private GameObject m_ReturnBallsButton;
+    private GameObject m_ReturnBallsButton;
     public GameObject topBorder;
     public GameObject leftBorder;
     public GameObject rightBorder;
@@ -58,7 +58,7 @@ public class BallLauncher : MonoBehaviour
         ballStartPosition.transform.SetParent(this.transform.parent, false);
         m_BallSprite = ballStartPosition.GetComponent<SpriteRenderer>();
         m_DefaultStartPosition = transform.position;
-
+        m_ReturnBallsButton = GameObject.Find("Return All Balls Button");
         //m_BallsAmount = PlayerPrefs.GetInt("balls", 1);
         m_BallsScript = GetComponent<Balls>();
 
