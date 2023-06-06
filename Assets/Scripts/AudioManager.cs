@@ -13,8 +13,8 @@ public class AudioManager : MonoBehaviour
 
     public Color m_ActiveColor;
     public Color m_DeactiveColor;
-    public Text m_SoundOnButton;
-    public Text m_SoundOffButton;
+   // public Text m_SoundOnButton;
+   // public Text m_SoundOffButton;
 
     private void Awake()
     {
@@ -28,13 +28,13 @@ public class AudioManager : MonoBehaviour
 
         if (m_CanPlaySound)
         {
-            m_SoundOnButton.color = m_ActiveColor;
-            m_SoundOffButton.color = m_DeactiveColor;
+          //  m_SoundOnButton.color = m_ActiveColor;
+          //  m_SoundOffButton.color = m_DeactiveColor;
         }
         else
         {
-            m_SoundOnButton.color = m_DeactiveColor;
-            m_SoundOffButton.color = m_ActiveColor;
+         //   m_SoundOnButton.color = m_DeactiveColor;
+         //   m_SoundOffButton.color = m_ActiveColor;
         }
     }
 
@@ -54,13 +54,13 @@ public class AudioManager : MonoBehaviour
 
         if (m_CanPlaySound)
         {
-            m_SoundOnButton.color = m_ActiveColor;
-            m_SoundOffButton.color = m_DeactiveColor;
+          //  m_SoundOnButton.color = m_ActiveColor;
+          //  m_SoundOffButton.color = m_DeactiveColor;
         }
         else
         {
-            m_SoundOnButton.color = m_DeactiveColor;
-            m_SoundOffButton.color = m_ActiveColor;
+         //   m_SoundOnButton.color = m_DeactiveColor;
+        //    m_SoundOffButton.color = m_ActiveColor;
         }
     }
 }

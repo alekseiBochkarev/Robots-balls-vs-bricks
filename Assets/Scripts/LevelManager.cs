@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
 
-    public GameObject m_GameMenuPanel;
+ //   public GameObject m_GameMenuPanel;
     public GameObject m_BeforeStartPanel;
     public GameObject m_GameOverPanel;
     public GameObject m_GameWinPanel;
@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
             switch(value)
             {
                 case LevelState.BEFOREPLAYABLE:
-                    m_GameMenuPanel.SetActive(false);
+                  //  m_GameMenuPanel.SetActive(false);
                     m_BeforeStartPanel.SetActive(true);
                     m_GameOverPanel.SetActive(false);
                     m_GameWinPanel.SetActive(false);
@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour
                     }
                     else
                     {
-                        m_GameMenuPanel.SetActive(true);
+                       // m_GameMenuPanel.SetActive(true);
                         m_BeforeStartPanel.SetActive(false);
                         m_GameOverPanel.SetActive(false);
                         m_GameWinPanel.SetActive(false);
@@ -66,7 +66,7 @@ public class LevelManager : MonoBehaviour
                     }
                     break;
                 case LevelState.GAMEOVER:
-                    m_GameMenuPanel.SetActive(false);
+                 //   m_GameMenuPanel.SetActive(false);
                     m_BeforeStartPanel.SetActive(false);
                     m_GameOverPanel.SetActive(true);
                     m_GameWinPanel.SetActive(false);
@@ -86,7 +86,7 @@ public class LevelManager : MonoBehaviour
 					EventManager.OnGameLose();
                     break;
                 case LevelState.WIN:
-                    m_GameMenuPanel.SetActive(false);
+                 //   m_GameMenuPanel.SetActive(false);
                     m_BeforeStartPanel.SetActive(false);
                     m_GameOverPanel.SetActive(false);
                     m_GameWinPanel.SetActive(true);
