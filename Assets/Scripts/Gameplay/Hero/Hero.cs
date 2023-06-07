@@ -1,3 +1,4 @@
+using System.Collections;
 using Assets.Scripts.Gameplay;
 using UnityEngine;
 
@@ -8,13 +9,18 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
     private HealthBar healthBar;
     private HeroStats heroStats;
     private bool isDamage;
-    
+
     public int appliedDamage;
     public Color damageTextColor;
     public int damageTextFontSize;
 
     private Vector3 heroCoord;
     [SerializeField] private float m_currentHealth;
+
+    [SerializeField] private GameObject heroBody;
+    [SerializeField] private GameObject tornado;
+    [SerializeField] private GameObject aim;
+    [SerializeField] private GameObject fireMove;
 
     public float CurrentHealth
     {
@@ -56,9 +62,41 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
 
     public void Move(Vector3 targetPosition)
     {
+        StartCoroutine(ShowFire(Vector2.Distance(transform.position, targetPosition)/5));
         iTween.MoveTo(this.gameObject,
             iTween.Hash("position", new Vector3(targetPosition.x, transform.position.y, transform.position.z),
                 "easetype", iTween.EaseType.linear, "time", (Vector2.Distance(transform.position, targetPosition))/5));
+    }
+
+    IEnumerator ShowFire(float time)
+    {
+        fireMove.SetActive(true);
+        yield return new WaitForSeconds(time);
+        fireMove.SetActive(false);
+    }
+
+    public void ShowTornado()
+    {
+        tornado.SetActive(true);
+        heroBody.SetActive(false);
+    }
+
+    public void ShowAim()
+    {
+        aim.SetActive(true);
+        heroBody.SetActive(false);
+    }
+
+    public void StopAim()
+    {
+        aim.SetActive(false);
+        heroBody.SetActive(true);
+    }
+
+    public void StopTornado()
+    {
+        tornado.SetActive(false);
+        heroBody.SetActive(true);
     }
 
     /**
