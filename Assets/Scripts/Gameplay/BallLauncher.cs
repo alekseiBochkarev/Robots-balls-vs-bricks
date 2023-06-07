@@ -11,6 +11,7 @@ public class BallLauncher : MonoBehaviour
     private Vector3 m_StartPosition;
     private Vector3 m_EndPosition;
     private Vector3 m_WorldPosition;
+    private Hero hero;
 
     private Vector3 ballStartPostitionCoordinates = new Vector3(0, ballStartPositionCoordinatesY);
     public static float ballStartPositionCoordinatesY = -5.00f;
@@ -54,6 +55,7 @@ public class BallLauncher : MonoBehaviour
     {
         Instance = this;
         m_CanPlay = true;
+        hero = GameObject.FindGameObjectWithTag("Hero").GetComponent<Hero>();
         ballStartPosition = Instantiate(ballStartPrefab, ballStartPostitionCoordinates, new Quaternion(0, 180, 0, 1));
         ballStartPosition.transform.SetParent(this.transform.parent, false);
         m_BallSprite = ballStartPosition.GetComponent<SpriteRenderer>();
@@ -107,18 +109,25 @@ public class BallLauncher : MonoBehaviour
             && m_WorldPosition.y >= bottomBorder.transform.position.y)
             StartDrag(m_WorldPosition);
         else */
-        if (Input.GetMouseButton(0)
-            && m_WorldPosition.x >= leftBorder.transform.position.x
-            && m_WorldPosition.x <= rightBorder.transform.position.x
-            && m_WorldPosition.y <= topBorder.transform.position.y
-            && m_WorldPosition.y >= (bottomBorder.transform.position.y + 0.3))
-            ContinueDrag(m_WorldPosition);
-        else if (Input.GetMouseButtonUp(0)
-            && m_WorldPosition.x >= leftBorder.transform.position.x
-            && m_WorldPosition.x <= rightBorder.transform.position.x
-            && m_WorldPosition.y <= topBorder.transform.position.y
-            && m_WorldPosition.y >= (bottomBorder.transform.position.y + 0.3))
-            EndDrag();
+       if (Input.GetMouseButton(0)
+           && m_WorldPosition.x >= leftBorder.transform.position.x
+           && m_WorldPosition.x <= rightBorder.transform.position.x
+           && m_WorldPosition.y <= topBorder.transform.position.y
+           && m_WorldPosition.y >= (bottomBorder.transform.position.y + 0.3))
+       {
+           hero.ShowAim();
+           ContinueDrag(m_WorldPosition);
+       }
+       else if (Input.GetMouseButtonUp(0)
+                && m_WorldPosition.x >= leftBorder.transform.position.x
+                && m_WorldPosition.x <= rightBorder.transform.position.x
+                && m_WorldPosition.y <= topBorder.transform.position.y
+                && m_WorldPosition.y >= (bottomBorder.transform.position.y + 0.3))
+       {
+           hero.StopAim();
+           EndDrag();
+       }
+            
     }
 
     private void StartDrag(Vector3 worldPosition)
@@ -190,6 +199,7 @@ public class BallLauncher : MonoBehaviour
 
     IEnumerator StartShootingBalls()
     {
+        hero.ShowTornado();
         m_BallSprite.enabled = false;
 
         int balls = m_BallsScript.PlayerBallsAmount;
@@ -281,7 +291,7 @@ public class BallLauncher : MonoBehaviour
         EventManager.OnAllBallsReturned();
         EventManager.OnResetReturningBallsAmount();
         //AbstractBall.ResetReturningBallsAmount();
-        
+        hero.StopTornado();
         yield return WaitAndCanPlay();
     }
 
