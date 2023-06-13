@@ -15,9 +15,9 @@ MonoBehaviour:
   specialAttackIndex: 0
   specialAttackName: Insta Kill Combo
   specialAttackDescription: Have a chance to kill instantly
-  specialAttackImage: {fileID: 21300000, guid: e35dd77cf81eb864c91561cf0c7a0672, type: 3}
+  specialAttackImage: {fileID: 21300000, guid: 7d0506d1e77377e46bbc6f6db5c9dc9c, type: 3}
   maxUseAmount: 1
-  currentUseAmount: 1
+  currentUseAmount: 0
   attackTypeEnum: 1
   comboType: 5
   initComboOnValue: 50

@@ -15,9 +15,9 @@ MonoBehaviour:
   specialAttackIndex: 0
   specialAttackName: Black Hole Combo
   specialAttackDescription: Create black hole
-  specialAttackImage: {fileID: 21300000, guid: 500e8394aee07014fb214bfcc3d1d57c, type: 3}
+  specialAttackImage: {fileID: 21300000, guid: 102fcefe81dc1764e82fcc84f7949e49, type: 3}
   maxUseAmount: 1
-  currentUseAmount: 1
+  currentUseAmount: 0
   attackTypeEnum: 1
   comboType: 6
   initComboOnValue: 50

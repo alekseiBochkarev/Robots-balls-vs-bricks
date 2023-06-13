@@ -15,7 +15,7 @@ MonoBehaviour:
   specialAttackIndex: 0
   specialAttackName: Bomb Ball
   specialAttackDescription: Creates a Bang Bang on hit
-  specialAttackImage: {fileID: 21300000, guid: 8ef7c4cfe48bb3ead863ebadbf6ce175, type: 3}
+  specialAttackImage: {fileID: 21300000, guid: 9e1e719db1353554fbb98bb0b2513e17, type: 3}
   maxUseAmount: 3
   currentUseAmount: 0
   attackTypeEnum: 0
