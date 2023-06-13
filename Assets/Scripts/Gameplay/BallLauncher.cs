@@ -51,11 +51,20 @@ public class BallLauncher : MonoBehaviour
     public GameObject ballStartPrefab;
     private GameObject ballStartPosition;
 
+    [Header("FOR EDUCATION JUST FOR 1st LEVEL")]
+    [SerializeField] private bool isFirstScene;
+
+    private GameObject educationFinger;
+    
     private void Awake()
     {
         Instance = this;
         m_CanPlay = true;
         hero = GameObject.FindGameObjectWithTag("Hero").GetComponent<Hero>();
+        if (isFirstScene)
+        {
+            educationFinger = GameObject.Find("EducaionFinger");
+        }
         ballStartPosition = Instantiate(ballStartPrefab, ballStartPostitionCoordinates, new Quaternion(0, 180, 0, 1));
         ballStartPosition.transform.SetParent(this.transform.parent, false);
         m_BallSprite = ballStartPosition.GetComponent<SpriteRenderer>();
@@ -117,6 +126,10 @@ public class BallLauncher : MonoBehaviour
        {
            hero.ShowAim();
            ContinueDrag(m_WorldPosition);
+           if (educationFinger != null)
+           {
+               Destroy(educationFinger);
+           }
        }
        else if (Input.GetMouseButtonUp(0)
                 && m_WorldPosition.x >= leftBorder.transform.position.x
