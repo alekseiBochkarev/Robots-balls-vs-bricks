@@ -1608,6 +1608,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BallFloorBorder
       objectReference: {fileID: 0}
+    - target: {fileID: 3411862059506017050, guid: 8a996a9677bf84247b22c10c1d046563,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3411862059506017052, guid: 8a996a9677bf84247b22c10c1d046563,
         type: 3}
       propertyPath: m_RootOrder

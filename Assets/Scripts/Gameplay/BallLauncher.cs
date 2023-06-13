@@ -14,7 +14,7 @@ public class BallLauncher : MonoBehaviour
     private Hero hero;
 
     private Vector3 ballStartPostitionCoordinates = new Vector3(0, ballStartPositionCoordinatesY);
-    public static float ballStartPositionCoordinatesY = -5.00f;
+    public const float ballStartPositionCoordinatesY = -5.00f;
 
     private Vector3 m_Direction;
     private Balls m_BallsScript;
