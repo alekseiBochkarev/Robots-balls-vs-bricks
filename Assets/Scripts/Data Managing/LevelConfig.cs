@@ -18,14 +18,13 @@ public class LevelConfig : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        Resolution[] resolutions = Screen.resolutions;
-       // baseCellSize = resolutions[0].width / gridWidth;
+        // baseCellSize = resolutions[0].width / gridWidth;
         //Debug.Log("level config init");
         gridHeight = gridWidth * 4 / 3 + 1;
         //Debug.Log("gridHeight " + gridHeight);
         scaleCoefficient = (float) 6 / gridWidth;
         cellSize = baseCellSize * scaleCoefficient;
-        grid = new Grid(gridWidth, gridHeight, cellSize, originPosition);
+        grid = new Grid(gridWidth, gridHeight, cellSize, new Vector3(originPosition.x, originPosition.y - cellSize));
         //grid.SetValue(2,2,2); - it's for test
         //grid.SetValue(1,1,1);
       /*  for (int y = 0; y < grid.GridHeight; y++) {
