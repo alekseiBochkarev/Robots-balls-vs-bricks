@@ -15,9 +15,9 @@ MonoBehaviour:
   specialAttackIndex: 0
   specialAttackName: Rocket Combo
   specialAttackDescription: Shots rockets on enemy
-  specialAttackImage: {fileID: 21300000, guid: e77d78febd58b49ad9f82b570d446358, type: 3}
+  specialAttackImage: {fileID: 21300000, guid: 849e9f1828c80f64898eefca43091480, type: 3}
   maxUseAmount: 1
-  currentUseAmount: 1
+  currentUseAmount: 0
   attackTypeEnum: 1
   comboType: 0
   initComboOnValue: 50

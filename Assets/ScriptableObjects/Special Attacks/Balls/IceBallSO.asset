@@ -15,7 +15,7 @@ MonoBehaviour:
   specialAttackIndex: 0
   specialAttackName: Ice Ball
   specialAttackDescription: "Have a chan\u0441e to freeze"
-  specialAttackImage: {fileID: 21300000, guid: ad91d3d5817a85544b54909336790169, type: 3}
+  specialAttackImage: {fileID: 21300000, guid: 89e583ca8d9dd144d898c4ccda2f5956, type: 3}
   maxUseAmount: 4
   currentUseAmount: 0
   attackTypeEnum: 0
