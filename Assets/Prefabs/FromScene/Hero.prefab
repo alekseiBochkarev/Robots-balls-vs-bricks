@@ -415,7 +415,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &5836014712977778254
 MonoBehaviour:
@@ -635,7 +635,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 9e1e26889187b6344b5b693dc0d47128, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -692,7 +692,7 @@ PrefabInstance:
     - target: {fileID: 767787044537427760, guid: fe1121f5cae51cc488f04d254a0b32aa,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 2.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 767787044537427760, guid: fe1121f5cae51cc488f04d254a0b32aa,
         type: 3}

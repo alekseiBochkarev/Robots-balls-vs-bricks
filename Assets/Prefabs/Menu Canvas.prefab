@@ -987,13 +987,23 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 1600163121619098402, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
         type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 751.933
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600163121619098402, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
+        type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1287.5809
+      value: 1415.121
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600163121619098402, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5.975
       objectReference: {fileID: 0}
     - target: {fileID: 1600163121619098402, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.8439
+      value: 2.4666
       objectReference: {fileID: 0}
     - target: {fileID: 1600163122626751625, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
         type: 3}
@@ -1069,6 +1079,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpecialAttackUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1724201437171778741, guid: fa3ea94ace938fa40b2d8a38ea9ce205,
+        type: 3}
+      propertyPath: m_Spacing
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa3ea94ace938fa40b2d8a38ea9ce205, type: 3}
