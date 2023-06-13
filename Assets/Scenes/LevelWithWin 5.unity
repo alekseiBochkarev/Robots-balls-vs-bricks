@@ -567,6 +567,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8451208924720014893}
     m_Modifications:
+    - target: {fileID: 874407485, guid: cece90c4c0a8b644590ab7c414f308c5, type: 3}
+      propertyPath: m_text
+      value: LEVEL 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226460161, guid: cece90c4c0a8b644590ab7c414f308c5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7d2212756f4f3c4488f6b9542e10dbcb,
+        type: 3}
     - target: {fileID: 190119932262116988, guid: cece90c4c0a8b644590ab7c414f308c5,
         type: 3}
       propertyPath: m_AnchorMax.y
