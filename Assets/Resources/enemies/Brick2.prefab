@@ -4981,6 +4981,22 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5832175742250434401, guid: a261994d3cd0f5d4b836729569889bb7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 458bfe40e371bbb4093008dea35c24bc,
+        type: 3}
+    - target: {fileID: 5838027066500748475, guid: a261994d3cd0f5d4b836729569889bb7,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5838027066500748475, guid: a261994d3cd0f5d4b836729569889bb7,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6079251718646976773, guid: a261994d3cd0f5d4b836729569889bb7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
