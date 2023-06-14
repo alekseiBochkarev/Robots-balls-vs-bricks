@@ -154,7 +154,6 @@ MonoBehaviour:
   m_WrongLineColor: {r: 1, g: 0.13743854, b: 0, a: 1}
   m_TempAmount: 0
   m_BallsText: {fileID: 5500937331351223619}
-  m_ReturnBallsButton: {fileID: 0}
   topBorder: {fileID: 2499601659937266902, guid: cd7d4bd231b534c46ab1819c6b65f4c7,
     type: 3}
   leftBorder: {fileID: 8264720499514328696, guid: 41e354d2863f249448d1a17e6d7ac351,
@@ -165,6 +164,7 @@ MonoBehaviour:
     type: 3}
   ballStartPrefab: {fileID: 2817089004875054485, guid: ff2489e3695530e47865b88baa5f70d4,
     type: 3}
+  isFirstScene: 0
 --- !u!114 &5500937331235449474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +300,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balls Amount HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565148116935929135, guid: 328d3653943d1b7448be63c0c0506285,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 5565148116935929135, guid: 328d3653943d1b7448be63c0c0506285,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565148116935929135, guid: 328d3653943d1b7448be63c0c0506285,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565148116935929135, guid: 328d3653943d1b7448be63c0c0506285,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565148116935929135, guid: 328d3653943d1b7448be63c0c0506285,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 328d3653943d1b7448be63c0c0506285, type: 3}
