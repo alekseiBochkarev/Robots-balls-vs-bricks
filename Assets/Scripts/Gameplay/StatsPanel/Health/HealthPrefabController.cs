@@ -6,7 +6,7 @@ public class HealthPrefabController : MonoBehaviour, IResetToDefaultValues
 {
     [SerializeField] private int _baseHealthLevel;
     [SerializeField] private int _maxHealtLevel;
-    [SerializeField] private int _currentHealthLevel;
+    public int CurrentHealthLevel { private set; get; }
 
     private HealthPrefab _healthPrefab;
     private UpgradeStats upgradeStats;
@@ -24,13 +24,13 @@ public class HealthPrefabController : MonoBehaviour, IResetToDefaultValues
         // подгружаем min/max и текущий уровни прокачки
         _baseHealthLevel = (int)UpgradeStats.MinUpgradeHealthLevel;
         _maxHealtLevel = (int)UpgradeStats.MaxUpgradeHealthLevel;
-        _currentHealthLevel = (int)upgradeStats.LoadUpgradeLevel(UpgradeStats.UpgradeStatLevel.UpgradeHealthLevel);
+        CurrentHealthLevel = (int)upgradeStats.LoadUpgradeLevel(UpgradeStats.UpgradeStatLevel.UpgradeHealthLevel);
     }
 
     public void LoadHealthLevelAndShowSprite()
     {
         LoadHealthLevel();
-        _healthPrefab.ChangeHealthSprite(_currentHealthLevel);
+        _healthPrefab.ChangeSprite(CurrentHealthLevel);
     }
 
     /**
@@ -38,8 +38,7 @@ public class HealthPrefabController : MonoBehaviour, IResetToDefaultValues
     */
     public void ClearStatsToDefault()
     {
-        _healthPrefab.ChangeHealthSprite(_baseHealthLevel);
-        //_currentHealthLevel = (int)upgradeStats.LoadUpgradeLevel(UpgradeStats.UpgradeStatLevel.UpgradeHealthLevel);
-        _currentHealthLevel = _baseHealthLevel;
+        _healthPrefab.ChangeSprite(_baseHealthLevel);
+        CurrentHealthLevel = _baseHealthLevel;
     }
 }

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using Gameplay.StatsPanel;
-using UnityEngine;
 
 public class SightLengthPrefab : AbstractStatPrefab
 {
@@ -9,6 +6,7 @@ public class SightLengthPrefab : AbstractStatPrefab
 
     private void Awake()
     {
+        InitImageComponent();
         LoadSprites(PathToSprites);
     }
 }
