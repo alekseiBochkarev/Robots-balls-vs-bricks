@@ -1,0 +1,72 @@
+using UnityEngine;
+using TMPro;
+
+public class UITopStatsPanel : MonoBehaviour
+{
+    // Текущие уровни статов
+    public int levelScene;
+    public int healthLevel;
+    public int attackLevel;
+    public int starterBallsLevel;
+    public int sightLengthLevel;
+
+    // Тексты для отображения уровней/значений
+    [SerializeField] private TextMeshProUGUI coinsValueText;
+    [SerializeField] private TextMeshProUGUI healthLevelText;
+    [SerializeField] private TextMeshProUGUI attackLevelText;
+    [SerializeField] private TextMeshProUGUI starterBallsLevelText;
+    [SerializeField] private TextMeshProUGUI sightLengthLevelText;
+
+    // Префабы статов
+    [SerializeField] private Transform healthStatPrefab;
+    [SerializeField] private Transform attackStatPrefab;
+    [SerializeField] private Transform starterBallsStatPrefab;
+    [SerializeField] private Transform sightLengthStatPrefab;
+
+    // Контроллеры Префабов
+    private HealthPrefabController healthPrefabController;
+    private AttackPrefabController attackPrefabController;
+    private StarterBallsPrefabController starterBallsPrefabController;
+    private SightLengthPrefabController sightLengthPrefabController;
+
+    private void Start()
+    {
+        // Подгружаем контроллеры префабов
+        healthPrefabController = healthStatPrefab.GetComponent<HealthPrefabController>();
+        attackPrefabController = attackStatPrefab.GetComponent<AttackPrefabController>();
+        starterBallsPrefabController = starterBallsStatPrefab.GetComponent<StarterBallsPrefabController>();
+        sightLengthPrefabController = sightLengthStatPrefab.GetComponent<SightLengthPrefabController>();
+
+        UpdateValuesAndPrefabs();
+        ShowLevelValues();
+    }
+
+    private void ShowLevelValues()
+    {
+        healthLevelText.text = $"{healthLevel}";
+        attackLevelText.text = $"{attackLevel}";
+        starterBallsLevelText.text = $"{starterBallsLevel}";
+        sightLengthLevelText.text = $"{sightLengthLevel}";
+    }
+
+    private void UpdateValuesAndPrefabs()
+    {
+        // переделать все контроллеры под абстрактный, чтобы интерфейс у них был общий, наверное
+        healthPrefabController.LoadHealthLevelAndShowSprite();
+        attackPrefabController.LoadAttackLevelAndShowSprite();
+        starterBallsPrefabController.LoadStarterBallsLevelAndShowSprite();
+        sightLengthPrefabController.LoadSightLengthLevelAndShowSprite();
+
+        LoadLevelValues();
+    }
+
+    private void LoadLevelValues()
+    {
+        // Подгружаем значения текущих уровней для статов
+        // levelScene = ???
+        healthLevel = healthPrefabController.CurrentHealthLevel;
+        attackLevel = attackPrefabController.CurrentAttackLevel;
+        starterBallsLevel = starterBallsPrefabController.CurrentBallsLevel;
+        sightLengthLevel = sightLengthPrefabController.CurrentSightLengthLevel;
+    }
+}

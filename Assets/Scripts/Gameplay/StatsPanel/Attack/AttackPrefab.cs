@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Gameplay.StatsPanel.Attack
 {
     public class AttackPrefab : AbstractStatPrefab
@@ -8,6 +6,7 @@ namespace Gameplay.StatsPanel.Attack
 
         private void Awake()
         {
+            InitImageComponent();
             LoadSprites(PathToSprites);
         }
     }

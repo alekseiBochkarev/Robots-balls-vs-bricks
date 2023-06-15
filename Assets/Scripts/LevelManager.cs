@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
 
  //   public GameObject m_GameMenuPanel;
+    public GameObject m_TopStatsPanel;
     public GameObject m_BeforeStartPanel;
     public GameObject m_GameOverPanel;
     public GameObject m_GameWinPanel;
@@ -35,7 +36,8 @@ public class LevelManager : MonoBehaviour
             switch(value)
             {
                 case LevelState.BEFOREPLAYABLE:
-                  //  m_GameMenuPanel.SetActive(false);
+                    //  m_GameMenuPanel.SetActive(false);
+                    m_TopStatsPanel.SetActive(false);
                     m_BeforeStartPanel.SetActive(true);
                     m_GameOverPanel.SetActive(false);
                     m_GameWinPanel.SetActive(false);
@@ -56,7 +58,8 @@ public class LevelManager : MonoBehaviour
                         m_GameOverPanel.SetActive(false);
                         m_GameWinPanel.SetActive(false);
                         m_Scores.SetActive(true);
-                    
+                        m_TopStatsPanel.SetActive(true);
+
                         BallLauncher.Instance.m_CanPlay = true;
                       //  Debug.Log("Level state, LevelOfFinalBrick " + ScoreManager.Instance.m_LevelOfFinalBrick);
                         ScoreManager.Instance.m_LevelOfFinalBrick = 0;  // temporary (after save and load)
@@ -70,10 +73,11 @@ public class LevelManager : MonoBehaviour
                     m_BeforeStartPanel.SetActive(false);
                     m_GameOverPanel.SetActive(true);
                     m_GameWinPanel.SetActive(false);
+                    m_TopStatsPanel.SetActive(false);
                     m_Scores.SetActive(false);
 
-                   // m_GameOverFinalScore.text = "Final Score : " + (ScoreManager.Instance.m_LevelOfFinalBrick - 1).ToString();
-					if (energyIsOver) {
+                    // m_GameOverFinalScore.text = "Final Score : " + (ScoreManager.Instance.m_LevelOfFinalBrick - 1).ToString();
+                    if (energyIsOver) {
 					m_GameOverFinalScore.text = "energy is over"; 
 					} else 
 					if (lifeIsOver) {
@@ -90,6 +94,7 @@ public class LevelManager : MonoBehaviour
                     m_BeforeStartPanel.SetActive(false);
                     m_GameOverPanel.SetActive(false);
                     m_GameWinPanel.SetActive(true);
+                    m_TopStatsPanel.SetActive(false);
                     m_Scores.SetActive(false);
 
                     m_GameOverFinalScore.text = "You win";
@@ -124,11 +129,11 @@ public class LevelManager : MonoBehaviour
     }
 
     //? maybe we can delete this
-    private void Update()
-    {
-        ScoreManager.Instance.m_ScoreText.text = ScoreManager.Instance.m_LevelOfFinalBrick.ToString();
-        playerBallsAmount = Balls.Instance.PlayerBallsAmount;
-    }
+    //private void Update()
+    //{
+    //    ScoreManager.Instance.m_ScoreText.text = ScoreManager.Instance.m_LevelOfFinalBrick.ToString();
+    //    playerBallsAmount = Balls.Instance.PlayerBallsAmount;
+    //}
 
 	private void ShowLosePanelBecauseEnergyIsOver () {
 		energyIsOver = true;

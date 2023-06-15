@@ -6,6 +6,7 @@ namespace Gameplay.StatsPanel.StarterBalls
 
         private void Awake()
         {
+            InitImageComponent();
             LoadSprites(PathToSprites);
         }
     }

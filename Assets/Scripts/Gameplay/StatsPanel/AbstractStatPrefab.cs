@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +12,7 @@ namespace Gameplay.StatsPanel
 
         private Image _spriteImage;
 
-        private void Start()
+        public void InitImageComponent()
         {
             _spriteImage = transform.GetComponent<Image>();
         }
