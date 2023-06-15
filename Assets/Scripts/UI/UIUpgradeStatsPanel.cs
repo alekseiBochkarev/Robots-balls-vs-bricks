@@ -59,8 +59,8 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
     private const string HealthStatText = "Health";
 //    private const string BatteryCellsStatText = "Battery cells";
     private const string AttackStatText = "Attack";
-    private const string StarterBallsStatText = "Starter balls";
-    private const string SightLengthStatText = "Sight length";
+    private const string StarterBallsStatText = "Balls";
+    private const string SightLengthStatText = "Line";
     private const string MaxLevelStatText = "MAX";
 
     private const float _addUpgradeMult = 1;
@@ -463,7 +463,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
     private void ShowUpgradePrice(TextMeshProUGUI upgradeButtonText, float priceWithCoins)
     {
-        upgradeButtonText.text = $"{priceWithCoins} Coins";
+        upgradeButtonText.text = $"{priceWithCoins}";
     }
 
     private void ShowMaxLevelInsteadPrice(TextMeshProUGUI upgradeButtonText)

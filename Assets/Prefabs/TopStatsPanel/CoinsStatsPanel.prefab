@@ -28,6 +28,16 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6480175201360542181, guid: 4223325d7cd28774eaa3c112eb755853,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -13.612331
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480175201360542181, guid: 4223325d7cd28774eaa3c112eb755853,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
     - target: {fileID: 7754093472384830770, guid: 4223325d7cd28774eaa3c112eb755853,
         type: 3}
       propertyPath: m_Pivot.x
@@ -136,17 +146,22 @@ PrefabInstance:
     - target: {fileID: 7951447028250954429, guid: 4223325d7cd28774eaa3c112eb755853,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.90000004
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7951447028250954429, guid: 4223325d7cd28774eaa3c112eb755853,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.90000004
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7951447028250954429, guid: 4223325d7cd28774eaa3c112eb755853,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.125
+      value: 0.62499994
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951447028250954429, guid: 4223325d7cd28774eaa3c112eb755853,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -36.2
       objectReference: {fileID: 0}
     - target: {fileID: 7951447028250954429, guid: 4223325d7cd28774eaa3c112eb755853,
         type: 3}
