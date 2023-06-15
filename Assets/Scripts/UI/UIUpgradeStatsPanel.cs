@@ -463,7 +463,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
     private void ShowUpgradePrice(TextMeshProUGUI upgradeButtonText, float priceWithCoins)
     {
-        upgradeButtonText.text = $"{priceWithCoins} Coins";
+        upgradeButtonText.text = $"{priceWithCoins}";
     }
 
     private void ShowMaxLevelInsteadPrice(TextMeshProUGUI upgradeButtonText)
