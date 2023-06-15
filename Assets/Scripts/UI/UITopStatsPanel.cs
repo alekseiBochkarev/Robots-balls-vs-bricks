@@ -36,7 +36,14 @@ public class UITopStatsPanel : MonoBehaviour
         attackPrefabController = attackStatPrefab.GetComponent<AttackPrefabController>();
         starterBallsPrefabController = starterBallsStatPrefab.GetComponent<StarterBallsPrefabController>();
         sightLengthPrefabController = sightLengthStatPrefab.GetComponent<SightLengthPrefabController>();
+    }
 
+    private void OnEnable()
+    {
+        // ѕровер€ем, что контроллеры не null, иначе можно поймать ошибку,
+        // когда мы пытаемс€ получить значени€ префабов
+        if (healthPrefabController == null || attackPrefabController == null || starterBallsPrefabController == null || sightLengthPrefabController == null)
+            return;
         UpdateValuesAndPrefabs();
         ShowLevelValues();
     }
@@ -51,7 +58,7 @@ public class UITopStatsPanel : MonoBehaviour
 
     private void UpdateValuesAndPrefabs()
     {
-        // переделать все контроллеры под абстрактный, чтобы интерфейс у них был общий, наверное
+        // ¬озможно переделать все контроллеры под абстрактный?, чтобы интерфейс у них был общий, наверное
         healthPrefabController.LoadHealthLevelAndShowSprite();
         attackPrefabController.LoadAttackLevelAndShowSprite();
         starterBallsPrefabController.LoadStarterBallsLevelAndShowSprite();

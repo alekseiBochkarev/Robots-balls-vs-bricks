@@ -119,6 +119,7 @@ public class LevelManager : MonoBehaviour
 		EventManager.EnergyIsOverEvent += ShowLosePanelBecauseEnergyIsOver;
 		EventManager.LifeIsOverEvent += ShowLosePanelBecauseLifeIsOver;
         m_SpecialAttackPanelController = GameObject.Find("SpecialAttackUI").GetComponent<SpecialAttackPanelController>();
+        m_TopStatsPanel = GameObject.FindGameObjectWithTag("TopStatsPanel");
     }
 
     private void Start()

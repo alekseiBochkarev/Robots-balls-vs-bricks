@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2673278401390342320}
   m_Layer: 5
   m_Name: TopStatsPanel
-  m_TagString: Untagged
+  m_TagString: TopStatsPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,8 +104,8 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 125, y: 80}
-  m_Spacing: {x: 15, y: 0}
+  m_CellSize: {x: 138, y: 80}
+  m_Spacing: {x: 5, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 5
 --- !u!114 &5584759165562468173
