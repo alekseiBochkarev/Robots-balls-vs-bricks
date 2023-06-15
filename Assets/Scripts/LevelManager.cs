@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     public GameObject m_GameOverPanel;
     public GameObject m_GameWinPanel;
     public GameObject m_Scores;
+    [SerializeField] private GameObject m_Hero;
     public Text m_GameOverFinalScore;
 
 	private bool energyIsOver;
@@ -36,6 +37,8 @@ public class LevelManager : MonoBehaviour
             switch(value)
             {
                 case LevelState.BEFOREPLAYABLE:
+                    m_Hero.transform.position = new Vector3(0f, 1.1f);
+                    m_Hero.transform.localScale = new Vector3(1f, 1f, 1f);
                     //  m_GameMenuPanel.SetActive(false);
                     m_TopStatsPanel.SetActive(false);
                     m_BeforeStartPanel.SetActive(true);
@@ -53,7 +56,9 @@ public class LevelManager : MonoBehaviour
                     }
                     else
                     {
-                       // m_GameMenuPanel.SetActive(true);
+                        m_Hero.transform.position = new Vector3(0f, -4.1f);
+                        m_Hero.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+                        // m_GameMenuPanel.SetActive(true);
                         m_BeforeStartPanel.SetActive(false);
                         m_GameOverPanel.SetActive(false);
                         m_GameWinPanel.SetActive(false);
@@ -114,6 +119,7 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        m_Hero = GameObject.FindGameObjectWithTag("Hero");
         EventManager.BallsReturned += CheckBallsAndOpenSpecAttackPanelAndContinuePlaying;
         EventManager.ResetReturningBallsAmount += ResetReturningBallsAmount;
 		EventManager.EnergyIsOverEvent += ShowLosePanelBecauseEnergyIsOver;
