@@ -11,6 +11,7 @@ public class UITopStatsPanel : MonoBehaviour
     public int sightLengthLevel;
 
     // “ексты дл€ отображени€ уровней/значений
+    [SerializeField] private TextMeshProUGUI levelValueText;
     [SerializeField] private TextMeshProUGUI coinsValueText;
     [SerializeField] private TextMeshProUGUI healthLevelText;
     [SerializeField] private TextMeshProUGUI attackLevelText;
@@ -50,6 +51,7 @@ public class UITopStatsPanel : MonoBehaviour
 
     private void ShowLevelValues()
     {
+        levelValueText.text = $"LEVEL {SaveManager.LoadSceneData()}"; ;
         healthLevelText.text = $"{healthLevel}";
         attackLevelText.text = $"{attackLevel}";
         starterBallsLevelText.text = $"{starterBallsLevel}";
