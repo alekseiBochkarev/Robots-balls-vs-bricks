@@ -1134,6 +1134,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5568510016778599185, guid: cece90c4c0a8b644590ab7c414f308c5,
+        type: 3}
+      propertyPath: m_Name
+      value: HomeButtonSmall
+      objectReference: {fileID: 0}
     - target: {fileID: 6199681859987361782, guid: cece90c4c0a8b644590ab7c414f308c5,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1783,7 +1788,7 @@ PrefabInstance:
     - target: {fileID: 8123017447475373219, guid: 4c1499d1bc9dbe948ae0350582cd423b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c1499d1bc9dbe948ae0350582cd423b, type: 3}
