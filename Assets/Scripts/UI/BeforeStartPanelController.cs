@@ -17,6 +17,8 @@ namespace UI
         [SerializeField] private GameObject _gunButtonBig;
         [SerializeField] private GameObject _portalButtonSmall;
         [SerializeField] private GameObject _portalButtonBig;
+
+        [SerializeField] private GameObject _backFonPanel; //for shop, skinsPanel, gunsPanel, portal
         
         public void OpenShop()
         {
@@ -30,6 +32,8 @@ namespace UI
             if (_gunButtonBig != null) _gunButtonBig.SetActive(false);
             if (_portalButtonSmall != null) _portalButtonSmall.SetActive(true);
             if (_portalButtonBig != null) _portalButtonBig.SetActive(false);
+
+            if (_backFonPanel != null) _backFonPanel.SetActive(true);
         }
 
         public void OpenSkinsPanel()
@@ -44,6 +48,8 @@ namespace UI
             if (_gunButtonBig != null) _gunButtonBig.SetActive(false);
             if (_portalButtonSmall != null) _portalButtonSmall.SetActive(true);
             if (_portalButtonBig != null) _portalButtonBig.SetActive(false);
+            
+            if (_backFonPanel != null) _backFonPanel.SetActive(true);
         }
 
         public void OpenHome()
@@ -58,6 +64,8 @@ namespace UI
             if (_gunButtonBig != null) _gunButtonBig.SetActive(false);
             if (_portalButtonSmall != null) _portalButtonSmall.SetActive(true);
             if (_portalButtonBig != null) _portalButtonBig.SetActive(false);
+            
+            if (_backFonPanel != null) _backFonPanel.SetActive(false);
         }
 
         public void OpenGunsPanel()
@@ -72,6 +80,8 @@ namespace UI
             if (_gunButtonBig != null) _gunButtonBig.SetActive(true);
             if (_portalButtonSmall != null) _portalButtonSmall.SetActive(true);
             if (_portalButtonBig != null) _portalButtonBig.SetActive(false);
+            
+            if (_backFonPanel != null) _backFonPanel.SetActive(true);
         }
 
         public void OpenPortal()
@@ -86,6 +96,8 @@ namespace UI
             if (_gunButtonBig != null) _gunButtonBig.SetActive(false);
             if (_portalButtonSmall != null) _portalButtonSmall.SetActive(false);
             if (_portalButtonBig != null) _portalButtonBig.SetActive(true);
+            
+            if (_backFonPanel != null) _backFonPanel.SetActive(true);
         }
     }
 }
