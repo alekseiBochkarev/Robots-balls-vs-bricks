@@ -83,8 +83,8 @@ public class BallLauncher : MonoBehaviour
 
     private void Start()
     {
-        ShowBallsAmountOnHUD(); 
-        m_ReturnBallsButton.SetActive(false);
+        ShowBallsAmountOnHUD();
+        if (m_ReturnBallsButton != null) m_ReturnBallsButton.SetActive(false);
     }
 
     public void ShowBallsAmountOnHUD()
