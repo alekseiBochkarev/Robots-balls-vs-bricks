@@ -19,7 +19,7 @@ namespace Gameplay.StatsPanel
     
         public void ChangeSprite(int level)
         {
-            _spriteImage.sprite = sprites[level - 1];
+            if (_spriteImage != null) _spriteImage.sprite = sprites[level - 1];
         }
 
         public void LoadSprites(string pathToSprites)
