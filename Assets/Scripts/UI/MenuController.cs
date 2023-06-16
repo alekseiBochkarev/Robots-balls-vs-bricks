@@ -28,7 +28,7 @@ public class MenuController : MonoBehaviour
       //  m_SettingsPanel.SetActive(false);
      //   energy = EnergyController.Instance.Energy;
     }
-
+/*
     void Update()
     {
         if (GameManager.Instance != null)
@@ -61,8 +61,8 @@ public class MenuController : MonoBehaviour
                     HidePauseMenu();
                 break;
         }
-        */
-    }
+        
+    }*/
     /*
     public void StartGame()
     {
@@ -158,7 +158,7 @@ public class MenuController : MonoBehaviour
         StartCoroutine("ResumeGameAfterPause");
      //   m_SettingsPanel.SetActive(false);
     }
-
+/*
     public void OpenMoreGamesOnMarket()
     {
         if(m_Market == Market.PlayStore)
@@ -189,7 +189,8 @@ public class MenuController : MonoBehaviour
 #endif
         }
     }
-
+*/
+/*
     public void ShareGame()
     {
         if(m_Market == Market.PlayStore)
@@ -197,6 +198,7 @@ public class MenuController : MonoBehaviour
         else if(m_Market == Market.CafeBazaar)
             ShareAndroid("بازی Ballz رو از کافه بازار دانلود کن\n\nhttps://cafebazaar.ir/app/com.gameditors.ballz", "", "", null, "text/plain", true, "اشتراک گذاری با");
     }
+    */
 
     public void ShareScore()
     {
