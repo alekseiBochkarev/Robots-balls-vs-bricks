@@ -11,7 +11,8 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     
     public GameObject hero;
     private Hero m_hero;
-    public static Vector3 s_FirstCollisionPoint { private set; get; }
+
+  //  [SerializeField] private Vector3 s_FirstCollisionPoint;
     //private static int s_ReturnedBallsAmount = 0;
     public int attackPower;
     protected int damageTextFontSize;
@@ -89,15 +90,15 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         } else if (collision.gameObject.tag.Equals("Floor")) {
             transform.localPosition = new Vector3(transform.localPosition.x, m_MinimumYPosition, 0);
             Debug.Log("BORDER");
-            if (s_FirstCollisionPoint == Vector3.zero)
+            if (BallLauncher.Instance.SFirstCollisionPoint == Vector3.zero)
             {
-                s_FirstCollisionPoint = transform.position;
-                BallLauncher.Instance.ChangePositionAndSetTrue(s_FirstCollisionPoint);
-                m_hero.Move(s_FirstCollisionPoint);
+                BallLauncher.Instance.SFirstCollisionPoint = transform.position;
+                BallLauncher.Instance.ChangePositionAndSetTrue();
+                m_hero.Move(BallLauncher.Instance.SFirstCollisionPoint);
             }
 
             DisablePhysics();
-            MoveTo(s_FirstCollisionPoint, iTween.EaseType.linear, (Vector2.Distance(transform.position, s_FirstCollisionPoint) / 5.0f), "Deactive");
+            MoveTo(BallLauncher.Instance.SFirstCollisionPoint, iTween.EaseType.linear, (Vector2.Distance(transform.position, BallLauncher.Instance.SFirstCollisionPoint) / 5.0f), "Deactive");
         }
         
     }
@@ -146,12 +147,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         rot_z = Mathf.Atan2(m_Rigidbody2D.velocity.y, m_Rigidbody2D.velocity.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
     }
-
-    public static void ResetFirstCollisionPoint()
-    {
-        s_FirstCollisionPoint = Vector3.zero;
-    }
-
+    
    /* public static void ResetReturningBallsAmount()
     {
         //s_ReturnedBallsAmount = 0;
@@ -245,7 +241,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
     public void DestroyBall() {
         DisablePhysics();
-            MoveTo(s_FirstCollisionPoint, iTween.EaseType.linear, (Vector2.Distance(transform.position, s_FirstCollisionPoint) / 5.0f), "Deactive");
+            MoveTo(BallLauncher.Instance.SFirstCollisionPoint, iTween.EaseType.linear, (Vector2.Distance(transform.position, BallLauncher.Instance.SFirstCollisionPoint) / 5.0f), "Deactive");
     }
 }
 
