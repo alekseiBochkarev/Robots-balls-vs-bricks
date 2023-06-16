@@ -15,6 +15,13 @@ public class BallLauncher : MonoBehaviour
 
     private Vector3 ballStartPostitionCoordinates = new Vector3(0, ballStartPositionCoordinatesY);
     public const float ballStartPositionCoordinatesY = -5.00f;
+    [SerializeField] private Vector3 s_FirstCollisionPoint;
+
+    public Vector3 SFirstCollisionPoint
+    {
+        get => s_FirstCollisionPoint;
+        set => s_FirstCollisionPoint = value;
+    }
 
     private Vector3 m_Direction;
     private Balls m_BallsScript;
@@ -49,7 +56,7 @@ public class BallLauncher : MonoBehaviour
     public GameObject rightBorder;
     public GameObject bottomBorder;
     public GameObject ballStartPrefab;
-    private GameObject ballStartPosition;
+    [SerializeField]private GameObject ballStartPosition;
 
     [Header("FOR EDUCATION JUST FOR 1st LEVEL")]
     [SerializeField] private bool isFirstScene;
@@ -93,10 +100,15 @@ public class BallLauncher : MonoBehaviour
         m_BallsText.text = "x" + m_BallsScript.PlayerBallsAmount.ToString();
     }
     
-    public void ChangePositionAndSetTrue(Vector3 s_FirstCollisionPoint)
+    public void ChangePositionAndSetTrue()
     {
         m_BallSprite.transform.position = s_FirstCollisionPoint;
         m_BallSprite.enabled = true;
+    }
+    
+    public void ResetFirstCollisionPoint()
+    {
+        SFirstCollisionPoint = Vector3.zero;
     }
 
     private void Update()
@@ -257,10 +269,10 @@ public class BallLauncher : MonoBehaviour
     public void ReturnAllBallsToNewStartPosition()
     {
        // Debug.Log("ReturnAllBallsToNewStartPosition");
-        if(AbstractBall.s_FirstCollisionPoint != Vector3.zero)
+        if(s_FirstCollisionPoint != Vector3.zero)
         {
-            transform.position = AbstractBall.s_FirstCollisionPoint;
-            AbstractBall.ResetFirstCollisionPoint();
+            transform.position = s_FirstCollisionPoint;
+            ResetFirstCollisionPoint();
         }
 
         for (int i = 0; i < m_BallsScript.PlayerBalls.Count; i++)
@@ -272,10 +284,10 @@ public class BallLauncher : MonoBehaviour
     }
 
     public void ReturnBallToStartPosition (AbstractBall ball) {
-        if(AbstractBall.s_FirstCollisionPoint != Vector3.zero)
+        if(s_FirstCollisionPoint != Vector3.zero)
         {
-            transform.position = AbstractBall.s_FirstCollisionPoint;
-            //AbstractBall.ResetFirstCollisionPoint();
+            transform.position = s_FirstCollisionPoint;
+            
         }
             ball.Disable();
             ball.MoveToStartPosition(transform.position, iTween.EaseType.easeInOutQuart, (Vector2.Distance(transform.position, ball.transform.position) / 6.0f), "Deactive");
@@ -285,10 +297,10 @@ public class BallLauncher : MonoBehaviour
     {
        // Debug.Log("ContinuePlaying");
         
-        if(AbstractBall.s_FirstCollisionPoint != Vector3.zero)
+        if(s_FirstCollisionPoint != Vector3.zero)
         {
-            transform.position = AbstractBall.s_FirstCollisionPoint;
-            AbstractBall.ResetFirstCollisionPoint();
+            transform.position = s_FirstCollisionPoint;
+            ResetFirstCollisionPoint();
         }
         ResetPositions();
         m_BallSprite.enabled = true;
