@@ -30,12 +30,12 @@
             new ObjectGamePosition("enemies/BrickTriangle", 8, 6, 8),
             new ObjectGamePosition("enemies/Brick2", 9, 6, 4),
             
-            new ObjectGamePosition("enemies/Brick3", 3, 7, 4),
-            new ObjectGamePosition("enemies/Brick3", 4, 7, 4),
-            new ObjectGamePosition("enemies/Brick3", 5, 7, 4),
-            new ObjectGamePosition("enemies/Brick3", 6, 7, 4),
-            new ObjectGamePosition("enemies/Brick3", 7, 7, 4),
-            new ObjectGamePosition("enemies/Brick3", 8, 7, 4),
+            new ObjectGamePosition("enemies/BrickSquare", 3, 7, 4),
+            new ObjectGamePosition("enemies/BrickSquare", 4, 7, 4),
+            new ObjectGamePosition("enemies/BrickSquare", 5, 7, 4),
+            new ObjectGamePosition("enemies/BrickSquare", 6, 7, 4),
+            new ObjectGamePosition("eenemies/BrickSquare", 7, 7, 4),
+            new ObjectGamePosition("enemies/BrickSquare", 8, 7, 4),
             
             new ObjectGamePosition("extras/Magic Ball Particle", 11, 5, 1),
             

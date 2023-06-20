@@ -15,6 +15,7 @@ TagManager:
   - Cell
   - Bullet
   - TopStatsPanel
+  - GunItemInShop
   layers:
   - Default
   - TransparentFX
