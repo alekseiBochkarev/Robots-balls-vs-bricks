@@ -34,7 +34,7 @@
             new ObjectGamePosition("enemies/BrickSquare", 4, 7, 4),
             new ObjectGamePosition("enemies/BrickSquare", 5, 7, 4),
             new ObjectGamePosition("enemies/BrickSquare", 6, 7, 4),
-            new ObjectGamePosition("eenemies/BrickSquare", 7, 7, 4),
+            new ObjectGamePosition("enemies/BrickSquare", 7, 7, 4),
             new ObjectGamePosition("enemies/BrickSquare", 8, 7, 4),
             
             new ObjectGamePosition("extras/Magic Ball Particle", 11, 5, 1),
