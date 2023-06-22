@@ -22,9 +22,9 @@ public class AttackStateBrick : MonoBehaviour, IStateBrick
     {
         if (brick.IsWaitMeleeAttack)
         {
-            iTween.MoveTo(brick.parent,
+           /* iTween.MoveTo(brick.parent,
                 iTween.Hash("position", new Vector3(brick.hero.transform.position.x, brick.hero.transform.position.y, brick.hero.transform.position.z),
-                    "easetype", iTween.EaseType.linear, "time", (Vector2.Distance(this.brick.transform.position, brick.hero.transform.position))/10));
+                    "easetype", iTween.EaseType.linear, "time", (Vector2.Distance(this.brick.transform.position, brick.hero.transform.position))/10));*/
             brick.animator.Play("attack");
             brick.hero.TakeDamage(applyDamage); // later remove it
             yield return new WaitForSeconds(0.1f);
