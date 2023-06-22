@@ -206,7 +206,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 58b0cc5699cf7b342b07002532f56b07, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8b188b79e86fba642b366dcba0861f6e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -446,7 +446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6306033571101246402
 RectTransform:
   m_ObjectHideFlags: 0
@@ -611,12 +611,12 @@ PrefabInstance:
     - target: {fileID: 2756365789533400295, guid: 6c896c5083b803043b36d65e34219c5a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 135
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 2756365789533400295, guid: 6c896c5083b803043b36d65e34219c5a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -280
+      value: -552
       objectReference: {fileID: 0}
     - target: {fileID: 2756365789533400295, guid: 6c896c5083b803043b36d65e34219c5a,
         type: 3}
@@ -763,6 +763,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NEW ROBOT
       objectReference: {fileID: 0}
+    - target: {fileID: 7160639961342413756, guid: 28fa074aae150b244a3f68851b8a2341,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28fa074aae150b244a3f68851b8a2341, type: 3}
 --- !u!224 &742934869018298061 stripped
@@ -778,6 +783,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2239511234339256380}
     m_Modifications:
+    - target: {fileID: 7160639961342413746, guid: 28fa074aae150b244a3f68851b8a2341,
+        type: 3}
+      propertyPath: m_Text
+      value: YOU WIN
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160639961342413746, guid: 28fa074aae150b244a3f68851b8a2341,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160639961342413746, guid: 28fa074aae150b244a3f68851b8a2341,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160639961342413746, guid: 28fa074aae150b244a3f68851b8a2341,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7160639961342413747, guid: 28fa074aae150b244a3f68851b8a2341,
         type: 3}
       propertyPath: m_Pivot.x
@@ -866,7 +891,7 @@ PrefabInstance:
     - target: {fileID: 7160639961342413747, guid: 28fa074aae150b244a3f68851b8a2341,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 470
+      value: 234
       objectReference: {fileID: 0}
     - target: {fileID: 7160639961342413747, guid: 28fa074aae150b244a3f68851b8a2341,
         type: 3}
@@ -886,7 +911,7 @@ PrefabInstance:
     - target: {fileID: 7160639961342413756, guid: 28fa074aae150b244a3f68851b8a2341,
         type: 3}
       propertyPath: m_Name
-      value: Game over Text
+      value: GameWinText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28fa074aae150b244a3f68851b8a2341, type: 3}
