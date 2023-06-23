@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using CodeMonkey;
 using Interfaces;
 using UnityEngine;
 
@@ -109,7 +110,7 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
     {
         foreach (AbstractBall ball in PlayerBalls)
         {
-            if (ball.name.Contains(" " + ballsType.ToString()))
+            if (ball.name.Equals(ballsType.ToString() + "(Clone)"))
             {
                 //Debug.Log("GetBallByBallTypeInList  -> " + ball.name);
                 return ball;
@@ -117,6 +118,22 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
         }
 
         return null;
+    }
+    
+    public int CountBallByBallTypeInList(BallsTypeEnum ballsType)
+    {
+        Debug.Log("startBallsAmount " + startBallsAmount + " PlayerBallsAmount " + PlayerBallsAmount);
+        int count = 0;
+        foreach (AbstractBall ball in PlayerBalls)
+        {
+            Debug.Log("GetBallByBallTypeInList  -> " + ball.name);
+            if (ball.name.Equals(ballsType.ToString() + "(Clone)"))
+            {
+                count++;
+            }
+        }
+
+        return count;
     }
 
     private void Update()
