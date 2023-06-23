@@ -11,12 +11,11 @@ namespace UI.LootInChestSelection
         [SerializeField] private TextMeshProUGUI lootInChestName;
         [SerializeField] private Image lootInChestImage;
        // [SerializeField] private TextMeshProUGUI specialAttackDescription;
-       private LootInChestSO lootInChestSO;
+      private LootInChestSO lootInChestSO;
 
        private void OnEnable()
        {
-           lootInChestName.text = this.lootInChestSO.lootInChestName;
-            lootInChestImage.sprite = this.lootInChestSO.Image;
+           
         }
 
         public void DisplayLootInChest(LootInChestSO _lootInChest)
