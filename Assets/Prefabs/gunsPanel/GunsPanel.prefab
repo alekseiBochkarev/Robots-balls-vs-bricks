@@ -417,6 +417,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1605593521842850802}
     m_Modifications:
+    - target: {fileID: 3220937644628428843, guid: b39ed122b1fa21b4ea0a665f78d1a9ac,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 36bda517c579fe54fb169ae4ef1ff7e2,
+        type: 3}
     - target: {fileID: 4738742647648001589, guid: b39ed122b1fa21b4ea0a665f78d1a9ac,
         type: 3}
       propertyPath: m_Pivot.x
@@ -526,6 +532,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ImageLaserCrossBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234177074953787470, guid: b39ed122b1fa21b4ea0a665f78d1a9ac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b39ed122b1fa21b4ea0a665f78d1a9ac, type: 3}

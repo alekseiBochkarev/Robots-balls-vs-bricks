@@ -5565,7 +5565,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ice
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3549605123820331809}
     - target: {fileID: 9046373954102932149, guid: 2448ac433eae27f469cb254c9354c2aa,
         type: 3}
       propertyPath: fire
@@ -5851,3 +5851,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cc465c00de778e4e8c4ecfda86c6675, type: 3}
+--- !u!1 &3549605123820331809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5056571074347086816, guid: 9cc465c00de778e4e8c4ecfda86c6675,
+    type: 3}
+  m_PrefabInstance: {fileID: 8605877048252993729}
+  m_PrefabAsset: {fileID: 0}
