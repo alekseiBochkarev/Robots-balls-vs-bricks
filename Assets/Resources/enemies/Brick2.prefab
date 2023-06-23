@@ -4981,6 +4981,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3013263393657030932, guid: a261994d3cd0f5d4b836729569889bb7,
+        type: 3}
+      propertyPath: ice
+      value: 
+      objectReference: {fileID: 9008839987124920558}
     - target: {fileID: 5832175742250434401, guid: a261994d3cd0f5d4b836729569889bb7,
         type: 3}
       propertyPath: m_Sprite
@@ -5027,6 +5032,12 @@ PrefabInstance:
 --- !u!4 &1130854795132473613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2906544845939872484, guid: a261994d3cd0f5d4b836729569889bb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2875413476977017833}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9008839987124920558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6548886342573253383, guid: a261994d3cd0f5d4b836729569889bb7,
     type: 3}
   m_PrefabInstance: {fileID: 2875413476977017833}
   m_PrefabAsset: {fileID: 0}

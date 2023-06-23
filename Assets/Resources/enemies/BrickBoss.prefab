@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Text: {fileID: 1023805768209530951}
   healthBar: {fileID: 0}
   hero: {fileID: 0}
-  ice: {fileID: 0}
+  ice: {fileID: 4011295171650773742}
   fire: {fileID: 389837475181787066}
   poison: {fileID: 21109565672845190}
   m_maxBrickHealth: 0
@@ -5759,6 +5759,12 @@ PrefabInstance:
 --- !u!4 &1992652900748855129 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7647433689286792791, guid: 9cc465c00de778e4e8c4ecfda86c6675,
+    type: 3}
+  m_PrefabInstance: {fileID: 8180356809807286542}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4011295171650773742 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5056571074347086816, guid: 9cc465c00de778e4e8c4ecfda86c6675,
     type: 3}
   m_PrefabInstance: {fileID: 8180356809807286542}
   m_PrefabAsset: {fileID: 0}
