@@ -7,7 +7,7 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
 {
     public static Balls Instance;
 
-    private HeroStats _heroStats;
+    public HeroStats _heroStats;
     public static Dictionary<int, GameObject> ballsInScene;
     private AbstractBall m_BallPrefab;
     public List<AbstractBall> PlayerBalls { private set; get; }
