@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using CodeMonkey;
 using Interfaces;
 using UnityEngine;
 
@@ -11,6 +12,16 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
     private AbstractBall m_BallPrefab;
     public List<AbstractBall> PlayerBalls { private set; get; }
     [SerializeField] private int startBallsAmount;
+    [SerializeField] private int StarterRocketBall;
+    [SerializeField] private int StarterIceBall;
+    [SerializeField] private int StarterLaserHorizontalBall;
+    [SerializeField] private int StarterLaserVerticalBall;
+    [SerializeField] private int StarterLaserCrossBall;
+    [SerializeField] private int StarterInstaKillBall;
+    [SerializeField] private int StarterFireBall;
+    [SerializeField] private int StarterBombBall;
+    [SerializeField] private int StarterPoisonBall;
+    [SerializeField] private int StarterBlackHoleBall;
     public int PlayerBallsAmount { private set; get; }
     public bool IsBallAmountChanged;
 
@@ -23,6 +34,28 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
 
         PlayerBalls = new List<AbstractBall>(startBallsAmount);
         SpawnNewBall(startBallsAmount, BallsTypeEnum.Ball);
+        
+        StarterRocketBall = (int)_heroStats.StarterRocketBall;
+        StarterIceBall = (int)_heroStats.StarterIceBall;
+        StarterLaserHorizontalBall = (int)_heroStats.StarterLaserHorizontalBall;
+        StarterLaserVerticalBall = (int)_heroStats.StarterLaserVerticalBall;
+        StarterLaserCrossBall = (int)_heroStats.StarterLaserCrossBall;
+        StarterInstaKillBall = (int)_heroStats.StarterInstaKillBall;
+        StarterFireBall = (int)_heroStats.StarterFireBall;
+        StarterBombBall = (int)_heroStats.StarterBombBall;
+        StarterPoisonBall = (int)_heroStats.StarterPoisonBall;
+        StarterBlackHoleBall = (int)_heroStats.StarterBlackHoleBall;
+        SpawnNewBall(StarterRocketBall, BallsTypeEnum.RocketBall);
+        SpawnNewBall(StarterIceBall, BallsTypeEnum.IceBall);
+        SpawnNewBall(StarterLaserHorizontalBall, BallsTypeEnum.LaserHorizontalBall);
+        SpawnNewBall(StarterLaserVerticalBall, BallsTypeEnum.LaserVerticalBall);
+        SpawnNewBall(StarterLaserCrossBall, BallsTypeEnum.LaserCrossBall);
+        SpawnNewBall(StarterInstaKillBall, BallsTypeEnum.InstaKillBall);
+        SpawnNewBall(StarterFireBall, BallsTypeEnum.FireBall);
+        SpawnNewBall(StarterBombBall, BallsTypeEnum.BombBall);
+        SpawnNewBall(StarterPoisonBall, BallsTypeEnum.PoisonBall);
+        SpawnNewBall(StarterBlackHoleBall, BallsTypeEnum.BlackHoleBall);
+        
         PlayerBallsAmount = PlayerBalls.Count;
         IsBallAmountChanged = false;
     }
@@ -109,7 +142,7 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
     {
         foreach (AbstractBall ball in PlayerBalls)
         {
-            if (ball.name.Contains(" " + ballsType.ToString()))
+            if (ball.name.Equals(ballsType.ToString() + "(Clone)"))
             {
                 //Debug.Log("GetBallByBallTypeInList  -> " + ball.name);
                 return ball;
@@ -117,6 +150,22 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
         }
 
         return null;
+    }
+    
+    public int CountBallByBallTypeInList(BallsTypeEnum ballsType)
+    {
+        Debug.Log("startBallsAmount " + startBallsAmount + " PlayerBallsAmount " + PlayerBallsAmount);
+        int count = 0;
+        foreach (AbstractBall ball in PlayerBalls)
+        {
+            Debug.Log("GetBallByBallTypeInList  -> " + ball.name);
+            if (ball.name.Equals(ballsType.ToString() + "(Clone)"))
+            {
+                count++;
+            }
+        }
+
+        return count;
     }
 
     private void Update()
