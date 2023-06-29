@@ -28,21 +28,24 @@ EditorBuildSettings:
     guid: c0ce3b952cc90a34792fdc532fc2f60f
   - enabled: 1
     path: Assets/Scenes/LevelWithWin 2.unity
-    guid: edc18327c9b21144ab069fa3a100c464
+    guid: d8f67b8c34706e24dba896a43af38318
   - enabled: 1
     path: Assets/Scenes/LevelWithWin 3.unity
-    guid: b1dfed16aac0e5544b443b29cf15effa
+    guid: edc18327c9b21144ab069fa3a100c464
   - enabled: 1
     path: Assets/Scenes/LevelWithWin 4.unity
-    guid: 507dcc538de62c449854ad820f618797
+    guid: b1dfed16aac0e5544b443b29cf15effa
   - enabled: 1
     path: Assets/Scenes/LevelWithWin 5.unity
-    guid: 89c3fa7883ca9c74ebdda21f521a6a07
+    guid: 507dcc538de62c449854ad820f618797
   - enabled: 1
     path: Assets/Scenes/LevelWithWin 6.unity
-    guid: e29cb9fac8347a7438a0781c506dee31
+    guid: 89c3fa7883ca9c74ebdda21f521a6a07
   - enabled: 1
     path: Assets/Scenes/LevelWithWin 7.unity
+    guid: e29cb9fac8347a7438a0781c506dee31
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 8.unity
     guid: 95ccfaed3a7e3e54fb0c6e23f672f8e1
   - enabled: 0
     path: 
