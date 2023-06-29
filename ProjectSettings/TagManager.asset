@@ -16,6 +16,7 @@ TagManager:
   - Bullet
   - TopStatsPanel
   - GunItemInShop
+  - Priz
   layers:
   - Default
   - TransparentFX
