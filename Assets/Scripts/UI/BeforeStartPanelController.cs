@@ -21,7 +21,10 @@ namespace UI
         [SerializeField] private GameObject _backFonPanel; //for shop, skinsPanel, gunsPanel, portal
         [SerializeField] private GameObject _gunsShopPanel;
         [SerializeField] private GameObject _shopPanel;
-        
+
+        [SerializeField] private GameObject _baseSkinPanel;
+        [SerializeField] private GameObject _scrollCasualSkinsPanel;
+        [SerializeField] private GameObject _scrollLegendSkinsPanel;
         public void OpenShop()
         {
             if (_shopButtonSmall != null) _shopButtonSmall.SetActive(false);
@@ -38,6 +41,7 @@ namespace UI
             if (_backFonPanel != null) _backFonPanel.SetActive(true);
             if (_gunsShopPanel != null) _gunsShopPanel.SetActive(false);
             if (_shopPanel != null) _shopPanel.SetActive(true);
+            if (_baseSkinPanel != null) _baseSkinPanel.SetActive(false);
         }
 
         public void OpenSkinsPanel()
@@ -56,6 +60,9 @@ namespace UI
             if (_backFonPanel != null) _backFonPanel.SetActive(true);
             if (_gunsShopPanel != null) _gunsShopPanel.SetActive(false);
             if (_shopPanel != null) _shopPanel.SetActive(false);
+            if (_baseSkinPanel != null) _baseSkinPanel.SetActive(true);
+            if (_scrollCasualSkinsPanel != null) _scrollCasualSkinsPanel.SetActive(true);
+            if (_scrollLegendSkinsPanel != null) _scrollLegendSkinsPanel.SetActive(false);
         }
 
         public void OpenHome()
@@ -74,6 +81,7 @@ namespace UI
             if (_backFonPanel != null) _backFonPanel.SetActive(false);
             if (_gunsShopPanel != null) _gunsShopPanel.SetActive(false);
             if (_shopPanel != null) _shopPanel.SetActive(false);
+            if (_baseSkinPanel != null) _baseSkinPanel.SetActive(false);
         }
 
         public void OpenGunsPanel()
@@ -92,6 +100,7 @@ namespace UI
             if (_backFonPanel != null) _backFonPanel.SetActive(true);
             if (_gunsShopPanel != null) _gunsShopPanel.SetActive(true);
             if (_shopPanel != null) _shopPanel.SetActive(false);
+            if (_baseSkinPanel != null) _baseSkinPanel.SetActive(false);
         }
 
         public void OpenPortal()
@@ -110,6 +119,9 @@ namespace UI
             if (_backFonPanel != null) _backFonPanel.SetActive(true);
             if (_gunsShopPanel != null) _gunsShopPanel.SetActive(false);
             if (_shopPanel != null) _shopPanel.SetActive(false);
+            if (_baseSkinPanel != null) _baseSkinPanel.SetActive(true);
+            if (_scrollCasualSkinsPanel != null) _scrollCasualSkinsPanel.SetActive(false);
+            if (_scrollLegendSkinsPanel != null) _scrollLegendSkinsPanel.SetActive(true);
         }
     }
 }
