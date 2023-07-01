@@ -3,6 +3,40 @@
   <component name="ChangeListManager">
     <list default="true" id="8f7a12e7-3117-49e5-b950-126538c99e2e" name="Changes" comment="add changes from battery branch">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00056-3117451989-A robot, art.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00056-3117451989-A robot, art.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00057-3117451990-A robot, art.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00057-3117451990-A robot, art.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00058-3117451991-A robot, art.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00058-3117451991-A robot, art.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00059-3117451992-A robot, art.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00059-3117451992-A robot, art.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00060-3117451993-A robot, art.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00060-3117451993-A robot, art.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00066-3609082500-A robot, back, art.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00066-3609082500-A robot, back, art.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00069-3609082503-A robot, back, art.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00069-3609082503-A robot, back, art.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00070-3609082504-A robot, back, art.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00070-3609082504-A robot, back, art.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00071-4091273344-robot with a gun, art.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00071-4091273344-robot with a gun, art.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00072-4091273345-robot with a gun, art.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00072-4091273345-robot with a gun, art.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00073-4091273346-robot with a gun, art.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00073-4091273346-robot with a gun, art.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00074-4091273347-robot with a gun, art.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00074-4091273347-robot with a gun, art.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00075-4091273348-robot with a gun, art.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00075-4091273348-robot with a gun, art.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/Robot2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/Robot2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/RobotGener.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/RobotGener.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/BeforeStartPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/BeforeStartPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/LowButtonsPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/LowButtonsPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/BeforeStartPanelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/BeforeStartPanelController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +93,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/BeforeStartPanelController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MenuController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WinManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -105,6 +140,7 @@
       <workItem from="1682157860890" duration="18029000" />
       <workItem from="1682329338526" duration="2401000" />
       <workItem from="1682344459745" duration="58000" />
+      <workItem from="1688224274169" duration="455000" />
     </task>
     <task id="LOCAL-00001" summary="newScene and rename menuCanvas">
       <created>1679036454804</created>
