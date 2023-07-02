@@ -3,40 +3,58 @@
   <component name="ChangeListManager">
     <list default="true" id="8f7a12e7-3117-49e5-b950-126538c99e2e" name="Changes" comment="add changes from battery branch">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00056-3117451989-A robot, art.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00056-3117451989-A robot, art.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00057-3117451990-A robot, art.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00057-3117451990-A robot, art.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00058-3117451991-A robot, art.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00058-3117451991-A robot, art.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00059-3117451992-A robot, art.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00059-3117451992-A robot, art.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00060-3117451993-A robot, art.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00060-3117451993-A robot, art.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00066-3609082500-A robot, back, art.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00066-3609082500-A robot, back, art.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00069-3609082503-A robot, back, art.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00069-3609082503-A robot, back, art.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00070-3609082504-A robot, back, art.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00070-3609082504-A robot, back, art.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00071-4091273344-robot with a gun, art.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00071-4091273344-robot with a gun, art.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00072-4091273345-robot with a gun, art.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00072-4091273345-robot with a gun, art.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00073-4091273346-robot with a gun, art.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00073-4091273346-robot with a gun, art.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00074-4091273347-robot with a gun, art.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00074-4091273347-robot with a gun, art.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00075-4091273348-robot with a gun, art.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/00075-4091273348-robot with a gun, art.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/Robot2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/Robot2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/RobotGener.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/RobotGener.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/0r.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots/0r.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/11.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots/11.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/13.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots/13.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/15.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots/15.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/17.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots/17.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/19.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots/19.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/1r.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots/1r.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/21.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots/21.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/23.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots/23.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/25.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots/25.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/27.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots/27.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/29.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots/29.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots/3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots/5.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots/7.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/9.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots/9.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/10r.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/10r.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/12r.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/12r.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/14r.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/14r.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/16r.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/16r.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/18r.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/18r.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/20r.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/20r.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/22r.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/22r.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/24r.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/24r.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/26r.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/26r.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/28r.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/28r.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/2r.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/2r.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/30r.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/30r.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/31.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/31.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/32.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/32.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/33.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/33.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/34.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/34.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/35.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/35.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/4r.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/4r.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/6r.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/6r.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/8r.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robots2/8r.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/0.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/0.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/4.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/5.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/6.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/7.PNG.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/7.PNG.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/8.PNG.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/robotsLegend/8.PNG.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/BaseSkinPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/BaseSkinPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/ScrollCasualSkins.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/ScrollCasualSkins.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/ScrollLegendSkins.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/ScrollLegendSkins.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/Hero.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/Hero.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/BeforeStartPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/BeforeStartPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/LowButtonsPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/LowButtonsPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/BeforeStartPanelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/BeforeStartPanelController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +113,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/BeforeStartPanelController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MenuController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/SkinButton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WinManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -140,7 +159,7 @@
       <workItem from="1682157860890" duration="18029000" />
       <workItem from="1682329338526" duration="2401000" />
       <workItem from="1682344459745" duration="58000" />
-      <workItem from="1688224274169" duration="455000" />
+      <workItem from="1688224274169" duration="4305000" />
     </task>
     <task id="LOCAL-00001" summary="newScene and rename menuCanvas">
       <created>1679036454804</created>
