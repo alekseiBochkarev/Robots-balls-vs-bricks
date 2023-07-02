@@ -5030,7 +5030,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1075052630967759467}
+      - m_Target: {fileID: 7154898444327032230}
         m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
         m_MethodName: changeCurrentSkin
         m_Mode: 1
