@@ -17,6 +17,9 @@ TagManager:
   - TopStatsPanel
   - GunItemInShop
   - Priz
+  - Combo
+  - HeroSkin
+  - SkinMenuHeroImage
   layers:
   - Default
   - TransparentFX

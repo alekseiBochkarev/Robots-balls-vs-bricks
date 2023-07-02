@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3849116622807948531}
   - component: {fileID: 9186955962251449602}
   - component: {fileID: 5539966562191000860}
+  - component: {fileID: 8859612942402877443}
   m_Layer: 5
   m_Name: Button (34)
   m_TagString: Untagged
@@ -121,7 +122,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9186955962251449602}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8859612942402877443}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8859612942402877443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50156718336006432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &350100106400647305
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +159,7 @@ GameObject:
   - component: {fileID: 2819374707439036733}
   - component: {fileID: 4867306321059186559}
   - component: {fileID: 8502567380919117684}
+  - component: {fileID: 946567018060119663}
   m_Layer: 5
   m_Name: Button (18)
   m_TagString: Untagged
@@ -243,7 +269,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4867306321059186559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 946567018060119663}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &946567018060119663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350100106400647305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &939570268368907709
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,6 +576,7 @@ GameObject:
   - component: {fileID: 1647862193909363067}
   - component: {fileID: 2114113669066587000}
   - component: {fileID: 8106733760781949358}
+  - component: {fileID: 309417193633278155}
   m_Layer: 5
   m_Name: Button (16)
   m_TagString: Untagged
@@ -635,7 +686,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2114113669066587000}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 309417193633278155}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &309417193633278155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031506063884033489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1123523459325298428
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +723,7 @@ GameObject:
   - component: {fileID: 4891246363540069834}
   - component: {fileID: 5894680949295063153}
   - component: {fileID: 213377388034595144}
+  - component: {fileID: 2049523612919786382}
   m_Layer: 5
   m_Name: Button (28)
   m_TagString: Untagged
@@ -757,7 +833,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5894680949295063153}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2049523612919786382}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2049523612919786382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123523459325298428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1570664715782162356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,6 +1140,7 @@ GameObject:
   - component: {fileID: 1414368800521025362}
   - component: {fileID: 7879910820864119160}
   - component: {fileID: 583440230908487025}
+  - component: {fileID: 1880703446766436903}
   m_Layer: 5
   m_Name: Button (26)
   m_TagString: Untagged
@@ -1149,7 +1250,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7879910820864119160}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1880703446766436903}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1880703446766436903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650934257649259344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1802681352526367369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,6 +1287,7 @@ GameObject:
   - component: {fileID: 4809647398106946884}
   - component: {fileID: 1142348732220817720}
   - component: {fileID: 7454585010171543758}
+  - component: {fileID: 4614306340786942943}
   m_Layer: 5
   m_Name: Button (33)
   m_TagString: Untagged
@@ -1271,7 +1397,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1142348732220817720}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4614306340786942943}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4614306340786942943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802681352526367369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1828885018403860824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,6 +1839,7 @@ GameObject:
   - component: {fileID: 904529548950289859}
   - component: {fileID: 3081133701498698839}
   - component: {fileID: 4741540339893141893}
+  - component: {fileID: 7944870262624873987}
   m_Layer: 5
   m_Name: Button (8)
   m_TagString: Untagged
@@ -1798,7 +1949,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3081133701498698839}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7944870262624873987}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7944870262624873987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065465474204914663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2073610412964631935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,6 +1986,7 @@ GameObject:
   - component: {fileID: 2658492868298412264}
   - component: {fileID: 6714717057164075636}
   - component: {fileID: 1962460603057642577}
+  - component: {fileID: 288464236390876204}
   m_Layer: 5
   m_Name: Button (15)
   m_TagString: Untagged
@@ -1920,7 +2096,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6714717057164075636}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 288464236390876204}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &288464236390876204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073610412964631935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2168133299409574001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1933,6 +2133,7 @@ GameObject:
   - component: {fileID: 2983323723739718168}
   - component: {fileID: 5359688027747705502}
   - component: {fileID: 1204270991630688177}
+  - component: {fileID: 4516290443726881516}
   m_Layer: 5
   m_Name: Button (12)
   m_TagString: Untagged
@@ -2042,7 +2243,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5359688027747705502}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4516290443726881516}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4516290443726881516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2168133299409574001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2176012530858891915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,7 +2280,6 @@ GameObject:
   - component: {fileID: 5033800749703044325}
   - component: {fileID: 5376598759246531887}
   - component: {fileID: 8030910775368526301}
-  - component: {fileID: 925528843316986894}
   m_Layer: 5
   m_Name: SkinsPanel
   m_TagString: Untagged
@@ -2181,19 +2405,6 @@ MonoBehaviour:
   m_Spacing: {x: 100, y: 100}
   m_Constraint: 1
   m_ConstraintCount: 3
---- !u!114 &925528843316986894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2176012530858891915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
 --- !u!1 &2433967895902126838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,6 +2552,7 @@ GameObject:
   - component: {fileID: 1885818631582243500}
   - component: {fileID: 4369646023567012154}
   - component: {fileID: 3891563753496617280}
+  - component: {fileID: 1460828307336467194}
   m_Layer: 5
   m_Name: Button (20)
   m_TagString: Untagged
@@ -2450,7 +2662,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4369646023567012154}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1460828307336467194}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1460828307336467194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811356712395430676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3054488687663216283
 GameObject:
   m_ObjectHideFlags: 0
@@ -3138,6 +3374,7 @@ GameObject:
   - component: {fileID: 7252691268760393723}
   - component: {fileID: 4125397458642223444}
   - component: {fileID: 578770331560906482}
+  - component: {fileID: 8148436000066097777}
   m_Layer: 5
   m_Name: Button (7)
   m_TagString: Untagged
@@ -3247,7 +3484,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4125397458642223444}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8148436000066097777}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8148436000066097777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3282636124348706057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3327316241781834757
 GameObject:
   m_ObjectHideFlags: 0
@@ -3665,6 +3926,7 @@ GameObject:
   - component: {fileID: 9029288188679725071}
   - component: {fileID: 2220754786655166687}
   - component: {fileID: 1687842851153335568}
+  - component: {fileID: 6189898883122390241}
   m_Layer: 5
   m_Name: Button (5)
   m_TagString: Untagged
@@ -3774,7 +4036,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2220754786655166687}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6189898883122390241}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6189898883122390241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3811758130636971284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4036356507857442447
 GameObject:
   m_ObjectHideFlags: 0
@@ -3787,6 +4073,7 @@ GameObject:
   - component: {fileID: 4988967884835582294}
   - component: {fileID: 3140431319341644811}
   - component: {fileID: 1120598153018312184}
+  - component: {fileID: 2875373986464751039}
   m_Layer: 5
   m_Name: Button (9)
   m_TagString: Untagged
@@ -3896,7 +4183,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3140431319341644811}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2875373986464751039}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2875373986464751039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4036356507857442447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4094543876722254216
 GameObject:
   m_ObjectHideFlags: 0
@@ -4044,6 +4355,7 @@ GameObject:
   - component: {fileID: 6472295544509956720}
   - component: {fileID: 2664069122314704162}
   - component: {fileID: 8232330049799933486}
+  - component: {fileID: 6615535084447317930}
   m_Layer: 5
   m_Name: Button (17)
   m_TagString: Untagged
@@ -4153,7 +4465,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2664069122314704162}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6615535084447317930}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6615535084447317930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4235905589784102381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4247067926962691876
 GameObject:
   m_ObjectHideFlags: 0
@@ -4436,6 +4772,7 @@ GameObject:
   - component: {fileID: 5428679952731105598}
   - component: {fileID: 9152231614584603714}
   - component: {fileID: 623806697210066523}
+  - component: {fileID: 1075052630967759467}
   m_Layer: 5
   m_Name: Button (11)
   m_TagString: Untagged
@@ -4545,7 +4882,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9152231614584603714}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1075052630967759467}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1075052630967759467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4507956044000479111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4514185578558349735
 GameObject:
   m_ObjectHideFlags: 0
@@ -4558,6 +4919,7 @@ GameObject:
   - component: {fileID: 7384114529174603056}
   - component: {fileID: 5656142352678395792}
   - component: {fileID: 9204363370612217137}
+  - component: {fileID: 7154898444327032230}
   m_Layer: 5
   m_Name: Button (10)
   m_TagString: Untagged
@@ -4667,7 +5029,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5656142352678395792}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1075052630967759467}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7154898444327032230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4514185578558349735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4593501872619047181
 GameObject:
   m_ObjectHideFlags: 0
@@ -4680,6 +5066,7 @@ GameObject:
   - component: {fileID: 105663087209025677}
   - component: {fileID: 2503124890005637692}
   - component: {fileID: 3882752425122157184}
+  - component: {fileID: 8960717196778660297}
   m_Layer: 5
   m_Name: Button (3)
   m_TagString: Untagged
@@ -4789,7 +5176,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2503124890005637692}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8960717196778660297}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8960717196778660297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4593501872619047181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4638530014882243051
 GameObject:
   m_ObjectHideFlags: 0
@@ -4937,6 +5348,7 @@ GameObject:
   - component: {fileID: 7539760219188023853}
   - component: {fileID: 3934292855623842492}
   - component: {fileID: 6874496602479029580}
+  - component: {fileID: 5855015054985791263}
   m_Layer: 5
   m_Name: Button (21)
   m_TagString: Untagged
@@ -5046,7 +5458,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3934292855623842492}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5855015054985791263}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5855015054985791263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4687356579163911836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4776260213542938027
 GameObject:
   m_ObjectHideFlags: 0
@@ -5059,6 +5495,7 @@ GameObject:
   - component: {fileID: 1355092611729181896}
   - component: {fileID: 8505416215890054838}
   - component: {fileID: 3278562478430967032}
+  - component: {fileID: 6969509034185804219}
   m_Layer: 5
   m_Name: ScrollCasualSkins
   m_TagString: Untagged
@@ -5155,6 +5592,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6969509034185804219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4776260213542938027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1 &4851658483303537829
 GameObject:
   m_ObjectHideFlags: 0
@@ -5167,6 +5617,7 @@ GameObject:
   - component: {fileID: 9218832932287254930}
   - component: {fileID: 965641528795390253}
   - component: {fileID: 8616314559404861722}
+  - component: {fileID: 1300502522975231839}
   m_Layer: 5
   m_Name: Button (4)
   m_TagString: Untagged
@@ -5276,7 +5727,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 965641528795390253}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1300502522975231839}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1300502522975231839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851658483303537829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4995503392782741910
 GameObject:
   m_ObjectHideFlags: 0
@@ -5559,6 +6034,7 @@ GameObject:
   - component: {fileID: 6534468134312407952}
   - component: {fileID: 6818075391567934824}
   - component: {fileID: 200314676730891155}
+  - component: {fileID: 7810651521360622105}
   m_Layer: 5
   m_Name: Button (6)
   m_TagString: Untagged
@@ -5668,7 +6144,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6818075391567934824}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7810651521360622105}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7810651521360622105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5657286999968934601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5850840119755544352
 GameObject:
   m_ObjectHideFlags: 0
@@ -5816,6 +6316,7 @@ GameObject:
   - component: {fileID: 5920745071334372668}
   - component: {fileID: 5489090463495685453}
   - component: {fileID: 8182137941188132680}
+  - component: {fileID: 2957471438076321883}
   m_Layer: 5
   m_Name: Button (23)
   m_TagString: Untagged
@@ -5925,7 +6426,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5489090463495685453}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2957471438076321883}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2957471438076321883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5914376697100926529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5962771335211134645
 GameObject:
   m_ObjectHideFlags: 0
@@ -5938,6 +6463,7 @@ GameObject:
   - component: {fileID: 4181230092539951077}
   - component: {fileID: 1415868144061433589}
   - component: {fileID: 439661015839610927}
+  - component: {fileID: 1195371907838697069}
   m_Layer: 5
   m_Name: Button (30)
   m_TagString: Untagged
@@ -6047,7 +6573,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1415868144061433589}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1195371907838697069}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1195371907838697069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5962771335211134645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6051416077574143992
 GameObject:
   m_ObjectHideFlags: 0
@@ -6060,6 +6610,7 @@ GameObject:
   - component: {fileID: 6126016374275228675}
   - component: {fileID: 3743686354586336016}
   - component: {fileID: 2250933493015700517}
+  - component: {fileID: 3471749490836289668}
   m_Layer: 5
   m_Name: Button (19)
   m_TagString: Untagged
@@ -6169,7 +6720,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3743686354586336016}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3471749490836289668}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3471749490836289668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6051416077574143992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6097099127803322153
 GameObject:
   m_ObjectHideFlags: 0
@@ -6317,6 +6892,7 @@ GameObject:
   - component: {fileID: 5383104788572197550}
   - component: {fileID: 6150689411335944037}
   - component: {fileID: 2812752608843946366}
+  - component: {fileID: 2212839642614499672}
   m_Layer: 5
   m_Name: Button (27)
   m_TagString: Untagged
@@ -6426,7 +7002,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6150689411335944037}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2212839642614499672}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2212839642614499672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6107332130418184634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6247752790240305772
 GameObject:
   m_ObjectHideFlags: 0
@@ -6439,6 +7039,7 @@ GameObject:
   - component: {fileID: 2969133954277315610}
   - component: {fileID: 6397146733483133035}
   - component: {fileID: 5585763103696331159}
+  - component: {fileID: 7006575057478329339}
   m_Layer: 5
   m_Name: Button (22)
   m_TagString: Untagged
@@ -6548,7 +7149,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6397146733483133035}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7006575057478329339}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7006575057478329339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247752790240305772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6285611090533205443
 GameObject:
   m_ObjectHideFlags: 0
@@ -6696,6 +7321,7 @@ GameObject:
   - component: {fileID: 6379387846923861757}
   - component: {fileID: 7828054688526527216}
   - component: {fileID: 8126887736387303535}
+  - component: {fileID: 5807359883329901604}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -6805,7 +7431,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7828054688526527216}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5807359883329901604}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5807359883329901604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6342155014076808158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6580233289596953576
 GameObject:
   m_ObjectHideFlags: 0
@@ -6953,6 +7603,7 @@ GameObject:
   - component: {fileID: 1625866763269330606}
   - component: {fileID: 964227542488789947}
   - component: {fileID: 678076096157600051}
+  - component: {fileID: 5256558238291714513}
   m_Layer: 5
   m_Name: Button (29)
   m_TagString: Untagged
@@ -7062,7 +7713,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 964227542488789947}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5256558238291714513}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5256558238291714513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6638048958185186646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7146275614146255735
 GameObject:
   m_ObjectHideFlags: 0
@@ -7075,6 +7750,7 @@ GameObject:
   - component: {fileID: 1234832711373357941}
   - component: {fileID: 9150194843512079756}
   - component: {fileID: 3941943312145604237}
+  - component: {fileID: 40428740498939432}
   m_Layer: 5
   m_Name: Button (24)
   m_TagString: Untagged
@@ -7184,7 +7860,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9150194843512079756}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 40428740498939432}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &40428740498939432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146275614146255735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7156407104949730462
 GameObject:
   m_ObjectHideFlags: 0
@@ -7467,6 +8167,7 @@ GameObject:
   - component: {fileID: 1725898356671037948}
   - component: {fileID: 7389075149291978463}
   - component: {fileID: 5261329709038638984}
+  - component: {fileID: 7861600305293704036}
   m_Layer: 5
   m_Name: Button (35)
   m_TagString: Untagged
@@ -7576,7 +8277,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7389075149291978463}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7861600305293704036}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7861600305293704036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7416631981392147211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7563854604912233693
 GameObject:
   m_ObjectHideFlags: 0
@@ -7724,6 +8449,7 @@ GameObject:
   - component: {fileID: 231664665326998592}
   - component: {fileID: 1422157559962767758}
   - component: {fileID: 7873265873715813422}
+  - component: {fileID: 52384396885404621}
   m_Layer: 5
   m_Name: Button (14)
   m_TagString: Untagged
@@ -7833,7 +8559,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1422157559962767758}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 52384396885404621}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &52384396885404621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7865163915630665507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7952707229883746825
 GameObject:
   m_ObjectHideFlags: 0
@@ -7846,6 +8596,7 @@ GameObject:
   - component: {fileID: 2422795906421268921}
   - component: {fileID: 4781210948261072586}
   - component: {fileID: 2034447670083726140}
+  - component: {fileID: 1360307236193592565}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -7955,7 +8706,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4781210948261072586}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1360307236193592565}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1360307236193592565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7952707229883746825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8065590604207712729
 GameObject:
   m_ObjectHideFlags: 0
@@ -7968,6 +8743,7 @@ GameObject:
   - component: {fileID: 4820002414004762503}
   - component: {fileID: 1441735730549231430}
   - component: {fileID: 4316090895067805554}
+  - component: {fileID: 1596118211315692329}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -8077,7 +8853,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1441735730549231430}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1596118211315692329}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1596118211315692329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8065590604207712729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8070838717252633818
 GameObject:
   m_ObjectHideFlags: 0
@@ -8090,6 +8890,7 @@ GameObject:
   - component: {fileID: 7024305889097218007}
   - component: {fileID: 1092559580880922778}
   - component: {fileID: 1146926989298505579}
+  - component: {fileID: 7334568216887911151}
   m_Layer: 5
   m_Name: Button (31)
   m_TagString: Untagged
@@ -8199,7 +9000,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1092559580880922778}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7334568216887911151}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7334568216887911151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8070838717252633818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8074867144326929653
 GameObject:
   m_ObjectHideFlags: 0
@@ -8617,6 +9442,7 @@ GameObject:
   - component: {fileID: 696538185588320650}
   - component: {fileID: 9144509595907962784}
   - component: {fileID: 482386115097141043}
+  - component: {fileID: 6753562066527088382}
   m_Layer: 5
   m_Name: Button (25)
   m_TagString: Untagged
@@ -8726,7 +9552,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9144509595907962784}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6753562066527088382}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6753562066527088382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334520095257818330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8686367996269356308
 GameObject:
   m_ObjectHideFlags: 0
@@ -8739,6 +9589,7 @@ GameObject:
   - component: {fileID: 3308092095063140828}
   - component: {fileID: 4177958327845357514}
   - component: {fileID: 1084356196554992584}
+  - component: {fileID: 8812115702272918040}
   m_Layer: 5
   m_Name: Button (32)
   m_TagString: Untagged
@@ -8848,7 +9699,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4177958327845357514}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8812115702272918040}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8812115702272918040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8686367996269356308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8764464684243090372
 GameObject:
   m_ObjectHideFlags: 0
@@ -8861,6 +9736,7 @@ GameObject:
   - component: {fileID: 9223228082633684472}
   - component: {fileID: 5481647272363593007}
   - component: {fileID: 8583218669427866498}
+  - component: {fileID: 2647861910119177078}
   m_Layer: 5
   m_Name: Button (13)
   m_TagString: Untagged
@@ -8970,7 +9846,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5481647272363593007}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2647861910119177078}
+        m_TargetAssemblyTypeName: SkinButton, Assembly-CSharp
+        m_MethodName: changeCurrentSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2647861910119177078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8764464684243090372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768bddbf4d1451c4ea0cc6b2f7c229d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8885744117581567420
 GameObject:
   m_ObjectHideFlags: 0
