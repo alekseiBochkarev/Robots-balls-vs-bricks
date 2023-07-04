@@ -17,7 +17,7 @@ public class SaveManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("That's OK. Just There is no save data!"); //- красиво подчеркивается красным
+            //Debug.Log("That's OK. Just There is no save data!"); 
             return defaultScene;
         }
     }
