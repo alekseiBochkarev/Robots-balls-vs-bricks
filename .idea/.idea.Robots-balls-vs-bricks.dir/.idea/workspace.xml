@@ -3,85 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="8f7a12e7-3117-49e5-b950-126538c99e2e" name="Changes" comment="add changes from battery branch">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/0r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/0r.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/11.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/13.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/15.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/17.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/19.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/1r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/1r.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/21.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/23.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/25.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/27.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/27.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/29.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/29.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/3.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/5.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/7.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots/9.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/10r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/10r.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/12r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/12r.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/14r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/14r.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/16r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/16r.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/18r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/18r.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/20r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/20r.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/22r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/22r.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/24r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/24r.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/26r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/26r.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/28r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/28r.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/2r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/2r.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/30r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/30r.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/31.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/31.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/32.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/33.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/33.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/34.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/34.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/35.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/35.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/4r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/4r.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/6r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/6r.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/8r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/robots2/8r.png.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/BaseSkinPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/BaseSkinPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/Button.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/Button.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/ScrollCasualSkins.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/ScrollCasualSkins.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/SceneBackground.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/SceneBackground.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/BeforeStartPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/BeforeStartPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/UpgradePanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/UpgradePanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data Managing/SaveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data Managing/SaveManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SkinButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SkinButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,12 +30,15 @@
     <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data Managing/GameAssets.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data Managing/GameAssets.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data Managing/LevelConfig.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data Managing/TextController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data Managing/SaveManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data Managing/SavedGame.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data Managing/Saver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data Managing/TextController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EventManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/AimLine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/AimLine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/BallLauncher.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Balls.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Batteries/Battery Cell/BatteryCell.cs" root0="SKIP_HIGHLIGHTING" />
@@ -127,7 +59,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/MoveDownBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/StatsPanel/AbstractStatPrefab.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/UpgradeStats.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/balls/AbstractBall.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/balls/AbstractBall.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/balls/Ball.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/balls/RocketBall.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -190,7 +122,11 @@
       <workItem from="1682329338526" duration="2401000" />
       <workItem from="1682344459745" duration="58000" />
       <workItem from="1688224274169" duration="5018000" />
-      <workItem from="1688386057350" duration="1554000" />
+      <workItem from="1688386057350" duration="2153000" />
+      <workItem from="1688437269360" duration="289000" />
+      <workItem from="1688437651810" duration="1031000" />
+      <workItem from="1688451989958" duration="739000" />
+      <workItem from="1688455891449" duration="1287000" />
     </task>
     <task id="LOCAL-00001" summary="newScene and rename menuCanvas">
       <created>1679036454804</created>
