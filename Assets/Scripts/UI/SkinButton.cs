@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SkinButton : MonoBehaviour
 {
@@ -20,11 +21,12 @@ public class SkinButton : MonoBehaviour
         _heroSkins = GameObject.FindGameObjectsWithTag("HeroSkin");
         _skinMenuHeroImage = GameObject.FindWithTag("SkinMenuHeroImage");
 		//lock button if not available
-		if (_minLevelWhereAvailable >= SaveManager.LoadSceneData()) 
+		if (_minLevelWhereAvailable >= SceneManager.GetActiveScene().buildIndex) 
 		{
 			_lockImage.SetActive(true);
 			_buttonImage.color = new Color32(0,0,0,100);
 			GetComponent<Button>().interactable = false;
+			_textMeshPro.GetComponent<TMP_Text>().text = "win " + (_minLevelWhereAvailable - 1) + " level";
         } else 
 		{
 			_lockImage.SetActive(false);
