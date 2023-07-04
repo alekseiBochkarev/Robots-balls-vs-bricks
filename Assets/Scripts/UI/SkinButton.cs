@@ -21,7 +21,7 @@ public class SkinButton : MonoBehaviour
         _heroSkins = GameObject.FindGameObjectsWithTag("HeroSkin");
         _skinMenuHeroImage = GameObject.FindWithTag("SkinMenuHeroImage");
 		//lock button if not available
-		if (_minLevelWhereAvailable >= SceneManager.GetActiveScene().buildIndex) 
+		if (_minLevelWhereAvailable > SceneManager.GetActiveScene().buildIndex) 
 		{
 			_lockImage.SetActive(true);
 			_buttonImage.color = new Color32(0,0,0,100);
@@ -39,7 +39,7 @@ public class SkinButton : MonoBehaviour
     {
         foreach (var _heroSkin in _heroSkins)
         {
-            _heroSkin.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Robots/" + _robotName);
+            _heroSkin.GetComponent<HeroBody>().SetSkin(_robotName);
         }
 
         _skinMenuHeroImage.GetComponent<Image>().sprite = Resources.Load<Sprite>("Robots/" + _robotName);
