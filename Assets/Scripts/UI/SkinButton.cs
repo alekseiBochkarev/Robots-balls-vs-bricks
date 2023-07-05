@@ -19,13 +19,17 @@ public class SkinButton : MonoBehaviour
     
 	void OnEnable()
     {
+		if (_minLevelWhereAvailable <= SceneManager.GetActiveScene().buildIndex) 
+		{
+			SaveSkinIsActivate(_robotName);
+		}
 		_buttonImage.sprite = Resources.Load<Sprite>("Robots/" + _robotName);
 		_textMeshPro.GetComponent<TMP_Text>().text = _robotName;
         _heroSkins = GameObject.FindGameObjectsWithTag("HeroSkin");
         _skinMenuHeroImage = GameObject.FindWithTag("SkinMenuHeroImage");
 		if (isFree) {
 			//lock button if not available
-			if (_minLevelWhereAvailable > SceneManager.GetActiveScene().buildIndex) 
+			if (LoadSkinSIsActivate(_robotName) != 1) 
 			{
 				_lockImage.SetActive(true);
 				_buttonImage.color = new Color32(0,0,0,100);
@@ -51,5 +55,24 @@ public class SkinButton : MonoBehaviour
         }
 
         _skinMenuHeroImage.GetComponent<Image>().sprite = Resources.Load<Sprite>("Robots/" + _robotName);
+    }
+
+	private void SaveSkinIsActivate(string skin)
+    {
+        PlayerPrefs.SetInt(skin, 1);
+        PlayerPrefs.Save();
+    }
+
+    private int LoadSkinSIsActivate(string skin)
+    {
+        int defaultSkinStateValue = 0;
+        if (PlayerPrefs.HasKey(skin))
+        {
+            return PlayerPrefs.GetInt(skin);
+        }
+        else
+        {
+            return defaultSkinStateValue;
+        }
     }
 }
