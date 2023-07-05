@@ -16,6 +16,7 @@ public class SkinButton : MonoBehaviour
 	[SerializeField] private GameObject _buyButton;
     private GameObject[] _heroSkins;
     private GameObject _skinMenuHeroImage;
+	private string secretKeyWord = "asdfadsfoypmutr";
     
 	void OnEnable()
     {
@@ -75,4 +76,5 @@ public class SkinButton : MonoBehaviour
             return defaultSkinStateValue;
         }
     }
+
 }
