@@ -12,26 +12,34 @@ public class SkinButton : MonoBehaviour
 	[SerializeField] private GameObject _textMeshPro;
 	[SerializeField] private int _minLevelWhereAvailable;
 	[SerializeField] private GameObject _lockImage;
+	[SerializeField] private bool isFree;
+	[SerializeField] private GameObject _buyButton;
     private GameObject[] _heroSkins;
     private GameObject _skinMenuHeroImage;
-    void OnEnable()
+    
+	void OnEnable()
     {
 		_buttonImage.sprite = Resources.Load<Sprite>("Robots/" + _robotName);
 		_textMeshPro.GetComponent<TMP_Text>().text = _robotName;
         _heroSkins = GameObject.FindGameObjectsWithTag("HeroSkin");
         _skinMenuHeroImage = GameObject.FindWithTag("SkinMenuHeroImage");
-		//lock button if not available
-		if (_minLevelWhereAvailable > SceneManager.GetActiveScene().buildIndex) 
+		if (isFree) {
+			//lock button if not available
+			if (_minLevelWhereAvailable > SceneManager.GetActiveScene().buildIndex) 
+			{
+				_lockImage.SetActive(true);
+				_buttonImage.color = new Color32(0,0,0,100);
+				GetComponent<Button>().interactable = false;
+				_textMeshPro.GetComponent<TMP_Text>().text = "win " + (_minLevelWhereAvailable - 1) + " level";
+        	} else 
+			{
+				_lockImage.SetActive(false);
+				_buttonImage.color = new Color32(255,255,225,100);
+				GetComponent<Button>().interactable = true;
+			}
+		} else 
 		{
-			_lockImage.SetActive(true);
-			_buttonImage.color = new Color32(0,0,0,100);
-			GetComponent<Button>().interactable = false;
-			_textMeshPro.GetComponent<TMP_Text>().text = "win " + (_minLevelWhereAvailable - 1) + " level";
-        } else 
-		{
-			_lockImage.SetActive(false);
-			_buttonImage.color = new Color32(255,255,225,100);
-			GetComponent<Button>().interactable = true;
+			_buyButton.SetActive(true);
 		}
     }
 
