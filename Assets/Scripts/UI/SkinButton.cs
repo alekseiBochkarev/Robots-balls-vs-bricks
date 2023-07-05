@@ -12,26 +12,39 @@ public class SkinButton : MonoBehaviour
 	[SerializeField] private GameObject _textMeshPro;
 	[SerializeField] private int _minLevelWhereAvailable;
 	[SerializeField] private GameObject _lockImage;
+	[SerializeField] private bool isFree;
+	[SerializeField] private GameObject _buyButton;
     private GameObject[] _heroSkins;
     private GameObject _skinMenuHeroImage;
-    void OnEnable()
+	private string secretKeyWord = "asdfadsfoypmutr";
+    
+	void OnEnable()
     {
+		if (_minLevelWhereAvailable <= SceneManager.GetActiveScene().buildIndex) 
+		{
+			SaveSkinIsActivate(_robotName);
+		}
 		_buttonImage.sprite = Resources.Load<Sprite>("Robots/" + _robotName);
 		_textMeshPro.GetComponent<TMP_Text>().text = _robotName;
         _heroSkins = GameObject.FindGameObjectsWithTag("HeroSkin");
         _skinMenuHeroImage = GameObject.FindWithTag("SkinMenuHeroImage");
-		//lock button if not available
-		if (_minLevelWhereAvailable > SceneManager.GetActiveScene().buildIndex) 
+		if (isFree) {
+			//lock button if not available
+			if (LoadSkinSIsActivate(_robotName) != 1) 
+			{
+				_lockImage.SetActive(true);
+				_buttonImage.color = new Color32(0,0,0,100);
+				GetComponent<Button>().interactable = false;
+				_textMeshPro.GetComponent<TMP_Text>().text = "win " + (_minLevelWhereAvailable - 1) + " level";
+        	} else 
+			{
+				_lockImage.SetActive(false);
+				_buttonImage.color = new Color32(255,255,225,100);
+				GetComponent<Button>().interactable = true;
+			}
+		} else 
 		{
-			_lockImage.SetActive(true);
-			_buttonImage.color = new Color32(0,0,0,100);
-			GetComponent<Button>().interactable = false;
-			_textMeshPro.GetComponent<TMP_Text>().text = "win " + (_minLevelWhereAvailable - 1) + " level";
-        } else 
-		{
-			_lockImage.SetActive(false);
-			_buttonImage.color = new Color32(255,255,225,100);
-			GetComponent<Button>().interactable = true;
+			_buyButton.SetActive(true);
 		}
     }
 
@@ -44,4 +57,24 @@ public class SkinButton : MonoBehaviour
 
         _skinMenuHeroImage.GetComponent<Image>().sprite = Resources.Load<Sprite>("Robots/" + _robotName);
     }
+
+	private void SaveSkinIsActivate(string skin)
+    {
+        PlayerPrefs.SetInt(skin, 1);
+        PlayerPrefs.Save();
+    }
+
+    private int LoadSkinSIsActivate(string skin)
+    {
+        int defaultSkinStateValue = 0;
+        if (PlayerPrefs.HasKey(skin))
+        {
+            return PlayerPrefs.GetInt(skin);
+        }
+        else
+        {
+            return defaultSkinStateValue;
+        }
+    }
+
 }
