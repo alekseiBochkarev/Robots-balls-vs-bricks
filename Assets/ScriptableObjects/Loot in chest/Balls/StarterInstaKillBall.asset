@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0888fd5c6f341dc855ea483df434a0e, type: 3}
-  m_Name: StarterRocketBall
+  m_Name: StarterInstaKillBall
   m_EditorClassIdentifier: 
-  lootInChestName: Rocket Ball
-  Image: {fileID: 21300000, guid: 849e9f1828c80f64898eefca43091480, type: 3}
+  lootInChestName: Insta Kill
+  Image: {fileID: 21300000, guid: 7d0506d1e77377e46bbc6f6db5c9dc9c, type: 3}
   lootInChestTypeEnum: 0
   dropChance: 100
   dropLootQuantity: 1
-  heroStats: 5
+  heroStats: 10

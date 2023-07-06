@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Scriptable_Objects.LootInChest;
 using UnityEngine;
@@ -13,7 +12,7 @@ namespace UI.LootInChestSelection
         private void OnEnable()
         {
             
-            button.GetComponent<LootInChestDisplay>().DisplayLootInChest(lootInChest[0]);
+            button.GetComponent<LootInChestDisplay>().DisplayLootInChest(lootInChest[Random.Range(0, lootInChest.Count)]);
         }
     }
 }

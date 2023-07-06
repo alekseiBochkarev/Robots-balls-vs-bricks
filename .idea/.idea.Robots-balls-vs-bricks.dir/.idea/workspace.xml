@@ -2,28 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f7a12e7-3117-49e5-b950-126538c99e2e" name="Changes" comment="add changes from battery branch">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StringToText.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StringToText.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Translator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Translator.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Combo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Combo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/Game over panel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/Game over panel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/GameWINPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/GameWINPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/BeforeStartPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/BeforeStartPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/LowButtonsPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/LowButtonsPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/UpgradeButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/UpgradeButton.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Guns/GunItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Guns/GunItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Guns/ShopGun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Guns/ShopGun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PlayButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PlayButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SkinButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SkinButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SpecialAttackSelection/SpecialAttackDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SpecialAttackSelection/SpecialAttackDisplay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UITopStatsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UITopStatsPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIUpgradeStatsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIUpgradeStatsPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Loot in chest/Balls/StarterRocketBall.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Loot in chest/Balls/StarterRocketBall.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Special Attacks/Hero Buffs/IncreasedCountComboBuff.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Special Attacks/Hero Buffs/IncreasedCountComboBuff.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LootInChestSelection/LootInChestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LootInChestSelection/LootInChestController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LootInChestSelection/LootInChestDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LootInChestSelection/LootInChestDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Translator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Translator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +40,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/AimLine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/BallLauncher.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Balls.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Balls.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Batteries/Battery Cell/BatteryCell.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Batteries/Battery Cell/BatteryCellController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Batteries/Battery/BatteryController.cs" root0="SKIP_HIGHLIGHTING" />
@@ -64,6 +50,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/BrickSpawner.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/IdleStateBrick.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/TakeDamageStateBrick.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Combo/ComboController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Combo/ComboCounter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Combo/ComboLauncher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Energy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/EnergyController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/HealthBar.cs" root0="SKIP_HIGHLIGHTING" />
@@ -92,6 +81,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/BeforeStartPanelController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/HeroBody.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/LootInChestSelection/LootInChestController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/LootInChestSelection/LootInChestDisplay.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MenuController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/PlayButton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/SkinButton.cs" root0="FORCE_HIGHLIGHTING" />

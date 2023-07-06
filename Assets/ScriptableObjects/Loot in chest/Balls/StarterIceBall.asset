@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0888fd5c6f341dc855ea483df434a0e, type: 3}
-  m_Name: StarterRocketBall
+  m_Name: StarterIceBall
   m_EditorClassIdentifier: 
-  lootInChestName: Rocket Ball
-  Image: {fileID: 21300000, guid: 849e9f1828c80f64898eefca43091480, type: 3}
+  lootInChestName: Ice Ball
+  Image: {fileID: 21300000, guid: 89e583ca8d9dd144d898c4ccda2f5956, type: 3}
   lootInChestTypeEnum: 0
   dropChance: 100
   dropLootQuantity: 1
-  heroStats: 5
+  heroStats: 6
