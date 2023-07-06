@@ -35,7 +35,7 @@ public class SkinButton : MonoBehaviour
 				_lockImage.SetActive(true);
 				_buttonImage.color = new Color32(0,0,0,100);
 				GetComponent<Button>().interactable = false;
-				_textMeshPro.GetComponent<TMP_Text>().text = "win " + (_minLevelWhereAvailable - 1) + " level";
+				_textMeshPro.GetComponent<TMP_Text>().text = Translator.Translate("win ") + (_minLevelWhereAvailable - 1) + Translator.Translate(" level");
         	} else 
 			{
 				_lockImage.SetActive(false);

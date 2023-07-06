@@ -1,16 +1,17 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UITopStatsPanel : MonoBehaviour
 {
-    // Текущие уровни статов
+    // РўРµРєСѓС‰РёРµ СѓСЂРѕРІРЅРё СЃС‚Р°С‚РѕРІ
     public int levelScene;
     public int healthLevel;
     public int attackLevel;
     public int starterBallsLevel;
     public int sightLengthLevel;
 
-    // Тексты для отображения уровней/значений
+    // РўРµРєСЃС‚С‹ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ СѓСЂРѕРІРЅРµР№/Р·РЅР°С‡РµРЅРёР№
     [SerializeField] private TextMeshProUGUI levelValueText;
     [SerializeField] private TextMeshProUGUI coinsValueText;
     [SerializeField] private TextMeshProUGUI healthLevelText;
@@ -18,13 +19,13 @@ public class UITopStatsPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI starterBallsLevelText;
     [SerializeField] private TextMeshProUGUI sightLengthLevelText;
 
-    // Префабы статов
+    // РџСЂРµС„Р°Р±С‹ СЃС‚Р°С‚РѕРІ
     [SerializeField] private Transform healthStatPrefab;
     [SerializeField] private Transform attackStatPrefab;
     [SerializeField] private Transform starterBallsStatPrefab;
     [SerializeField] private Transform sightLengthStatPrefab;
 
-    // Контроллеры Префабов
+    // РљРѕРЅС‚СЂРѕР»Р»РµСЂС‹ РџСЂРµС„Р°Р±РѕРІ
     private HealthPrefabController healthPrefabController;
     private AttackPrefabController attackPrefabController;
     private StarterBallsPrefabController starterBallsPrefabController;
@@ -32,7 +33,7 @@ public class UITopStatsPanel : MonoBehaviour
 
     private void Start()
     {
-        // Подгружаем контроллеры префабов
+        // РџРѕРґРіСЂСѓР¶Р°РµРј РєРѕРЅС‚СЂРѕР»Р»РµСЂС‹ РїСЂРµС„Р°Р±РѕРІ
         healthPrefabController = healthStatPrefab.GetComponent<HealthPrefabController>();
         attackPrefabController = attackStatPrefab.GetComponent<AttackPrefabController>();
         starterBallsPrefabController = starterBallsStatPrefab.GetComponent<StarterBallsPrefabController>();
@@ -41,17 +42,17 @@ public class UITopStatsPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        // Проверяем, что контроллеры не null, иначе можно поймать ошибку,
-        // когда мы пытаемся получить значения префабов
+        // РџСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ РєРѕРЅС‚СЂРѕР»Р»РµСЂС‹ РЅРµ null, РёРЅР°С‡Рµ РјРѕР¶РЅРѕ РїРѕР№РјР°С‚СЊ РѕС€РёР±РєСѓ,
+        // РєРѕРіРґР° РјС‹ РїС‹С‚Р°РµРјСЃСЏ РїРѕР»СѓС‡РёС‚СЊ Р·РЅР°С‡РµРЅРёСЏ РїСЂРµС„Р°Р±РѕРІ
         if (healthPrefabController == null || attackPrefabController == null || starterBallsPrefabController == null || sightLengthPrefabController == null)
             return;
         UpdateValuesAndPrefabs();
         ShowLevelValues();
     }
-
+    
     private void ShowLevelValues()
     {
-        levelValueText.text = $"LEVEL {SaveManager.LoadSceneData()}"; ;
+        levelValueText.text = Translator.Translate("LEVEL ") + $"{SceneManager.GetActiveScene().buildIndex}"; ;
         healthLevelText.text = $"{healthLevel}";
         attackLevelText.text = $"{attackLevel}";
         starterBallsLevelText.text = $"{starterBallsLevel}";
@@ -60,7 +61,7 @@ public class UITopStatsPanel : MonoBehaviour
 
     private void UpdateValuesAndPrefabs()
     {
-        // Возможно переделать все контроллеры под абстрактный?, чтобы интерфейс у них был общий, наверное
+        // Р’РѕР·РјРѕР¶РЅРѕ РїРµСЂРµРґРµР»Р°С‚СЊ РІСЃРµ РєРѕРЅС‚СЂРѕР»Р»РµСЂС‹ РїРѕРґ Р°Р±СЃС‚СЂР°РєС‚РЅС‹Р№?, С‡С‚РѕР±С‹ РёРЅС‚РµСЂС„РµР№СЃ Сѓ РЅРёС… Р±С‹Р» РѕР±С‰РёР№, РЅР°РІРµСЂРЅРѕРµ
         healthPrefabController.LoadHealthLevelAndShowSprite();
         attackPrefabController.LoadAttackLevelAndShowSprite();
         starterBallsPrefabController.LoadStarterBallsLevelAndShowSprite();
@@ -71,7 +72,7 @@ public class UITopStatsPanel : MonoBehaviour
 
     private void LoadLevelValues()
     {
-        // Подгружаем значения текущих уровней для статов
+        // РџРѕРґРіСЂСѓР¶Р°РµРј Р·РЅР°С‡РµРЅРёСЏ С‚РµРєСѓС‰РёС… СѓСЂРѕРІРЅРµР№ РґР»СЏ СЃС‚Р°С‚РѕРІ
         // levelScene = ???
         healthLevel = healthPrefabController.CurrentHealthLevel;
         attackLevel = attackPrefabController.CurrentAttackLevel;

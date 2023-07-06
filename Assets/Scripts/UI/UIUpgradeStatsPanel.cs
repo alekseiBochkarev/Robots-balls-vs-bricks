@@ -473,7 +473,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
     private void ShowCurrentStatsName(TextMeshProUGUI currentStatsText, string statsValue)
     {
-        currentStatsText.text = $"{statsValue}";
+        currentStatsText.text = $"{Translator.Translate(statsValue)}";
     }
 
 

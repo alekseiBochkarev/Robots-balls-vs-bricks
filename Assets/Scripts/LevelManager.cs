@@ -83,12 +83,12 @@ public class LevelManager : MonoBehaviour
 
                     // m_GameOverFinalScore.text = "Final Score : " + (ScoreManager.Instance.m_LevelOfFinalBrick - 1).ToString();
                     if (energyIsOver) {
-					m_GameOverFinalScore.text = "energy is over"; 
+					m_GameOverFinalScore.text = Translator.Translate("energy is over"); 
 					} else 
 					if (lifeIsOver) {
-					m_GameOverFinalScore.text = "life is over";
+					m_GameOverFinalScore.text = Translator.Translate("life is over");
 					} else {
-					m_GameOverFinalScore.text = "I don't know why you are over";
+					m_GameOverFinalScore.text = Translator.Translate("I don't know why you are over");
 					}
                     BallLauncher.Instance.m_CanPlay = false;
                     BallLauncher.Instance.ResetPositions();
@@ -102,7 +102,7 @@ public class LevelManager : MonoBehaviour
                     m_TopStatsPanel.SetActive(false);
                     m_Scores.SetActive(false);
 
-                    m_GameOverFinalScore.text = "You win";
+                    m_GameOverFinalScore.text = Translator.Translate("You win");
                     BallLauncher.Instance.m_CanPlay = false;
                     BallLauncher.Instance.ResetPositions();
                     EventManager.OnGameWon();
