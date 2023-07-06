@@ -15,7 +15,7 @@ MonoBehaviour:
   specialAttackIndex: 0
   specialAttackName: Increased Count Combo Buff
   specialAttackDescription: Increases Combo Count
-  specialAttackImage: {fileID: 0}
+  specialAttackImage: {fileID: 21300000, guid: 3c9f59cff8d05be4c897dba4fac8c7d1, type: 3}
   maxUseAmount: 1
   currentUseAmount: 0
   attackTypeEnum: 2

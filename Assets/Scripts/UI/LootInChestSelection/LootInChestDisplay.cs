@@ -22,7 +22,7 @@ namespace UI.LootInChestSelection
         {
             lootInChestSO = _lootInChest;
             // Display Choosen Special Attack
-            lootInChestName.text = _lootInChest.lootInChestName;
+            lootInChestName.text = Translator.Translate(_lootInChest.lootInChestName);
             lootInChestImage.sprite = _lootInChest.Image;
         }
 

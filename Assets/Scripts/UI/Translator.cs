@@ -109,7 +109,7 @@ public static class Translator
         },
         {
             "Bomb Ball",
-            "Бомба"
+            "бомба"
         },
         {
             "Fire Ball",
