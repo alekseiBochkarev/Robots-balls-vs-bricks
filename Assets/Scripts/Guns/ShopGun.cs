@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public class ShopGun : MonoBehaviour
 {
     [HideInInspector]
@@ -63,3 +63,4 @@ public class ShopGun : MonoBehaviour
         LoadGame();
     }
 }
+*/

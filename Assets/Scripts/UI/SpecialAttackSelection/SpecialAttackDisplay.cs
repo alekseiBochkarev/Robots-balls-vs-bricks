@@ -23,7 +23,7 @@ public class SpecialAttackDisplay : MonoBehaviour
     {
         specialAttack = _specialAttack;
         // Display Choosen Special Attack
-        specialAttackName.text = _specialAttack.specialAttackName;
+        specialAttackName.text = Translator.Translate(_specialAttack.specialAttackName);
         specialAttackDescription.text = _specialAttack.specialAttackDescription;
         specialAttackImage.sprite = _specialAttack.specialAttackImage;
     }
