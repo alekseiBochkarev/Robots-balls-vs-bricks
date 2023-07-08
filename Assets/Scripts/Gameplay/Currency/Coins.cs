@@ -40,9 +40,10 @@ public class Coins : WalletController
     }
 
     
-    public void LoadCoins() {
+    public int LoadCoins() {
         //user Enum for set and get coins as well as crystalls
         m_Coins = PlayerPrefs.GetInt("coins");
        // Debug.Log("Get coins -> " + m_Coins);
+       return m_Coins;
     }
 }
