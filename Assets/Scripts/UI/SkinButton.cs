@@ -13,11 +13,18 @@ public class SkinButton : MonoBehaviour
 	[SerializeField] private int _minLevelWhereAvailable;
 	[SerializeField] private GameObject _lockImage;
 	[SerializeField] private bool isFree;
+	[SerializeField] private int _skinCost;
 	[SerializeField] private GameObject _buyButton;
+	private Coins coins;
     private GameObject[] _heroSkins;
     private GameObject _skinMenuHeroImage;
 	private string secretKeyWord = "asdfadsfoypmutr";
     
+	
+	private void Awake() 
+	{
+		coins = new Coins();
+	}
 	void OnEnable()
     {
 		if (_minLevelWhereAvailable <= SceneManager.GetActiveScene().buildIndex) 
@@ -42,9 +49,12 @@ public class SkinButton : MonoBehaviour
 				_buttonImage.color = new Color32(255,255,225,100);
 				GetComponent<Button>().interactable = true;
 			}
-		} else 
+		} else if (LoadSkinSIsBought(_robotName) != 1)
 		{
 			_buyButton.SetActive(true);
+		} else 
+		{
+			_buyButton.SetActive(false);
 		}
     }
 
@@ -76,5 +86,34 @@ public class SkinButton : MonoBehaviour
             return defaultSkinStateValue;
         }
     }
+
+	private void SaveSkinIsBought(string skin)
+    {
+        PlayerPrefs.SetInt(skin + "Bought", 1);
+        PlayerPrefs.Save();
+    }
+
+	private int LoadSkinSIsBought(string skin)
+    {
+        int defaultSkinIsBought = 0;
+        if (PlayerPrefs.HasKey(skin + "Bought"))
+        {
+            return PlayerPrefs.GetInt(skin + "Bought");
+        }
+        else
+        {
+            return defaultSkinIsBought;
+        }
+    }
+
+	public void BuySkin() 
+	{
+		if(coins.LoadCoins() >= _skinCost) 
+		{
+			coins.RemoveCoins(_skinCost);
+			SaveSkinIsBought(_robotName);
+			_buyButton.SetActive(false);
+		}
+	}
 
 }
