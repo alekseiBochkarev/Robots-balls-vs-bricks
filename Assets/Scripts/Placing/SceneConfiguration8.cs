@@ -1,10 +1,10 @@
-﻿public class ScenePrizConfiguration1 : SceneConfiguration
+﻿public class SceneConfiguration8 : SceneConfiguration
 {
     void Awake()
     {
         _objectGamePositions = new[]
         {
-            new ObjectGamePosition("enemies/BrickPrizSkin1", 5,5,1),
+            new ObjectGamePosition("enemies/BrickPrizSkin3", 5,5,1),
             
             new ObjectGamePosition("enemies/BrickSquare", 3, 2, 1), 
             new ObjectGamePosition("enemies/BrickSquare", 4, 2, 1),

@@ -2,11 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f7a12e7-3117-49e5-b950-126538c99e2e" name="Changes" comment="add changes from battery branch">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration10.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration10.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration8.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration9.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration9.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/ScrollCasualSkins.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/ScrollCasualSkins.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/ScrollLegendSkins.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/ScrollLegendSkins.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 4.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration2.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration2.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration3.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration3.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration3.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration3.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration4.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration4.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration4.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration4.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration5.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration5.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration5.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration5.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration6.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration6.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration6.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration6.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration7.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration7.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration7.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration7.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/ScenePrizConfiguration1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration8.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/ScenePrizConfiguration1.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +95,14 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/Placables/Placable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration1.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration10.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration4.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration6.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration7.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration8.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration9.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/BeforeStartPanelController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/HeroBody.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/LootInChestSelection/LootInChestController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -145,7 +169,7 @@
       <workItem from="1688451989958" duration="739000" />
       <workItem from="1688455891449" duration="2281000" />
       <workItem from="1689325216679" duration="850000" />
-      <workItem from="1689420351837" duration="3609000" />
+      <workItem from="1689420351837" duration="4860000" />
     </task>
     <task id="LOCAL-00001" summary="newScene and rename menuCanvas">
       <created>1679036454804</created>
