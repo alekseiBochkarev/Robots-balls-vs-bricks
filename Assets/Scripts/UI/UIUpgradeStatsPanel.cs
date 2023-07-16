@@ -48,13 +48,19 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
     [SerializeField] private Button upgradeStarterBallsButton;
     [SerializeField] private Button upgradeSightLengthButton;
 
-    [Header("Upgrade Cost Text")] [SerializeField]
-    private TextMeshProUGUI upgradeHealthButtonText;
+    [Header("Upgrade Cost Text")] 
+    [SerializeField] private TextMeshProUGUI upgradeHealthButtonText;
+
+    [SerializeField] private GameObject justUpgradeHealthText;
 
   //  [SerializeField] private TextMeshProUGUI upgradeBatteryCellsButtonText;
+  // [SerializeField] private GameObject justUpgradeBatteryText;
     [SerializeField] private TextMeshProUGUI upgradeAttackPowerButtonText;
+    [SerializeField] private GameObject justUpgradeAttackText;
     [SerializeField] private TextMeshProUGUI upgradeStarterBallsButtonText;
+    [SerializeField] private GameObject justUpgradeStarterBallText;
     [SerializeField] private TextMeshProUGUI upgradeSightLengthButtonText;
+    [SerializeField] private GameObject justUpgradeSightLengthText;
 
     private const string HealthStatText = "Health";
 //    private const string BatteryCellsStatText = "Battery cells";
@@ -168,6 +174,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
                 if (upgradeStats.UpgradeHealthLevel == UpgradeStats.MaxUpgradeHealthLevel)
                 {
                     ShowMaxLevelInsteadPrice(upgradeHealthButtonText);
+                    justUpgradeHealthText.SetActive(false);
                 }
 
                 if (upgradeStats.UpgradeHealthLevel < UpgradeStats.MaxUpgradeHealthLevel)
@@ -206,6 +213,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
                 if (upgradeStats.UpgradeAttackLevel == UpgradeStats.MaxUpgradeAttackLevel)
                 {
                     ShowMaxLevelInsteadPrice(upgradeAttackPowerButtonText);
+                    justUpgradeAttackText.SetActive(false);
                 }
 
                 if (upgradeStats.UpgradeAttackLevel < UpgradeStats.MaxUpgradeAttackLevel)
@@ -225,6 +233,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
                 if (upgradeStats.UpgradeStarterBallsLevel == UpgradeStats.MaxUpgradeStarterBallsLevel)
                 {
                     ShowMaxLevelInsteadPrice(upgradeStarterBallsButtonText);
+                    justUpgradeStarterBallText.SetActive(false);
                 }
 
                 if (upgradeStats.UpgradeStarterBallsLevel < UpgradeStats.MaxUpgradeStarterBallsLevel)
@@ -244,6 +253,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
                 if (upgradeStats.UpgradeSightLengthLevel == UpgradeStats.MaxUpgradeSightLengthLevel)
                 {
                     ShowMaxLevelInsteadPrice(upgradeSightLengthButtonText);
+                    justUpgradeSightLengthText.SetActive(false);
                 }
 
                 if (upgradeStats.UpgradeSightLengthLevel < UpgradeStats.MaxUpgradeSightLengthLevel)
@@ -447,10 +457,14 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
         //Отобразить цену после сброса до дефолтных значений
         ShowUpgradePrice(upgradeHealthButtonText, upgradeStats.UpgradeHealthCoinsRequired);
+        justUpgradeHealthText.SetActive(true);
    //     ShowUpgradePrice(upgradeBatteryCellsButtonText, upgradeStats.UpgradeBatteryEnergyCoinsRequired);
         ShowUpgradePrice(upgradeAttackPowerButtonText, upgradeStats.UpgradeAttackCoinsRequired);
+        justUpgradeAttackText.SetActive(true);
         ShowUpgradePrice(upgradeStarterBallsButtonText, upgradeStats.UpgradeStarterBallsCoinsRequired);
+        justUpgradeStarterBallText.SetActive(true);
         ShowUpgradePrice(upgradeSightLengthButtonText, upgradeStats.UpgradeSightLengthCoinsRequired);
+        justUpgradeSightLengthText.SetActive(true);
 
         //EventManager to show changes in other classes
         EventManager.OnUpgradeStats();
