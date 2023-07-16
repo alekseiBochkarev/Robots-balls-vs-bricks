@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f7a12e7-3117-49e5-b950-126538c99e2e" name="Changes" comment="add changes from battery branch">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration11.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration11.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/BaseSkinPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/BaseSkinPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/LegendSkinsPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/LegendSkinsPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/ScrollLegendSkins.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/ScrollLegendSkins.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +148,7 @@
       <workItem from="1688451989958" duration="739000" />
       <workItem from="1688455891449" duration="2281000" />
       <workItem from="1689325216679" duration="850000" />
-      <workItem from="1689420351837" duration="6123000" />
+      <workItem from="1689420351837" duration="6682000" />
     </task>
     <task id="LOCAL-00001" summary="newScene and rename menuCanvas">
       <created>1679036454804</created>
