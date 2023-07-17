@@ -20,6 +20,8 @@ TagManager:
   - Combo
   - HeroSkin
   - SkinMenuHeroImage
+  - MainStatsPanel
+  - LevelText
   layers:
   - Default
   - TransparentFX

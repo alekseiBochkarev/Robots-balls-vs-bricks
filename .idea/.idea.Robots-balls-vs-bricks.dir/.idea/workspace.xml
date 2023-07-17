@@ -2,62 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f7a12e7-3117-49e5-b950-126538c99e2e" name="Changes" comment="add changes from battery branch">
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/AmonguR0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/AmonguR0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/AmonguR1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/AmonguR1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/AmonguR2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/AmonguR2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/AmonguR3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/AmonguR3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/AmonguR4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/AmonguR4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR10.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR11.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR11.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR12.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR12.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR5.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR6.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR7.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR8.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR9.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/BaldisR9.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/HagiWagerR0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/HagiWagerR0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/HagiWagerR1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/HagiWagerR1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/HagiWagerR2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/HagiWagerR2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/HagiWagerR3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/HagiWagerR3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/HagiWagerR4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/HagiWagerR4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/HagiWagerR5.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/HagiWagerR5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/HagiWagerR6.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/HagiWagerR6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/SereneR1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/SereneR1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/SereneR2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/SereneR2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/SereneR3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/SereneR3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/SereneR4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/SereneR4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/SereneR5.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/SereneR5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/SereneR6.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/SereneR6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/SereneR7.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/SereneR7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/SereneR8.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/SereneR8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/ToiletR0.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/ToiletR0.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/ToiletR1.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/ToiletR1.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/ToiletR2.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/ToiletR2.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r10.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r12.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r12.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r14.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r14.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r16.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r16.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r18.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r18.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r20.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r20.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r22.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r22.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r24.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r24.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r26.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r26.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r28.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r28.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r30.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r30.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r31.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r31.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r32.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r32.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r33.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r33.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r34.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r34.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r35.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r35.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r6.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Robots/r8.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Robots/r8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/BaseSkinPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/BaseSkinPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/ScrollLegendSkins.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/ScrollLegendSkins.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/SkinsPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/SkinsPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Menu Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Menu Canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/BeforeStartPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/BeforeStartPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TopStatsPanel/TopStatsPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/TopStatsPanel/TopStatsPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 10.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 10.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 4.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 5.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 6.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 6.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 7.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 7.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 8.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 8.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 9.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 9.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UITopStatsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UITopStatsPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIUpgradeStatsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIUpgradeStatsPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +61,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Batteries/Battery/BatteryEnergy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/AttackStateBrick.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/Brick.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/BrickSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/BrickSpawner.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/IdleStateBrick.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/TakeDamageStateBrick.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Combo/ComboController.cs" root0="SKIP_HIGHLIGHTING" />
@@ -148,7 +114,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/SpecialAttackSelection/SpecialAttackDisplay.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/StringToText.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Translator.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UITopStatsPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UITopStatsPanel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIUpgradeStatsPanel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WinManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@2.0.1/Editor/PlasticSCM/Configuration/TeamEdition/TeamEditionConfigurationWindow.cs" root0="SKIP_HIGHLIGHTING" />
@@ -204,7 +170,7 @@
       <workItem from="1688455891449" duration="2281000" />
       <workItem from="1689325216679" duration="850000" />
       <workItem from="1689420351837" duration="6682000" />
-      <workItem from="1689509892867" duration="4243000" />
+      <workItem from="1689509892867" duration="10942000" />
     </task>
     <task id="LOCAL-00001" summary="newScene and rename menuCanvas">
       <created>1679036454804</created>

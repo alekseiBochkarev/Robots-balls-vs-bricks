@@ -24,6 +24,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
     private HealthPrefabController _healthPrefabController;
     private StarterBallsPrefabController _starterBallsPrefabController;
     private SightLengthPrefabController _sightLengthPrefabController;
+    [SerializeField] private UITopStatsPanel _uiTopStatsPanel;
 
     [Header("Stat Prefabs")]
     [SerializeField] private GameObject healthPrefab;
@@ -84,7 +85,6 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         upgradeStats = new UpgradeStats();
         heroStats = new HeroStats();
         coins = new Coins();
-
         // Получаем контроллеры всех статов из их префабов
         _attackPrefabController = attackPrefab.GetComponentInChildren<AttackPrefabController>();
             //   _batteryCellController = batteryCellsPrefab.GetComponentInChildren<BatteryCellController>();
@@ -101,6 +101,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
     {
         //Init players stats for UI and future upgrade
         GetCoins();
+        _uiTopStatsPanel = GameObject.FindGameObjectWithTag("TopStatsPanel").GetComponent<UITopStatsPanel>();
 
         _playerHealth = heroStats.Health;
    //     _playerBatteryEnergy = heroStats.BatteryEnergy;
@@ -265,6 +266,8 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
                     DisableUpgradeButton(upgradeButton);
                 }
             }
+            _uiTopStatsPanel.UpdateValuesAndPrefabs();
+            _uiTopStatsPanel.ShowLevelValues();
         }
     }
 
@@ -465,6 +468,8 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         justUpgradeStarterBallText.SetActive(true);
         ShowUpgradePrice(upgradeSightLengthButtonText, upgradeStats.UpgradeSightLengthCoinsRequired);
         justUpgradeSightLengthText.SetActive(true);
+        _uiTopStatsPanel.UpdateValuesAndPrefabs();
+        _uiTopStatsPanel.ShowLevelValues();
 
         //EventManager to show changes in other classes
         EventManager.OnUpgradeStats();
