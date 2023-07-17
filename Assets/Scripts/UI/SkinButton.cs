@@ -10,6 +10,7 @@ public class SkinButton : MonoBehaviour
     [SerializeField] private string _robotName;
     [SerializeField] private Image _buttonImage;
 	[SerializeField] private GameObject _textMeshPro;
+	[SerializeField] private GameObject _tmpCostOnBuyButton;
 	[SerializeField] private int _minLevelWhereAvailable;
 	[SerializeField] private GameObject _lockImage;
 	[SerializeField] private bool isFree;
@@ -46,12 +47,13 @@ public class SkinButton : MonoBehaviour
         	} else 
 			{
 				_lockImage.SetActive(false);
-				_buttonImage.color = new Color32(255,255,225,100);
+				_buttonImage.color = new Color32(255,255,255,255);
 				GetComponent<Button>().interactable = true;
 			}
 		} else if (LoadSkinSIsBought(_robotName) != 1)
 		{
 			_buyButton.SetActive(true);
+			_tmpCostOnBuyButton.GetComponent<TMP_Text>().text = _skinCost.ToString(); //+ Translator.Translate(" buy");
 		} else 
 		{
 			_buyButton.SetActive(false);

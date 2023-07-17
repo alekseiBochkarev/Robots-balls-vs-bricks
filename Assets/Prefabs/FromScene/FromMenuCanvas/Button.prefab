@@ -440,6 +440,7 @@ MonoBehaviour:
   _robotName: r0
   _buttonImage: {fileID: 5911580760883206943}
   _textMeshPro: {fileID: 740929706839304691}
+  _tmpCostOnBuyButton: {fileID: 6494341870367162742}
   _minLevelWhereAvailable: 0
   _lockImage: {fileID: 5385479211009263385}
   isFree: 0
@@ -505,7 +506,17 @@ PrefabInstance:
     - target: {fileID: 5876725130198888299, guid: b423ca717827d394baf21af42eaedc3c,
         type: 3}
       propertyPath: m_text
-      value: button
+      value: text
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876725130198888299, guid: b423ca717827d394baf21af42eaedc3c,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 28.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197862270753996289, guid: b423ca717827d394baf21af42eaedc3c,
+        type: 3}
+      propertyPath: m_Name
+      value: Cost (TMP)
       objectReference: {fileID: 0}
     - target: {fileID: 8679079254914247313, guid: b423ca717827d394baf21af42eaedc3c,
         type: 3}
@@ -617,6 +628,12 @@ PrefabInstance:
 --- !u!1 &3951897166866963361 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4248098315289388246, guid: b423ca717827d394baf21af42eaedc3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 874739977776807799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6494341870367162742 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6197862270753996289, guid: b423ca717827d394baf21af42eaedc3c,
     type: 3}
   m_PrefabInstance: {fileID: 874739977776807799}
   m_PrefabAsset: {fileID: 0}

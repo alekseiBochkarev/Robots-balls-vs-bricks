@@ -186,6 +186,10 @@ public static class Translator
         {
             "Increased Count Combo Buff",
             "Комбо считается быстрее"
+        },
+        {
+            " buy",
+            " купить"
         }
         
         
