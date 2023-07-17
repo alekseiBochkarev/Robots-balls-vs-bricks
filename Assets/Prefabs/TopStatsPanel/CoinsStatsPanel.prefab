@@ -12,6 +12,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoinsStatsPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 4987021493166519511, guid: 4223325d7cd28774eaa3c112eb755853,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.9293739
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987021493166519511, guid: 4223325d7cd28774eaa3c112eb755853,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -4.4141235
+      objectReference: {fileID: 0}
     - target: {fileID: 5486365583006120309, guid: 4223325d7cd28774eaa3c112eb755853,
         type: 3}
       propertyPath: m_Type
@@ -30,14 +40,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6480175201360542181, guid: 4223325d7cd28774eaa3c112eb755853,
         type: 3}
+      propertyPath: m_fontSize
+      value: 31.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480175201360542181, guid: 4223325d7cd28774eaa3c112eb755853,
+        type: 3}
+      propertyPath: m_margin.w
+      value: 20.212097
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480175201360542181, guid: 4223325d7cd28774eaa3c112eb755853,
+        type: 3}
       propertyPath: m_margin.x
       value: -13.612331
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480175201360542181, guid: 4223325d7cd28774eaa3c112eb755853,
+        type: 3}
+      propertyPath: m_margin.y
+      value: 19.282837
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480175201360542181, guid: 4223325d7cd28774eaa3c112eb755853,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 6.0404053
       objectReference: {fileID: 0}
     - target: {fileID: 6480175201360542181, guid: 4223325d7cd28774eaa3c112eb755853,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+    - target: {fileID: 6480175201360542181, guid: 4223325d7cd28774eaa3c112eb755853,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7754093472384830770, guid: 4223325d7cd28774eaa3c112eb755853,
         type: 3}
       propertyPath: m_Pivot.x
