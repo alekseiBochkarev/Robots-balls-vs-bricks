@@ -111,6 +111,7 @@ public class SkinButton : MonoBehaviour
 		if(coins.LoadCoins() >= _skinCost) 
 		{
 			coins.RemoveCoins(_skinCost);
+			WalletController.Instance.ShowCoins();
 			SaveSkinIsBought(_robotName);
 			_buyButton.SetActive(false);
 		}
