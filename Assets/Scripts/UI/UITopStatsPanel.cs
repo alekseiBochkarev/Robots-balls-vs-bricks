@@ -31,13 +31,17 @@ public class UITopStatsPanel : MonoBehaviour
     private StarterBallsPrefabController starterBallsPrefabController;
     private SightLengthPrefabController sightLengthPrefabController;
 
-    private void Start()
+    private void Awake()
     {
         // Подгружаем контроллеры префабов
         healthPrefabController = healthStatPrefab.GetComponent<HealthPrefabController>();
         attackPrefabController = attackStatPrefab.GetComponent<AttackPrefabController>();
         starterBallsPrefabController = starterBallsStatPrefab.GetComponent<StarterBallsPrefabController>();
         sightLengthPrefabController = sightLengthStatPrefab.GetComponent<SightLengthPrefabController>();
+        if (healthPrefabController == null || attackPrefabController == null || starterBallsPrefabController == null || sightLengthPrefabController == null)
+            return;
+        UpdateValuesAndPrefabs();
+        ShowLevelValues();
     }
 
     private void OnEnable()
@@ -50,7 +54,7 @@ public class UITopStatsPanel : MonoBehaviour
         ShowLevelValues();
     }
     
-    private void ShowLevelValues()
+    public void ShowLevelValues()
     {
         levelValueText.text = Translator.Translate("LEVEL ") + $"{SceneManager.GetActiveScene().buildIndex}"; ;
         healthLevelText.text = $"{healthLevel}";
@@ -59,7 +63,7 @@ public class UITopStatsPanel : MonoBehaviour
         sightLengthLevelText.text = $"{sightLengthLevel}";
     }
 
-    private void UpdateValuesAndPrefabs()
+    public void UpdateValuesAndPrefabs()
     {
         // Возможно переделать все контроллеры под абстрактный?, чтобы интерфейс у них был общий, наверное
         healthPrefabController.LoadHealthLevelAndShowSprite();

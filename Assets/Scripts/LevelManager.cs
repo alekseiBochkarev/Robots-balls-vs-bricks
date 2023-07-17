@@ -9,7 +9,9 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
 
  //   public GameObject m_GameMenuPanel;
-    public GameObject m_TopStatsPanel;
+    [SerializeField] private GameObject m_TopStatsPanel;
+    [SerializeField] private GameObject m_MainStatsPanel;
+    [SerializeField] private GameObject m_LevelText;
     public GameObject m_BeforeStartPanel;
     public GameObject m_GameOverPanel;
     public GameObject m_GameWinPanel;
@@ -41,7 +43,9 @@ public class LevelManager : MonoBehaviour
                     m_Hero.transform.position = new Vector3(0f, 1.1f);
                     m_Hero.transform.localScale = new Vector3(1f, 1f, 1f);
                     //  m_GameMenuPanel.SetActive(false);
-                    m_TopStatsPanel.SetActive(false);
+                    m_TopStatsPanel.SetActive(true);
+                    m_MainStatsPanel.SetActive(true);
+                    m_LevelText.SetActive(false);
                     m_BeforeStartPanel.SetActive(true);
                     m_GameOverPanel.SetActive(false);
                     m_GameWinPanel.SetActive(false);
@@ -65,6 +69,8 @@ public class LevelManager : MonoBehaviour
                         m_GameWinPanel.SetActive(false);
                         m_Scores.SetActive(true);
                         m_TopStatsPanel.SetActive(true);
+                        m_MainStatsPanel.SetActive(true);
+                        m_LevelText.SetActive(true);
 
                         BallLauncher.Instance.m_CanPlay = true;
                       //  Debug.Log("Level state, LevelOfFinalBrick " + ScoreManager.Instance.m_LevelOfFinalBrick);
@@ -127,6 +133,8 @@ public class LevelManager : MonoBehaviour
 		EventManager.LifeIsOverEvent += ShowLosePanelBecauseLifeIsOver;
         m_SpecialAttackPanelController = GameObject.Find("SpecialAttackUI").GetComponent<SpecialAttackPanelController>();
         m_TopStatsPanel = GameObject.FindGameObjectWithTag("TopStatsPanel");
+        m_MainStatsPanel = GameObject.FindGameObjectWithTag("MainStatsPanel");
+        m_LevelText = GameObject.FindGameObjectWithTag("LevelText");
     }
 
     private void Start()
