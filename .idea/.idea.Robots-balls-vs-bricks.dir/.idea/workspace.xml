@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f7a12e7-3117-49e5-b950-126538c99e2e" name="Changes" comment="add changes from battery branch">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration12.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration12.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TopStatsPanel/CoinsStatsPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/TopStatsPanel/CoinsStatsPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/Brick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/Brick.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/DeathStateBrick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/DeathStateBrick.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +43,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/AttackStateBrick.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/Brick.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/BrickSpawner.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/DeathStateBrick.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/IdleStateBrick.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/TakeDamageStateBrick.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Combo/ComboController.cs" root0="SKIP_HIGHLIGHTING" />
@@ -62,6 +62,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/UpgradeStats.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/balls/AbstractBall.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/balls/Ball.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/balls/BombBall/BombAttack.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/balls/BombBall/BombCloneBall.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/balls/RocketBall.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Guns/GunItem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Guns/GunPanel.cs" root0="SKIP_HIGHLIGHTING" />
@@ -153,7 +155,7 @@
       <workItem from="1688455891449" duration="2281000" />
       <workItem from="1689325216679" duration="850000" />
       <workItem from="1689420351837" duration="6682000" />
-      <workItem from="1689509892867" duration="15559000" />
+      <workItem from="1689509892867" duration="16738000" />
     </task>
     <task id="LOCAL-00001" summary="newScene and rename menuCanvas">
       <created>1679036454804</created>

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeathStateBrick : IStateBrick
+public class DeathStateBrick : MonoBehaviour, IStateBrick
 {
     Brick brick;
     public DeathStateBrick(Brick brick) {
@@ -50,6 +50,12 @@ public class DeathStateBrick : IStateBrick
         {
             // Drop loot if has a chance
             brick.lootBag.InstantiateLoot();
+        }
+
+        if (brick.CanInstantiateBoom)
+        {
+            GameObject ballPrefab = Resources.Load<GameObject>("BombCloneBall");
+            GameObject bombCloneBall = Instantiate(ballPrefab, brick.transform.position, Quaternion.identity);
         }
         
         //   WalletController.Instance.AddCoinAndShow();

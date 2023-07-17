@@ -42,11 +42,11 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
    // public PolygonCollider2D polygonCollider2D;
     private Rigidbody2D rigidbody2D;
 
-    [SerializeField]
-    private bool canRangeAttack;
-
+    [SerializeField] private bool canRangeAttack;
     public bool CanRangeAttack => canRangeAttack;
-
+    [SerializeField] private bool canInstantiateBoom;
+    public bool CanInstantiateBoom => canInstantiateBoom;
+    
     private bool isWaitMeleeAttack;
 
     public bool IsWaitMeleeAttack
