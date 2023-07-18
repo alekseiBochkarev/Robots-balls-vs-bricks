@@ -62,6 +62,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelWithWin 13.unity
     guid: a1b5ba6daeaae704494f614a8fb22c2e
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 14.unity
+    guid: 5f21eb3eb33b9224c9d184ac933b6b01
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 15.unity
+    guid: ecf4b258d5b8f384685877097b534111
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
