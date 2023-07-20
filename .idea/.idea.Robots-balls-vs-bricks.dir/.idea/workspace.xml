@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f7a12e7-3117-49e5-b950-126538c99e2e" name="Changes" comment="add changes from battery branch">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration18.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration18.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art_Works/Gameplay/animation/brick3/idle/1.PNG.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art_Works/Gameplay/animation/brick3/idle/1.PNG.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickBoss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickBoss.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSimpleTriangle3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSimpleTriangle3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSimpleTriangle4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSimpleTriangle4.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 16.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 16.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration9.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration9.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +87,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration15.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration16.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration17.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration18.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration4.cs" root0="SKIP_HIGHLIGHTING" />
@@ -169,7 +165,7 @@
       <workItem from="1689509892867" duration="23781000" />
       <workItem from="1689676730659" duration="2272000" />
       <workItem from="1689771513789" duration="2736000" />
-      <workItem from="1689829990343" duration="380000" />
+      <workItem from="1689829990343" duration="2931000" />
     </task>
     <task id="LOCAL-00001" summary="newScene and rename menuCanvas">
       <created>1679036454804</created>
