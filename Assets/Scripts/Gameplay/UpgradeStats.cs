@@ -136,7 +136,14 @@ public class UpgradeStats : IResetToDefaultValues
 
     public float LoadUpgradeLevel(UpgradeStatLevel upgradeLevel)
     {
-        return PlayerPrefs.GetFloat(upgradeLevel.ToString());
+        if (PlayerPrefs.HasKey(upgradeLevel.ToString()))
+        {
+            return PlayerPrefs.GetFloat(upgradeLevel.ToString());
+        }
+        else
+        {
+            return 1;
+        }
     }
 
     public void SaveUpgradeLevel(UpgradeStatLevel upgradeLevel, float levelValue)
