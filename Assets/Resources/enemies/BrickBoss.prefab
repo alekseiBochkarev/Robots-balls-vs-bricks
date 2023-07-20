@@ -258,7 +258,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!60 &1114703327807555681
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -325,6 +325,7 @@ MonoBehaviour:
   m_currentBrickHealth: 0
   m_attackPower: 20
   canRangeAttack: 0
+  canInstantiateBoom: 0
   m_SpriteRenderer: {fileID: 0}
   m_ParentParticle: {fileID: 0}
   brickCoord: {x: 0, y: 0, z: 0}

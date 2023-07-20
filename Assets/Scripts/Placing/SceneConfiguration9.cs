@@ -4,8 +4,29 @@
     {
         _objectGamePositions = new[]
         {
-            new ObjectGamePosition("enemies/Brick3", 1, 2, 12),
-            new ObjectGamePosition("enemies/Brick3", 10, 2, 12),
+            new ObjectGamePosition("enemies/Brick3", 0, 2, 12),
+            new ObjectGamePosition("enemies/Brick3", 11, 2, 12),
+            
+            new ObjectGamePosition("enemies/Brick3", 0, 3, 12),
+            new ObjectGamePosition("enemies/Brick3", 11, 3, 12),
+            
+            new ObjectGamePosition("enemies/Brick3", 0, 4, 12),
+            new ObjectGamePosition("enemies/Brick3", 11, 4, 12),
+            
+            new ObjectGamePosition("enemies/Brick3", 1, 5, 12),
+            new ObjectGamePosition("enemies/Brick3", 10, 5, 12),
+            
+            new ObjectGamePosition("enemies/Brick3", 2, 6, 12),
+            new ObjectGamePosition("enemies/Brick3", 9, 6, 12),
+            
+            new ObjectGamePosition("enemies/Brick3", 3, 7, 12),
+            new ObjectGamePosition("enemies/Brick3", 8, 7, 12),
+            
+            new ObjectGamePosition("enemies/Brick3", 4, 8, 12),
+            new ObjectGamePosition("enemies/Brick3", 7, 8, 12),
+            
+            new ObjectGamePosition("enemies/Brick3", 5, 8, 12),
+            new ObjectGamePosition("enemies/Brick3", 6, 8, 12),
             
             new ObjectGamePosition("enemies/BrickBoss", 5, 4, 40),
 
