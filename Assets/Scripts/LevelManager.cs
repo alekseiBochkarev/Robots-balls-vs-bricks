@@ -7,8 +7,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
-
- //   public GameObject m_GameMenuPanel;
+    //   public GameObject m_GameMenuPanel;
     [SerializeField] private GameObject m_TopStatsPanel;
     [SerializeField] private GameObject m_MainStatsPanel;
     [SerializeField] private GameObject m_LevelText;

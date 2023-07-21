@@ -323,6 +323,8 @@ MonoBehaviour:
   poison: {fileID: 21109565672845190}
   m_maxBrickHealth: 0
   m_currentBrickHealth: 0
+  deathSoundclip: {fileID: 8300000, guid: b79f11158684dff428897292f5ff13f3, type: 3}
+  takeDamageClip: {fileID: 8300000, guid: 206c88d81d00e464f950a2f21b1f657c, type: 3}
   m_attackPower: 20
   canRangeAttack: 0
   canInstantiateBoom: 0

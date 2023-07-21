@@ -446,6 +446,8 @@ MonoBehaviour:
   isFree: 0
   _skinCost: 1000
   _buyButton: {fileID: 3951897166866963361}
+  clip: {fileID: 8300000, guid: 0f60eb20fbc1172459fc3cdc06630d66, type: 3}
+  successClip: {fileID: 8300000, guid: e2a21aaef2a2b4347a59fefd586c2ec5, type: 3}
 --- !u!1001 &874739977776807799
 PrefabInstance:
   m_ObjectHideFlags: 0

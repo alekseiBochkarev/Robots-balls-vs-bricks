@@ -18,6 +18,8 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
     private Coins coins;
     private UpgradeStats upgradeStats;
+    [SerializeField] private AudioClip upgradeMusicClip;
+    private GameObject camera;
 
     private AttackPrefabController _attackPrefabController;
 //    private BatteryCellController _batteryCellController;
@@ -82,6 +84,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
     private void Awake()
     {
+        camera = GameObject.Find("MainCamera");
         upgradeStats = new UpgradeStats();
         heroStats = new HeroStats();
         coins = new Coins();
@@ -278,7 +281,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
         // Add Health to the player
         heroStats.UpgradeStats(HeroStats.HeroStatsEnum.Health, upgradeStats.UpgradeHealthValue);
-
+        camera.GetComponent<AudioManager>().PlayAudio(upgradeMusicClip);
         // Reinit local values for health
         _playerHealth = heroStats.Health;
 
@@ -342,7 +345,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
         // Add Attack Power to the player
         heroStats.UpgradeStats(HeroStats.HeroStatsEnum.Attack, upgradeStats.UpgradeAttackValue);
-
+        camera.GetComponent<AudioManager>().PlayAudio(upgradeMusicClip);
         // Reinit local values for Attack Power
         _playerAttack = heroStats.Attack;
 
@@ -376,7 +379,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
         // Add Starter Balls to the player
         heroStats.UpgradeStats(HeroStats.HeroStatsEnum.StarterBalls, _addUpgradeLevel);
-
+        camera.GetComponent<AudioManager>().PlayAudio(upgradeMusicClip);
         // Reinit local values for Starter Balls
         _playerStarterBalls = heroStats.StarterBalls;
 
@@ -409,7 +412,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
         // Add Sight Length to the player
         heroStats.UpgradeStats(HeroStats.HeroStatsEnum.SightLength, upgradeStats.UpgradeSightLengthValue);
-
+        camera.GetComponent<AudioManager>().PlayAudio(upgradeMusicClip);
         // Reinit local values for Sight Length
         _playerSightLength = heroStats.SightLength;
 

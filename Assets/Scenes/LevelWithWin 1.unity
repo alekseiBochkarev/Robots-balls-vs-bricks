@@ -223,10 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2125871a1f6094b957502000ed28b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AudioSource: {fileID: 0}
-  m_AudioClip: {fileID: 0}
-  m_ActiveColor: {r: 0, g: 0.3803922, b: 1, a: 1}
-  m_DeactiveColor: {r: 0.53676474, g: 0.53676474, b: 0.53676474, a: 1}
 --- !u!82 &1875913
 AudioSource:
   m_ObjectHideFlags: 0
@@ -239,7 +235,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.812
   m_Pitch: 1
   Loop: 0
   Mute: 0

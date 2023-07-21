@@ -79,6 +79,7 @@ public class TakeDamageStateBrick : IStateBrick
     {
         EventManager.OnBrickHit();
         brick.animator.Play("takeDamage");
+        brick.PlayTakeDamageMusic();
         brick.MCurrentBrickHealth -= appliedDamage;
         brick.m_Text.text = brick.MCurrentBrickHealth.ToString();
         brick.healthBar.SaveCurrentBrickHealth();

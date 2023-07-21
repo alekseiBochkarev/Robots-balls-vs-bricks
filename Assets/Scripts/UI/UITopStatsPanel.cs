@@ -10,7 +10,7 @@ public class UITopStatsPanel : MonoBehaviour
     public int attackLevel;
     public int starterBallsLevel;
     public int sightLengthLevel;
-
+    
     // Тексты для отображения уровней/значений
     [SerializeField] private TextMeshProUGUI levelValueText;
     [SerializeField] private TextMeshProUGUI coinsValueText;
@@ -70,7 +70,7 @@ public class UITopStatsPanel : MonoBehaviour
         attackPrefabController.LoadAttackLevelAndShowSprite();
         starterBallsPrefabController.LoadStarterBallsLevelAndShowSprite();
         sightLengthPrefabController.LoadSightLengthLevelAndShowSprite();
-
+        
         LoadLevelValues();
     }
 

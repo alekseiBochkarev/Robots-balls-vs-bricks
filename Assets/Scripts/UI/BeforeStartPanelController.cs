@@ -9,6 +9,9 @@ namespace UI
     {
       //  [SerializeField] private GameObject _shopButtonSmall;
       //  [SerializeField] private GameObject _shopButtonBig;
+        [SerializeField] private AudioClip clip;
+        private GameObject camera;
+  
         [SerializeField] private GameObject _skinButtonSmall;
         [SerializeField] private GameObject _skinButtonBig;
         [SerializeField] private GameObject _homeButtonSmall;
@@ -25,9 +28,15 @@ namespace UI
         [SerializeField] private GameObject _baseSkinPanel;
         [SerializeField] private GameObject _scrollCasualSkinsPanel;
         [SerializeField] private GameObject _scrollLegendSkinsPanel;
+
+        private void Awake()
+        {
+          camera = GameObject.Find("MainCamera");
+        }
         public void OpenShop()
         {
-           // if (_shopButtonSmall != null) _shopButtonSmall.SetActive(false);
+            camera.GetComponent<AudioManager>().PlayAudio(clip); 
+          // if (_shopButtonSmall != null) _shopButtonSmall.SetActive(false);
            // if (_shopButtonBig != null) _shopButtonBig.SetActive(true);
             if (_skinButtonSmall != null) _skinButtonSmall.SetActive(true);
             if (_skinButtonBig != null) _skinButtonBig.SetActive(false);
@@ -46,6 +55,7 @@ namespace UI
 
         public void OpenSkinsPanel()
         {
+          camera.GetComponent<AudioManager>().PlayAudio(clip);
           //  if (_shopButtonSmall != null) _shopButtonSmall.SetActive(true);
           //  if (_shopButtonBig != null) _shopButtonBig.SetActive(false);
             if (_skinButtonSmall != null) _skinButtonSmall.SetActive(false);
@@ -67,6 +77,7 @@ namespace UI
 
         public void OpenHome()
         {
+          camera.GetComponent<AudioManager>().PlayAudio(clip);
           //  if (_shopButtonSmall != null) _shopButtonSmall.SetActive(true);
           //  if (_shopButtonBig != null) _shopButtonBig.SetActive(false);
             if (_skinButtonSmall != null) _skinButtonSmall.SetActive(true);
@@ -86,6 +97,7 @@ namespace UI
 
         public void OpenGunsPanel()
         {
+          camera.GetComponent<AudioManager>().PlayAudio(clip);
          //   if (_shopButtonSmall != null) _shopButtonSmall.SetActive(true);
           //  if (_shopButtonBig != null) _shopButtonBig.SetActive(false);
             if (_skinButtonSmall != null) _skinButtonSmall.SetActive(true);
@@ -105,6 +117,7 @@ namespace UI
 
         public void OpenPortal()
         {
+          camera.GetComponent<AudioManager>().PlayAudio(clip);
          //   if (_shopButtonSmall != null) _shopButtonSmall.SetActive(true);
          //   if (_shopButtonBig != null) _shopButtonBig.SetActive(false);
             if (_skinButtonSmall != null) _skinButtonSmall.SetActive(true);

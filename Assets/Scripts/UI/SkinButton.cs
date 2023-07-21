@@ -16,6 +16,9 @@ public class SkinButton : MonoBehaviour
 	[SerializeField] private bool isFree;
 	[SerializeField] private int _skinCost;
 	[SerializeField] private GameObject _buyButton;
+	[SerializeField] private AudioClip clip;
+	[SerializeField] private AudioClip successClip;
+	private GameObject camera;
 	private Coins coins;
     private GameObject[] _heroSkins;
     private GameObject _skinMenuHeroImage;
@@ -25,6 +28,7 @@ public class SkinButton : MonoBehaviour
 	private void Awake() 
 	{
 		coins = new Coins();
+		camera = GameObject.Find("MainCamera");
 	}
 	void OnEnable()
     {
@@ -66,7 +70,7 @@ public class SkinButton : MonoBehaviour
         {
             _heroSkin.GetComponent<HeroBody>().SetSkin(_robotName);
         }
-
+        camera.GetComponent<AudioManager>().PlayAudio(clip); 
         _skinMenuHeroImage.GetComponent<Image>().sprite = Resources.Load<Sprite>("Robots/" + _robotName);
     }
 
@@ -113,6 +117,7 @@ public class SkinButton : MonoBehaviour
 		if(coins.LoadCoins() >= _skinCost) 
 		{
 			coins.RemoveCoins(_skinCost);
+			camera.GetComponent<AudioManager>().PlayAudio(successClip); 
 			WalletController.Instance.ShowCoins();
 			SaveSkinIsBought(_robotName);
 			_buyButton.SetActive(false);
