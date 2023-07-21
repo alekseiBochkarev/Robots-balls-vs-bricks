@@ -6,13 +6,14 @@ public class ScoreBall : MoveDownBehaviour
     //private BricksRow m_Parent;
     private ParticleSystem m_ParentParticle;
     private GameObject parent;
-
+    [SerializeField] private AudioClip clip;
+    private GameObject camera;
     private Color m_ParticleColor;
 
     private void Awake()
     {
         InitMoveDown();
-        
+        camera = GameObject.Find("MainCamera");
         parent = transform.parent.gameObject;
     //    m_Parent = GetComponentInParent<BricksRow>();
         m_ParentParticle = GetComponentInParent<ParticleSystem>();
@@ -33,6 +34,7 @@ public class ScoreBall : MoveDownBehaviour
             //parent.GetComponentInParent<MoveDownBehaviour>().UpdateCurrentPosition();
             //parent.GetComponentInParent<MoveDownBehaviour>().SetZeroToCurrentPosition();
             EventManager.OnBrickDestroyed();
+            camera.GetComponent<AudioManager>().PlayAudio(clip);
             Destroy(parent, 1);
         }  else if (collision.gameObject.tag == "Finish") 
         {

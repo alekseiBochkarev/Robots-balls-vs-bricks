@@ -211,6 +211,7 @@ MonoBehaviour:
   m_levelConfig: {fileID: 0}
   isMovingNow: 0
   canMove: 0
+  clip: {fileID: 8300000, guid: b7264747e768ee14ea5fe59947c019bd, type: 3}
 --- !u!58 &4369639663666888129
 CircleCollider2D:
   m_ObjectHideFlags: 0

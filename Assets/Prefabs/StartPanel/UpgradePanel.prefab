@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3493408d21fc6f40972f16d26a2b53f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeMusicClip: {fileID: 8300000, guid: 5d88dab72a1305b40a763c8d8ae159bc, type: 3}
+  _uiTopStatsPanel: {fileID: 0}
   healthPrefab: {fileID: 6123058124113764033}
   attackPrefab: {fileID: 119900805701304517}
   starterBallsPrefab: {fileID: 8934906355807833029}

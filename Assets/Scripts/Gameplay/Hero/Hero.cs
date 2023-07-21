@@ -15,6 +15,8 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
     public int damageTextFontSize;
 
     private Vector3 heroCoord;
+    [SerializeField] private AudioClip clip;
+    private GameObject camera;
     [SerializeField] private float m_currentHealth;
 
     [SerializeField] private GameObject heroBody;
@@ -33,6 +35,7 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
     public void Awake()
     {
         heroStats = new HeroStats();
+        camera = GameObject.Find("MainCamera");
         // LoadHeroSkill();
         SetMaxHealth(heroStats.Health);
         // CurrentHealth = MaxHealth;
@@ -118,7 +121,7 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
         healthBar.SaveCurrentHealth(CurrentHealth);
         healthBar.ShowHealth();
         heroCoord = gameObject.transform.position;
-
+        camera.GetComponent<AudioManager>().PlayAudio(clip);
         DamagePopupController.Instance.CreateDamagePopup(heroCoord, appliedDamage, false,
             isDamage, TextController.COLOR_RED, TextController.FONT_SIZE_MAX);
         if (CurrentHealth <= 0)

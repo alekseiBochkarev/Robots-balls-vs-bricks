@@ -8,13 +8,14 @@ public class MagicBall : MoveDownBehaviour
     private ParticleSystem m_ParentParticle;
     private GameObject parent;
     private SpecialAttackPanelController m_SpecialAttackPanelController;
-
+    [SerializeField] private AudioClip clip;
+    private GameObject camera;
     private Color m_ParticleColor;
 
     private void Awake()
     {
         InitMoveDown();
-        
+        camera = GameObject.Find("MainCamera");
         parent = transform.parent.gameObject;
         m_ParentParticle = GetComponentInParent<ParticleSystem>();
 
@@ -34,6 +35,7 @@ public class MagicBall : MoveDownBehaviour
             m_SpecialAttackPanelController.SetMagicBallAmount(1);
             PlayParticle();
             EventManager.OnBrickDestroyed();
+            camera.GetComponent<AudioManager>().PlayAudio(clip);
             Destroy(parent, 1);
         } else if (collision.gameObject.tag == "Finish") 
         {

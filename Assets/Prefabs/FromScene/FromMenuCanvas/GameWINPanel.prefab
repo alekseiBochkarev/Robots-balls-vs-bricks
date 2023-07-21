@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 2239511234339256354}
   - component: {fileID: 2239511234339256381}
   - component: {fileID: 7661136609213110935}
+  - component: {fileID: 5034708928146577657}
   m_Layer: 5
   m_Name: GameWINPanel
   m_TagString: Untagged
@@ -231,6 +232,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textField: {fileID: 1493076231479206595}
   text: YOU WIN
+--- !u!114 &5034708928146577657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2239511234339256383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b700a74595a5468980745d6da1b19379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 5ab330a3bc8d2c7419764e3c399c9238, type: 3}
 --- !u!1 &2239511234654654744
 GameObject:
   m_ObjectHideFlags: 0

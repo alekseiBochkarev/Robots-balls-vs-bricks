@@ -15,6 +15,9 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public GameObject poison;
     [SerializeField] private int m_maxBrickHealth;
     [SerializeField] private int m_currentBrickHealth;
+	[SerializeField] private AudioClip deathSoundclip;
+	[SerializeField] private AudioClip takeDamageClip;
+    private GameObject camera;
 
     public int MMaxBrickHealth
     {
@@ -84,6 +87,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     private void Awake()
     {
         InitMoveDown();
+		camera = GameObject.Find("MainCamera");
         parent = transform.parent.gameObject;
      //   polygonCollider2D = gameObject.GetComponent<PolygonCollider2D>();
         rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
@@ -126,6 +130,14 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         this.state = state;
         this.state.Enter();
     }
+
+	public void PlayDeathMusic() {
+		camera.GetComponent<AudioManager>().PlayAudio(deathSoundclip);
+	}
+
+	public void PlayTakeDamageMusic() {
+		camera.GetComponent<AudioManager>().PlayAudio(takeDamageClip);
+	}
 
     public IStateBrick getState()
     {

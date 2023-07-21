@@ -56,6 +56,7 @@ MonoBehaviour:
   appliedDamage: 0
   damageTextColor: {r: 0, g: 0, b: 0, a: 0}
   damageTextFontSize: 0
+  clip: {fileID: 8300000, guid: a055e8a0248a18c49a5deb3c7987f104, type: 3}
   m_currentHealth: 0
   heroBody: {fileID: 8000700319620766404}
   tornado: {fileID: 7653537936836017078}

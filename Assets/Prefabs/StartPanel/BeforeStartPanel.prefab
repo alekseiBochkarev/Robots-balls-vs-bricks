@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d455df02de4247cb849ad0d6fdd72eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 45d1ba5655b959345864985ebec04865, type: 3}
   _skinButtonSmall: {fileID: 639282295014762464}
   _skinButtonBig: {fileID: 6091226678293152192}
   _homeButtonSmall: {fileID: 5568510016778599185}

@@ -97,6 +97,7 @@ MonoBehaviour:
   attackLevel: 0
   starterBallsLevel: 0
   sightLengthLevel: 0
+  upgradeMusicClip: {fileID: 8300000, guid: 5d88dab72a1305b40a763c8d8ae159bc, type: 3}
   levelValueText: {fileID: 8395523635815447363}
   coinsValueText: {fileID: 1701018836298765081}
   healthLevelText: {fileID: 1579628801228731270}

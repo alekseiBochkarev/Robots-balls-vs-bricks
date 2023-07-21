@@ -28,7 +28,7 @@ public class DeathStateBrick : MonoBehaviour, IStateBrick
     public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize){}
     
     public void DeathOfBrick (bool isInstantiateLoot){
-        
+        brick.PlayDeathMusic();
         //AnimatorClipInfo[] m_AnimatorClipInfo = brick.animator.GetCurrentAnimatorClipInfo(0);
         //Output the name of the starting clip
         
