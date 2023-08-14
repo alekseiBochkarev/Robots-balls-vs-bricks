@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject m_TopStatsPanel;
     [SerializeField] private GameObject m_MainStatsPanel;
     [SerializeField] private GameObject m_LevelText;
+	private GameObject m_ReturnBallsButton;
     public GameObject m_BeforeStartPanel;
     public GameObject m_GameOverPanel;
     public GameObject m_GameWinPanel;
@@ -81,6 +82,7 @@ public class LevelManager : MonoBehaviour
                     break;
                 case LevelState.GAMEOVER:
                  //   m_GameMenuPanel.SetActive(false);
+					if (m_ReturnBallsButton != null) m_ReturnBallsButton.SetActive(false);
                     m_BeforeStartPanel.SetActive(false);
                     m_GameOverPanel.SetActive(true);
                     m_GameWinPanel.SetActive(false);
@@ -102,6 +104,7 @@ public class LevelManager : MonoBehaviour
                     break;
                 case LevelState.WIN:
                  //   m_GameMenuPanel.SetActive(false);
+					if (m_ReturnBallsButton != null) m_ReturnBallsButton.SetActive(false);
                     m_BeforeStartPanel.SetActive(false);
                     m_GameOverPanel.SetActive(false);
                     m_GameWinPanel.SetActive(true);
@@ -134,6 +137,7 @@ public class LevelManager : MonoBehaviour
         m_TopStatsPanel = GameObject.FindGameObjectWithTag("TopStatsPanel");
         m_MainStatsPanel = GameObject.FindGameObjectWithTag("MainStatsPanel");
         m_LevelText = GameObject.FindGameObjectWithTag("LevelText");
+		m_ReturnBallsButton = GameObject.Find("Return All Balls Button");
     }
 
     private void Start()

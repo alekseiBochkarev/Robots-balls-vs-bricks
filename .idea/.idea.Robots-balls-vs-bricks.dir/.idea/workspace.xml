@@ -2,49 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f7a12e7-3117-49e5-b950-126538c99e2e" name="Changes" comment="add changes from battery branch">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LosePanelScript.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LosePanelScript.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/WinPanelScript.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/WinPanelScript.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brick Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Brick Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brick.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Brick.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/Button.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/Button.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/Game over panel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/Game over panel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/GameWINPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/FromMenuCanvas/GameWINPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FromScene/Hero.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FromScene/Hero.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/BeforeStartPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/BeforeStartPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/UpgradePanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StartPanel/UpgradePanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TopStatsPanel/TopStatsPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/TopStatsPanel/TopStatsPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/Brick3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/Brick3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickBlue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickBlue.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickBoss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickBoss.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickFire.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickFire.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSimpleTriangle1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSimpleTriangle1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSimpleTriangle2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSimpleTriangle2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSimpleTriangle3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSimpleTriangle3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSimpleTriangle4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSimpleTriangle4.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSkeleton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSkeleton.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSquare.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSquare.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSquareBlue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSquareBlue.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSquarePurple.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSquarePurple.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickTriangle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickTriangle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/extras/Magic Ball Particle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/extras/Magic Ball Particle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/extras/Score Ball Particle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/extras/Score Ball Particle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/Brick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/Brick.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/DeathStateBrick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/DeathStateBrick.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/TakeDamageStateBrick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/TakeDamageStateBrick.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Hero/Hero.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Hero/Hero.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/MagicBall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/MagicBall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/ScoreBall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/ScoreBall.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/SpecialAttackController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/SpecialAttackController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/BeforeStartPanelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/BeforeStartPanelController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SkinButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SkinButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UITopStatsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UITopStatsPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIUpgradeStatsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIUpgradeStatsPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/WinPanelScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/WinPanelScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,9 +35,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data Managing/Saver.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data Managing/TextController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EventManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/AimLine.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/BallLauncher.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/BallLauncher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Balls.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Batteries/Battery Cell/BatteryCell.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Batteries/Battery Cell/BatteryCellController.cs" root0="SKIP_HIGHLIGHTING" />
@@ -86,7 +48,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/BrickSpawner.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/DeathStateBrick.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/IdleStateBrick.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/TakeDamageStateBrick.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/TakeDamageStateBrick.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Combo/ComboController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Combo/ComboCounter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Combo/ComboLauncher.cs" root0="FORCE_HIGHLIGHTING" />
@@ -95,24 +57,26 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Energy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/EnergyController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/HealthBar.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Hero/Hero.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Hero/Hero.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Hero/HeroStats.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/HeroBuffs/HeroBuffs.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/MagicBall.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/MoveDownBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/ScoreBall.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/SpecialAttackController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/SpecialAttackPanelController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/StatsPanel/AbstractStatPrefab.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/StatsPanel/Attack/AttackPrefabController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/UpgradeStats.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/balls/AbstractBall.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/balls/Ball.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/balls/BombBall/BombAttack.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/balls/BombBall/BombAttack.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/balls/BombBall/BombCloneBall.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/balls/RocketBall.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Guns/GunItem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Guns/GunPanel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Guns/ShopGun.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/Models/Cell.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/Models/Grid.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/Models/GridCell.cs" root0="SKIP_HIGHLIGHTING" />
@@ -122,13 +86,13 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/Placables/Placable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration10.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration10.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration11.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration12.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration13.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration14.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration15.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration16.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration13.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration14.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration15.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration16.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration17.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration18.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration19.cs" root0="SKIP_HIGHLIGHTING" />
@@ -136,25 +100,26 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration20.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration4.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration6.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration5.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration6.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration7.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration8.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration9.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/BeforeStartPanelController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/BeforeStartPanelController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/HeroBody.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/LootInChestSelection/LootInChestController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/LootInChestSelection/LootInChestDisplay.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/LosePanelScript.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/LosePanelScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MenuController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/PlayButton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ScrollBarManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/SkinButton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/SkinButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/SpecialAttackSelection/SpecialAttackDisplay.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/StringToText.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Translator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Translator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UITopStatsPanel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIUpgradeStatsPanel.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/WinPanelScript.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/WinPanelScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WinManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@2.0.1/Editor/PlasticSCM/Configuration/TeamEdition/TeamEditionConfigurationWindow.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -212,7 +177,8 @@
       <workItem from="1689509892867" duration="23781000" />
       <workItem from="1689676730659" duration="2272000" />
       <workItem from="1689771513789" duration="2736000" />
-      <workItem from="1689829990343" duration="18025000" />
+      <workItem from="1689829990343" duration="19795000" />
+      <workItem from="1692017378452" duration="4762000" />
     </task>
     <task id="LOCAL-00001" summary="newScene and rename menuCanvas">
       <created>1679036454804</created>

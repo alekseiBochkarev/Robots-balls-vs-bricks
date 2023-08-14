@@ -205,10 +205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2125871a1f6094b957502000ed28b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AudioSource: {fileID: 0}
-  m_AudioClip: {fileID: 0}
-  m_ActiveColor: {r: 0, g: 0, b: 0, a: 0}
-  m_DeactiveColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &596243432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -735,10 +731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2125871a1f6094b957502000ed28b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AudioSource: {fileID: 0}
-  m_AudioClip: {fileID: 0}
-  m_ActiveColor: {r: 0, g: 0.3803922, b: 1, a: 1}
-  m_DeactiveColor: {r: 0.53676474, g: 0.53676474, b: 0.53676474, a: 1}
 --- !u!82 &1397865136
 AudioSource:
   m_ObjectHideFlags: 0
@@ -924,7 +916,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1397865130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3d8b8cf9c364bc28fa269de206f40d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ec7f277cb23467c9605981834df710f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1813817602

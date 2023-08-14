@@ -181,7 +181,7 @@ public static class Translator
         },
         {
             "Double Combo Buff",
-            "Комбо аттака выполняется дважды"
+            "Комбо аттака два раза"
         },
         {
             "Increased Count Combo Buff",

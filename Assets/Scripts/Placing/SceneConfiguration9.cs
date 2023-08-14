@@ -25,8 +25,8 @@
             new ObjectGamePosition("enemies/Brick3", 4, 8, 12),
             new ObjectGamePosition("enemies/Brick3", 7, 8, 12),
             
-            new ObjectGamePosition("enemies/Brick3", 5, 8, 12),
-            new ObjectGamePosition("enemies/Brick3", 6, 8, 12),
+            new ObjectGamePosition("enemies/BrickBombaSmall", 5, 8, 12),
+            new ObjectGamePosition("enemies/BrickBombaSmall", 6, 8, 12),
             
             new ObjectGamePosition("enemies/BrickBoss", 5, 4, 40),
 
