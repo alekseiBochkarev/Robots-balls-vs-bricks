@@ -14,7 +14,8 @@ public class WinPanelScript : MonoBehaviour
     }
 
     private void OnEnable()
-    {
-        camera.GetComponent<AudioManager>().PlayAudio(clip); 
+    {   
+		BallLauncher.Instance.ReturnAllBallsToNewStartPosition();
+		camera.GetComponent<AudioManager>().PlayAudio(clip); 
     }
 }

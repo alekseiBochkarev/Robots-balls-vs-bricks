@@ -15,6 +15,7 @@ public class SpecialAttackController : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private GameObject displayPrefab;
     [SerializeField] private SpecialAttackDisplay specialAttackDisplay;
+    private GameObject m_ReturnBallsButton;
 
     public static SpecialAttackController Instance;
 
@@ -24,10 +25,12 @@ public class SpecialAttackController : MonoBehaviour
     {
         Instance = this;
         ClearAllSpecAttackUseAmount();
+        m_ReturnBallsButton = GameObject.Find("Return All Balls Button");
     }
 
     private void OnEnable()
     {
+        if (m_ReturnBallsButton != null) m_ReturnBallsButton.SetActive(false);
         SelectSpecialAttack();
         ClearScriptableObjectPrefabs();
         ShowScriptableObjectLists();
