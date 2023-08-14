@@ -13,10 +13,10 @@
             new ObjectGamePosition("enemies/Brick3", 11, 3, 2),
 
             new ObjectGamePosition("enemies/Brick3", 0, 4, 8), 
-            new ObjectGamePosition("enemies/Brick3", 1, 4, 8), 
+            new ObjectGamePosition("enemies/BrickBombaSmall", 1, 4, 8), 
             new ObjectGamePosition("enemies/Brick3", 2, 4, 8), 
             new ObjectGamePosition("enemies/Brick3", 9, 4, 8), 
-            new ObjectGamePosition("enemies/Brick3", 10, 4, 8), 
+            new ObjectGamePosition("enemies/BrickBombaSmall", 10, 4, 8), 
             new ObjectGamePosition("enemies/Brick3", 11, 4, 8),
 
             new ObjectGamePosition("enemies/BrickSquareBlue", 0, 5, 8), 

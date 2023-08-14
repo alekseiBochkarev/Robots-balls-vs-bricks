@@ -15,7 +15,7 @@
             
             new ObjectGamePosition("enemies/BrickFire", 0, 3, 8),
             new ObjectGamePosition("enemies/BrickFire", 1, 3, 8), 
-            new ObjectGamePosition("enemies/BrickFire", 2, 3, 8), 
+            new ObjectGamePosition("enemies/BrickBombaSmall", 2, 3, 8), 
             new ObjectGamePosition("enemies/BrickFire", 3, 3, 8), 
             new ObjectGamePosition("enemies/BrickFire", 5, 3, 8),
             new ObjectGamePosition("enemies/BrickFire", 6, 3, 8), 
@@ -44,7 +44,7 @@
             new ObjectGamePosition("enemies/BrickFire", 6, 6, 8), 
             new ObjectGamePosition("enemies/BrickSquare", 7, 6, 10), 
             new ObjectGamePosition("enemies/BrickFire", 8, 6, 8),
-            new ObjectGamePosition("enemies/BrickFire", 9, 6, 8),
+            new ObjectGamePosition("enemies/BrickBombaSmall", 9, 6, 8),
             
             new ObjectGamePosition("extras/Magic Ball Particle", 2, 2, 1),
             new ObjectGamePosition("extras/Magic Ball Particle", 2, 5, 1),

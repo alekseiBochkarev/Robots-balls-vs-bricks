@@ -205,10 +205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2125871a1f6094b957502000ed28b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AudioSource: {fileID: 0}
-  m_AudioClip: {fileID: 0}
-  m_ActiveColor: {r: 0, g: 0, b: 0, a: 0}
-  m_DeactiveColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &742687770
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,8 +734,8 @@ GameObject:
   - component: {fileID: 1397865133}
   - component: {fileID: 1397865132}
   - component: {fileID: 1397865131}
-  - component: {fileID: 1397865140}
   - component: {fileID: 1397865141}
+  - component: {fileID: 1397865142}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -821,10 +817,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2125871a1f6094b957502000ed28b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AudioSource: {fileID: 0}
-  m_AudioClip: {fileID: 0}
-  m_ActiveColor: {r: 0, g: 0.3803922, b: 1, a: 1}
-  m_DeactiveColor: {r: 0.53676474, g: 0.53676474, b: 0.53676474, a: 1}
 --- !u!82 &1397865136
 AudioSource:
   m_ObjectHideFlags: 0
@@ -987,18 +979,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1397865140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1397865130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec7f277cb23467c9605981834df710f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1397865141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1013,6 +993,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultResolution: {x: 720, y: 1280}
   WidthOrHeight: 0
+--- !u!114 &1397865142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397865130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b36a30d080457898f28cee5f08a918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1489076545
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@
             new ObjectGamePosition("enemies/BrickSquarePurple", 10, 1, 10),
             new ObjectGamePosition("enemies/BrickSkeleton", 11, 1, 10),
             
-            new ObjectGamePosition("enemies/BrickSkeleton", 0, 2, 10), 
+            new ObjectGamePosition("enemies/BrickBombaSmall", 0, 2, 10), 
             new ObjectGamePosition("enemies/BrickSkeleton", 1, 2, 10),
             new ObjectGamePosition("enemies/BrickSkeleton", 3, 2, 10), 
             new ObjectGamePosition("enemies/BrickSkeleton", 4, 2, 10), 
@@ -50,7 +50,7 @@
             new ObjectGamePosition("enemies/BrickSkeleton", 11, 5, 10), 
             
             new ObjectGamePosition("enemies/BrickSkeleton", 0, 6, 10), 
-            new ObjectGamePosition("enemies/BrickSkeleton", 1, 6, 10),
+            new ObjectGamePosition("enemies/BrickBombaSmall", 1, 6, 10),
             new ObjectGamePosition("enemies/BrickSkeleton", 2, 6, 10),
             new ObjectGamePosition("enemies/BrickSkeleton", 3, 6, 10), 
             new ObjectGamePosition("enemies/BrickSkeleton", 4, 6, 10),

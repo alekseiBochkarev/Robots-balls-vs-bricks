@@ -11,12 +11,12 @@
             new ObjectGamePosition("enemies/BrickSquarePurple", 10, 1, 12),
             
             new ObjectGamePosition("enemies/BrickSimpleTriangle3", 0, 2, 12), 
-            new ObjectGamePosition("enemies/BrickSquarePurple", 1, 2, 12),
+            new ObjectGamePosition("enemies/BrickBombaSmall", 1, 2, 12),
             new ObjectGamePosition("enemies/BrickSimpleTriangle4", 2, 2, 12),
             new ObjectGamePosition("enemies/BrickSquarePurple", 4, 2, 12),
             new ObjectGamePosition("enemies/BrickAborigen", 5, 2, 12),
             new ObjectGamePosition("enemies/BrickSquarePurple", 6, 2, 12),
-            new ObjectGamePosition("enemies/BrickSquarePurple", 7, 2, 12),
+            new ObjectGamePosition("enemies/BrickBombaSmall", 7, 2, 12),
             new ObjectGamePosition("enemies/BrickSimpleTriangle1", 8, 2, 12),
             new ObjectGamePosition("enemies/BrickSquarePurple", 11, 2, 12),
 
