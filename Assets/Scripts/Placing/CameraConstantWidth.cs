@@ -7,7 +7,8 @@ using UnityEngine;
 public class CameraConstantWidth : MonoBehaviour
 {
     public Vector2 DefaultResolution = new Vector2(720, 1280);
-    [Range(0f, 1f)] public float WidthOrHeight = 0;
+    [Range(0f, 1f)] 
+    [SerializeField] private float WidthOrHeight = 1;
 
     private Camera componentCamera;
     

@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultResolution: {x: 720, y: 1280}
-  WidthOrHeight: 0
+  WidthOrHeight: 1
 --- !u!1 &1991344217 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4952146181340675558, guid: 66bf94cef2d746341ba7fb8e0d5dc325,

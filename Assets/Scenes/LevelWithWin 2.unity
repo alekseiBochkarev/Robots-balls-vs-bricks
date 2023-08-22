@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultResolution: {x: 720, y: 1280}
-  WidthOrHeight: 0
+  WidthOrHeight: 1
 --- !u!114 &1875919
 MonoBehaviour:
   m_ObjectHideFlags: 0
