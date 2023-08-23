@@ -4,6 +4,8 @@
     {
         _objectGamePositions = new[]
         {
+            new ObjectGamePosition("enemies/UFO", 5, 5, 1), 
+            
             new ObjectGamePosition("enemies/BrickBombaSmall", 1, 1, 10),
             new ObjectGamePosition("enemies/BrickSquareBlue", 2, 1, 10), 
             new ObjectGamePosition("enemies/BrickSquareBlue", 3, 1, 10),
@@ -11,10 +13,10 @@
             new ObjectGamePosition("enemies/BrickSquareBlue", 9, 1, 10),
             new ObjectGamePosition("enemies/BrickBombaSmall", 10, 1, 10), 
             
-            new ObjectGamePosition("enemies/BrickAborigen", 0, 2, 10), 
-            new ObjectGamePosition("enemies/BrickAborigen", 4, 2, 10),
-            new ObjectGamePosition("enemies/BrickAborigen", 7, 2, 10),
-            new ObjectGamePosition("enemies/BrickAborigen", 11, 2, 10),
+            new ObjectGamePosition("enemies/BrickAborigen", 0, 2, 2), 
+            new ObjectGamePosition("enemies/BrickAborigen", 4, 2, 2),
+            new ObjectGamePosition("enemies/BrickAborigen", 7, 2, 2),
+            new ObjectGamePosition("enemies/BrickAborigen", 11, 2, 2),
 
             new ObjectGamePosition("enemies/BrickSquareBlue", 0, 3, 4), 
             new ObjectGamePosition("enemies/BrickAborigen", 2, 3, 4),
@@ -23,8 +25,8 @@
             new ObjectGamePosition("enemies/BrickAborigen", 9, 3, 4),
             new ObjectGamePosition("enemies/BrickSquareBlue", 11, 3, 4),
 
-            new ObjectGamePosition("enemies/BrickAborigen", 0, 4, 10), 
-            new ObjectGamePosition("enemies/BrickAborigen", 11, 4, 10),
+            new ObjectGamePosition("enemies/BrickAborigen", 0, 4, 2), 
+            new ObjectGamePosition("enemies/BrickAborigen", 11, 4, 2),
 
             new ObjectGamePosition("enemies/BrickAborigen", 0, 5, 10),
             new ObjectGamePosition("enemies/BrickSquareBlue", 1, 5, 10),
@@ -34,8 +36,8 @@
             new ObjectGamePosition("enemies/BrickSimpleTriangle3", 7, 5, 10),
             new ObjectGamePosition("enemies/BrickSquareBlue", 8, 5, 10), 
             new ObjectGamePosition("enemies/BrickSquareBlue", 9, 5, 10), 
-            new ObjectGamePosition("enemies/BrickSquareBlue", 10, 5, 10),
-            new ObjectGamePosition("enemies/BrickAborigen", 11, 5, 10),
+            new ObjectGamePosition("enemies/BrickSquareBlue", 10, 5, 2),
+            new ObjectGamePosition("enemies/BrickAborigen", 11, 5, 2),
             
             new ObjectGamePosition("enemies/BrickSimpleTriangle4", 0, 6, 10),
             new ObjectGamePosition("enemies/BrickSimpleTriangle3", 11, 6, 10),

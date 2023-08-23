@@ -170,7 +170,15 @@ public class BrickSpawner : MonoBehaviour
                 newObject.GetComponentInChildren<Brick>().m_Text.text = health.ToString();
             }
             newObject.transform.localScale *= m_levelConfig.ScaleCoefficient;
-           yield return newObject.GetComponentInChildren<MoveDownBehaviour>().MoveDown();
+            if (newObject.GetComponentInChildren<MoveDownBehaviour>() != null)
+            {
+                yield return newObject.GetComponentInChildren<MoveDownBehaviour>().MoveDown();
+            }
+            else
+            {
+                yield break;
+            }
+           
         }
         // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
     }
