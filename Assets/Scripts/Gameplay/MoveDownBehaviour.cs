@@ -29,6 +29,11 @@ public class MoveDownBehaviour : MonoBehaviour
         GetPositionAndResetCell();
     }
 
+    private void OnDisable()
+    {
+        GetPositionAndResetCell();
+    }
+
     void Start()
     {
         //m_levelConfig = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelConfig>();

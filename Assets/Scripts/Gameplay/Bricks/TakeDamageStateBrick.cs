@@ -111,6 +111,8 @@ public class TakeDamageStateBrick : IStateBrick
     public void ChangeColor() {} //hmm its a quastion
     
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY) {
-        yield break;
+        brick.SetState(brick.walkStateBrick);
+        yield return brick.MoveToTarget(startPos, endPos, currentY, maxY);
+        brick.SetState(this);
     }
 }
