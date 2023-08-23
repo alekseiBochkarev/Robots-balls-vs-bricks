@@ -122,8 +122,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9153105003432693874}
   m_HandleRect: {fileID: 5182551558559571820}
   m_Direction: 2
-  m_Value: 1.0000001
-  m_Size: 0.064967535
+  m_Value: 1.0000006
+  m_Size: 0.3599386
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1091,7 +1091,7 @@ PrefabInstance:
     - target: {fileID: 6845821934498023967, guid: e9cea54cf295c154c8c6cd50a989a975,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 3741.999
+      value: 1370.5913
       objectReference: {fileID: 0}
     - target: {fileID: 6845821934498023967, guid: e9cea54cf295c154c8c6cd50a989a975,
         type: 3}
@@ -1136,7 +1136,7 @@ PrefabInstance:
     - target: {fileID: 6845821934498023967, guid: e9cea54cf295c154c8c6cd50a989a975,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1871.0001
+      value: -685.29626
       objectReference: {fileID: 0}
     - target: {fileID: 6845821934498023967, guid: e9cea54cf295c154c8c6cd50a989a975,
         type: 3}
