@@ -16,9 +16,18 @@ public class StarterBallsPrefabController : MonoBehaviour, IResetToDefaultValues
 
     private void Awake()
     {
-        upgradeStats = new UpgradeStats();
-        
-        _starterBallsPrefab = GetComponentInChildren<StarterBallsPrefab>();
+        Init();
+    }
+
+    public void Init()
+    {
+        if (upgradeStats == null)
+            upgradeStats = new UpgradeStats();
+
+
+        if (_starterBallsPrefab == null)
+            _starterBallsPrefab = GetComponentInChildren<StarterBallsPrefab>();
+
         LoadStarterBallsLevel();
     }
 

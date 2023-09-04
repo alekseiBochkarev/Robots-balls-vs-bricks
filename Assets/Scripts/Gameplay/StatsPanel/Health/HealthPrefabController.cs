@@ -14,8 +14,18 @@ public class HealthPrefabController : MonoBehaviour, IResetToDefaultValues
 
     private void Awake()
     {
-        upgradeStats = new UpgradeStats();
-        _healthPrefab = GetComponentInChildren<HealthPrefab>();
+        Init();
+    }
+
+    public void Init()
+    {
+        if (upgradeStats == null)
+            upgradeStats = new UpgradeStats();
+
+
+        if (_healthPrefab == null)
+            _healthPrefab = GetComponentInChildren<HealthPrefab>();
+
         LoadHealthLevel();
     }
 

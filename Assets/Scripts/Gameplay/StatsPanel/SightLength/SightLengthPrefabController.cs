@@ -15,9 +15,18 @@ public class SightLengthPrefabController : MonoBehaviour
 
     private void Awake()
     {
-        upgradeStats = new UpgradeStats();
-        
-        _sightLengthPrefab = GetComponentInChildren<SightLengthPrefab>();
+        Init();
+    }
+
+    public void Init()
+    {
+        if (upgradeStats == null)
+            upgradeStats = new UpgradeStats();
+
+
+        if (_sightLengthPrefab == null)
+            _sightLengthPrefab = GetComponentInChildren<SightLengthPrefab>();
+
         LoadSightLengthLevel();
     }
 

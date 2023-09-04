@@ -31,15 +31,15 @@ public class UITopStatsPanel : MonoBehaviour
     private StarterBallsPrefabController starterBallsPrefabController;
     private SightLengthPrefabController sightLengthPrefabController;
 
-    private void Awake()
+    private void Start()
     {
         // Подгружаем контроллеры префабов
-        healthPrefabController = healthStatPrefab.GetComponent<HealthPrefabController>();
-        attackPrefabController = attackStatPrefab.GetComponent<AttackPrefabController>();
-        starterBallsPrefabController = starterBallsStatPrefab.GetComponent<StarterBallsPrefabController>();
-        sightLengthPrefabController = sightLengthStatPrefab.GetComponent<SightLengthPrefabController>();
-        if (healthPrefabController == null || attackPrefabController == null || starterBallsPrefabController == null || sightLengthPrefabController == null)
-            return;
+       // healthPrefabController = healthStatPrefab.GetComponent<HealthPrefabController>();
+       // attackPrefabController = attackStatPrefab.GetComponent<AttackPrefabController>();
+       // starterBallsPrefabController = starterBallsStatPrefab.GetComponent<StarterBallsPrefabController>();
+       // sightLengthPrefabController = sightLengthStatPrefab.GetComponent<SightLengthPrefabController>();
+     //   if (healthPrefabController == null || attackPrefabController == null || starterBallsPrefabController == null || sightLengthPrefabController == null)
+      //      return;
         UpdateValuesAndPrefabs();
         ShowLevelValues();
     }
@@ -48,8 +48,8 @@ public class UITopStatsPanel : MonoBehaviour
     {
         // Проверяем, что контроллеры не null, иначе можно поймать ошибку,
         // когда мы пытаемся получить значения префабов
-        if (healthPrefabController == null || attackPrefabController == null || starterBallsPrefabController == null || sightLengthPrefabController == null)
-            return;
+      //  if (healthPrefabController == null || attackPrefabController == null || starterBallsPrefabController == null || sightLengthPrefabController == null)
+      //      return;
         UpdateValuesAndPrefabs();
         ShowLevelValues();
     }
@@ -66,10 +66,18 @@ public class UITopStatsPanel : MonoBehaviour
     public void UpdateValuesAndPrefabs()
     {
         // Возможно переделать все контроллеры под абстрактный?, чтобы интерфейс у них был общий, наверное
-        healthPrefabController.LoadHealthLevelAndShowSprite();
-        attackPrefabController.LoadAttackLevelAndShowSprite();
-        starterBallsPrefabController.LoadStarterBallsLevelAndShowSprite();
-        sightLengthPrefabController.LoadSightLengthLevelAndShowSprite();
+        healthStatPrefab.GetComponent<HealthPrefabController>()
+            .Init();
+        healthStatPrefab.GetComponent<HealthPrefabController>().LoadHealthLevelAndShowSprite();
+        attackStatPrefab.GetComponent<AttackPrefabController>()
+            .Init();
+        attackStatPrefab.GetComponent<AttackPrefabController>().LoadAttackLevelAndShowSprite();
+        starterBallsStatPrefab.GetComponent<StarterBallsPrefabController>()
+            .Init();
+        starterBallsStatPrefab.GetComponent<StarterBallsPrefabController>().LoadStarterBallsLevelAndShowSprite();
+        sightLengthStatPrefab.GetComponent<SightLengthPrefabController>()
+            .Init();
+        sightLengthStatPrefab.GetComponent<SightLengthPrefabController>().LoadSightLengthLevelAndShowSprite();
         
         LoadLevelValues();
     }
@@ -78,9 +86,9 @@ public class UITopStatsPanel : MonoBehaviour
     {
         // Подгружаем значения текущих уровней для статов
         // levelScene = ???
-        healthLevel = healthPrefabController.CurrentHealthLevel;
-        attackLevel = attackPrefabController.CurrentAttackLevel;
-        starterBallsLevel = starterBallsPrefabController.CurrentBallsLevel;
-        sightLengthLevel = sightLengthPrefabController.CurrentSightLengthLevel;
+        healthLevel = healthStatPrefab.GetComponent<HealthPrefabController>().CurrentHealthLevel;
+        attackLevel = attackStatPrefab.GetComponent<AttackPrefabController>().CurrentAttackLevel;
+        starterBallsLevel = starterBallsStatPrefab.GetComponent<StarterBallsPrefabController>().CurrentBallsLevel;
+        sightLengthLevel = sightLengthStatPrefab.GetComponent<SightLengthPrefabController>().CurrentSightLengthLevel;
     }
 }
