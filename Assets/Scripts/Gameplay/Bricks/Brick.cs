@@ -13,6 +13,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public GameObject ice;
     public GameObject fire;
     public GameObject poison;
+    [SerializeField] private GameObject shield;
     [SerializeField] private int m_maxBrickHealth;
     [SerializeField] private int m_currentBrickHealth;
 	[SerializeField] private AudioClip deathSoundclip;
@@ -295,6 +296,10 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
 
     public void Destroy()
     {
+        if (shield is not null)
+        {
+            Destroy(shield);
+        }
         Destroy(parent, 3);
     }
 }

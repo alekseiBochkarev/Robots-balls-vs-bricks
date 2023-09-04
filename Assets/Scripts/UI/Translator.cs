@@ -190,6 +190,10 @@ public static class Translator
         {
             " buy",
             " купить"
+        },
+        {
+            "Block",
+            "Блок"
         }
         
         

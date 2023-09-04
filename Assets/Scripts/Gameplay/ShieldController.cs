@@ -22,7 +22,7 @@ public class ShieldController : MonoBehaviour
         if (collision.gameObject.GetComponent<IBall>() != null)
         {
             InitBrickDamagePopupPosition();
-            string textPopupTextValue = "Block";
+            string textPopupTextValue = Translator.Translate("Block");
             // polygonCollider2D.isTrigger = false;
             damageTextColor = collision.gameObject.GetComponent<IBall>().GetDamageTextColor;
             damageTextFontSize = collision.gameObject.GetComponent<IBall>().GetDamageTextFontSize;
@@ -38,7 +38,7 @@ public class ShieldController : MonoBehaviour
         if (collider.gameObject.GetComponent<IBall>() != null)
         {
             InitBrickDamagePopupPosition();
-            string textPopupTextValue = "Block";
+            string textPopupTextValue = Translator.Translate("Block");
             // polygonCollider2D.isTrigger = false;
             damageTextColor = collider.gameObject.GetComponent<IBall>().GetDamageTextColor;
             damageTextFontSize = collider.gameObject.GetComponent<IBall>().GetDamageTextFontSize;

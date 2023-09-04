@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 918254525742687163}
   - component: {fileID: 915857369526146715}
   - component: {fileID: 1023805768209530951}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,6 +237,7 @@ MonoBehaviour:
   ice: {fileID: 4029490519851588810}
   fire: {fileID: 1065553849815994130}
   poison: {fileID: 4208129602264055011}
+  shield: {fileID: 1637704513788009039}
   m_maxBrickHealth: 0
   m_currentBrickHealth: 0
   deathSoundclip: {fileID: 8300000, guid: b79f11158684dff428897292f5ff13f3, type: 3}
@@ -369,7 +370,7 @@ GameObject:
   - component: {fileID: 917072930300978335}
   - component: {fileID: 1024383348118944411}
   - component: {fileID: 1024078576870519583}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Health UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5698,6 +5699,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeathBarColor
       objectReference: {fileID: 0}
+    - target: {fileID: 2965539237562496820, guid: fe1121f5cae51cc488f04d254a0b32aa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023016343535465479, guid: fe1121f5cae51cc488f04d254a0b32aa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe1121f5cae51cc488f04d254a0b32aa, type: 3}
 --- !u!224 &4262328679670377995 stripped
@@ -5797,6 +5808,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6312193584951643767, guid: df202f0c72dc8af478df6123dc85ac54,
         type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6312193584951643767, guid: df202f0c72dc8af478df6123dc85ac54,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -5825,6 +5841,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ice
+      objectReference: {fileID: 0}
+    - target: {fileID: 5056571074347086816, guid: 9cc465c00de778e4e8c4ecfda86c6675,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5056571074347086816, guid: 9cc465c00de778e4e8c4ecfda86c6675,
         type: 3}

@@ -6,6 +6,9 @@ public class BrickSpawner : MonoBehaviour
 {
     public static BrickSpawner Instance;
 
+    [SerializeField] private int layer = 10; //this is brick
+    private int layerAsLayerMask;
+
 
 
     [Header("Spawning informations")]
@@ -43,6 +46,7 @@ public class BrickSpawner : MonoBehaviour
 
     private void Start()
     {
+        layerAsLayerMask = (1 << layer);
         Instance = this;
         sceneConfiguration = mainCamera.GetComponent<SceneConfiguration>();
         _objectGamePositions = sceneConfiguration._objectGamePositions;
@@ -222,7 +226,7 @@ public class BrickSpawner : MonoBehaviour
         //Debug.Log("MOVE DOWN BRICK ROWS");
         allBricksMovedDown = false;
         vision = 10f; //need to check maybe we should set more than 10
-        colliders = Physics2D.OverlapCircleAll(transform.position, vision);
+        colliders = Physics2D.OverlapCircleAll(transform.position, vision, layerAsLayerMask);
         for (var y = m_levelConfig.grid.GridHeight-1; y >= 0; y--)
         {
             yield return MoveRow(y);
@@ -232,8 +236,8 @@ public class BrickSpawner : MonoBehaviour
 
     public IEnumerator AttackBrickRows()
     {
-        vision = 10f; 
-        colliders = Physics2D.OverlapCircleAll(transform.position, vision);
+        vision = 10f;  
+        colliders = Physics2D.OverlapCircleAll(transform.position, vision, layerAsLayerMask);
         for (var y = m_levelConfig.grid.GridHeight-1; y >= 0; y--)
         {
             yield return AttackRow(y);
@@ -243,7 +247,7 @@ public class BrickSpawner : MonoBehaviour
     public IEnumerator MoveRow(int y)
     {
         vision = 10f; //need to check maybe we should set more than 10
-        colliders = Physics2D.OverlapCircleAll(transform.position, vision);
+        colliders = Physics2D.OverlapCircleAll(transform.position, vision, layerAsLayerMask);
         for (var x = 0; x <= m_levelConfig.grid.GridWidth-1; x++)
         {
             foreach (var t in colliders)
@@ -272,15 +276,15 @@ public class BrickSpawner : MonoBehaviour
             {
                 if (t.gameObject == gameObject) continue;
                 if (t.gameObject.GetComponent<Brick>() != null)
-                {
-                    //Debug.Log("component MOVEDOWNBEHAVIOUR not null");
-                    if (t.gameObject.GetComponent<Brick>().X == x &&
-                        t.gameObject.GetComponent<Brick>().Y == y)
                     {
-                        Debug.Log("component MOVEDOWN Attack");
-                        yield return t.gameObject.GetComponent<Brick>().Attack();
-                    }
-                }
+                        //Debug.Log("component MOVEDOWNBEHAVIOUR not null");
+                    if (t.gameObject.GetComponent<Brick>().X == x &&
+                            t.gameObject.GetComponent<Brick>().Y == y)
+                        {
+                            Debug.Log("component MOVEDOWN Attack");
+                            yield return t.gameObject.GetComponent<Brick>().Attack();
+                        }
+                    }  
             }
         }
         yield break;
@@ -290,7 +294,7 @@ public class BrickSpawner : MonoBehaviour
     {
         allBricksMovedHorizontal = false;
         vision = 10f; //need to check maybe we should set more than 10
-        colliders = Physics2D.OverlapCircleAll(transform.position, vision);
+        colliders = Physics2D.OverlapCircleAll(transform.position, vision, layerAsLayerMask);
         for (int y = m_levelConfig.grid.GridHeight-1; y >= 0; y--) {
             for (int x = 0; x <= m_levelConfig.grid.GridWidth-1; x ++) {
                 
