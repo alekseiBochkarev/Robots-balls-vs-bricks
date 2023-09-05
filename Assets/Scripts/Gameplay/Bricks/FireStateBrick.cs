@@ -24,8 +24,18 @@ public class FireStateBrick : IStateBrick
 
     public IEnumerator DoDamage(int applyDamage)
     {
-        brick.SetState(brick.attackStateBrick);
-        yield return brick.DoDamage(applyDamage);
+        countOfFireStep++;
+        if (countOfFireStep > maxCountOfFireStep)
+        {
+            countOfFireStep = 0;
+            brick.SetState(brick.attackStateBrick);
+            yield return brick.DoDamage(applyDamage);
+            brick.SetState(brick.idleStateBrick);
+        }
+        else
+        {
+            yield break;
+        }
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK
@@ -51,6 +61,7 @@ public class FireStateBrick : IStateBrick
     }
 
     public void TakeDamage (int appliedDamage) {
+        Debug.Log("TAKE DAMAGE WHEN I FIRE");
         brick.SetStateWithoutExit(brick.takeDamageStateBrick);
         brick.TakeDamage(appliedDamage);
         brick.SetState(this);
@@ -89,7 +100,7 @@ public class FireStateBrick : IStateBrick
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
     {
         TakeDamage(fireDamage);
-        countOfFireStep++;
+        //countOfFireStep++;
         if (countOfFireStep > maxCountOfFireStep)
         {
             countOfFireStep = 0;
@@ -99,7 +110,7 @@ public class FireStateBrick : IStateBrick
         }
         else
         {
-            brick.SetState(brick.walkStateBrick);
+            brick.SetStateWithoutExit(brick.walkStateBrick);
             yield return brick.MoveToTarget(startPos, endPos, currentY, maxY);
             brick.SetState(this);
         }
