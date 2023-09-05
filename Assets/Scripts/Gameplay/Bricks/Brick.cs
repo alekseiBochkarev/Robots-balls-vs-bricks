@@ -52,7 +52,9 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public bool CanInstantiateBoom => canInstantiateBoom;
     [SerializeField] private bool cantBurn;
     public bool CantBurn => cantBurn;
-    
+    [SerializeField] private bool canDoctor;
+    public bool CanDoctor => canDoctor;
+
     private bool isWaitMeleeAttack;
 
     public bool IsWaitMeleeAttack
