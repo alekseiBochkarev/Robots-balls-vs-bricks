@@ -64,7 +64,7 @@ public class HeroBody : MonoBehaviour
             case "r3":
                 HeroStats.BodyHealth = 2;
                 HeroStats.BodyAttack = 0;
-                HeroStats.BodyStarterBalls = 0;
+                HeroStats.BodyStarterBalls = 1;
                 HeroStats.BodySightLength = 0;
                 break;
             case "r4":
