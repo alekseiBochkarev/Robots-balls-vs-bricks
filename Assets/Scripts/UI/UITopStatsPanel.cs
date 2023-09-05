@@ -50,6 +50,11 @@ public class UITopStatsPanel : MonoBehaviour
         //ShowLevelValues();
     }
 
+    private void OnDestroy()
+    {
+        EventManager.SkinChanged -= UpdateValuesAndPrefabs;
+    }
+
     private HeroStats getHeroStats()
     {
         heroStats = new HeroStats();
