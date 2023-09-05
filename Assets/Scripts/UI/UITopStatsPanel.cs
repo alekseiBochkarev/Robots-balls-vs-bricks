@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class UITopStatsPanel : MonoBehaviour
 {
+    private HeroStats heroStats;
     // Текущие уровни статов
     public int levelScene;
     public int healthLevel;
@@ -15,9 +16,13 @@ public class UITopStatsPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI levelValueText;
     [SerializeField] private TextMeshProUGUI coinsValueText;
     [SerializeField] private TextMeshProUGUI healthLevelText;
+    [SerializeField] private TextMeshProUGUI healthRealText;
     [SerializeField] private TextMeshProUGUI attackLevelText;
+    [SerializeField] private TextMeshProUGUI attackRealText;
     [SerializeField] private TextMeshProUGUI starterBallsLevelText;
+    [SerializeField] private TextMeshProUGUI starterBallRealText;
     [SerializeField] private TextMeshProUGUI sightLengthLevelText;
+    [SerializeField] private TextMeshProUGUI sightLengthRealText;
 
     // Префабы статов
     [SerializeField] private Transform healthStatPrefab;
@@ -34,14 +39,20 @@ public class UITopStatsPanel : MonoBehaviour
     private void Start()
     {
         // Подгружаем контроллеры префабов
-       // healthPrefabController = healthStatPrefab.GetComponent<HealthPrefabController>();
-       // attackPrefabController = attackStatPrefab.GetComponent<AttackPrefabController>();
-       // starterBallsPrefabController = starterBallsStatPrefab.GetComponent<StarterBallsPrefabController>();
-       // sightLengthPrefabController = sightLengthStatPrefab.GetComponent<SightLengthPrefabController>();
-     //   if (healthPrefabController == null || attackPrefabController == null || starterBallsPrefabController == null || sightLengthPrefabController == null)
-      //      return;
+        // healthPrefabController = healthStatPrefab.GetComponent<HealthPrefabController>();
+        // attackPrefabController = attackStatPrefab.GetComponent<AttackPrefabController>();
+        // starterBallsPrefabController = starterBallsStatPrefab.GetComponent<StarterBallsPrefabController>();
+        // sightLengthPrefabController = sightLengthStatPrefab.GetComponent<SightLengthPrefabController>();
+        //   if (healthPrefabController == null || attackPrefabController == null || starterBallsPrefabController == null || sightLengthPrefabController == null)
+        //      return;
         UpdateValuesAndPrefabs();
-        ShowLevelValues();
+        //ShowLevelValues();
+    }
+
+    private HeroStats getHeroStats()
+    {
+        heroStats = new HeroStats();
+        return heroStats;
     }
 
     private void OnEnable()
@@ -51,16 +62,20 @@ public class UITopStatsPanel : MonoBehaviour
       //  if (healthPrefabController == null || attackPrefabController == null || starterBallsPrefabController == null || sightLengthPrefabController == null)
       //      return;
         UpdateValuesAndPrefabs();
-        ShowLevelValues();
+        //ShowLevelValues();
     }
     
     public void ShowLevelValues()
     {
-        levelValueText.text = Translator.Translate("LEVEL ") + $"{SceneManager.GetActiveScene().buildIndex}"; ;
-        healthLevelText.text = $"{healthLevel}";
-        attackLevelText.text = $"{attackLevel}";
-        starterBallsLevelText.text = $"{starterBallsLevel}";
-        sightLengthLevelText.text = $"{sightLengthLevel}";
+        levelValueText.text = Translator.Translate("LEVEL ") + $"{SceneManager.GetActiveScene().buildIndex}";
+        healthLevelText.text = $"{healthLevel}" + "L";
+        healthRealText.text = $"{getHeroStats().Health}";
+        attackLevelText.text = $"{attackLevel}" + "L";
+        attackRealText.text = $"{getHeroStats().Attack}";
+        starterBallsLevelText.text = $"{starterBallsLevel}" + "L";
+        starterBallRealText.text = $"{getHeroStats().StarterBalls}";
+        sightLengthLevelText.text = $"{sightLengthLevel}" + "L";
+        sightLengthRealText.text = $"{getHeroStats().SightLength}";
     }
 
     public void UpdateValuesAndPrefabs()
@@ -80,6 +95,7 @@ public class UITopStatsPanel : MonoBehaviour
         sightLengthStatPrefab.GetComponent<SightLengthPrefabController>().LoadSightLengthLevelAndShowSprite();
         
         LoadLevelValues();
+        ShowLevelValues();
     }
 
     private void LoadLevelValues()
