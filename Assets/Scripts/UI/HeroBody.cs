@@ -103,6 +103,30 @@ public class HeroBody : MonoBehaviour
                 HeroStats.BodyStarterBalls = 0;
                 HeroStats.BodySightLength = 0;
                 break;
+            case "HagiWagerR0":
+                HeroStats.BodyHealth = 3;
+                HeroStats.BodyAttack = 1;
+                HeroStats.BodyStarterBalls = 0;
+                HeroStats.BodySightLength = 5;
+                break;
+            case "HagiWagerR1":
+                HeroStats.BodyHealth = 0;
+                HeroStats.BodyAttack = 1;
+                HeroStats.BodyStarterBalls = 1;
+                HeroStats.BodySightLength = 5;
+                break;
+            case "HagiWagerR2":
+                HeroStats.BodyHealth = 0;
+                HeroStats.BodyAttack = 1;
+                HeroStats.BodyStarterBalls = 1;
+                HeroStats.BodySightLength = 5;
+                break;
+            case "HagiWagerR3":
+                HeroStats.BodyHealth = 0;
+                HeroStats.BodyAttack = 1;
+                HeroStats.BodyStarterBalls = 1;
+                HeroStats.BodySightLength = 5;
+                break;
         }
     }
 }

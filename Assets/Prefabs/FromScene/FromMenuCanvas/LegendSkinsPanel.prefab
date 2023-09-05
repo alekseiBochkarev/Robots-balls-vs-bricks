@@ -278,6 +278,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
+      propertyPath: _skinCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
       propertyPath: _robotName
       value: BaldisR6
       objectReference: {fileID: 0}
@@ -420,6 +425,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.61702746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
+      propertyPath: _skinCost
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
@@ -568,6 +578,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
+      propertyPath: _skinCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
       propertyPath: _robotName
       value: HagiWagerR3
       objectReference: {fileID: 0}
@@ -710,6 +725,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.61702746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
+      propertyPath: _skinCost
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
@@ -858,6 +878,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
+      propertyPath: _skinCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
       propertyPath: _robotName
       value: BaldisR3
       objectReference: {fileID: 0}
@@ -1000,6 +1025,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.61702746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
+      propertyPath: _skinCost
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
@@ -1148,6 +1178,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
+      propertyPath: _skinCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
       propertyPath: _robotName
       value: SereneR3
       objectReference: {fileID: 0}
@@ -1290,6 +1325,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.61702746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
+      propertyPath: _skinCost
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
@@ -1438,6 +1478,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
+      propertyPath: _skinCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
       propertyPath: _robotName
       value: BaldisR5
       objectReference: {fileID: 0}
@@ -1583,6 +1628,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
+      propertyPath: _skinCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
       propertyPath: _robotName
       value: BaldisR11
       objectReference: {fileID: 0}
@@ -1725,6 +1775,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.61702746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
+      propertyPath: _skinCost
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
@@ -2018,6 +2073,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
+      propertyPath: _skinCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
       propertyPath: _robotName
       value: HagiWagerR1
       objectReference: {fileID: 0}
@@ -2160,6 +2220,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.61702746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
+      propertyPath: _skinCost
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
@@ -2308,6 +2373,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
+      propertyPath: _skinCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
       propertyPath: _robotName
       value: ToiletR1
       objectReference: {fileID: 0}
@@ -2450,6 +2520,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.61702746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
+      propertyPath: _skinCost
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
@@ -2598,6 +2673,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
+      propertyPath: _skinCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
       propertyPath: _robotName
       value: SereneR5
       objectReference: {fileID: 0}
@@ -2740,6 +2820,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.61702746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
+      propertyPath: _skinCost
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
@@ -2888,6 +2973,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
+      propertyPath: _skinCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
       propertyPath: _robotName
       value: BaldisR2
       objectReference: {fileID: 0}
@@ -3030,6 +3120,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.61702746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
+      propertyPath: _skinCost
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
@@ -3178,6 +3273,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
+      propertyPath: _skinCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
       propertyPath: _robotName
       value: SereneR8
       objectReference: {fileID: 0}
@@ -3320,6 +3420,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.61702746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
+      propertyPath: _skinCost
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
@@ -3468,6 +3573,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
+      propertyPath: _skinCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
       propertyPath: _robotName
       value: BaldisR12
       objectReference: {fileID: 0}
@@ -3610,6 +3720,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.61702746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
+      propertyPath: _skinCost
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
@@ -3758,6 +3873,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
+      propertyPath: _skinCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
       propertyPath: _robotName
       value: SereneR7
       objectReference: {fileID: 0}
@@ -3900,6 +4020,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.61702746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
+      propertyPath: _skinCost
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
@@ -4048,6 +4173,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
+      propertyPath: _skinCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
       propertyPath: _robotName
       value: SereneR2
       objectReference: {fileID: 0}
@@ -4190,6 +4320,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.61702746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
+      propertyPath: _skinCost
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
@@ -4338,6 +4473,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
+      propertyPath: _skinCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
       propertyPath: _robotName
       value: ToiletR2
       objectReference: {fileID: 0}
@@ -4480,6 +4620,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.61702746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
+      propertyPath: _skinCost
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
@@ -4628,6 +4773,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
+      propertyPath: _skinCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
       propertyPath: _robotName
       value: BaldisR4
       objectReference: {fileID: 0}
@@ -4770,6 +4920,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.61702746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
+      propertyPath: _skinCost
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
@@ -4918,6 +5073,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
+      propertyPath: _skinCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
       propertyPath: _robotName
       value: AmonguR2
       objectReference: {fileID: 0}
@@ -5060,6 +5220,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.61702746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
+        type: 3}
+      propertyPath: _skinCost
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 8562546645977127462, guid: 3b74c925c6047fe40bfece2ff112608f,
         type: 3}
