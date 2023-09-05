@@ -28,6 +28,12 @@ public class HeroStats : IResetToDefaultValues
     private readonly int _defaultSightLengthValue = 2;
     private readonly int _defaultStarterSpecialBallValue = 0;
 
+    //vars from body
+    public static float BodyAttack { set; get; }
+    public static float BodyHealth { set; get; }
+    public static float BodyStarterBalls { set; get; }
+    public static float BodySightLength { set; get; }
+
     public enum HeroStatsEnum
     {
         Health,
@@ -55,11 +61,11 @@ public class HeroStats : IResetToDefaultValues
     private void LoadStats()
     {
         // Load all HeroStats
-        Health = SetStatsAndSave(HeroStatsEnum.Health, _defaultHealthValue);
+        Health = SetStatsAndSave(HeroStatsEnum.Health, _defaultHealthValue) + BodyHealth;
         BatteryEnergy = SetStatsAndSave(HeroStatsEnum.BatteryEnergy, _defaultBatteryEnergyValue);
-        Attack = SetStatsAndSave(HeroStatsEnum.Attack, _defaultAttackValue);
-        StarterBalls = SetStatsAndSave(HeroStatsEnum.StarterBalls, _defaultStarterBallsValue);
-        SightLength = SetStatsAndSave(HeroStatsEnum.SightLength, _defaultSightLengthValue);
+        Attack = SetStatsAndSave(HeroStatsEnum.Attack, _defaultAttackValue) + BodyAttack;
+        StarterBalls = SetStatsAndSave(HeroStatsEnum.StarterBalls, _defaultStarterBallsValue) + BodyStarterBalls;
+        SightLength = SetStatsAndSave(HeroStatsEnum.SightLength, _defaultSightLengthValue) + BodySightLength;
         StarterRocketBall = SetStatsAndSave(HeroStatsEnum.StarterRocketBall, _defaultStarterSpecialBallValue);
         StarterIceBall = SetStatsAndSave(HeroStatsEnum.StarterIceBall, _defaultStarterSpecialBallValue);
         StarterLaserHorizontalBall = SetStatsAndSave(HeroStatsEnum.StarterLaserHorizontalBall, _defaultStarterSpecialBallValue);

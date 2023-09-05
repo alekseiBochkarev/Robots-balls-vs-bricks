@@ -38,6 +38,7 @@ public class UITopStatsPanel : MonoBehaviour
 
     private void Start()
     {
+        EventManager.SkinChanged += UpdateValuesAndPrefabs;
         // Подгружаем контроллеры префабов
         // healthPrefabController = healthStatPrefab.GetComponent<HealthPrefabController>();
         // attackPrefabController = attackStatPrefab.GetComponent<AttackPrefabController>();

@@ -19,6 +19,7 @@ public class EventManager : MonoBehaviour
     public static event Action<int> ComboCounterChanged;
     public static event Action AllBallsLaunched;
     public static event Action BallsReturned;
+    public static event Action SkinChanged;
     public static event Action AllBallsReturned;
     public static event Action ResetReturningBallsAmount;
 
@@ -92,6 +93,11 @@ public class EventManager : MonoBehaviour
     public static void OnBallsReturned()
     {
         BallsReturned?.Invoke();
+    }
+
+    public static void OnSkinChanged()
+    {
+        SkinChanged?.Invoke();
     }
 
     //ToDo AllBallsLaunched использовать в будущем для интеграции с батареей
