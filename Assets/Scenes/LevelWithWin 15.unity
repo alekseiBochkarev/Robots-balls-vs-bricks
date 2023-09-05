@@ -2039,6 +2039,33 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8172660406673986189, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
+        type: 3}
+      propertyPath: heroBuffsSO.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172660406673986189, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
+        type: 3}
+      propertyPath: comboAttacksSO.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172660406673986189, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
+        type: 3}
+      propertyPath: specialAttacksSO.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172660406673986189, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
+        type: 3}
+      propertyPath: comboAttacksSO.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: ad0a341e485199143a5a5397b276aaf7,
+        type: 2}
+    - target: {fileID: 8172660406673986189, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
+        type: 3}
+      propertyPath: specialAttacksSO.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 376c70d98fa28c344b50e9336cab9bd2,
+        type: 2}
     - target: {fileID: 8373368724274541846, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2167,7 +2194,7 @@ PrefabInstance:
     - target: {fileID: 8451208925133825238, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8451208925259016911, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
         type: 3}

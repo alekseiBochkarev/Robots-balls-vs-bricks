@@ -24,8 +24,18 @@ public class PoisonStateBrick : IStateBrick
 
     public IEnumerator DoDamage(int applyDamage)
     {
-        brick.SetState(brick.attackStateBrick);
-        yield return brick.DoDamage(applyDamage);
+        countOfPoisonStep++;
+        if (countOfPoisonStep > maxCountOfPoisonStep)
+        {
+            countOfPoisonStep = 0;
+            brick.SetState(brick.attackStateBrick);
+            yield return brick.DoDamage(applyDamage);
+            brick.SetState(brick.idleStateBrick);
+        }
+        else
+        {
+            yield break;
+        }
     }
 
     public void HealUp(float healHealthUpAmount) // heals Health of the BRICK
@@ -89,7 +99,7 @@ public class PoisonStateBrick : IStateBrick
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
     {
         TakeDamage(poisonDamage);
-        countOfPoisonStep++;
+        //countOfPoisonStep++;
         if (countOfPoisonStep > maxCountOfPoisonStep)
         {
             countOfPoisonStep = 0;
@@ -99,7 +109,7 @@ public class PoisonStateBrick : IStateBrick
         }
         else
         {
-            brick.SetState(brick.walkStateBrick);
+            brick.SetStateWithoutExit(brick.walkStateBrick);
             yield return brick.MoveToTarget(startPos, endPos, currentY, maxY);
             brick.SetState(this);
         }
