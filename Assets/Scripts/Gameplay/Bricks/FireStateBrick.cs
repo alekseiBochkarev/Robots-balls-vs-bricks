@@ -15,7 +15,15 @@ public class FireStateBrick : IStateBrick
     }
 
     public void Enter() {
-        brick.fire.SetActive(true);
+        if (!brick.CantBurn)
+        {
+            brick.fire.SetActive(true);
+        } else
+        {
+            string textPopupTextValue = Translator.Translate("Can't burn");
+            DamagePopupController.Instance
+        .CreateTextPopup(brick.brickCoord, textPopupTextValue, TextController.COLOR_RED, TextController.FONT_SIZE_MAX);
+        }       
     }
 
     public void Exit() {
