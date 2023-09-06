@@ -522,6 +522,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0
   frequency: 0
+--- !u!1 &587772335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5932909507929545911, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
+    type: 3}
+  m_PrefabInstance: {fileID: 8451208924720014892}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &587772340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587772335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12758a2273181de4eb28cef54fbd750c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!850595691 &800515363
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -848,6 +866,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8451208924720014892}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1359011176 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8716125614484517372, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
+    type: 3}
+  m_PrefabInstance: {fileID: 8451208924720014892}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1359011181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359011176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12758a2273181de4eb28cef54fbd750c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1373822221 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8451208925540186913, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
@@ -3942,7 +3978,9 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -1450
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4307812383956303935, guid: 66bf94cef2d746341ba7fb8e0d5dc325, type: 3}
+    - {fileID: 3797151914710258409, guid: 66bf94cef2d746341ba7fb8e0d5dc325, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 66bf94cef2d746341ba7fb8e0d5dc325, type: 3}
 --- !u!114 &8451208924720014894 stripped
 MonoBehaviour:
