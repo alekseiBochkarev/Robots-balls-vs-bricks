@@ -103,26 +103,50 @@ public class HeroBody : MonoBehaviour
                 HeroStats.BodyStarterBalls = 0;
                 HeroStats.BodySightLength = 0;
                 break;
+            case "r10":
+                HeroStats.BodyHealth = 10;
+                HeroStats.BodyAttack = 0;
+                HeroStats.BodyStarterBalls = 0;
+                HeroStats.BodySightLength = 0;
+                break;
+            case "r11":
+                HeroStats.BodyHealth = 2;
+                HeroStats.BodyAttack = 1;
+                HeroStats.BodyStarterBalls = 1;
+                HeroStats.BodySightLength = 2;
+                break;
+            case "r12":
+                HeroStats.BodyHealth = 2;
+                HeroStats.BodyAttack = 0;
+                HeroStats.BodyStarterBalls = 4;
+                HeroStats.BodySightLength = 0;
+                break;
+            case "r13":
+                HeroStats.BodyHealth = 2;
+                HeroStats.BodyAttack = 4;
+                HeroStats.BodyStarterBalls = 1;
+                HeroStats.BodySightLength = 0;
+                break;
             case "HagiWagerR0":
-                HeroStats.BodyHealth = 3;
+                HeroStats.BodyHealth = 10;
                 HeroStats.BodyAttack = 1;
                 HeroStats.BodyStarterBalls = 0;
                 HeroStats.BodySightLength = 5;
                 break;
             case "HagiWagerR1":
-                HeroStats.BodyHealth = 0;
+                HeroStats.BodyHealth = 10;
                 HeroStats.BodyAttack = 1;
                 HeroStats.BodyStarterBalls = 1;
                 HeroStats.BodySightLength = 5;
                 break;
             case "HagiWagerR2":
-                HeroStats.BodyHealth = 0;
+                HeroStats.BodyHealth = 10;
                 HeroStats.BodyAttack = 1;
                 HeroStats.BodyStarterBalls = 1;
                 HeroStats.BodySightLength = 5;
                 break;
             case "HagiWagerR3":
-                HeroStats.BodyHealth = 0;
+                HeroStats.BodyHealth = 10;
                 HeroStats.BodyAttack = 1;
                 HeroStats.BodyStarterBalls = 1;
                 HeroStats.BodySightLength = 5;
