@@ -1,32 +1,137 @@
 using Interfaces;
 using UnityEngine;
 
-public class HeroStats : IResetToDefaultValues
+public class HeroStats
 {
+    private static float attack;
+    private static float batteryEnergy;
+    private static float health;
+    private static float starterBalls;
+    private static float sightLength;
+    private static float starterRocketBall;
+    private static float starterIceBall;
+    private static float starterLaserHorizontalBall;
+    private static float starterLaserVerticalBall;
+    private static float starterLaserCrossBall;
+    private static float starterInstaKillBall;
+    private static float starterFireBall;
+    private static float starterBombBall;
+    private static float starterPoisonBall;
+    private static float starterBlackHoleBall;
+
+
     // Vars
-    public float Attack { private set; get; }
-    public float BatteryEnergy { private set; get; }
-    public float Health { private set; get; }
-    public float StarterBalls { private set; get; }
-    public float SightLength { private set; get; }
-    public float StarterRocketBall { private set; get; }
-    public float StarterIceBall { private set; get; }
-    public float StarterLaserHorizontalBall { private set; get; }
-    public float StarterLaserVerticalBall { private set; get; }
-    public float StarterLaserCrossBall { private set; get; }
-    public float StarterInstaKillBall { private set; get; }
-    public float StarterFireBall { private set; get; }
-    public float StarterBombBall { private set; get; }
-    public float StarterPoisonBall { private set; get; }
-    public float StarterBlackHoleBall { private set; get; }
+    public static float Attack { private set { attack = value; }
+        get { 
+            LoadStats();
+            return attack;
+        } }
+    public static float BatteryEnergy { private set { batteryEnergy = value; }
+        get
+        {
+            LoadStats();
+            return batteryEnergy;
+        }
+    }
+    public static float Health { private set { health = value; }
+        get
+        {
+            LoadStats();
+            return health;
+        }
+    }
+    public static float StarterBalls { private set { starterBalls = value; }
+        get
+        {
+            LoadStats();
+            return starterBalls;
+        }
+    }
+    public static float SightLength { private set { sightLength = value; }
+        get
+        {
+            LoadStats();
+            return sightLength;
+        }
+    }
+    public static float StarterRocketBall { private set { starterRocketBall = value; }
+        get
+        {
+            LoadStats();
+            return starterRocketBall;
+        }
+    }
+    public static float StarterIceBall { private set { starterIceBall = value; }
+        get
+        {
+            LoadStats();
+            return starterIceBall;
+        }
+    }
+    public static float StarterLaserHorizontalBall { private set { starterLaserHorizontalBall = value; }
+        get
+        {
+            LoadStats();
+            return starterLaserHorizontalBall;
+        }
+    }
+    public static float StarterLaserVerticalBall { private set { starterLaserVerticalBall = value; }
+        get
+        {
+            LoadStats();
+            return starterLaserVerticalBall;
+        }
+    }
+    public static float StarterLaserCrossBall { private set { starterLaserCrossBall = value; }
+        get
+        {
+            LoadStats();
+            return starterLaserCrossBall;
+        }
+    }
+    public static float StarterInstaKillBall { private set { starterInstaKillBall = value; }
+        get
+        {
+            LoadStats();
+            return starterInstaKillBall;
+        }
+    }
+    public static float StarterFireBall { private set { starterFireBall = value; }
+        get
+        {
+            LoadStats();
+            return starterFireBall;
+        }
+    }
+    public static float StarterBombBall { private set { starterBombBall = value; }
+        get
+        {
+            LoadStats();
+            return starterBombBall;
+        }
+    }
+    public static float StarterPoisonBall { private set { starterPoisonBall = value; }
+        get
+        {
+            LoadStats();
+            return starterPoisonBall;
+        }
+    }
+    public static float StarterBlackHoleBall { private set { starterBlackHoleBall = value; }
+        get
+        {
+            LoadStats();
+            return starterBlackHoleBall;
+        }
+    }
 
     // default stats values
-    private readonly int _defaultAttackValue = 1;
-    private readonly int _defaultBatteryEnergyValue = 3;
-    private readonly int _defaultHealthValue = 100;
-    private readonly int _defaultStarterBallsValue = 1;
-    private readonly int _defaultSightLengthValue = 2;
-    private readonly int _defaultStarterSpecialBallValue = 0;
+    private static readonly int _defaultAttackValue = 1;
+    private static readonly int _defaultBatteryEnergyValue = 3;
+    private static readonly int _defaultHealthValue = 100;
+    private static readonly int _defaultStarterBallsValue = 1;
+    private static readonly int _defaultSightLengthValue = 2;
+    private static readonly int _defaultStarterSpecialBallValue = 0;
 
     //vars from body
     public static float BodyAttack { set; get; }
@@ -53,12 +158,12 @@ public class HeroStats : IResetToDefaultValues
         StarterBlackHoleBall
     }
 
-    public HeroStats()
+    /*public HeroStats()
     {
         LoadStats();
-    }
+    }*/
 
-    private void LoadStats()
+    private static void LoadStats()
     {
         // Load all HeroStats
         Health = SetStatsAndSave(HeroStatsEnum.Health, _defaultHealthValue) + BodyHealth;
@@ -79,7 +184,7 @@ public class HeroStats : IResetToDefaultValues
     }
 
     // Load stat from PlayerPrefs, if no value present -> set defaultStatsValue and SaveIt
-    private float SetStatsAndSave(HeroStatsEnum statsEnum, float defaultStatsValue)
+    private static float SetStatsAndSave(HeroStatsEnum statsEnum, float defaultStatsValue)
     {
         float statValue;
         if (GetStats(statsEnum) != 0)
@@ -94,17 +199,17 @@ public class HeroStats : IResetToDefaultValues
         return statValue;
     }
 
-    public float GetStats(HeroStatsEnum statsEnum)
+    public static float GetStats(HeroStatsEnum statsEnum)
     {
         return PlayerPrefs.GetFloat(statsEnum.ToString());
     }
 
-    private void SaveStats(HeroStatsEnum statsEnum, float statsValue)
+    private static void SaveStats(HeroStatsEnum statsEnum, float statsValue)
     {
         PlayerPrefs.SetFloat(statsEnum.ToString(), statsValue);
     }
 
-    public void UpgradeStats(HeroStatsEnum statsEnum, float upgradeAmount)
+    public static void UpgradeStats(HeroStatsEnum statsEnum, float upgradeAmount)
     {
         float statsValue = GetStats(statsEnum);
         statsValue += upgradeAmount;
@@ -112,7 +217,7 @@ public class HeroStats : IResetToDefaultValues
         LoadStats();
     }
 
-    public void ClearStatsToDefault()
+    public static void ClearStatsToDefault()
     {
         SaveStats(HeroStatsEnum.Health, _defaultHealthValue);
         SaveStats(HeroStatsEnum.BatteryEnergy, _defaultBatteryEnergyValue);

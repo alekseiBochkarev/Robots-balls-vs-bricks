@@ -30,8 +30,9 @@ namespace UI.LootInChestSelection
         {
             //Add specAttack
             if (lootInChestSO.GetType() == typeof(LootBallSO))
-                Balls.Instance._heroStats.UpgradeStats(lootInChestSO.heroStats, 1);
-            
+                //Balls.Instance.HeroStats.UpgradeStats(lootInChestSO.heroStats, 1);
+                HeroStats.UpgradeStats(lootInChestSO.heroStats, 1);
+
             //Clear Loot in UI
             Destroy(this.gameObject);
 

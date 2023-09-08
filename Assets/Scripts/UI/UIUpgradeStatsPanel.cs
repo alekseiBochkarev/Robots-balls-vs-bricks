@@ -14,7 +14,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
      * 3) Все префабы интерактивные, чтобы наглядно показать прокачку героя
      */
 
-    private HeroStats heroStats;
+    //private HeroStats heroStats;
 
     private Coins coins;
     private UpgradeStats upgradeStats;
@@ -86,7 +86,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
     {
         camera = GameObject.Find("MainCamera");
         upgradeStats = new UpgradeStats();
-        heroStats = new HeroStats();
+        
         coins = new Coins();
         // Получаем контроллеры всех статов из их префабов
         _attackPrefabController = attackPrefab.GetComponentInChildren<AttackPrefabController>();
@@ -106,11 +106,11 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         GetCoins();
         _uiTopStatsPanel = GameObject.FindGameObjectWithTag("TopStatsPanel").GetComponent<UITopStatsPanel>();
 
-        _playerHealth = heroStats.Health;
-   //     _playerBatteryEnergy = heroStats.BatteryEnergy;
-        _playerAttack = heroStats.Attack;
-        _playerStarterBalls = heroStats.StarterBalls;
-        _playerSightLength = heroStats.SightLength;
+        _playerHealth = HeroStats.Health;
+        //     _playerBatteryEnergy = HeroStats.BatteryEnergy;
+        _playerAttack = HeroStats.Attack;
+        _playerStarterBalls = HeroStats.StarterBalls;
+        _playerSightLength = HeroStats.SightLength;
 
         ShowStatsDataAndRuleButtons();
 
@@ -280,10 +280,10 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         coins.RemoveCoins(upgradeStats.UpgradeHealthCoinsRequired);
 
         // Add Health to the player
-        heroStats.UpgradeStats(HeroStats.HeroStatsEnum.Health, upgradeStats.UpgradeHealthValue);
+        HeroStats.UpgradeStats(HeroStats.HeroStatsEnum.Health, upgradeStats.UpgradeHealthValue);
         camera.GetComponent<AudioManager>().PlayAudio(upgradeMusicClip);
         // Reinit local values for health
-        _playerHealth = heroStats.Health;
+        _playerHealth = HeroStats.Health;
 
         // Update UpgradeMultiplier and reinit RequiredCoins, StatsUpgrading
         GetCoins();
@@ -344,10 +344,10 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         coins.RemoveCoins(upgradeStats.UpgradeAttackCoinsRequired);
 
         // Add Attack Power to the player
-        heroStats.UpgradeStats(HeroStats.HeroStatsEnum.Attack, upgradeStats.UpgradeAttackValue);
+        HeroStats.UpgradeStats(HeroStats.HeroStatsEnum.Attack, upgradeStats.UpgradeAttackValue);
         camera.GetComponent<AudioManager>().PlayAudio(upgradeMusicClip);
         // Reinit local values for Attack Power
-        _playerAttack = heroStats.Attack;
+        _playerAttack = HeroStats.Attack;
 
         // Update UpgradeMultiplier and reinit RequiredCoins, StatsUpgrading
         GetCoins();
@@ -378,10 +378,10 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         coins.RemoveCoins(upgradeStats.UpgradeStarterBallsCoinsRequired);
 
         // Add Starter Balls to the player
-        heroStats.UpgradeStats(HeroStats.HeroStatsEnum.StarterBalls, _addUpgradeLevel);
+        HeroStats.UpgradeStats(HeroStats.HeroStatsEnum.StarterBalls, _addUpgradeLevel);
         camera.GetComponent<AudioManager>().PlayAudio(upgradeMusicClip);
         // Reinit local values for Starter Balls
-        _playerStarterBalls = heroStats.StarterBalls;
+        _playerStarterBalls = HeroStats.StarterBalls;
 
         // Update UpgradeMultiplier and reinit RequiredCoins, StatsUpgrading
         GetCoins();
@@ -397,10 +397,9 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
         // Отобразить префабы статов уже на сброшенных значениях
         _starterBallsPrefabController.LoadStarterBallsLevelAndShowSprite();
-        
-        // Добавляем базовый мяч в лист шаров
-        Balls.Instance.AddBallToList(BallsTypeEnum.Ball);
 
+        // Добавляем базовый мяч в лист шаров
+        //Balls.Instance.AddBallToList(BallsTypeEnum.Ball);
         //EventManager to show changes in other classes
         EventManager.OnUpgradeStats();
     }
@@ -411,10 +410,10 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         coins.RemoveCoins(upgradeStats.UpgradeSightLengthCoinsRequired);
 
         // Add Sight Length to the player
-        heroStats.UpgradeStats(HeroStats.HeroStatsEnum.SightLength, upgradeStats.UpgradeSightLengthValue);
+        HeroStats.UpgradeStats(HeroStats.HeroStatsEnum.SightLength, upgradeStats.UpgradeSightLengthValue);
         camera.GetComponent<AudioManager>().PlayAudio(upgradeMusicClip);
         // Reinit local values for Sight Length
-        _playerSightLength = heroStats.SightLength;
+        _playerSightLength = HeroStats.SightLength;
 
         // Update UpgradeMultiplier and reinit RequiredCoins, StatsUpgrading
         GetCoins();
@@ -441,13 +440,13 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
     public void ClearStatsToDefault()
     {
         // Сброс статов, множителей и уровней прокачки до дефолтных значений
-        heroStats.ClearStatsToDefault();
+        HeroStats.ClearStatsToDefault();
         upgradeStats.ClearStatsToDefault();
 
-        _playerHealth = heroStats.GetStats(HeroStats.HeroStatsEnum.Health);
-        _playerAttack = heroStats.GetStats(HeroStats.HeroStatsEnum.Attack);
-        _playerStarterBalls = heroStats.GetStats(HeroStats.HeroStatsEnum.StarterBalls);
-        _playerSightLength = heroStats.GetStats(HeroStats.HeroStatsEnum.SightLength);
+        _playerHealth = HeroStats.GetStats(HeroStats.HeroStatsEnum.Health);
+        _playerAttack = HeroStats.GetStats(HeroStats.HeroStatsEnum.Attack);
+        _playerStarterBalls = HeroStats.GetStats(HeroStats.HeroStatsEnum.StarterBalls);
+        _playerSightLength = HeroStats.GetStats(HeroStats.HeroStatsEnum.SightLength);
 
         Hero.Instance.UpdateHeroHealthAndHealthBar(_playerHealth);
         Hero.Instance.attackSkill = (int)_playerAttack;

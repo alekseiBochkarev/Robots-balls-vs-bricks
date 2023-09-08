@@ -7,7 +7,7 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
 {
     public static Balls Instance;
 
-    public HeroStats _heroStats;
+    //public HeroStats _heroStats;
     public static Dictionary<int, GameObject> ballsInScene;
     private AbstractBall m_BallPrefab;
     public List<AbstractBall> PlayerBalls { private set; get; }
@@ -28,23 +28,30 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
     private void Awake()
     {
         Instance = this;
+        EventManager.LevelStarted += UpdateBallsValues;
+        EventManager.UpgradeStats += UpdateBallsValues;
 
-        _heroStats = new HeroStats();
-        startBallsAmount = (int)_heroStats.StarterBalls;
+        //UpdateBallsValues();
+        IsBallAmountChanged = false;
+    }
+
+    private void UpdateBallsValues()
+    {
+        startBallsAmount = (int)HeroStats.StarterBalls;
 
         PlayerBalls = new List<AbstractBall>(startBallsAmount);
         SpawnNewBall(startBallsAmount, BallsTypeEnum.Ball);
-        
-        StarterRocketBall = (int)_heroStats.StarterRocketBall;
-        StarterIceBall = (int)_heroStats.StarterIceBall;
-        StarterLaserHorizontalBall = (int)_heroStats.StarterLaserHorizontalBall;
-        StarterLaserVerticalBall = (int)_heroStats.StarterLaserVerticalBall;
-        StarterLaserCrossBall = (int)_heroStats.StarterLaserCrossBall;
-        StarterInstaKillBall = (int)_heroStats.StarterInstaKillBall;
-        StarterFireBall = (int)_heroStats.StarterFireBall;
-        StarterBombBall = (int)_heroStats.StarterBombBall;
-        StarterPoisonBall = (int)_heroStats.StarterPoisonBall;
-        StarterBlackHoleBall = (int)_heroStats.StarterBlackHoleBall;
+
+        StarterRocketBall = (int)HeroStats.StarterRocketBall;
+        StarterIceBall = (int)HeroStats.StarterIceBall;
+        StarterLaserHorizontalBall = (int)HeroStats.StarterLaserHorizontalBall;
+        StarterLaserVerticalBall = (int)HeroStats.StarterLaserVerticalBall;
+        StarterLaserCrossBall = (int)HeroStats.StarterLaserCrossBall;
+        StarterInstaKillBall = (int)HeroStats.StarterInstaKillBall;
+        StarterFireBall = (int)HeroStats.StarterFireBall;
+        StarterBombBall = (int)HeroStats.StarterBombBall;
+        StarterPoisonBall = (int)HeroStats.StarterPoisonBall;
+        StarterBlackHoleBall = (int)HeroStats.StarterBlackHoleBall;
         SpawnNewBall(StarterRocketBall, BallsTypeEnum.RocketBall);
         SpawnNewBall(StarterIceBall, BallsTypeEnum.IceBall);
         SpawnNewBall(StarterLaserHorizontalBall, BallsTypeEnum.LaserHorizontalBall);
@@ -55,9 +62,14 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
         SpawnNewBall(StarterBombBall, BallsTypeEnum.BombBall);
         SpawnNewBall(StarterPoisonBall, BallsTypeEnum.PoisonBall);
         SpawnNewBall(StarterBlackHoleBall, BallsTypeEnum.BlackHoleBall);
-        
+
         PlayerBallsAmount = PlayerBalls.Count;
-        IsBallAmountChanged = false;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.LevelStarted -= UpdateBallsValues;
+        EventManager.UpgradeStats -= UpdateBallsValues;
     }
 
     public void SpawnNewBall(int ballsToAddAmount, BallsTypeEnum ballsType)
@@ -187,7 +199,7 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
     {
         DestroyBallsOnScene();
         
-        startBallsAmount = (int)_heroStats.GetStats(HeroStats.HeroStatsEnum.StarterBalls);
+        startBallsAmount = (int)HeroStats.GetStats(HeroStats.HeroStatsEnum.StarterBalls);
         
         PlayerBalls = new List<AbstractBall>(startBallsAmount);
         SpawnNewBall(startBallsAmount, BallsTypeEnum.Ball);
@@ -196,9 +208,12 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
 
     private void DestroyBallsOnScene()
     {
-        foreach (var ball in PlayerBalls)
+        if (PlayerBalls != null)
         {
-            Destroy(ball);
+            foreach (var ball in PlayerBalls)
+            {
+                Destroy(ball);
+            }
         }
     }
 }

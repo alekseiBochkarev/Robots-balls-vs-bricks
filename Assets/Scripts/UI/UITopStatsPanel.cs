@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class UITopStatsPanel : MonoBehaviour
 {
-    private HeroStats heroStats;
+    //private HeroStats heroStats;
     // Текущие уровни статов
     public int levelScene;
     public int healthLevel;
@@ -55,11 +55,11 @@ public class UITopStatsPanel : MonoBehaviour
         EventManager.SkinChanged -= UpdateValuesAndPrefabs;
     }
 
-    private HeroStats getHeroStats()
+   /* private HeroStats getHeroStats()
     {
         heroStats = new HeroStats();
         return heroStats;
-    }
+    }*/
 
     private void OnEnable()
     {
@@ -75,13 +75,13 @@ public class UITopStatsPanel : MonoBehaviour
     {
         levelValueText.text = Translator.Translate("LEVEL ") + $"{SceneManager.GetActiveScene().buildIndex}";
         healthLevelText.text = $"{healthLevel}" + "L";
-        healthRealText.text = $"{getHeroStats().Health}";
+        healthRealText.text = $"{HeroStats.Health}";
         attackLevelText.text = $"{attackLevel}" + "L";
-        attackRealText.text = $"{getHeroStats().Attack}";
+        attackRealText.text = $"{HeroStats.Attack}";
         starterBallsLevelText.text = $"{starterBallsLevel}" + "L";
-        starterBallRealText.text = $"{getHeroStats().StarterBalls}";
+        starterBallRealText.text = $"{HeroStats.StarterBalls}";
         sightLengthLevelText.text = $"{sightLengthLevel}" + "L";
-        sightLengthRealText.text = $"{getHeroStats().SightLength}";
+        sightLengthRealText.text = $"{HeroStats.SightLength}";
     }
 
     public void UpdateValuesAndPrefabs()

@@ -7,7 +7,7 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
     public static Hero Instance;
     public int attackSkill;
     private HealthBar healthBar;
-    private HeroStats heroStats;
+    //private HeroStats heroStats;
     private bool isDamage;
 
     public int appliedDamage;
@@ -34,12 +34,11 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
 
     public void Awake()
     {
-        heroStats = new HeroStats();
         camera = GameObject.Find("MainCamera");
         // LoadHeroSkill();
-        SetMaxHealth(heroStats.Health);
+        SetMaxHealth(HeroStats.Health);
         // CurrentHealth = MaxHealth;
-        attackSkill = (int)heroStats.GetStats(HeroStats.HeroStatsEnum.Attack);
+        attackSkill = (int)HeroStats.GetStats(HeroStats.HeroStatsEnum.Attack);
         Instance = this;
     }
 
