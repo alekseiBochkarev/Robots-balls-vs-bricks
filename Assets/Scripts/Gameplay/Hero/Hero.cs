@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hero : MonoBehaviour, IHealth, IDamageable
 {
     public static Hero Instance;
-    public int attackSkill;
+    public int AttackSkill { private set; get; }
     private HealthBar healthBar;
     //private HeroStats heroStats;
     private bool isDamage;
@@ -38,7 +38,7 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
         // LoadHeroSkill();
         SetMaxHealth(HeroStats.Health);
         // CurrentHealth = MaxHealth;
-        attackSkill = (int)HeroStats.GetStats(HeroStats.HeroStatsEnum.Attack);
+        UpdateAttack();
         Instance = this;
     }
 
@@ -48,6 +48,11 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
         healthBar.SaveMaxHealth(MaxHealth);
         healthBar.SaveCurrentHealth(CurrentHealth);
         healthBar.ShowHealth();
+    }
+
+    private void UpdateAttack()
+    {
+        AttackSkill = (int)HeroStats.GetStats(HeroStats.HeroStatsEnum.Attack);
     }
 
 

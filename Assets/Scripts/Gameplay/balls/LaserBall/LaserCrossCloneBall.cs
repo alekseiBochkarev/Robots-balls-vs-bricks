@@ -11,7 +11,7 @@ public class LaserCrossCloneBall : MonoBehaviour, IBall
     void Start ()
     {
         hero = GameObject.Find("Hero");
-        attackPower = hero.GetComponent<Hero>().attackSkill;
+        attackPower = hero.GetComponent<Hero>().AttackSkill;
         damageTextColor = TextController.COLOR_RED;
         damageTextFontSize = TextController.FONT_SIZE_MAX;
     }

@@ -12,7 +12,7 @@ public class BlackHoleCloneBall : MonoBehaviour, IBall
     void Start ()
     {
         hero = GameObject.Find("Hero");
-        attackPower = hero.GetComponent<Hero>().attackSkill * attackPowerMultiplier;
+        attackPower = hero.GetComponent<Hero>().AttackSkill * attackPowerMultiplier;
         damageTextColor = TextController.COLOR_BLACK;
         damageTextFontSize = TextController.FONT_SIZE_MAX;
     }

@@ -234,5 +234,6 @@ public class HeroStats
         SaveStats(HeroStatsEnum.StarterBombBall, _defaultStarterSpecialBallValue);
         SaveStats(HeroStatsEnum.StarterPoisonBall, _defaultStarterSpecialBallValue);
         SaveStats(HeroStatsEnum.StarterBlackHoleBall, _defaultStarterSpecialBallValue);
+        EventManager.OnUpgradeStats();
     }
 }

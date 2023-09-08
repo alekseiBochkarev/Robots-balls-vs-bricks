@@ -20,7 +20,7 @@ public class RocketCloneBall : MonoBehaviour, IBall
     {
         target = FindGoalToMove();
         hero = GameObject.Find("Hero");
-        attackPower = hero.GetComponent<Hero>().attackSkill;
+        attackPower = hero.GetComponent<Hero>().AttackSkill;
         damageTextColor = TextController.COLOR_BLACK;
         damageTextFontSize = TextController.FONT_SIZE_MAX;
     }

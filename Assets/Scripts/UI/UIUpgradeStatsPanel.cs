@@ -365,7 +365,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         _attackPrefabController.LoadAttackLevelAndShowSprite();
         
         // Проапргрейдить аттаку
-        Hero.Instance.attackSkill = (int)_playerAttack;
+        //Hero.Instance.attackSkill = (int)_playerAttack;
 
         //EventManager to show changes in other classes
         EventManager.OnUpgradeStats();
@@ -449,7 +449,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         _playerSightLength = HeroStats.GetStats(HeroStats.HeroStatsEnum.SightLength);
 
         Hero.Instance.UpdateHeroHealthAndHealthBar(_playerHealth);
-        Hero.Instance.attackSkill = (int)_playerAttack;
+        //Hero.Instance.attackSkill = (int)_playerAttack;
         Balls.Instance.ClearStatsToDefault();
         AimLine.Instance.ChangePartLength((int)_playerSightLength);
 

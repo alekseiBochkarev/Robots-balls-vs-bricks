@@ -41,6 +41,8 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         m_TrailRenderer = GetComponent<TrailRenderer>();
         m_hero = hero.GetComponent<Hero>();
         EventManager.UpgradeAttackPowerStat += InitAttackPower;
+        EventManager.UpgradeStats += InitAttackPower;
+        EventManager.SkinChanged += InitAttackPower;
 
         //m_SpecialAttackPanelController = GameObject.Find("SpecialAttackUI").GetComponent<SpecialAttackPanelController>();
     }
@@ -53,6 +55,8 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     private void OnDestroy()
     {
         EventManager.UpgradeAttackPowerStat -= InitAttackPower;
+        EventManager.UpgradeStats -= InitAttackPower;
+        EventManager.SkinChanged -= InitAttackPower;
     }
 
     public AbstractBall ()
@@ -62,7 +66,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
     private void InitAttackPower()
     {
-        attackPower = hero.GetComponent<Hero>().attackSkill;
+        attackPower = hero.GetComponent<Hero>().AttackSkill;
     }
 
     public void DestroyAfterTime()

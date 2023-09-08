@@ -30,7 +30,7 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
         Instance = this;
         EventManager.LevelStarted += UpdateBallsValues;
         EventManager.UpgradeStats += UpdateBallsValues;
-
+        PlayerBalls = new List<AbstractBall>(startBallsAmount);
         //UpdateBallsValues();
         IsBallAmountChanged = false;
     }
@@ -39,7 +39,7 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
     {
         startBallsAmount = (int)HeroStats.StarterBalls;
 
-        PlayerBalls = new List<AbstractBall>(startBallsAmount);
+        //PlayerBalls = new List<AbstractBall>(startBallsAmount);
         SpawnNewBall(startBallsAmount, BallsTypeEnum.Ball);
 
         StarterRocketBall = (int)HeroStats.StarterRocketBall;
