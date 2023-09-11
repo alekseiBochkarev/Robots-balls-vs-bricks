@@ -208,7 +208,7 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
     {
         PlayerBallsAmount += amount;
     }
-
+    //TODO посмотреть эту функцию кажется она работает не очень правильно 
     public void ClearStatsToDefault()
     {
         DestroyBallsOnScene();
