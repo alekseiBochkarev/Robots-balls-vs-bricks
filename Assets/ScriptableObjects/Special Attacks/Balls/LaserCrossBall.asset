@@ -15,7 +15,7 @@ MonoBehaviour:
   specialAttackIndex: 0
   specialAttackName: Laser Cross Ball
   specialAttackDescription: Creates a cross laser on hit
-  specialAttackImage: {fileID: 21300000, guid: d3f95929dcd624048912cea61f4e9b67, type: 3}
+  specialAttackImage: {fileID: 21300000, guid: 740aa213145b10444bc631161a0d458a, type: 3}
   maxUseAmount: 2
   currentUseAmount: 0
   attackTypeEnum: 0

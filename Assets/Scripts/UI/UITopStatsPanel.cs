@@ -39,6 +39,9 @@ public class UITopStatsPanel : MonoBehaviour
     private void Start()
     {
         EventManager.SkinChanged += UpdateValuesAndPrefabs;
+        EventManager.UpgradeStats += UpdateValuesAndPrefabs;
+        EventManager.UpgradeAttackPowerStat += UpdateValuesAndPrefabs;
+
         // Подгружаем контроллеры префабов
         // healthPrefabController = healthStatPrefab.GetComponent<HealthPrefabController>();
         // attackPrefabController = attackStatPrefab.GetComponent<AttackPrefabController>();
@@ -53,6 +56,8 @@ public class UITopStatsPanel : MonoBehaviour
     private void OnDestroy()
     {
         EventManager.SkinChanged -= UpdateValuesAndPrefabs;
+        EventManager.UpgradeStats -= UpdateValuesAndPrefabs;
+        EventManager.UpgradeAttackPowerStat -= UpdateValuesAndPrefabs;
     }
 
    /* private HeroStats getHeroStats()
@@ -74,13 +79,13 @@ public class UITopStatsPanel : MonoBehaviour
     public void ShowLevelValues()
     {
         levelValueText.text = Translator.Translate("LEVEL ") + $"{SceneManager.GetActiveScene().buildIndex}";
-        healthLevelText.text = $"{healthLevel}" + "L";
+        healthLevelText.text = $"{healthLevel}" + Translator.Translate(" Lev.");
         healthRealText.text = $"{HeroStats.Health}";
-        attackLevelText.text = $"{attackLevel}" + "L";
+        attackLevelText.text = $"{attackLevel}" + Translator.Translate(" Lev.");
         attackRealText.text = $"{HeroStats.Attack}";
-        starterBallsLevelText.text = $"{starterBallsLevel}" + "L";
+        starterBallsLevelText.text = $"{starterBallsLevel}" + Translator.Translate(" Lev.");
         starterBallRealText.text = $"{HeroStats.StarterBalls}";
-        sightLengthLevelText.text = $"{sightLengthLevel}" + "L";
+        sightLengthLevelText.text = $"{sightLengthLevel}" + Translator.Translate(" Lev.");
         sightLengthRealText.text = $"{HeroStats.SightLength}";
     }
 

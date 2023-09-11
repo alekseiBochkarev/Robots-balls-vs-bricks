@@ -22,7 +22,8 @@ public class AttackStateBrick : MonoBehaviour, IStateBrick
     {
         if (brick.CanDoctor)
         {
-            HealUp(applyDamage/4);
+            int healupPower = 2;
+            HealUp(healupPower);
         }
 
         if (brick.IsWaitMeleeAttack)

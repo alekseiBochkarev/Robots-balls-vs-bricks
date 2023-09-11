@@ -11,17 +11,17 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
     public static Dictionary<int, GameObject> ballsInScene;
     private AbstractBall m_BallPrefab;
     public List<AbstractBall> PlayerBalls { private set; get; }
-    [SerializeField] private int startBallsAmount;
-    [SerializeField] private int StarterRocketBall;
-    [SerializeField] private int StarterIceBall;
-    [SerializeField] private int StarterLaserHorizontalBall;
-    [SerializeField] private int StarterLaserVerticalBall;
-    [SerializeField] private int StarterLaserCrossBall;
-    [SerializeField] private int StarterInstaKillBall;
-    [SerializeField] private int StarterFireBall;
-    [SerializeField] private int StarterBombBall;
-    [SerializeField] private int StarterPoisonBall;
-    [SerializeField] private int StarterBlackHoleBall;
+    private int starterBalls;
+    [SerializeField] private int starterRocketBall;
+    [SerializeField] private int starterIceBall;
+    [SerializeField] private int starterLaserHorizontalBall;
+    [SerializeField] private int starterLaserVerticalBall;
+    [SerializeField] private int starterLaserCrossBall;
+    [SerializeField] private int starterInstaKillBall;
+    [SerializeField] private int starterFireBall;
+    [SerializeField] private int starterBombBall;
+    [SerializeField] private int starterPoisonBall;
+    [SerializeField] private int starterBlackHoleBall;
     public int PlayerBallsAmount { private set; get; }
     public bool IsBallAmountChanged;
 
@@ -30,46 +30,56 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
         Instance = this;
         EventManager.LevelStarted += UpdateBallsValues;
         EventManager.UpgradeStats += UpdateBallsValues;
-        PlayerBalls = new List<AbstractBall>(startBallsAmount);
+        EventManager.SkinChanged += UpdateBallsValues;
+        EventManager.UpgradeAttackPowerStat += UpdateBallsValues;
+        EventManager.LevelStarted += SpawnNewBallsOnStart;
+        PlayerBalls = new List<AbstractBall>(starterBalls);
         //UpdateBallsValues();
         IsBallAmountChanged = false;
     }
 
     private void UpdateBallsValues()
     {
-        startBallsAmount = (int)HeroStats.StarterBalls;
-
+        starterBalls = (int)HeroStats.StarterBalls;
         //PlayerBalls = new List<AbstractBall>(startBallsAmount);
-        SpawnNewBall(startBallsAmount, BallsTypeEnum.Ball);
+        //TODO когда будем добовлять стартовые шары других типов нужно либо подобное проделать для них, либо переписывать
 
-        StarterRocketBall = (int)HeroStats.StarterRocketBall;
-        StarterIceBall = (int)HeroStats.StarterIceBall;
-        StarterLaserHorizontalBall = (int)HeroStats.StarterLaserHorizontalBall;
-        StarterLaserVerticalBall = (int)HeroStats.StarterLaserVerticalBall;
-        StarterLaserCrossBall = (int)HeroStats.StarterLaserCrossBall;
-        StarterInstaKillBall = (int)HeroStats.StarterInstaKillBall;
-        StarterFireBall = (int)HeroStats.StarterFireBall;
-        StarterBombBall = (int)HeroStats.StarterBombBall;
-        StarterPoisonBall = (int)HeroStats.StarterPoisonBall;
-        StarterBlackHoleBall = (int)HeroStats.StarterBlackHoleBall;
-        SpawnNewBall(StarterRocketBall, BallsTypeEnum.RocketBall);
-        SpawnNewBall(StarterIceBall, BallsTypeEnum.IceBall);
-        SpawnNewBall(StarterLaserHorizontalBall, BallsTypeEnum.LaserHorizontalBall);
-        SpawnNewBall(StarterLaserVerticalBall, BallsTypeEnum.LaserVerticalBall);
-        SpawnNewBall(StarterLaserCrossBall, BallsTypeEnum.LaserCrossBall);
-        SpawnNewBall(StarterInstaKillBall, BallsTypeEnum.InstaKillBall);
-        SpawnNewBall(StarterFireBall, BallsTypeEnum.FireBall);
-        SpawnNewBall(StarterBombBall, BallsTypeEnum.BombBall);
-        SpawnNewBall(StarterPoisonBall, BallsTypeEnum.PoisonBall);
-        SpawnNewBall(StarterBlackHoleBall, BallsTypeEnum.BlackHoleBall);
-
-        PlayerBallsAmount = PlayerBalls.Count;
+        starterRocketBall = (int)HeroStats.StarterRocketBall;
+        starterIceBall = (int)HeroStats.StarterIceBall;
+        starterLaserHorizontalBall = (int)HeroStats.StarterLaserHorizontalBall;
+        starterLaserVerticalBall = (int)HeroStats.StarterLaserVerticalBall;
+        starterLaserCrossBall = (int)HeroStats.StarterLaserCrossBall;
+        starterInstaKillBall = (int)HeroStats.StarterInstaKillBall;
+        starterFireBall = (int)HeroStats.StarterFireBall;
+        starterBombBall = (int)HeroStats.StarterBombBall;
+        starterPoisonBall = (int)HeroStats.StarterPoisonBall;
+        starterBlackHoleBall = (int)HeroStats.StarterBlackHoleBall;       
     }
 
     private void OnDestroy()
     {
         EventManager.LevelStarted -= UpdateBallsValues;
         EventManager.UpgradeStats -= UpdateBallsValues;
+        EventManager.SkinChanged -= UpdateBallsValues;
+        EventManager.UpgradeAttackPowerStat -= UpdateBallsValues;
+        EventManager.LevelStarted -= SpawnNewBallsOnStart;
+    }
+
+    private void SpawnNewBallsOnStart()
+    {
+        SpawnNewBall(starterBalls, BallsTypeEnum.Ball);
+        SpawnNewBall(starterRocketBall, BallsTypeEnum.RocketBall);
+        SpawnNewBall(starterIceBall, BallsTypeEnum.IceBall);
+        SpawnNewBall(starterLaserHorizontalBall, BallsTypeEnum.LaserHorizontalBall);
+        SpawnNewBall(starterLaserVerticalBall, BallsTypeEnum.LaserVerticalBall);
+        SpawnNewBall(starterLaserCrossBall, BallsTypeEnum.LaserCrossBall);
+        SpawnNewBall(starterInstaKillBall, BallsTypeEnum.InstaKillBall);
+        SpawnNewBall(starterFireBall, BallsTypeEnum.FireBall);
+        SpawnNewBall(starterBombBall, BallsTypeEnum.BombBall);
+        SpawnNewBall(starterPoisonBall, BallsTypeEnum.PoisonBall);
+        SpawnNewBall(starterBlackHoleBall, BallsTypeEnum.BlackHoleBall);
+
+        PlayerBallsAmount = PlayerBalls.Count;
     }
 
     public void SpawnNewBall(int ballsToAddAmount, BallsTypeEnum ballsType)
@@ -98,12 +108,15 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
 
     public void AddBallToList(BallsTypeEnum ballsType)
     {
-        m_BallPrefab = Resources.Load<GameObject>(ballsType.ToString()).GetComponent<AbstractBall>();
-        PlayerBalls.Add(Instantiate(m_BallPrefab, transform.parent, false));
-        PlayerBalls[PlayerBalls.Count - 1].transform.localPosition = transform.localPosition;
-        PlayerBalls[PlayerBalls.Count - 1].transform.localScale = transform.localScale;
-        PlayerBalls[PlayerBalls.Count - 1].Disable();
-        SavePlayerBallsAmount();
+        if (PlayerBalls is not null)
+        {
+            m_BallPrefab = Resources.Load<GameObject>(ballsType.ToString()).GetComponent<AbstractBall>();
+            PlayerBalls.Add(Instantiate(m_BallPrefab, transform.parent, false));
+            PlayerBalls[PlayerBalls.Count - 1].transform.localPosition = transform.localPosition;
+            PlayerBalls[PlayerBalls.Count - 1].transform.localScale = transform.localScale;
+            PlayerBalls[PlayerBalls.Count - 1].Disable();
+            SavePlayerBallsAmount();
+        }
     }
 
     public void AddBallToList(int ballOrderInList, BallsTypeEnum ballsType)
@@ -166,7 +179,7 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
     
     public int CountBallByBallTypeInList(BallsTypeEnum ballsType)
     {
-        Debug.Log("startBallsAmount " + startBallsAmount + " PlayerBallsAmount " + PlayerBallsAmount);
+        Debug.Log("startBallsAmount " + starterBalls + " PlayerBallsAmount " + PlayerBallsAmount);
         int count = 0;
         foreach (AbstractBall ball in PlayerBalls)
         {
@@ -199,10 +212,10 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
     {
         DestroyBallsOnScene();
         
-        startBallsAmount = (int)HeroStats.GetStats(HeroStats.HeroStatsEnum.StarterBalls);
+        starterBalls = (int)HeroStats.GetStats(HeroStats.HeroStatsEnum.StarterBalls);
         
-        PlayerBalls = new List<AbstractBall>(startBallsAmount);
-        SpawnNewBall(startBallsAmount, BallsTypeEnum.Ball);
+        PlayerBalls = new List<AbstractBall>(starterBalls);
+        SpawnNewBall(starterBalls, BallsTypeEnum.Ball);
         PlayerBallsAmount = PlayerBalls.Count;
     }
 

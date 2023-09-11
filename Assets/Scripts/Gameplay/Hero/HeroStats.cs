@@ -44,6 +44,7 @@ public class HeroStats
         get
         {
             LoadStats();
+            Debug.Log("starterBalls " + starterBalls + " BodyStarterBalls " + BodyStarterBalls);
             return starterBalls;
         }
     }
@@ -166,25 +167,25 @@ public class HeroStats
     private static void LoadStats()
     {
         // Load all HeroStats
-        Health = SetStatsAndSave(HeroStatsEnum.Health, _defaultHealthValue) + BodyHealth;
-        BatteryEnergy = SetStatsAndSave(HeroStatsEnum.BatteryEnergy, _defaultBatteryEnergyValue);
-        Attack = SetStatsAndSave(HeroStatsEnum.Attack, _defaultAttackValue) + BodyAttack;
-        StarterBalls = SetStatsAndSave(HeroStatsEnum.StarterBalls, _defaultStarterBallsValue) + BodyStarterBalls;
-        SightLength = SetStatsAndSave(HeroStatsEnum.SightLength, _defaultSightLengthValue) + BodySightLength;
-        StarterRocketBall = SetStatsAndSave(HeroStatsEnum.StarterRocketBall, _defaultStarterSpecialBallValue);
-        StarterIceBall = SetStatsAndSave(HeroStatsEnum.StarterIceBall, _defaultStarterSpecialBallValue);
-        StarterLaserHorizontalBall = SetStatsAndSave(HeroStatsEnum.StarterLaserHorizontalBall, _defaultStarterSpecialBallValue);
-        StarterLaserVerticalBall = SetStatsAndSave(HeroStatsEnum.StarterLaserVerticalBall, _defaultStarterSpecialBallValue);
-        StarterLaserCrossBall = SetStatsAndSave(HeroStatsEnum.StarterLaserCrossBall, _defaultStarterSpecialBallValue);
-        StarterInstaKillBall = SetStatsAndSave(HeroStatsEnum.StarterInstaKillBall, _defaultStarterSpecialBallValue);
-        StarterFireBall = SetStatsAndSave(HeroStatsEnum.StarterFireBall, _defaultStarterSpecialBallValue);
-        StarterBombBall = SetStatsAndSave(HeroStatsEnum.StarterBombBall, _defaultStarterSpecialBallValue);
-        StarterPoisonBall = SetStatsAndSave(HeroStatsEnum.StarterPoisonBall, _defaultStarterSpecialBallValue);
-        StarterBlackHoleBall = SetStatsAndSave(HeroStatsEnum.StarterBlackHoleBall, _defaultStarterSpecialBallValue); 
+        Health = SetStats(HeroStatsEnum.Health, _defaultHealthValue) + BodyHealth;
+        BatteryEnergy = SetStats(HeroStatsEnum.BatteryEnergy, _defaultBatteryEnergyValue);
+        Attack = SetStats(HeroStatsEnum.Attack, _defaultAttackValue) + BodyAttack;
+        StarterBalls = SetStats(HeroStatsEnum.StarterBalls, _defaultStarterBallsValue) + BodyStarterBalls;
+        SightLength = SetStats(HeroStatsEnum.SightLength, _defaultSightLengthValue) + BodySightLength;
+        StarterRocketBall = SetStats(HeroStatsEnum.StarterRocketBall, _defaultStarterSpecialBallValue);
+        StarterIceBall = SetStats(HeroStatsEnum.StarterIceBall, _defaultStarterSpecialBallValue);
+        StarterLaserHorizontalBall = SetStats(HeroStatsEnum.StarterLaserHorizontalBall, _defaultStarterSpecialBallValue);
+        StarterLaserVerticalBall = SetStats(HeroStatsEnum.StarterLaserVerticalBall, _defaultStarterSpecialBallValue);
+        StarterLaserCrossBall = SetStats(HeroStatsEnum.StarterLaserCrossBall, _defaultStarterSpecialBallValue);
+        StarterInstaKillBall = SetStats(HeroStatsEnum.StarterInstaKillBall, _defaultStarterSpecialBallValue);
+        StarterFireBall = SetStats(HeroStatsEnum.StarterFireBall, _defaultStarterSpecialBallValue);
+        StarterBombBall = SetStats(HeroStatsEnum.StarterBombBall, _defaultStarterSpecialBallValue);
+        StarterPoisonBall = SetStats(HeroStatsEnum.StarterPoisonBall, _defaultStarterSpecialBallValue);
+        StarterBlackHoleBall = SetStats(HeroStatsEnum.StarterBlackHoleBall, _defaultStarterSpecialBallValue); 
     }
 
     // Load stat from PlayerPrefs, if no value present -> set defaultStatsValue and SaveIt
-    private static float SetStatsAndSave(HeroStatsEnum statsEnum, float defaultStatsValue)
+    private static float SetStats(HeroStatsEnum statsEnum, float defaultStatsValue)
     {
         float statValue;
         if (GetStats(statsEnum) != 0)
@@ -194,7 +195,7 @@ public class HeroStats
         else
         {
             statValue = defaultStatsValue;
-            SaveStats(statsEnum, statValue);
+            //SaveStats(statsEnum, statValue);
         }
         return statValue;
     }
