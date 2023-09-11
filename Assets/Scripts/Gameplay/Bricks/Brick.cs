@@ -13,6 +13,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public GameObject ice;
     public GameObject fire;
     public GameObject poison;
+    [SerializeField] private GameObject shield;
     [SerializeField] private int m_maxBrickHealth;
     [SerializeField] private int m_currentBrickHealth;
 	[SerializeField] private AudioClip deathSoundclip;
@@ -49,7 +50,11 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     public bool CanRangeAttack => canRangeAttack;
     [SerializeField] private bool canInstantiateBoom;
     public bool CanInstantiateBoom => canInstantiateBoom;
-    
+    [SerializeField] private bool cantBurn;
+    public bool CantBurn => cantBurn;
+    [SerializeField] private bool canDoctor;
+    public bool CanDoctor => canDoctor;
+
     private bool isWaitMeleeAttack;
 
     public bool IsWaitMeleeAttack
@@ -225,7 +230,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     private void Update()
     {
         // ONLY FOR DEBUGGING AND TESTING  - ОБРАТИТЬ ВНИМАНИЕ ПЕРЕД РЕЛИЗОМ УДАЛИТЬ
-        if (Input.GetMouseButtonDown(1))
+        /*if (Input.GetMouseButtonDown(1))
         {
             TakeDamage(1);
         }
@@ -233,7 +238,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         if (Input.GetMouseButtonDown(2))
         {
             HealUp(5);
-        }
+        }*/
     }
 
     public void TakeDamage(int appliedDamage)
@@ -295,6 +300,10 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
 
     public void Destroy()
     {
+        if (shield is not null)
+        {
+            Destroy(shield);
+        }
         Destroy(parent, 3);
     }
 }

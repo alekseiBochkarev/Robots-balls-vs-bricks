@@ -9,7 +9,7 @@ public class AimLine : MonoBehaviour
     private float partLength = 0.3f;
     public GameObject aimPartPrefab;
     private List<GameObject> parts;
-    private HeroStats _heroStats;
+    //private HeroStats _heroStats;
 
     private float rightBorderX;
     private float leftBorderX;
@@ -26,8 +26,7 @@ public class AimLine : MonoBehaviour
 
     private void Start()
     {
-        _heroStats = new HeroStats();
-        numberOfParts = (int)_heroStats.SightLength;
+        numberOfParts = (int)HeroStats.SightLength;
     }
 
     public void ChangePartLength(int sightLength)

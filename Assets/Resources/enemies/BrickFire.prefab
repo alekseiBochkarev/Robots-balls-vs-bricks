@@ -5507,6 +5507,11 @@ PrefabInstance:
       objectReference: {fileID: 5484900464941204424}
     - target: {fileID: 9046373954102932149, guid: 2448ac433eae27f469cb254c9354c2aa,
         type: 3}
+      propertyPath: cantBurn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046373954102932149, guid: 2448ac433eae27f469cb254c9354c2aa,
+        type: 3}
       propertyPath: m_attackPower
       value: 2
       objectReference: {fileID: 0}

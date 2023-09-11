@@ -32,7 +32,7 @@ public class SkinButton : MonoBehaviour
 	}
 	void OnEnable()
     {
-		if (_minLevelWhereAvailable <= SceneManager.GetActiveScene().buildIndex) 
+        if (_minLevelWhereAvailable <= SceneManager.GetActiveScene().buildIndex) 
 		{
 			SaveSkinIsActivate(_robotName);
 		}
@@ -40,7 +40,8 @@ public class SkinButton : MonoBehaviour
 		_textMeshPro.GetComponent<TMP_Text>().text = _robotName;
         _heroSkins = GameObject.FindGameObjectsWithTag("HeroSkin");
         _skinMenuHeroImage = GameObject.FindWithTag("SkinMenuHeroImage");
-		if (isFree) {
+        _skinMenuHeroImage.GetComponent<Image>().sprite = Resources.Load<Sprite>("Robots/" + LoadSkinData());
+        if (isFree) {
 			//lock button if not available
 			if (LoadSkinSIsActivate(_robotName) != 1) 
 			{
@@ -63,6 +64,21 @@ public class SkinButton : MonoBehaviour
 			_buyButton.SetActive(false);
 		}
     }
+
+    //это для иконки из меню
+    private string LoadSkinData()
+    {
+        string defaultSkin = "r0";
+        if (PlayerPrefs.HasKey("CurrentSkin"))
+        {
+            return PlayerPrefs.GetString("CurrentSkin");
+        }
+        else
+        {
+            return defaultSkin;
+        }
+    }
+
 
     public void changeCurrentSkin()
     {

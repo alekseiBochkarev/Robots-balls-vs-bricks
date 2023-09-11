@@ -81,16 +81,18 @@ public class BallLauncher : MonoBehaviour
         m_BallsScript = GetComponent<Balls>();
 
         EventManager.UpgradeStats += ShowBallsAmountOnHUD;
+        EventManager.LevelStarted += ShowBallsAmountOnHUD;
     }
 
     private void OnDestroy()
     {
         EventManager.UpgradeStats -= ShowBallsAmountOnHUD;
+        EventManager.LevelStarted -= ShowBallsAmountOnHUD;
     }
 
     private void Start()
     {
-        ShowBallsAmountOnHUD();
+        //ShowBallsAmountOnHUD();
         if (m_ReturnBallsButton != null) m_ReturnBallsButton.SetActive(false);
     }
 

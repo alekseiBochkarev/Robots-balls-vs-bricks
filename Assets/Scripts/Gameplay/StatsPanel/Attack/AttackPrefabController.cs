@@ -14,8 +14,18 @@ public class AttackPrefabController : MonoBehaviour
 
     private void Awake()
     {
-        upgradeStats = new UpgradeStats();
-        _attackPrefab = GetComponentInChildren<AttackPrefab>();
+        Init();
+    }
+
+    public void Init()
+    {
+        if (upgradeStats == null)
+            upgradeStats = new UpgradeStats();
+
+
+        if (_attackPrefab == null)
+            _attackPrefab = GetComponentInChildren<AttackPrefab>();
+
         LoadAttackLevel();
     }
 

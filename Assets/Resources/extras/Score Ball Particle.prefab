@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2463200681626092596}
   - component: {fileID: 2362783396540342532}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: iTween animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2489616819407513012}
   - component: {fileID: 2570428309876303324}
   - component: {fileID: 4369639663666888129}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Score Ball (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -20,6 +20,12 @@ public class AttackStateBrick : MonoBehaviour, IStateBrick
 
     public IEnumerator DoDamage(int applyDamage)
     {
+        if (brick.CanDoctor)
+        {
+            int healupPower = 2;
+            HealUp(healupPower);
+        }
+
         if (brick.IsWaitMeleeAttack)
         {
            /* iTween.MoveTo(brick.parent,
@@ -52,7 +58,7 @@ public class AttackStateBrick : MonoBehaviour, IStateBrick
         InitBrickDamagePopupPosition();
         bool isCriticalHit = false;
         bool isDamage = false;
-        brick.damageTextColor = TextController.COLOR_RED;
+        brick.damageTextColor = TextController.COLOR_GREEN;
         brick.damageTextFontSize = TextController.FONT_SIZE_MAX;
         int healHealthUpAmountInt = (int) healHealthUpAmount;
         brick.MCurrentBrickHealth += healHealthUpAmountInt;

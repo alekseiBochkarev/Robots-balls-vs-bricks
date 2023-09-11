@@ -71,5 +71,10 @@ public class DeathStateBrick : MonoBehaviour, IStateBrick
     public void ChangeRigidbodyType (RigidbodyType2D rigidbodyType){} //hmmm its a quastion
     public void Attack (){}
     public void ChangeColor(){} //hmm its a quastion
-    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY){yield break;}
+    public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY){
+        brick.SetState(brick.walkStateBrick);
+        yield return brick.MoveToTarget(startPos, endPos, currentY, maxY);
+        brick.SetState(this);
+        
+    }
 }

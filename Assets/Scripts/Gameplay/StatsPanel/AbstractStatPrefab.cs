@@ -31,7 +31,7 @@ namespace Gameplay.StatsPanel
             {
                 sprites[x] = (Sprite)loadedSprites[x];
             }
-            Debug.Log("Sprites are loaded -> " + sprites);
+            //Debug.Log("Sprites are loaded -> " + sprites);
         }
     }
 }

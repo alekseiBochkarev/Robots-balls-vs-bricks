@@ -4,6 +4,8 @@
     {
         _objectGamePositions = new[]
         {
+            new ObjectGamePosition("enemies/UFO", 5, 5, 1), 
+            
             new ObjectGamePosition("enemies/Brick2", 1, 1, 12),
             new ObjectGamePosition("enemies/Brick2", 8, 1, 12), 
             new ObjectGamePosition("enemies/Brick2", 10, 1, 12),

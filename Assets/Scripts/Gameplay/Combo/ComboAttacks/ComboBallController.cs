@@ -59,7 +59,7 @@ public class ComboBallController : MonoBehaviour //, IBall
         hero = GameObject.Find("Hero");
         m_Collider2D = GetComponent<CircleCollider2D>();
         DisablePhysics();
-        attackPower = hero.GetComponent<Hero>().attackSkill;
+        attackPower = hero.GetComponent<Hero>().AttackSkill;
         damageTextColor = TextController.COLOR_YELLOW;
         damageTextFontSize = TextController.FONT_SIZE_MAX;
     }

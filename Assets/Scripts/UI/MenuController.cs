@@ -80,6 +80,7 @@ public class MenuController : MonoBehaviour
     public void PlayGameLevel()
     {
         LevelManager.Instance.m_LevelState = LevelManager.LevelState.PLAYABLE;
+        EventManager.OnLevelStarted();
     }
 
     public void DebugWin()
