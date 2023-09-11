@@ -52,7 +52,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e49f4602a6f415a8fc1293cde7b347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSkill: 3
   appliedDamage: 0
   damageTextColor: {r: 0, g: 0, b: 0, a: 0}
   damageTextFontSize: 0
@@ -414,7 +413,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 3
   m_TargetDisplay: 0
