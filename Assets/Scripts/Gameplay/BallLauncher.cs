@@ -80,14 +80,14 @@ public class BallLauncher : MonoBehaviour
         //m_BallsAmount = PlayerPrefs.GetInt("balls", 1);
         m_BallsScript = GetComponent<Balls>();
 
-        EventManager.UpgradeStats += ShowBallsAmountOnHUD;
-        EventManager.LevelStarted += ShowBallsAmountOnHUD;
+       // EventManager.UpgradeStats += ShowBallsAmountOnHUD;
+        EventManager.NewBallsOnStartSpawned += ShowBallsAmountOnHUD;
     }
 
     private void OnDestroy()
     {
-        EventManager.UpgradeStats -= ShowBallsAmountOnHUD;
-        EventManager.LevelStarted -= ShowBallsAmountOnHUD;
+       // EventManager.UpgradeStats -= ShowBallsAmountOnHUD;
+        EventManager.NewBallsOnStartSpawned -= ShowBallsAmountOnHUD;
     }
 
     private void Start()
@@ -98,7 +98,7 @@ public class BallLauncher : MonoBehaviour
 
     public void ShowBallsAmountOnHUD()
     {
-        m_BallsScript.SavePlayerBallsAmount();
+        //m_BallsScript.SavePlayerBallsAmount();
         m_BallsText.text = "x" + m_BallsScript.PlayerBallsAmount.ToString();
     }
     

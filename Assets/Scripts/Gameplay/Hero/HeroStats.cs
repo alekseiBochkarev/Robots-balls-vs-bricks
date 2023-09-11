@@ -167,25 +167,25 @@ public class HeroStats
     private static void LoadStats()
     {
         // Load all HeroStats
-        Health = SetStats(HeroStatsEnum.Health, _defaultHealthValue) + BodyHealth;
-        BatteryEnergy = SetStats(HeroStatsEnum.BatteryEnergy, _defaultBatteryEnergyValue);
-        Attack = SetStats(HeroStatsEnum.Attack, _defaultAttackValue) + BodyAttack;
-        StarterBalls = SetStats(HeroStatsEnum.StarterBalls, _defaultStarterBallsValue) + BodyStarterBalls;
-        SightLength = SetStats(HeroStatsEnum.SightLength, _defaultSightLengthValue) + BodySightLength;
-        StarterRocketBall = SetStats(HeroStatsEnum.StarterRocketBall, _defaultStarterSpecialBallValue);
-        StarterIceBall = SetStats(HeroStatsEnum.StarterIceBall, _defaultStarterSpecialBallValue);
-        StarterLaserHorizontalBall = SetStats(HeroStatsEnum.StarterLaserHorizontalBall, _defaultStarterSpecialBallValue);
-        StarterLaserVerticalBall = SetStats(HeroStatsEnum.StarterLaserVerticalBall, _defaultStarterSpecialBallValue);
-        StarterLaserCrossBall = SetStats(HeroStatsEnum.StarterLaserCrossBall, _defaultStarterSpecialBallValue);
-        StarterInstaKillBall = SetStats(HeroStatsEnum.StarterInstaKillBall, _defaultStarterSpecialBallValue);
-        StarterFireBall = SetStats(HeroStatsEnum.StarterFireBall, _defaultStarterSpecialBallValue);
-        StarterBombBall = SetStats(HeroStatsEnum.StarterBombBall, _defaultStarterSpecialBallValue);
-        StarterPoisonBall = SetStats(HeroStatsEnum.StarterPoisonBall, _defaultStarterSpecialBallValue);
-        StarterBlackHoleBall = SetStats(HeroStatsEnum.StarterBlackHoleBall, _defaultStarterSpecialBallValue); 
+        Health = SetStatsAndSaveDefault(HeroStatsEnum.Health, _defaultHealthValue) + BodyHealth;
+        BatteryEnergy = SetStatsAndSaveDefault(HeroStatsEnum.BatteryEnergy, _defaultBatteryEnergyValue);
+        Attack = SetStatsAndSaveDefault(HeroStatsEnum.Attack, _defaultAttackValue) + BodyAttack;
+        StarterBalls = SetStatsAndSaveDefault(HeroStatsEnum.StarterBalls, _defaultStarterBallsValue) + BodyStarterBalls;
+        SightLength = SetStatsAndSaveDefault(HeroStatsEnum.SightLength, _defaultSightLengthValue) + BodySightLength;
+        StarterRocketBall = SetStatsAndSaveDefault(HeroStatsEnum.StarterRocketBall, _defaultStarterSpecialBallValue);
+        StarterIceBall = SetStatsAndSaveDefault(HeroStatsEnum.StarterIceBall, _defaultStarterSpecialBallValue);
+        StarterLaserHorizontalBall = SetStatsAndSaveDefault(HeroStatsEnum.StarterLaserHorizontalBall, _defaultStarterSpecialBallValue);
+        StarterLaserVerticalBall = SetStatsAndSaveDefault(HeroStatsEnum.StarterLaserVerticalBall, _defaultStarterSpecialBallValue);
+        StarterLaserCrossBall = SetStatsAndSaveDefault(HeroStatsEnum.StarterLaserCrossBall, _defaultStarterSpecialBallValue);
+        StarterInstaKillBall = SetStatsAndSaveDefault(HeroStatsEnum.StarterInstaKillBall, _defaultStarterSpecialBallValue);
+        StarterFireBall = SetStatsAndSaveDefault(HeroStatsEnum.StarterFireBall, _defaultStarterSpecialBallValue);
+        StarterBombBall = SetStatsAndSaveDefault(HeroStatsEnum.StarterBombBall, _defaultStarterSpecialBallValue);
+        StarterPoisonBall = SetStatsAndSaveDefault(HeroStatsEnum.StarterPoisonBall, _defaultStarterSpecialBallValue);
+        StarterBlackHoleBall = SetStatsAndSaveDefault(HeroStatsEnum.StarterBlackHoleBall, _defaultStarterSpecialBallValue); 
     }
 
     // Load stat from PlayerPrefs, if no value present -> set defaultStatsValue and SaveIt
-    private static float SetStats(HeroStatsEnum statsEnum, float defaultStatsValue)
+    private static float SetStatsAndSaveDefault(HeroStatsEnum statsEnum, float defaultStatsValue)
     {
         float statValue;
         if (GetStats(statsEnum) != 0)
@@ -195,7 +195,7 @@ public class HeroStats
         else
         {
             statValue = defaultStatsValue;
-            //SaveStats(statsEnum, statValue);
+            SaveStats(statsEnum, statValue);
         }
         return statValue;
     }

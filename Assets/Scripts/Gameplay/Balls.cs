@@ -79,7 +79,8 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
         SpawnNewBall(starterPoisonBall, BallsTypeEnum.PoisonBall);
         SpawnNewBall(starterBlackHoleBall, BallsTypeEnum.BlackHoleBall);
 
-        PlayerBallsAmount = PlayerBalls.Count;
+        SavePlayerBallsAmount();
+        EventManager.OnNewBallsOnStartSpawned();
     }
 
     public void SpawnNewBall(int ballsToAddAmount, BallsTypeEnum ballsType)

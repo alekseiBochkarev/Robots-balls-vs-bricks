@@ -26,6 +26,17 @@ public class AimLine : MonoBehaviour
 
     private void Start()
     {
+        EventManager.LevelStarted += SetNumberOfParts;
+        numberOfParts = (int)HeroStats.SightLength;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.LevelStarted -= SetNumberOfParts;
+    }
+
+    private void SetNumberOfParts()
+    {
         numberOfParts = (int)HeroStats.SightLength;
     }
 
