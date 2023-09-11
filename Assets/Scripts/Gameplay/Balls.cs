@@ -195,12 +195,13 @@ public class Balls : MonoBehaviour, IResetToDefaultValues
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(2))
+        // это для дебага
+        /*if (Input.GetMouseButtonDown(2))
         {
             ReplaceBallInList(BallsTypeEnum.Ball, BallsTypeEnum.InstaKillBall);
             GetFirstBallInList();
             GetBallByBallTypeInList(BallsTypeEnum.Ball);
-        }
+        }*/
     }
 
     public void IncreaseBallsAmountFromOutSide(int amount)

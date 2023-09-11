@@ -230,7 +230,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
     private void Update()
     {
         // ONLY FOR DEBUGGING AND TESTING  - ОБРАТИТЬ ВНИМАНИЕ ПЕРЕД РЕЛИЗОМ УДАЛИТЬ
-        if (Input.GetMouseButtonDown(1))
+        /*if (Input.GetMouseButtonDown(1))
         {
             TakeDamage(1);
         }
@@ -238,7 +238,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         if (Input.GetMouseButtonDown(2))
         {
             HealUp(5);
-        }
+        }*/
     }
 
     public void TakeDamage(int appliedDamage)
