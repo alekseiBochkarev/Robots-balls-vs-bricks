@@ -34,7 +34,7 @@ public class UpgradeStats : IResetToDefaultValues
     public float UpgradeSightLengthValue { private set; get; }
 
     // Default values for upgrading stats
-    private readonly float _startCoinsUpgradeValue = 480;
+    private readonly float _startCoinsUpgradeValue = 960;
 
     private readonly float _startHealthUpgradeValue = 30;
     private readonly float _startBatteryEnergyUpgradeValue = 1;
@@ -109,7 +109,7 @@ public class UpgradeStats : IResetToDefaultValues
     // init How many coins required for upgrading single stat
     private float InitRequiredCoinsForUpgrading(RequiredCoinsStatsEnum requiredCoinsStatsEnum, float upgradeMult)
     {
-        var upgradeCoinsRequired = _startCoinsUpgradeValue * upgradeMult;
+        var upgradeCoinsRequired = _startCoinsUpgradeValue * upgradeMult * 2;
         SaveRequiredCoins(requiredCoinsStatsEnum, upgradeCoinsRequired);
 
         //  Debug.Log("UpgradeHealthCoinsRequired is ->" + UpgradeHealthCoinsRequired);
