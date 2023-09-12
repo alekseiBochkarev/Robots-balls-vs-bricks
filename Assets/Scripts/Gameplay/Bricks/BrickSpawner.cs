@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BrickSpawner : MonoBehaviour
 {
@@ -28,6 +29,13 @@ public class BrickSpawner : MonoBehaviour
     [SerializeField] private bool allObjectsCreated;
 
     public ObjectGamePosition[] _objectGamePositions;
+    private string[] brickNames = { "enemies/BrickSquareBlue", "enemies/BrickSkeleton", "enemies/BrickSkeleton", "enemies/BrickSkeleton", "enemies/BrickSkeleton" , 
+        "enemies/BrickSquare" , "enemies/BrickSquareBlue", "enemies/BrickSquareBlue", "enemies/BrickSquareBlue", "enemies/BrickBombaSmall",
+        "enemies/BrickSkeleton", "enemies/BrickSkeleton", "enemies/BrickSkeleton", "enemies/BrickSkeleton" ,
+        "enemies/BrickSquarePurple" , "enemies/BrickBombaSmall" , "enemies/BrickAborigen", 
+        "enemies/BrickSimpleTriangle3", "enemies/BrickSkeleton", "enemies/BrickSkeleton",
+    "enemies/BrickBlue", "enemies/BrickFire", "enemies/Brick3", "enemies/Brick3a" , 
+        "enemies/Brick2", "enemies/BrickTriangle", "enemies/BrickBombaSmall"};
 
     private float vision;
     Collider2D[] colliders;
@@ -36,6 +44,8 @@ public class BrickSpawner : MonoBehaviour
     //public List<BricksRow> m_BricksRow;
     [Header("Win Manager")]
     public WinManager winManager;
+    // это для проверки первое создание в уровне или НЕТ - ОЧЕНЬ ВАЖНО!!!
+    private bool isFirstCreation;
 
     public SceneConfiguration sceneConfiguration;
 
@@ -48,6 +58,7 @@ public class BrickSpawner : MonoBehaviour
     {
         layerAsLayerMask = (1 << layer);
         Instance = this;
+        isFirstCreation = true;
         sceneConfiguration = mainCamera.GetComponent<SceneConfiguration>();
         _objectGamePositions = sceneConfiguration._objectGamePositions;
         //m_BricksRow = new List<BricksRow>();
@@ -109,15 +120,21 @@ public class BrickSpawner : MonoBehaviour
 
     private void CreateBrickRow()
     {
-        for (int i = 0; i < _objectGamePositions.Length; i++)
+        // первое создание из конфигуратора
+        if (isFirstCreation)
         {
-            StartCoroutine(CreateObject(_objectGamePositions[i].Name, _objectGamePositions[i].X, _objectGamePositions[i].Y, _objectGamePositions[i].Health));
+            for (int i = 0; i < _objectGamePositions.Length; i++)
+            {
+                StartCoroutine(CreateObject(_objectGamePositions[i].Name, _objectGamePositions[i].X, _objectGamePositions[i].Y, _objectGamePositions[i].Health));
+            }
+            isFirstCreation = false;
         }
-        /*
+        
+        
         allObjectsCreated = false;
         int numberOfScoreBallInRow = Random.Range(0, maxObjectsInRow);
         if (CheckIfICanCreateScoreBall()) {
-            CreateObject(scoreBallPrefab, numberOfScoreBallInRow);
+            CreateObject("extras/Score Ball Particle", numberOfScoreBallInRow, 0, 1);
         }
         bool createMagicBall = CheckIfICanCreateMagicBall();
         int numberOfMagicBallInRow = 0;
@@ -126,7 +143,7 @@ public class BrickSpawner : MonoBehaviour
             numberOfMagicBallInRow = Random.Range(0, maxObjectsInRow);
             if (numberOfMagicBallInRow != numberOfScoreBallInRow)
             {
-                CreateObject(magicBallPrefab, numberOfMagicBallInRow);
+                StartCoroutine(CreateObject("extras/Magic Ball Particle", numberOfMagicBallInRow, 0, 1));
             }
         }
         for (int i = 0; i < maxObjectsInRow; i++)
@@ -137,12 +154,13 @@ public class BrickSpawner : MonoBehaviour
                 {
                     if (!createMagicBall)
                     {
-                        CreateObject(brickPrefab, i);
+                        //здоровье брика будет равно индексу сцены (на 1 сцене 1, на второй 2 и так далее)
+                        StartCoroutine(CreateObject(brickNames[Random.Range(0, brickNames.Length)], i, 0, SceneManager.GetActiveScene().buildIndex));
                     } else
                     {
                         if (i != numberOfMagicBallInRow)
                         {
-                            CreateObject(brickPrefab, i);
+                            StartCoroutine(CreateObject(brickNames[Random.Range(0, brickNames.Length)], i, 0, SceneManager.GetActiveScene().buildIndex));
                         }
                     }
                     
@@ -150,7 +168,7 @@ public class BrickSpawner : MonoBehaviour
             }
         }
         allObjectsCreated = true;
-        */
+        
     }
 /*
     private void CreateObject(GameObject prefab, int numberInRow)
@@ -223,6 +241,7 @@ public class BrickSpawner : MonoBehaviour
     public IEnumerator MoveDownBricksRows()
     {
         ScoreManager.Instance.m_LevelOfFinalBrick++;
+        ScoreManager.Instance.UpdateScore();
         //Debug.Log("MOVE DOWN BRICK ROWS");
         allBricksMovedDown = false;
         vision = 10f; //need to check maybe we should set more than 10

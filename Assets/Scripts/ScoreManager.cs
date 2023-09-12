@@ -18,7 +18,7 @@ public class ScoreManager : MonoBehaviour
     {
         Instance = this;
         EventManager.UpgradeStats += UpdateScore;
-        //m_LevelOfFinalBrick = PlayerPrefs.GetInt("level_of_final_brick", 1);
+       // m_LevelOfFinalBrick = PlayerPrefs.GetInt("level_of_final_brick", 10);
     }
 
     private void OnDestroy() 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WinManager : MonoBehaviour
 {
-    private int maxSpawn = 2;
+    private int maxSpawn = 10;
     public int GetMaxSpawn
     {
         get

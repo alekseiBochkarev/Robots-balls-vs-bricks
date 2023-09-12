@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 5866927054877254462}
   - component: {fileID: 31562702921501208}
   - component: {fileID: 2164975602642181552}
+  - component: {fileID: 2343801459406300000}
   m_Layer: 5
   m_Name: Scores
   m_TagString: Untagged
@@ -371,6 +372,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LevelOfFinalBrick: 0
   m_ScoreText: {fileID: 1992008622593741655}
+--- !u!114 &2343801459406300000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3783409249556668873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25bec1bfef62477f86638a906b2427b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textField: {fileID: 7130235689047166627}
+  text: SCORE
 --- !u!1 &3885520193295314659
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6549504623048950532
 RectTransform:
   m_ObjectHideFlags: 0
@@ -543,10 +558,10 @@ RectTransform:
   m_Father: {fileID: 3783409249556668874}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1138, y: -114}
+  m_SizeDelta: {x: 400, y: 76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &852173162335723903
 CanvasRenderer:
