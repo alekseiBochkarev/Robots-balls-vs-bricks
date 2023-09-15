@@ -21,6 +21,7 @@ public class EventManager : MonoBehaviour
     public static event Action BallsReturned;
     public static event Action SkinChanged;
     public static event Action LevelStarted;
+    public static event Action HeroTakesDamage;
     public static event Action NewBallsOnStartSpawned;
     public static event Action AllBallsReturned;
     public static event Action ResetReturningBallsAmount;
@@ -110,6 +111,11 @@ public class EventManager : MonoBehaviour
     public static void OnNewBallsOnStartSpawned()
     {
         NewBallsOnStartSpawned?.Invoke();
+    }
+
+    public static void OnHeroTakesDamage()
+    {
+        HeroTakesDamage?.Invoke();
     }
 
     //ToDo AllBallsLaunched использовать в будущем для интеграции с батареей

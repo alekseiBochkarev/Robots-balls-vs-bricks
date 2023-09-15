@@ -19,7 +19,7 @@ namespace Animation
         public IEnumerator MoveUp()
         {
             Vector3 endPos = new Vector3(startPos.x, startPos.y + 2);
-            float speed = 0.1f; //  скорость прогресса (от начальной до конечной позиции)
+            float speed = 0.05f; //  скорость прогресса (от начальной до конечной позиции)
             float progress = 0;
             while (true)
             {

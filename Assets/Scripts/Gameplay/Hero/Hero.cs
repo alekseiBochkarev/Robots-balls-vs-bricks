@@ -17,14 +17,14 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
     private Vector3 heroCoord;
     [SerializeField] private AudioClip clip;
     private GameObject camera;
-    [SerializeField] private float m_currentHealth;
+    [SerializeField] private static float m_currentHealth;
 
     [SerializeField] private GameObject heroBody;
     [SerializeField] private GameObject tornado;
     [SerializeField] private GameObject aim;
     [SerializeField] private GameObject fireMove;
 
-    public float CurrentHealth
+    public static float CurrentHealth
     {
         private set { m_currentHealth = value; }
         get { return m_currentHealth; }
@@ -127,7 +127,8 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
     {
         isDamage = true;
         CurrentHealth -= appliedDamage;
-        Debug.Log("Hero takes damage with damage -> " + appliedDamage);
+        //Debug.Log("Hero takes damage with damage -> " + appliedDamage);
+        EventManager.OnHeroTakesDamage();
         healthBar.SaveCurrentHealth(CurrentHealth);
         healthBar.ShowHealth();
         heroCoord = gameObject.transform.position;

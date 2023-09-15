@@ -127,6 +127,18 @@ public class HeroBody : MonoBehaviour
                 HeroStats.BodyStarterBalls = 1;
                 HeroStats.BodySightLength = 0;
                 break;
+            case "r14":
+                HeroStats.BodyHealth = 15;
+                HeroStats.BodyAttack = 1;
+                HeroStats.BodyStarterBalls = 3;
+                HeroStats.BodySightLength = 0;
+                break;
+            case "r15":
+                HeroStats.BodyHealth = 15;
+                HeroStats.BodyAttack = 2;
+                HeroStats.BodyStarterBalls = 3;
+                HeroStats.BodySightLength = 5;
+                break;
             case "HagiWagerR0":
                 HeroStats.BodyHealth = 10;
                 HeroStats.BodyAttack = 1;

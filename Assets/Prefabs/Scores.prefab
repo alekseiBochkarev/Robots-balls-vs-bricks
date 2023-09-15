@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textField: {fileID: 7130235689047166627}
-  text: SCORE
+  text: WAVE
 --- !u!1 &3885520193295314659
 GameObject:
   m_ObjectHideFlags: 0

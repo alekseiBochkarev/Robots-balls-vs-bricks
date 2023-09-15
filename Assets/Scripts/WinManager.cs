@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinManager : MonoBehaviour
 {
@@ -9,7 +10,13 @@ public class WinManager : MonoBehaviour
     {
         get
         {
-            return maxSpawn;
+            if (SceneManager.GetActiveScene().buildIndex <= 5)
+            {
+                return (SceneManager.GetActiveScene().buildIndex * 2);
+            } else
+            {
+                return maxSpawn;
+            }   
         }
     }
 

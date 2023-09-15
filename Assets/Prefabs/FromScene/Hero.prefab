@@ -104,6 +104,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
+  _textMeshPro: {fileID: 4583668974926961111}
 --- !u!114 &3099995468502116795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -651,6 +652,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7269963414718630341}
     m_Modifications:
+    - target: {fileID: 753232371486208779, guid: fe1121f5cae51cc488f04d254a0b32aa,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 11.6659
+      objectReference: {fileID: 0}
+    - target: {fileID: 753232371486208779, guid: fe1121f5cae51cc488f04d254a0b32aa,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 3.4056
+      objectReference: {fileID: 0}
+    - target: {fileID: 753232371486208779, guid: fe1121f5cae51cc488f04d254a0b32aa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.3096
+      objectReference: {fileID: 0}
+    - target: {fileID: 753232371486208779, guid: fe1121f5cae51cc488f04d254a0b32aa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -11.6486
+      objectReference: {fileID: 0}
     - target: {fileID: 767787044537427760, guid: fe1121f5cae51cc488f04d254a0b32aa,
         type: 3}
       propertyPath: m_Pivot.x
@@ -761,6 +782,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeathBarColor
       objectReference: {fileID: 0}
+    - target: {fileID: 7737223777170262148, guid: fe1121f5cae51cc488f04d254a0b32aa,
+        type: 3}
+      propertyPath: m_margin.x
+      value: 3.5715039
+      objectReference: {fileID: 0}
     - target: {fileID: 8233834110719458311, guid: fe1121f5cae51cc488f04d254a0b32aa,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -786,6 +812,12 @@ PrefabInstance:
 --- !u!224 &1554061600086430636 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 767787044537427760, guid: fe1121f5cae51cc488f04d254a0b32aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 2249153243646456988}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4583668974926961111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2353955786351635787, guid: fe1121f5cae51cc488f04d254a0b32aa,
     type: 3}
   m_PrefabInstance: {fileID: 2249153243646456988}
   m_PrefabAsset: {fileID: 0}

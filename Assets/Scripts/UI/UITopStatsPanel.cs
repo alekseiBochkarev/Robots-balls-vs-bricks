@@ -41,7 +41,7 @@ public class UITopStatsPanel : MonoBehaviour
         EventManager.SkinChanged += UpdateValuesAndPrefabs;
         EventManager.UpgradeStats += UpdateValuesAndPrefabs;
         EventManager.UpgradeAttackPowerStat += UpdateValuesAndPrefabs;
-
+        EventManager.HeroTakesDamage += UpdateValuesAndPrefabs;
         // Подгружаем контроллеры префабов
         // healthPrefabController = healthStatPrefab.GetComponent<HealthPrefabController>();
         // attackPrefabController = attackStatPrefab.GetComponent<AttackPrefabController>();
@@ -58,6 +58,7 @@ public class UITopStatsPanel : MonoBehaviour
         EventManager.SkinChanged -= UpdateValuesAndPrefabs;
         EventManager.UpgradeStats -= UpdateValuesAndPrefabs;
         EventManager.UpgradeAttackPowerStat -= UpdateValuesAndPrefabs;
+        EventManager.HeroTakesDamage -= UpdateValuesAndPrefabs;
     }
 
    /* private HeroStats getHeroStats()
@@ -80,7 +81,7 @@ public class UITopStatsPanel : MonoBehaviour
     {
         levelValueText.text = Translator.Translate("LEVEL ") + $"{SceneManager.GetActiveScene().buildIndex}";
         healthLevelText.text = $"{healthLevel}" + Translator.Translate(" Lev.");
-        healthRealText.text = $"{HeroStats.Health}";
+        healthRealText.text = $"{Hero.CurrentHealth}" + "/" + $"{HeroStats.Health}";
         attackLevelText.text = $"{attackLevel}" + Translator.Translate(" Lev.");
         attackRealText.text = $"{HeroStats.Attack}";
         starterBallsLevelText.text = $"{starterBallsLevel}" + Translator.Translate(" Lev.");

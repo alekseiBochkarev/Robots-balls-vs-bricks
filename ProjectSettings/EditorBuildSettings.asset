@@ -107,4 +107,58 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelWithWin 26.unity
     guid: 2b88f65ae209e2946b847a00785deea0
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 27.unity
+    guid: e20546d2b79dcd94eac53c2c9ed748ff
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 28.unity
+    guid: 69ef9f49248c4c84582422901fecbe66
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 29.unity
+    guid: 8e9bde17c84a08d478a4312192543552
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 30.unity
+    guid: 0c263dd729e333a44a93810c45fc1899
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 31.unity
+    guid: 90705a6b21fadab4caba4d5f5845b309
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 32.unity
+    guid: 7450d009ba9cedd4e8937a83afd83613
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 33.unity
+    guid: 4153d54b837906f4bb275e724d6197c3
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 34.unity
+    guid: 3c53d54b0581ba145959a2f376759322
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 35.unity
+    guid: e86caf9b2562006489d0997633f3d065
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 36.unity
+    guid: e60265d56a112a84ca080e3cd682d3d7
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 37.unity
+    guid: 34584803fc060b64ea81d9013c43b08c
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 38.unity
+    guid: 09965be397c2fa04a88227b5d957c9ae
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 39.unity
+    guid: 24bedbf4f2070b64fa421b1b8198ecd5
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 40.unity
+    guid: 2531ef74d1c0cb649ab25750010e562d
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 41.unity
+    guid: 48ffe5e69ed8b3f44afbbb4132cfe787
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 42.unity
+    guid: 748c0891acd5d9f46bb556130b000506
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 43.unity
+    guid: 8e79793ac2433c34da8e832cf48257c9
+  - enabled: 1
+    path: Assets/Scenes/LevelWithWin 44.unity
+    guid: 4a71fb5a33cb1f44c978359c6f378e34
   m_configObjects: {}
