@@ -11,6 +11,14 @@ public class MagicBall : MoveDownBehaviour
     [SerializeField] private AudioClip clip;
     private GameObject camera;
     private Color m_ParticleColor;
+    //ожидание последнего хода
+    private bool isWaitMeleeAttack;
+
+    public bool IsWaitMeleeAttack
+    {
+        get => isWaitMeleeAttack;
+        set => isWaitMeleeAttack = value;
+    }
 
     private void Awake()
     {
@@ -37,7 +45,7 @@ public class MagicBall : MoveDownBehaviour
             EventManager.OnBrickDestroyed();
             camera.GetComponent<AudioManager>().PlayAudio(clip);
             Destroy(parent, 1);
-        } else if (collision.gameObject.tag == "Finish") 
+        } else if (collision.gameObject.tag == "Finish")   //кажется это не используем, переделали в переопределенный MoveToTarget
         {
             SuicideMagicBall();
         }
@@ -58,5 +66,35 @@ public class MagicBall : MoveDownBehaviour
 
         m_ParentParticle.startColor = m_ParticleColor;
         m_ParentParticle.Play();
+    }
+
+    public override IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
+    {
+        if (IsWaitMeleeAttack)
+        {
+            SuicideMagicBall();
+        }
+
+        if (currentY + 1 == (maxY - 1))
+        {
+            Debug.Log("set state IsWaitMeleeAttack");
+            IsWaitMeleeAttack = true;
+        }
+        isMovingNow = true;
+        float speed = 0.1f; //  скорость прогресса (от начальной до конечной позиции)
+        float progress = 0;
+        while (true)
+        {
+            progress += speed;
+            transform.parent.position = Vector3.Lerp(startPos, endPos, progress);
+            if (progress >= 1)
+            {
+                isMovingNow = false;
+                yield break; // выход из корутины, если находимся в конечной позиции
+            }
+
+            yield return
+                null; // если выхода из корутины не произошло, то продолжаем выполнять цикл while в следующем кадре
+        }
     }
 }

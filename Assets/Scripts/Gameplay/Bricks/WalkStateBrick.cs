@@ -95,7 +95,7 @@ public class WalkStateBrick : IStateBrick
 
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
     {
-        Debug.Log("currentY " + currentY + " maxY " + maxY);
+        //Debug.Log("currentY " + currentY + " maxY " + maxY);
         if (currentY + 1 == (maxY-1))
         {
             Debug.Log("set state IsWaitMeleeAttack");

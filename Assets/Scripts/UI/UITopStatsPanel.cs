@@ -42,6 +42,7 @@ public class UITopStatsPanel : MonoBehaviour
         EventManager.UpgradeStats += UpdateValuesAndPrefabs;
         EventManager.UpgradeAttackPowerStat += UpdateValuesAndPrefabs;
         EventManager.HeroTakesDamage += UpdateValuesAndPrefabs;
+        EventManager.HeroHealsUp += UpdateValuesAndPrefabs;
         // Подгружаем контроллеры префабов
         // healthPrefabController = healthStatPrefab.GetComponent<HealthPrefabController>();
         // attackPrefabController = attackStatPrefab.GetComponent<AttackPrefabController>();
@@ -59,6 +60,7 @@ public class UITopStatsPanel : MonoBehaviour
         EventManager.UpgradeStats -= UpdateValuesAndPrefabs;
         EventManager.UpgradeAttackPowerStat -= UpdateValuesAndPrefabs;
         EventManager.HeroTakesDamage -= UpdateValuesAndPrefabs;
+        EventManager.HeroHealsUp -= UpdateValuesAndPrefabs;
     }
 
    /* private HeroStats getHeroStats()

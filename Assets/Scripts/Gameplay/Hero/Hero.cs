@@ -155,6 +155,7 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
         isDamage = false;
         int healHealthUpAmountInt = (int)healHealthUpAmount;
         CurrentHealth += healHealthUpAmountInt;
+        EventManager.OnHeroHealsUp();
         if (CurrentHealth > MaxHealth)
         {
             CurrentHealth = MaxHealth;
