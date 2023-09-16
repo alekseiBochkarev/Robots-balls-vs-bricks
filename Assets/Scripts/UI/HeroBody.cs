@@ -142,26 +142,212 @@ public class HeroBody : MonoBehaviour
             case "HagiWagerR0":
                 HeroStats.BodyHealth = 10;
                 HeroStats.BodyAttack = 1;
-                HeroStats.BodyStarterBalls = 0;
+                HeroStats.BodyStarterBalls = 2;
                 HeroStats.BodySightLength = 5;
                 break;
             case "HagiWagerR1":
-                HeroStats.BodyHealth = 10;
-                HeroStats.BodyAttack = 1;
-                HeroStats.BodyStarterBalls = 1;
-                HeroStats.BodySightLength = 5;
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
                 break;
             case "HagiWagerR2":
-                HeroStats.BodyHealth = 10;
-                HeroStats.BodyAttack = 1;
-                HeroStats.BodyStarterBalls = 1;
-                HeroStats.BodySightLength = 5;
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
                 break;
             case "HagiWagerR3":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "HagiWagerR4":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "HagiWagerR5":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "HagiWagerR6":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "ToiletR0":
                 HeroStats.BodyHealth = 10;
                 HeroStats.BodyAttack = 1;
-                HeroStats.BodyStarterBalls = 1;
+                HeroStats.BodyStarterBalls = 2;
                 HeroStats.BodySightLength = 5;
+                break;
+            case "ToiletR1":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "ToiletR2":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "SereneR1":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "SereneR2":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "SereneR3":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "SereneR4":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "SereneR5":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "SereneR6":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "SereneR7":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "SereneR8":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "AmonguR0":
+                HeroStats.BodyHealth = 10;
+                HeroStats.BodyAttack = 1;
+                HeroStats.BodyStarterBalls = 2;
+                HeroStats.BodySightLength = 5;
+                break;
+            case "AmonguR1":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "AmonguR2":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "AmonguR3":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "AmonguR4":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "BaldisR1":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "BaldisR2":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "BaldisR3":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "BaldisR4":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "BaldisR5":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "BaldisR6":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "BaldisR7":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "BaldisR8":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "BaldisR9":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "BaldisR10":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "BaldisR11":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "BaldisR12":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 6;
+                HeroStats.BodySightLength = 10;
                 break;
         }
     }
