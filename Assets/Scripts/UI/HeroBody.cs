@@ -139,6 +139,126 @@ public class HeroBody : MonoBehaviour
                 HeroStats.BodyStarterBalls = 3;
                 HeroStats.BodySightLength = 5;
                 break;
+            case "r16":
+                HeroStats.BodyHealth = 15;
+                HeroStats.BodyAttack = 1;
+                HeroStats.BodyStarterBalls = 4;
+                HeroStats.BodySightLength = 5;
+                break;
+            case "r17":
+                HeroStats.BodyHealth = 15;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 2;
+                HeroStats.BodySightLength = 3;
+                break;
+            case "r18":
+                HeroStats.BodyHealth = 15;
+                HeroStats.BodyAttack = 4;
+                HeroStats.BodyStarterBalls = 2;
+                HeroStats.BodySightLength = 1;
+                break;
+            case "r19":
+                HeroStats.BodyHealth = 15;
+                HeroStats.BodyAttack = 5;
+                HeroStats.BodyStarterBalls = 2;
+                HeroStats.BodySightLength = 0;
+                break;
+            case "r20":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 1;
+                HeroStats.BodyStarterBalls = 2;
+                HeroStats.BodySightLength = 3;
+                break;
+            case "r21":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 1;
+                HeroStats.BodyStarterBalls = 1;
+                HeroStats.BodySightLength = 6;
+                break;
+            case "r22":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 2;
+                HeroStats.BodyStarterBalls = 1;
+                HeroStats.BodySightLength = 6;
+                break;
+            case "r23":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 2;
+                HeroStats.BodyStarterBalls = 2;
+                HeroStats.BodySightLength = 3;
+                break;
+            case "r24":
+                HeroStats.BodyHealth = 30;
+                HeroStats.BodyAttack = 2;
+                HeroStats.BodyStarterBalls = 2;
+                HeroStats.BodySightLength = 5;
+                break;
+            case "r25":
+                HeroStats.BodyHealth = 45;
+                HeroStats.BodyAttack = 1;
+                HeroStats.BodyStarterBalls = 1;
+                HeroStats.BodySightLength = 9;
+                break;
+            case "r26":
+                HeroStats.BodyHealth = 45;
+                HeroStats.BodyAttack = 2;
+                HeroStats.BodyStarterBalls = 1;
+                HeroStats.BodySightLength = 3;
+                break;
+            case "r27":
+                HeroStats.BodyHealth = 45;
+                HeroStats.BodyAttack = 2;
+                HeroStats.BodyStarterBalls = 2;
+                HeroStats.BodySightLength = 3;
+                break;
+            case "r28":
+                HeroStats.BodyHealth = 45;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 2;
+                HeroStats.BodySightLength = 5;
+                break;
+            case "r29":
+                HeroStats.BodyHealth = 45;
+                HeroStats.BodyAttack = 3;
+                HeroStats.BodyStarterBalls = 3;
+                HeroStats.BodySightLength = 6;
+                break;
+            case "r30":
+                HeroStats.BodyHealth = 45;
+                HeroStats.BodyAttack = 4;
+                HeroStats.BodyStarterBalls = 3;
+                HeroStats.BodySightLength = 2;
+                break;
+            case "r31":
+                HeroStats.BodyHealth = 45;
+                HeroStats.BodyAttack = 4;
+                HeroStats.BodyStarterBalls = 3;
+                HeroStats.BodySightLength = 5;
+                break;
+            case "r32":
+                HeroStats.BodyHealth = 45;
+                HeroStats.BodyAttack = 4;
+                HeroStats.BodyStarterBalls = 2;
+                HeroStats.BodySightLength = 10;
+                break;
+            case "r33":
+                HeroStats.BodyHealth = 45;
+                HeroStats.BodyAttack = 4;
+                HeroStats.BodyStarterBalls = 3;
+                HeroStats.BodySightLength = 5;
+                break;
+            case "r34":
+                HeroStats.BodyHealth = 45;
+                HeroStats.BodyAttack = 4;
+                HeroStats.BodyStarterBalls = 4;
+                HeroStats.BodySightLength = 0;
+                break;
+            case "r35":
+                HeroStats.BodyHealth = 45;
+                HeroStats.BodyAttack = 5;
+                HeroStats.BodyStarterBalls = 4;
+                HeroStats.BodySightLength = 3;
+                break;
             case "HagiWagerR0":
                 HeroStats.BodyHealth = 10;
                 HeroStats.BodyAttack = 1;

@@ -383,10 +383,180 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7075049975119862635}
     m_Modifications:
+    - target: {fileID: 53920470544719870, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 462300319896603946, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 462363507965001053, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 956805824868937836, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 8640
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605215529182810866, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660174725683951602, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845220261713227651, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851817815550034652, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979670364791749573, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063031041690921722, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599053242919178555, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861284865160946995, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 2959044345643834373, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 2991000307052446675, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 3240612764364872178, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432358234787734953, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446117661686594628, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577026327954735463, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668737263199506798, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677457102464471525, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774276742573009371, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
     - target: {fileID: 4787764267697332023, guid: a3f8ffea6f75de342bcb4750e032b479,
         type: 3}
       propertyPath: m_Name
       value: LegendSkinsPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814834093569667858, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 5178596980098269810, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 8640
+      objectReference: {fileID: 0}
+    - target: {fileID: 5849373190501638859, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165570281826938575, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678410325873006681, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696937118256782523, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 7205494280038387650, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550851684914694289, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 7964462522393984063, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 8640
+      objectReference: {fileID: 0}
+    - target: {fileID: 8251804377089998044, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455362563242386313, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 8624450382857897102, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922147168209211754, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: _skinCost
+      value: 34560
       objectReference: {fileID: 0}
     - target: {fileID: 8984110048205683985, guid: a3f8ffea6f75de342bcb4750e032b479,
         type: 3}

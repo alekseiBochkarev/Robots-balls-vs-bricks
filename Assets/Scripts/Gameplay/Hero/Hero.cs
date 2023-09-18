@@ -34,7 +34,7 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
 
     public void Awake()
     {
-        Debug.Log("AttackSkill Awake" + AttackSkill);
+        //Debug.Log("AttackSkill Awake" + AttackSkill);
         camera = GameObject.Find("MainCamera");
         EventManager.SkinChanged += UpdateAttack;
         EventManager.UpgradeStats += UpdateAttack;
@@ -42,6 +42,7 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
         EventManager.LevelStarted += UpdateAttack;
         // LoadHeroSkill();
         SetMaxHealth(HeroStats.Health);
+        EventManager.SkinChanged += UpdateHealth;
         // CurrentHealth = MaxHealth;
         UpdateAttack();
         Instance = this;
@@ -59,6 +60,11 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
     {
         AttackSkill = (int)HeroStats.Attack;
         Debug.Log("AttackSkill " + AttackSkill);
+    }
+
+    private void UpdateHealth()
+    {
+        SetMaxHealth(HeroStats.Health);
     }
 
 

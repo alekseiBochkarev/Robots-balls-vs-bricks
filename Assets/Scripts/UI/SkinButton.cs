@@ -58,11 +58,13 @@ public class SkinButton : MonoBehaviour
 		} else if (LoadSkinSIsBought(_robotName) != 1)
 		{
 			_buyButton.SetActive(true);
-			_tmpCostOnBuyButton.GetComponent<TMP_Text>().text = _skinCost.ToString(); //+ Translator.Translate(" buy");
+            GetComponent<Button>().interactable = false;
+            _tmpCostOnBuyButton.GetComponent<TMP_Text>().text = _skinCost.ToString(); //+ Translator.Translate(" buy");
 		} else 
 		{
 			_buyButton.SetActive(false);
-		}
+            GetComponent<Button>().interactable = true;
+        }
     }
 
     //это для иконки из меню
@@ -136,7 +138,8 @@ public class SkinButton : MonoBehaviour
 			camera.GetComponent<AudioManager>().PlayAudio(successClip); 
 			WalletController.Instance.ShowCoins();
 			SaveSkinIsBought(_robotName);
-			_buyButton.SetActive(false);
+            GetComponent<Button>().interactable = true;
+            _buyButton.SetActive(false);
 		}
 	}
 
