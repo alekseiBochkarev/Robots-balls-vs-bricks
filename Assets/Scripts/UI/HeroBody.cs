@@ -8,7 +8,7 @@ public class HeroBody : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Robots/" + LoadSkinData());
         SetBodyParameters(LoadSkinData());
-        EventManager.OnSkinChanged();
+       // EventManager.OnSkinChanged();
     }
 
     public void SetSkin(string skin)
