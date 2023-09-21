@@ -12,7 +12,8 @@ public static class Translator
             {
                 case "English": langIndex=0; break;
                 case "Russian": langIndex=1; break;
-                // продолжить для других языков ....
+                case "Turkish": langIndex=2; break;
+                    // продолжить для других языков ....
             }
         }
       
@@ -29,183 +30,228 @@ public static class Translator
     {
         {
             "win ", // англ.
-            "пройди "  // русс.
+            "пройди ",  // русс.
+            "kazanç"
         },
         {
             " level",
-            " уровень"
+            " уровень",
+            " seviye"
         },
         {
             "LEVEL ",
-            "УРОВЕНЬ "
+            "УРОВЕНЬ ",
+            "SEVİYE "
         },
         {
             "energy is over",
-            "энергия закончилась"
+            "энергия закончилась",
+            "enerji bitti"
         },
         {
             "life is over",
-            "убит"
+            "убит",
+            "Hayat bitti"
         },
         {
             "I don't know why you are over",
-            "Не знаю почему ты проиграл"
+            "Не знаю почему ты проиграл",
+            "Neden bittiğini bilmiyorum"
         },
         {
             "You win",
-            "Ты победил"
+            "Ты победил",
+            "Sen kazandın"
         },
         {
           "YOU WIN",
-          "Ты победил"
+          "Ты победил",
+          "SEN KAZANDIN"
         },
         {
           "GAME OVER",
-          "Попробуй снова"
+          "Попробуй снова",
+          "OYUN BİTTİ"
         },
         {
           "COMBO",
-          "комбо"
+          "комбо",
+          "KOMBO"
         },
         {
             "Health",
-            "Здоровье"
+            "Здоровье",
+            "Sağlık"
         },
         {
             "Attack",
-            "Атака"
+            "Атака",
+            "Saldırı"
         },
         {
             "Balls",
-            "Кол-во шаров"
+            "Кол-во шаров",
+            "Toplar"
         },
         {
             "Line",
-            "длина прицела"
+            "длина прицела",
+            "Astar"
         },
         {
             "UPGRADE",
-            "Улучшить за"
+            "Улучшить за",
+            "GÜNCELLEME"
         },
         {
             "LEGEND",
-            "Легенд."
+            "Легенд.",
+            "EFSANE"
         },
         {
             "GUNS",
-            "Снаряды"
+            "Снаряды",
+            "SİLAHLAR"
         },
         {
             "SHOP",
-            "Магазин"
+            "Магазин",
+            "MAĞAZA"
         },
         {
             "SKINS",
-            "Скины"
+            "Скины",
+            "DERİ"
         },
         {
             "Black Hole Ball",
-            "Черная дыра"
+            "Черная дыра",
+            "Kara Delik Topu"
         },
         {
             "Bomb Ball",
-            "бомба"
+            "бомба",
+            "Bomba Topu"
         },
         {
             "Fire Ball",
-            "Огненный мяч"
+            "Огненный мяч",
+            "Ateş Topu"
         },
         {
             "Ice Ball",
-            "Лед"
+            "Лед",
+            "Buz topu"
         },
         {
             "Insta Kill",
-            "Мяч убийца"
+            "Мяч убийца",
+            "Katil"
         },
         {
             "Laser Cross Ball",
-            "Лазер"
+            "Лазер",
+            "lazer"
         },
         {
             "Laser Horizontal Ball",
-            "Лазер"
+            "Лазер",
+            "lazer"
         },
         {
             "Laser Vertical Ball",
-            "Лазер"
+            "Лазер",
+            "lazer"
         },
         {
             "Poison Ball",
-            "Отрава"
+            "Отрава",
+            "Zehir"
         },
         {
             "Rocket Ball",
-            "Ракета"
+            "Ракета",
+            "Roket"
         },
         {
             "Black Hole Combo",
-            "Комбо черная дыра"
+            "Комбо черная дыра",
+            "Kara Delik Kombinasyonu"
         },
         {
             "Bomb Combo",
-            "Комбо бомба"
+            "Комбо бомба",
+            "Bomba Kombinasyonu"
         },
         {
             "Insta Kill Combo",
-            "Комбо киллер"
+            "Комбо киллер",
+            "öldürücü kombinasyon"
         },
         {
             "Laser Cross Combo",
-            "Комбо лазер"
+            "Комбо лазер",
+            "Lazer Kombinasyonu"
         },
         {
             "Laser Horizontal Combo",
-            "Комбо лазер"
+            "Комбо лазер",
+            "Lazer Kombinasyonu"
         },
         {
             "Laser Vertical Combo",
-            "Комбо лазер"
+            "Комбо лазер",
+            "Lazer Kombinasyonu"
         },
         {
             "Poison Combo",
-            "Комбо отрава"
+            "Комбо отрава",
+            "Zehir Kombinasyonu"
         },
         {
             "Rocket Combo",
-            "Комбо ракета"
+            "Комбо ракета",
+            "Roket Kombosu"
         },
         {
             "Discount Combo Buff",
-            "Меньше ударов для старта комбо"
+            "Меньше ударов для старта комбо",
+            "İndirim Kombo Takviyesi"
         },
         {
             "Double Combo Buff",
-            "Комбо аттака два раза"
+            "Комбо аттака два раза",
+            "Çift Kombo Takviyesi"
         },
         {
             "Increased Count Combo Buff",
-            "Комбо считается быстрее"
+            "Комбо считается быстрее",
+            "Artırılmış Sayılı Kombo Takviyesi"
         },
         {
             " buy",
-            " купить"
+            " купить",
+            " satın almak"
         },
         {
             "Block",
-            "Блок"
+            "Блок",
+            "Engellemek"
         },
         {
             "Can't burn",
-            "Не горю"
+            "Не горю",
+            "Yakamıyorum"
         },
         {
             " Lev.",
-            " Ур."
+            " Ур.",
+            " Sev."
         },
         {
             "WAVE",
-            "ВОЛНА"
+            "ВОЛНА",
+            "DALGA"
         }
                 
         // ...... ну и т.д., если языков больше, то в каждом блоке будет больше строчек
