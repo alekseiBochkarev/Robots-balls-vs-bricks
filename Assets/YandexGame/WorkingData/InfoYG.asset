@@ -22,7 +22,7 @@ MonoBehaviour:
   metricaEnable: 1
   metricaCounterID: 0
   AdWhenLoadingScene: 1
-  showFirstAd: 1
+  showFirstAd: 0
   adDisplayCalls: 0
   fullscreenAdInterval: 60
   durationOfAdSimulation: 0.5
