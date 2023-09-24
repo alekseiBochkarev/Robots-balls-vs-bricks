@@ -6,7 +6,7 @@ namespace YG
     {
         // "Технические сохранения" для работы плагина (Не удалять)
         public int idSave;
-        public bool isFirstSession = true;
+        public bool isFirstSession = false;
         public string language = "ru";
         public bool promptDone;
 
