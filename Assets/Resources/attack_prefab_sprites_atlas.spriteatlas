@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: attack_prefab_sprites_atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 047f2a3c6e7c86243a84ce13285b417d, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: d942b64060ca57b46998e6c52fd4283f, type: 3}
+  - {fileID: 21300000, guid: c934a3f28e3657040ae79b9ed5257b21, type: 3}
+  - {fileID: 21300000, guid: d477e4e745731a145b70c635dcab85b3, type: 3}
+  - {fileID: 21300000, guid: d0573a582934bbe45bed0f3d54211a2c, type: 3}
+  - {fileID: 21300000, guid: 1b05f61a4ba4d74499d578b9dfa3be9c, type: 3}
+  - {fileID: 21300000, guid: 61b3416b772a56e4ab449c334c70324f, type: 3}
+  - {fileID: 21300000, guid: d388ea7bfba71444481f244db99e8289, type: 3}
+  - {fileID: 21300000, guid: 45d1368cd461d12408ed2f800942e4ac, type: 3}
+  - {fileID: 21300000, guid: 8abf709e593f91740b76f23a0aa7fefe, type: 3}
+  - {fileID: 21300000, guid: 034370ff4c2d1fd44a78fadfcd4e2bf0, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - attackLevel_7
+  - attackLevel_6
+  - attackLevel_9
+  - attackLevel_5
+  - attackLevel_MAX
+  - attackLevel_8
+  - attackLevel_4
+  - attackLevel_1
+  - attackLevel_3
+  - attackLevel_2
+  m_RenderDataMap: {}
+  m_Tag: attack_prefab_sprites_atlas
+  m_IsVariant: 0

@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: aborigen_atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: WebGL
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 53
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 227c443b629e4014baa621a52c5eb73a, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: c01228108b320084bac0c963c7e16615, type: 3}
+  - {fileID: 21300000, guid: 0fede651c9ab7df4c8b2e22475c8ef10, type: 3}
+  - {fileID: 21300000, guid: 7a029954e4d9d1742994f43f3ea14a75, type: 3}
+  - {fileID: 21300000, guid: 8ec84fb45528d414ab8a1526b5550c8c, type: 3}
+  - {fileID: 21300000, guid: 4881a846f4d8aa048829b5da2e34d8be, type: 3}
+  - {fileID: 21300000, guid: 5faa0786836e63743b58af3ddfd2a03f, type: 3}
+  - {fileID: 21300000, guid: 079bb3676ae346e4cb657d088fe32804, type: 3}
+  - {fileID: 21300000, guid: b02ef97898e3f7443bbf263db43bb31d, type: 3}
+  - {fileID: 21300000, guid: dcff19f9be404c34f938ad1ecfb5fa7b, type: 3}
+  - {fileID: 21300000, guid: b718713a573b3494e9827745ca43c8cb, type: 3}
+  - {fileID: 21300000, guid: 58d3d62c3f5e1de40ad9ffc4a7a353df, type: 3}
+  - {fileID: 21300000, guid: 08be348c6b34f4546b9a20c386c6b74a, type: 3}
+  - {fileID: 21300000, guid: 18c95aec18cc9b94790443d88c79a02a, type: 3}
+  - {fileID: 21300000, guid: 16a38a9dd882cfb4e8182fc60238f6b0, type: 3}
+  - {fileID: 21300000, guid: 557bd25e74d107b499763211ff8620af, type: 3}
+  - {fileID: 21300000, guid: 45743c5feff61b146b1a154e81832329, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - 3
+  - 4
+  - 1
+  - 3
+  - 2
+  - 2
+  - 2
+  - 2
+  - "\u041A\u043E\u043F\u044C\u0435"
+  - "\u041F\u0440\u043E\u0435\u043A\u0442 \u0441 \u043A\u043E\u043F\u044C\u0435\u043C"
+  - 3
+  - 1
+  - 1
+  - "\u041F\u0440\u043E\u0435\u043A\u0442"
+  - 1
+  - 3
+  m_RenderDataMap: {}
+  m_Tag: aborigen_atlas
+  m_IsVariant: 0

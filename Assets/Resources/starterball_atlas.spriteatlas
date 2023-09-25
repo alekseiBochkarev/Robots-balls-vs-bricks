@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: starterball_atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: WebGL
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 53
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 1319c4ccbf4df7743a8360de11e86e35, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 5e279a517e9699b49849f3a7aa50aa15, type: 3}
+  - {fileID: 21300000, guid: 9266f384bfb3e4d4e94a70040a78be98, type: 3}
+  - {fileID: 21300000, guid: f213dc75f67a4674188c693e980a2508, type: 3}
+  - {fileID: 21300000, guid: ca323fb6fb12efe43829a1162525dfb2, type: 3}
+  - {fileID: 21300000, guid: 3e8b0f47b2542654b9245f918d16dccd, type: 3}
+  - {fileID: 21300000, guid: 7ee615b7ea73cf54eb6b80989d87072f, type: 3}
+  - {fileID: 21300000, guid: ad1bea1874a4ab7488336c38e62e0b43, type: 3}
+  - {fileID: 21300000, guid: 2099762a97bf7f140afdc17a8d58ad01, type: 3}
+  - {fileID: 21300000, guid: faf0c78aa01aa174b8e47f3e90b54f28, type: 3}
+  - {fileID: 21300000, guid: 756b0c8d2a6a0bd4e99700d8cef2fd94, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - starterBallsLevel_4
+  - starterBallsLevel_5
+  - starterBallsLevel_7
+  - starterBallsLevel_2
+  - starterBallsLevel_8
+  - starterBallsLevel_9
+  - starterBallsLevel_MAX
+  - starterBallsLevel_1
+  - starterBallsLevel_3
+  - starterBallsLevel_6
+  m_RenderDataMap: {}
+  m_Tag: starterball_atlas
+  m_IsVariant: 0

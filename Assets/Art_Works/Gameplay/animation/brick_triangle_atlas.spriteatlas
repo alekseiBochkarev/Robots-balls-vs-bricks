@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: brick_triangle_atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: WebGL
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 53
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 8ddf2a9f8561e3248b756010e111c733, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 120f9bf005f334942ad0331f40da7e92, type: 3}
+  - {fileID: 21300000, guid: 0fc1a791156f0734da2dc7ce411bbe33, type: 3}
+  - {fileID: 21300000, guid: 915c3da13e02b2c4b8fee1a5e63140d1, type: 3}
+  - {fileID: 21300000, guid: f4b128c2e56005e41a928c9e9089d89e, type: 3}
+  - {fileID: 21300000, guid: 2eaf5ce3b1fac844985e31bfd81d252a, type: 3}
+  - {fileID: 21300000, guid: bb7b6d34f9ecd5a499e76c5488576fe5, type: 3}
+  - {fileID: 21300000, guid: 61503ae49fa34354e866ef395aa35100, type: 3}
+  - {fileID: 21300000, guid: 40ab1625dc4b9844f991afcd0211506b, type: 3}
+  - {fileID: 21300000, guid: 1ea16965318510a4da6a0e2778f4c79c, type: 3}
+  - {fileID: 21300000, guid: 08ea19d6e95c52c4eae56b7d3412b0d5, type: 3}
+  - {fileID: 21300000, guid: b1c514e6dec279b499ef802c6da1c267, type: 3}
+  - {fileID: 21300000, guid: 3b5858582c6d4fd42a94036bf804ab54, type: 3}
+  - {fileID: 21300000, guid: 29543bb8504d87a4b8b8746b393ee793, type: 3}
+  - {fileID: 21300000, guid: b1decce931b968e488f5bdc2ab0b1d56, type: 3}
+  - {fileID: 21300000, guid: 8763cb9b4a4992f47be86698a4ea0b50, type: 3}
+  - {fileID: 21300000, guid: 6193c7fb3581b1649bed1ee6a54e09b9, type: 3}
+  - {fileID: 21300000, guid: bbdd084c2e6aabf4b8b3e87b1bf523cc, type: 3}
+  - {fileID: 21300000, guid: 8012887c4b35de94b9b534db468c5f04, type: 3}
+  - {fileID: 21300000, guid: 25d545cc121625c4690ea306f325d2e8, type: 3}
+  - {fileID: 21300000, guid: d94504dce5f015442a6e5f15eb4d4099, type: 3}
+  - {fileID: 21300000, guid: 09efde3e158e0ec43902618f09c56c6d, type: 3}
+  - {fileID: 21300000, guid: 2331365e69f9d9b47b2737b8c581d27a, type: 3}
+  - {fileID: 21300000, guid: a72b8a2fe23f143458dea6e2154cd585, type: 3}
+  - {fileID: 21300000, guid: 36233e3f40b9c5242885d3310e9e23f6, type: 3}
+  - {fileID: 21300000, guid: 4fd89ecf15df8ce46b60d14e64f7a917, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - IMG_0147
+  - IMG_0150
+  - IMG_0141MONO
+  - IMG_0162
+  - IMG_0161
+  - IMG_0163
+  - IMG_0141
+  - IMG_0142
+  - IMG_0158
+  - IMG_0149
+  - 6
+  - IMG_0141
+  - IMG_0141
+  - 1
+  - IMG_0164
+  - IMG_0160
+  - 2
+  - 4
+  - IMG_0144
+  - IMG_0146
+  - IMG_0148
+  - IMG_0143
+  - IMG_0159
+  - 5
+  - 3
+  m_RenderDataMap: {}
+  m_Tag: brick_triangle_atlas
+  m_IsVariant: 0

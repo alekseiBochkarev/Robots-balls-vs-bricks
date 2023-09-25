@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: sight_atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: WebGL
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 53
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 6f82f99bdb416c04381a8e0c94843a34, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 0b8c785147835854aba9b34c5b18fcf3, type: 3}
+  - {fileID: 21300000, guid: 14b5d662db755d8459926f218b4ff672, type: 3}
+  - {fileID: 21300000, guid: 8d5ffa5327cd1c543b2c4ee66ec48686, type: 3}
+  - {fileID: 21300000, guid: cd945f54f7fbda94dbe330ebe62d5a71, type: 3}
+  - {fileID: 21300000, guid: c83f91f51e5098442af6ec745877aa00, type: 3}
+  - {fileID: 21300000, guid: daa232862794228418e1f870f623de8f, type: 3}
+  - {fileID: 21300000, guid: 873011878a7c7fe4e902989e521177f7, type: 3}
+  - {fileID: 21300000, guid: 5901bf2c40cc0904faaf0c2947675623, type: 3}
+  - {fileID: 21300000, guid: 177e212d91d3ad94aaf865e9bb788ac6, type: 3}
+  - {fileID: 21300000, guid: 18d5cf3f5560e0b43b639fb638404cff, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - sightLengthLevel_1
+  - sightLengthLevel_2
+  - sightLengthLevel_MAX
+  - sightLengthLevel_4
+  - sightLengthLevel_7
+  - sightLengthLevel_3
+  - sightLengthLevel_8
+  - sightLengthLevel_5
+  - sightLengthLevel_9
+  - sightLengthLevel_6
+  m_RenderDataMap: {}
+  m_Tag: sight_atlas
+  m_IsVariant: 0

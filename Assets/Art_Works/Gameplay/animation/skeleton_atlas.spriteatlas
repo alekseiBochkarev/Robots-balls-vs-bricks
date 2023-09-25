@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: skeleton_atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: WebGL
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 53
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 06f80cc690ff31d448893dd55a9d578e, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 2b61465267a1dce41a6bdd63577f01d9, type: 3}
+  - {fileID: 21300000, guid: 01ba59637785daa40adf3bf8516537e5, type: 3}
+  - {fileID: 21300000, guid: 655f00e6cdb8e3f40b40f7b220ec950a, type: 3}
+  - {fileID: 21300000, guid: cb38b4e6531840c42a7361ddab7b7360, type: 3}
+  - {fileID: 21300000, guid: 70b70a170df14be4a889ee0206692be6, type: 3}
+  - {fileID: 21300000, guid: 369a349956fc3504f93931454bdc7ba4, type: 3}
+  - {fileID: 21300000, guid: ce88dabaed399fa46abea577dfcf02f4, type: 3}
+  - {fileID: 21300000, guid: c659a88d56b74514ead702de0191d353, type: 3}
+  - {fileID: 21300000, guid: dbea300e6d05a8d479021808c3cfb4b8, type: 3}
+  - {fileID: 21300000, guid: 19a01a0e371a96b4cbfdca4e30d20a2c, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - 1
+  - 2
+  - 2
+  - 2
+  - "\u041F\u0440\u043E\u0435\u043A\u0442"
+  - 1
+  - 1
+  - 3
+  - 1
+  - 2
+  m_RenderDataMap: {}
+  m_Tag: skeleton_atlas
+  m_IsVariant: 0

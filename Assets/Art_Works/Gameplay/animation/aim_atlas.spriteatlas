@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: firstAtlas
+  m_Name: aim_atlas
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -20,7 +20,19 @@ SpriteAtlas:
       readable: 0
       crunchedCompression: 0
       sRGB: 1
-    platformSettings: []
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: WebGL
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 53
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
       padding: 4
@@ -31,13 +43,22 @@ SpriteAtlas:
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
-    packables: []
+    packables:
+    - {fileID: 102900000, guid: 15a69916362f8f64c965854ecc7f2c15, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites: []
-  m_PackedSpriteNamesToIndex: []
+  m_PackedSprites:
+  - {fileID: 21300000, guid: d158f21072e3deb4a842d6fc792a53c3, type: 3}
+  - {fileID: 21300000, guid: b6389e7ad943b0145a9aa284e290859a, type: 3}
+  - {fileID: 21300000, guid: e8dc6f7bafad75c4dabc3c4296d2dffb, type: 3}
+  - {fileID: 21300000, guid: 69a2e5ab61ad89c46b0216512f69f6bd, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - aim2
+  - aim3
+  - aim4
+  - aim1
   m_RenderDataMap: {}
-  m_Tag: firstAtlas
+  m_Tag: aim_atlas
   m_IsVariant: 0
