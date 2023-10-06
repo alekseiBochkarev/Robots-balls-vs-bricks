@@ -26,61 +26,61 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelWithWin 1.unity
     guid: c0ce3b952cc90a34792fdc532fc2f60f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 2.unity
     guid: d8f67b8c34706e24dba896a43af38318
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 3.unity
     guid: edc18327c9b21144ab069fa3a100c464
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 4.unity
     guid: b1dfed16aac0e5544b443b29cf15effa
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 5.unity
     guid: 507dcc538de62c449854ad820f618797
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 6.unity
     guid: 89c3fa7883ca9c74ebdda21f521a6a07
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 7.unity
     guid: e29cb9fac8347a7438a0781c506dee31
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 8.unity
     guid: 95ccfaed3a7e3e54fb0c6e23f672f8e1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 9.unity
     guid: a2768d684b770474d85bc47167f8d3e7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 10.unity
     guid: 1fb7ad70f362bdf4a950e53c8b6c4de7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 11.unity
     guid: da9e3535b1d114c429d4a21a6d9848ad
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 12.unity
     guid: 65c74d992739171489a6b702388ba9c3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 13.unity
     guid: a1b5ba6daeaae704494f614a8fb22c2e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 14.unity
     guid: 5f21eb3eb33b9224c9d184ac933b6b01
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 15.unity
     guid: ecf4b258d5b8f384685877097b534111
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 16.unity
     guid: 98687271958f2ac4b905bae89cd398ff
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 17.unity
     guid: 2a099ec9b72118b42b323afb05582867
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 18.unity
     guid: e2b30814deea03f41a35ffe5c41d20be
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 19.unity
     guid: d129f22386d66bb43b0e75ecfc9f28c6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 20.unity
     guid: bbf9624cda93b6f4bbedcb5246ba5bc0
   - enabled: 0
@@ -89,304 +89,304 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Level1.unity
     guid: b7d18de6a951247dca7476cadffb093d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 21.unity
     guid: cadfd71e5c97f384ba25b3fa86697e31
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 22.unity
     guid: 2113646e53e812243a668ac29f947b5e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 23.unity
     guid: 91a298acb6ae3a148bdf368a9ac58c38
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 24.unity
     guid: a9263efd123ac234b8efa1155d3a3fa8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 25.unity
     guid: 46d17c478a4a268428fb7103e21e792e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 26.unity
     guid: 2b88f65ae209e2946b847a00785deea0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 27.unity
     guid: e20546d2b79dcd94eac53c2c9ed748ff
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 28.unity
     guid: 69ef9f49248c4c84582422901fecbe66
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 29.unity
     guid: 8e9bde17c84a08d478a4312192543552
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 30.unity
     guid: 0c263dd729e333a44a93810c45fc1899
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 31.unity
     guid: 90705a6b21fadab4caba4d5f5845b309
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 32.unity
     guid: 7450d009ba9cedd4e8937a83afd83613
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 33.unity
     guid: 4153d54b837906f4bb275e724d6197c3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 34.unity
     guid: 3c53d54b0581ba145959a2f376759322
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 35.unity
     guid: e86caf9b2562006489d0997633f3d065
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 36.unity
     guid: e60265d56a112a84ca080e3cd682d3d7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 37.unity
     guid: 34584803fc060b64ea81d9013c43b08c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 38.unity
     guid: 09965be397c2fa04a88227b5d957c9ae
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 39.unity
     guid: 24bedbf4f2070b64fa421b1b8198ecd5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 40.unity
     guid: 2531ef74d1c0cb649ab25750010e562d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 41.unity
     guid: 48ffe5e69ed8b3f44afbbb4132cfe787
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 42.unity
     guid: 748c0891acd5d9f46bb556130b000506
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 43.unity
     guid: 8e79793ac2433c34da8e832cf48257c9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 44.unity
     guid: 4a71fb5a33cb1f44c978359c6f378e34
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 45.unity
     guid: e46bcc9ed092acc46840aa03fd0cdd63
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 46.unity
     guid: 105d1f675adcac14099f10e3ec565990
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 47.unity
     guid: 1047233090c7b6a43b82512a886ba4a9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 48.unity
     guid: b1b5200020ed92f409d44ce1072331b8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 49.unity
     guid: a04c20558b566584c8f431c4b89508c6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 50.unity
     guid: a47b74f5c2850ea4f9c929a806728aeb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 51.unity
     guid: ea5ad747a5fbd864aa6bfdecf4fc3724
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 52.unity
     guid: d9f3d73b5e318d744bedd30ed6e4ebc7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 53.unity
     guid: bd2931670d9af34488edc9c4805f0a2e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 54.unity
     guid: c4ee4eee6987df348aa110077b7d74fc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 55.unity
     guid: 504972dfe5026dd4bb24e20d182ea40c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 56.unity
     guid: f435190534a1e1347af78ee564180723
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 57.unity
     guid: 09d62e789c53d374b8cb806fbed7983d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 58.unity
     guid: 7293220b9007fc34fa35589b7d09eb24
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 59.unity
     guid: 271ee56fe3a4e824b97e0a18d261ba45
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 60.unity
     guid: b9a9347ebaedb0843928f9d5b9410e74
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 61.unity
     guid: 88f161a578982a24fb1cb68def248d3f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 62.unity
     guid: e22792968e89c5549bf8d00f956f2fbf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 63.unity
     guid: 9b43eeb7aa7eca84087acf4499fe0b75
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 64.unity
     guid: fbde55d557f35ea4cb4a8d751a916458
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 65.unity
     guid: f692ef273ff49654083b19b3a6af1527
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 66.unity
     guid: 2f39004e300ece44aa748b0b34dbedfd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 67.unity
     guid: 4f0eff7707266274986d3999a3846aad
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 68.unity
     guid: a45444426eb288240afdcea2f8d708c1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 69.unity
     guid: b7f3a94e4c8297b4896f0888cce22610
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 70.unity
     guid: 50592cea74032c64ebaac562e9f6f1fe
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 71.unity
     guid: ad06577747613fe409b88681591b6934
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 72.unity
     guid: 2cf104899a5b81845b6b071ec05ce429
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 73.unity
     guid: 33c4b692443474e45bb73ce987bab4a7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 74.unity
     guid: 0d520b7f890035b4cb98c65c1adbe5cc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 75.unity
     guid: 1c8a58f467f21594aac67ca4a3c2cc43
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 76.unity
     guid: 6d476862c3f419a46a57ee70a9819392
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 77.unity
     guid: 4449a479bef5eb24dbccc77781e892f3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 78.unity
     guid: 347956b7bd9cc75499cdb024050ed20a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 79.unity
     guid: ec7f01061b125264f902d275caae4c4f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 80.unity
     guid: 19db9915beb855048b3d467f2c39ca61
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 81.unity
     guid: 34fef30b18eb6ac44ad968aae31c4301
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 82.unity
     guid: 916a4b17dea2fe041aff0a4b811b009d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 83.unity
     guid: af43e6e17f1d6374d9defc02eb10274a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 84.unity
     guid: 3e5bb4cbdd3aa1b40861cce8f25a021d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 85.unity
     guid: ea581c5dd025a50409f4a05b0592fe38
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 86.unity
     guid: a20aafbb2fcc40347890093c38397445
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 87.unity
     guid: 1a661795988c0714f886cf401609ba67
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 88.unity
     guid: 73f9aaa45574d644ab3888820d842bad
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 89.unity
     guid: 74515dd2ec1a7e5448e80c2db863033d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 90.unity
     guid: 5737f5c5fd833a649b45b06c160dd282
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 91.unity
     guid: 8aa882fc97e69d9418f5368a5b1f081c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 92.unity
     guid: 3953b33ac2788c44f8ccf27e19d7ef21
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 93.unity
     guid: f6bb429ce4a0c234685c0011ce1efa4c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 94.unity
     guid: ce1dc11ca27112d48b7a50ea680bc31c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 95.unity
     guid: f0005a7324670d14182da592caa8868e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 96.unity
     guid: c7fb46119aae4a3488d2a66edfdccfa5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 97.unity
     guid: 61439df2faff7534894dc82c39f3c4f9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 98.unity
     guid: 820a277a7d200dc4db61e64737ccff51
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 99.unity
     guid: ce48ab11887c7f84985aa88e5020db00
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 100.unity
     guid: b342a5e0a70714042aba95cbe31c7d2f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 101.unity
     guid: dc5f4e3f18c4d9c4e811299226d7b384
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 102.unity
     guid: 42920f1bd8fa0db40ad26424b28d434d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 103.unity
     guid: e6e76cfb69a831a4796ea6bad47cc28d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 104.unity
     guid: 9026e6af83007ea4295c5ea32c322547
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 105.unity
     guid: e916575d635271548a690dc2bd5c2d12
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 106.unity
     guid: 71c054dc97c31a54892aa733e98d10da
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 107.unity
     guid: fcf0f5ee219512c4db0939b8186ea41c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 108.unity
     guid: f9c259cba93289847ad95abac44e37a7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 109.unity
     guid: 4e50cf8a08fcd7a4bbd155766227b60b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 110.unity
     guid: 37bd9859c2bc8ff43be87ca0638d3d22
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 111.unity
     guid: 3a2ed3170309b304096fec4cae53e773
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 112.unity
     guid: 36e85e8329d8eeb4a8dd38f5e78a93ca
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 113.unity
     guid: cbfd8edce77e4ba4bbb2e7e42e0d67d7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 114.unity
     guid: 25f229242cb25aa4da01f5d9cdcc1d7c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 115.unity
     guid: 91bb31fdf21f4494cb81a4b7dcbe9b9b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 116.unity
     guid: af84a4b50a01c3a479c825192e8c3a07
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 117.unity
     guid: 000279a75badddc4cb70df0bff5dcc88
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 118.unity
     guid: 01517d2ce1358ef4b82f756588791b43
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 119.unity
     guid: ae4b3bca6cd2877489db81043f3ceb24
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWithWin 120.unity
     guid: e7cbdad6c2eda644fa578c8785bd2af8
   m_configObjects: {}
