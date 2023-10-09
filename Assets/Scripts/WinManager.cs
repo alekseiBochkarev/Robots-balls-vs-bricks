@@ -12,7 +12,7 @@ public class WinManager : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().buildIndex <= 5)
             {
-                return (SceneManager.GetActiveScene().buildIndex * 2);
+                return (SceneManager.GetActiveScene().buildIndex * 20);
             } else
             {
                 return maxSpawn;

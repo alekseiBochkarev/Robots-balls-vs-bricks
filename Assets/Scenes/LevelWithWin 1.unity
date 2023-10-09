@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48998d3b14f840e8887171dde4c6a801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridWidth: 12
+  gridWidth: 6
   gridHeight: 0
   scaleCoefficient: 0
 --- !u!114 &1875910

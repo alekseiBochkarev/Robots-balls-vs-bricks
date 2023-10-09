@@ -155,12 +155,12 @@ public class BrickSpawner : MonoBehaviour
                     if (!createMagicBall)
                     {
                         //здоровье брика будет равно индексу сцены (на 1 сцене 2, на второй 4 и так далее)
-                        StartCoroutine(CreateObject(brickNames[Random.Range(0, brickNames.Length)], i, 0, (SceneManager.GetActiveScene().buildIndex*2)));
+                        StartCoroutine(CreateObject(brickNames[Random.Range(0, brickNames.Length)], i, 0, (SceneManager.GetActiveScene().buildIndex*10)));
                     } else
                     {
                         if (i != numberOfMagicBallInRow)
                         {
-                            StartCoroutine(CreateObject(brickNames[Random.Range(0, brickNames.Length)], i, 0, (SceneManager.GetActiveScene().buildIndex*2)));
+                            StartCoroutine(CreateObject(brickNames[Random.Range(0, brickNames.Length)], i, 0, (SceneManager.GetActiveScene().buildIndex*10)));
                         }
                     }
                     
