@@ -3,7 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="8f7a12e7-3117-49e5-b950-126538c99e2e" name="Changes" comment="add changes from battery branch">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BombBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BombBall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickAborigen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickAborigen.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickBomba.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickBomba.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickBombaSmall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickBombaSmall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickFire.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickFire.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSquare.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSquare.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSquareBlue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSquareBlue.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSquarePurple.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSquarePurple.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfigurationRR.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfigurationRR.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,6 +194,7 @@
       <workItem from="1692696915697" duration="2038000" />
       <workItem from="1692759298231" duration="9113000" />
       <workItem from="1696849518836" duration="3498000" />
+      <workItem from="1699633432389" duration="589000" />
     </task>
     <task id="LOCAL-00001" summary="newScene and rename menuCanvas">
       <created>1679036454804</created>
