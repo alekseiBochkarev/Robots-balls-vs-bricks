@@ -112,6 +112,7 @@ public class LevelManager : MonoBehaviour
                     m_Scores.SetActive(false);
 
                     m_GameOverFinalScore.text = Translator.Translate("You win");
+                    
                     BallLauncher.Instance.m_CanPlay = false;
                     BallLauncher.Instance.ResetPositions();
                     EventManager.OnGameWon();

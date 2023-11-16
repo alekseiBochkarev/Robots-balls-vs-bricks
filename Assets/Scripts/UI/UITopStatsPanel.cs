@@ -81,7 +81,8 @@ public class UITopStatsPanel : MonoBehaviour
     
     public void ShowLevelValues()
     {
-        levelValueText.text = Translator.Translate("LEVEL ") + $"{SceneManager.GetActiveScene().buildIndex}";
+       // levelValueText.text = Translator.Translate("DAY ") + $"{SceneManager.GetActiveScene().buildIndex}";
+        levelValueText.text = Translator.Translate("DAY ") + $"{SaveManager.LoadDayData()}";
         healthLevelText.text = $"{healthLevel}" + Translator.Translate(" Lev.");
         healthRealText.text = $"{Hero.CurrentHealth}" + "/" + $"{HeroStats.Health}";
         attackLevelText.text = $"{attackLevel}" + Translator.Translate(" Lev.");

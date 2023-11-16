@@ -368,6 +368,7 @@ public class MenuController : MonoBehaviour
 
     public void OpenNextSceneAfterWin()
     {
+        SaveManager.SaveDay(SaveManager.LoadDayData() + 1);
         int defaultScene = 1;
         int nextScene = ((SceneManager.GetActiveScene().buildIndex + 1) < SceneManager.sceneCountInBuildSettings) ? (SceneManager.GetActiveScene().buildIndex + 1) : defaultScene;
        // Debug.LogError("SceneManager.sceneCount =" + SceneManager.sceneCountInBuildSettings);

@@ -44,6 +44,16 @@ public static class Translator
             "SEVİYE "
         },
         {
+            "DAY ",
+            "ДЕНЬ ",
+            "GÜN "
+        },
+        {
+            "PLAY",
+            "ИГРАТЬ",
+            "OYNAMAK"
+        },
+        {
             "energy is over",
             "энергия закончилась",
             "enerji bitti"
