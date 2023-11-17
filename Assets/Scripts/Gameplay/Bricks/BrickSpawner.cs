@@ -38,15 +38,14 @@ public class BrickSpawner : MonoBehaviour
     "enemies/BrickBlue", "enemies/BrickFire", "enemies/Brick3", "enemies/Brick3a" , 
         "enemies/Brick2", "enemies/BrickTriangle", "enemies/BrickBombaSmall"};
 */
-    private string[] brickNames = { "enemies/BrickSkeleton", "enemies/BrickSkeleton", "enemies/BrickSkeleton", "enemies/BrickSkeleton" ,
-        "extras/Magic Ball Particle", "extras/Magic Ball Particle", "extras/Score Ball Particle", "extras/Score Ball Particle", "extras/Score Ball Particle",
-        "enemies/BrickBombaSmall",
-        "enemies/BrickSkeleton", "enemies/BrickSkeleton", "enemies/BrickSkeleton", "enemies/BrickSkeleton" ,
-        "enemies/BrickBombaSmall" , "enemies/BrickAborigen",
-        "enemies/BrickSkeleton", "enemies/BrickSkeleton",
-        "enemies/BrickFire", 
-        "enemies/BrickBombaSmall", "extras/Magic Ball Particle", "extras/Magic Ball Particle", 
-        "extras/Magic Ball Particle", "extras/Score Ball Particle", "extras/Score Ball Particle", "extras/Score Ball Particle"};
+    private string[] brickNames = { "enemies/BrickSkeleton", "enemies/BrickSquare", "enemies/BrickSkeleton", "enemies/BrickSkeleton", "enemies/BrickSquareBlue", "enemies/BrickSkeleton",
+        "enemies/BrickBombaSmall", "enemies/BrickSquare", "enemies/BrickSquare", "enemies/BrickSquare",
+        "enemies/BrickSkeleton", "enemies/BrickSkeleton", "enemies/BrickSquare", "enemies/BrickSkeleton", "enemies/BrickSkeleton" ,
+        "enemies/BrickBombaSmall" , "enemies/BrickAborigen", "enemies/BrickSquare", "enemies/BrickSquareBlue", "enemies/BrickSquareBlue",
+         "enemies/BrickSkeleton", "enemies/BrickSkeleton", "enemies/BrickSquare",
+     "enemies/BrickFire", 
+        "enemies/BrickBombaSmall", "enemies/BrickSquare", "enemies/BrickSquareBlue", "enemies/BrickSquareBlue",
+        "enemies/BrickSquareBlue"};
     private float vision;
     Collider2D[] colliders;
 

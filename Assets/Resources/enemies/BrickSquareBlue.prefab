@@ -5415,12 +5415,12 @@ PrefabInstance:
     - target: {fileID: 8990824978887176233, guid: 2448ac433eae27f469cb254c9354c2aa,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 4.82
+      value: 3.15
       objectReference: {fileID: 0}
     - target: {fileID: 8990824978887176233, guid: 2448ac433eae27f469cb254c9354c2aa,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 5.12
+      value: 6.7
       objectReference: {fileID: 0}
     - target: {fileID: 8990824978887176233, guid: 2448ac433eae27f469cb254c9354c2aa,
         type: 3}
@@ -5560,7 +5560,7 @@ PrefabInstance:
     - target: {fileID: 9045658523933685775, guid: 2448ac433eae27f469cb254c9354c2aa,
         type: 3}
       propertyPath: m_FontData.m_BestFit
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9045658523933685775, guid: 2448ac433eae27f469cb254c9354c2aa,
         type: 3}
@@ -5718,8 +5718,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4515055f1f7ffe24a98697c27c7ddb34, type: 3}
+  m_SortingOrder: 8
+  m_Sprite: {fileID: 21300000, guid: a502d5989b5254b49abf7bcc6dda22fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
