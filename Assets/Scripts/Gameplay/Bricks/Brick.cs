@@ -243,16 +243,29 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
 
     public void TakeDamage(int appliedDamage)
     {
+        if (this.gameObject.activeSelf == true) StartCoroutine(ChangeSize());
         state.TakeDamage(appliedDamage);
+    }
+    
+    private IEnumerator ChangeSize() {
+        Vector3 scaleChange = new Vector3(0.05f, -0.05f, 0.15f);
+        Debug.Log("BEFORE SIZE");
+        this.transform.localScale += scaleChange;
+        yield return new WaitForSeconds(0.1f);
+        this.transform.localScale -= scaleChange;
+        Debug.Log("AFTER SIZE");
+        // могут быть ерроры - подумать
     }
 
     public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize)
     {
+        StartCoroutine(ChangeSize());
         state.TakeDamage(appliedDamage, damageTextColor, damageTextFontSize);
     }
 
     public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize)
     {
+        StartCoroutine(ChangeSize());
         state.TakeDamage(appliedDamage, textPopupTextValue, textColor, textFontSize);
     }
 

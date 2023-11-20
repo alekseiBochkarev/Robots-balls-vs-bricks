@@ -87,6 +87,7 @@ public class TakeDamageStateBrick : IStateBrick
 
         // Create DamagePopup with damage above the BRICK
         InitBrickDamagePopupPosition();
+		
     }
 
     public void DeathOfBrick (bool isInstantiateLoot) {
