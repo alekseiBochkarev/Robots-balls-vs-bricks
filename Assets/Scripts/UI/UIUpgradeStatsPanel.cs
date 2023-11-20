@@ -87,7 +87,6 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
         camera = GameObject.Find("MainCamera");
         upgradeStats = new UpgradeStats();
         
-        coins = new Coins();
         // Получаем контроллеры всех статов из их префабов
         _attackPrefabController = attackPrefab.GetComponentInChildren<AttackPrefabController>();
             //   _batteryCellController = batteryCellsPrefab.GetComponentInChildren<BatteryCellController>();
@@ -102,6 +101,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
     private void Start()
     {
+        coins =  WalletController.Instance.Coins;
         //Init players stats for UI and future upgrade
         GetCoins();
         _uiTopStatsPanel = GameObject.FindGameObjectWithTag("TopStatsPanel").GetComponent<UITopStatsPanel>();

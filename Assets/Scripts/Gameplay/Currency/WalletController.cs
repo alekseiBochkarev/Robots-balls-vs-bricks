@@ -41,6 +41,11 @@ public class WalletController : MonoBehaviour
         m_CoinsText.text = Coins.m_Coins.ToString();
     }
 
+    public int m_Coins()
+    {
+        return Coins.m_Coins;
+    }
+
     // public void ShowCrystals() {
 
     //     m_CrystalsText = Coins.m_Crystals.ToString;
