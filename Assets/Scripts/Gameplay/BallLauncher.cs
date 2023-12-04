@@ -273,7 +273,13 @@ public class BallLauncher : MonoBehaviour
        // Debug.Log("ReturnAllBallsToNewStartPosition");
         if(s_FirstCollisionPoint != Vector3.zero)
         {
-            transform.position = s_FirstCollisionPoint;
+            if(s_FirstCollisionPoint.x > rightBorder.transform.position.x) {
+				s_FirstCollisionPoint.x = rightBorder.transform.position.x;
+				}
+			if (s_FirstCollisionPoint.x < leftBorder.transform.position.x) {
+				s_FirstCollisionPoint.x = leftBorder.transform.position.x;
+				}
+			transform.position = s_FirstCollisionPoint;
             ResetFirstCollisionPoint();
         }
 
@@ -288,7 +294,13 @@ public class BallLauncher : MonoBehaviour
     public void ReturnBallToStartPosition (AbstractBall ball) {
         if(s_FirstCollisionPoint != Vector3.zero)
         {
-            transform.position = s_FirstCollisionPoint;
+            if(s_FirstCollisionPoint.x > rightBorder.transform.position.x) {
+				s_FirstCollisionPoint.x = rightBorder.transform.position.x;
+				}
+			if (s_FirstCollisionPoint.x < leftBorder.transform.position.x) {
+				s_FirstCollisionPoint.x = leftBorder.transform.position.x;
+				}
+			transform.position = s_FirstCollisionPoint;
             
         }
             ball.Disable();

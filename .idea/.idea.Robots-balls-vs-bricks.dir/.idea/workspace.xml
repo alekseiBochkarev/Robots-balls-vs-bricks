@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8f7a12e7-3117-49e5-b950-126538c99e2e" name="Changes" comment="add changes from battery branch">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/HeroBody.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/HeroBody.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickAborigen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickAborigen.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSkeleton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSkeleton.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSquare.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSquare.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSquareBlue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/enemies/BrickSquareBlue.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/Brick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Bricks/Brick.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/BallLauncher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/BallLauncher.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +198,7 @@
       <workItem from="1700137309418" duration="3119000" />
       <workItem from="1700225410537" duration="2261000" />
       <workItem from="1700455890589" duration="9296000" />
-      <workItem from="1701697928417" duration="1529000" />
+      <workItem from="1701697928417" duration="2146000" />
     </task>
     <task id="LOCAL-00001" summary="newScene and rename menuCanvas">
       <created>1679036454804</created>
