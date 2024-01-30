@@ -513,6 +513,26 @@ PrefabInstance:
       propertyPath: _skinCost
       value: 34560
       objectReference: {fileID: 0}
+    - target: {fileID: 6406369223332237055, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: m_CellSize.x
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406369223332237055, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406369223332237055, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: m_ConstraintCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406369223332237055, guid: a3f8ffea6f75de342bcb4750e032b479,
+        type: 3}
+      propertyPath: m_Padding.m_Right
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6678410325873006681, guid: a3f8ffea6f75de342bcb4750e032b479,
         type: 3}
       propertyPath: _skinCost
