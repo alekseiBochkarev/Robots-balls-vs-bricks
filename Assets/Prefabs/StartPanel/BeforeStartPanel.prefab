@@ -896,17 +896,17 @@ PrefabInstance:
     - target: {fileID: 2998684389133707504, guid: 8138a99cadca07a4796f0da8e5c271f9,
         type: 3}
       propertyPath: m_fontSize
-      value: 49.3
+      value: 35.05
       objectReference: {fileID: 0}
     - target: {fileID: 2998684389133707504, guid: 8138a99cadca07a4796f0da8e5c271f9,
         type: 3}
       propertyPath: m_margin.x
-      value: -5.9643097
+      value: 0.5505905
       objectReference: {fileID: 0}
     - target: {fileID: 2998684389133707504, guid: 8138a99cadca07a4796f0da8e5c271f9,
         type: 3}
       propertyPath: m_margin.z
-      value: -8.946411
+      value: 0.82601166
       objectReference: {fileID: 0}
     - target: {fileID: 3263532021658522566, guid: 8138a99cadca07a4796f0da8e5c271f9,
         type: 3}
