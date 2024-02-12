@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SceneConfiguration59 : SceneConfiguration
 {
-    void Awake()
+    public ObjectGamePosition[] SetObjects()
     {
         _objectGamePositions = new[]
         {
@@ -53,5 +53,6 @@ public class SceneConfiguration59 : SceneConfiguration
             new ObjectGamePosition("enemies/BrickSquareBlue", 7, 8, SceneManager.GetActiveScene().buildIndex), 
 			
         };
+        return _objectGamePositions;
     }
 }

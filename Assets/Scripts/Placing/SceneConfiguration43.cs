@@ -13,7 +13,7 @@ public class SceneConfiguration43 : SceneConfiguration
         "enemies/Brick2", "enemies/BrickTriangle", "enemies/BrickBombaSmall", "extras/Magic Ball Particle", "extras/Magic Ball Particle", 
         "extras/Magic Ball Particle", "extras/Score Ball Particle", "extras/Score Ball Particle", "extras/Score Ball Particle"};
 
-    void Awake()
+    public ObjectGamePosition[] SetObjects()
     {
         _objectGamePositions = new[]
         {
@@ -52,6 +52,7 @@ public class SceneConfiguration43 : SceneConfiguration
             new ObjectGamePosition(brickNames[Random.Range(0, brickNames.Length)], Random.Range(7, 9), 7, SceneManager.GetActiveScene().buildIndex),
             new ObjectGamePosition(brickNames[Random.Range(0, brickNames.Length)], Random.Range(10, 11), 7, SceneManager.GetActiveScene().buildIndex),
         };
+        return _objectGamePositions;
     }
 
 }

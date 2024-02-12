@@ -1,6 +1,6 @@
 ﻿public class SceneConfiguration8 : SceneConfiguration
 {
-    void Awake()
+    public ObjectGamePosition[] SetObjects()
     {
         _objectGamePositions = new[]
         {
@@ -50,5 +50,6 @@
             new ObjectGamePosition("enemies/BrickSquareBlue", 7, 8, 1), 
 			
         };
+        return _objectGamePositions;
     }
 }

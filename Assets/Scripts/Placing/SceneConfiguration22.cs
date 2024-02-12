@@ -1,6 +1,6 @@
 ﻿public class SceneConfiguration22 : SceneConfiguration
 {
-    void Awake()
+    public ObjectGamePosition[] SetObjects()
     {
         _objectGamePositions = new[]
         {
@@ -59,5 +59,6 @@
             new ObjectGamePosition("extras/Score Ball Particle", 5, 6, 1),
             new ObjectGamePosition("extras/Score Ball Particle", 5, 7, 1),
         };
+        return _objectGamePositions;
     }
 }
