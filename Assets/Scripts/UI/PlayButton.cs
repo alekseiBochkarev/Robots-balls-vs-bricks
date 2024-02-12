@@ -9,6 +9,7 @@ public class PlayButton : MonoBehaviour
 
     void OnEnable()
     {
-        _textMeshPro.GetComponent<TMP_Text>().text = Translator.Translate("LEVEL ") + SceneManager.GetActiveScene().buildIndex;
+        // _textMeshPro.GetComponent<TMP_Text>().text = Translator.Translate("LEVEL ") + SceneManager.GetActiveScene().buildIndex;
+        _textMeshPro.GetComponent<TMP_Text>().text = Translator.Translate("DAY ") + SaveManager.LoadDayData();
     }
 }
