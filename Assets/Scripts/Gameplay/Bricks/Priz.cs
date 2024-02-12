@@ -58,6 +58,10 @@ public class Priz : MoveDownBehaviour
 
     public override IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
     {
+        if (currentY + 1 == (maxY - 1))
+        {
+            Destroy(parent);
+        }
         Debug.Log("currentY " + currentY + " maxY " + maxY);
         isMovingNow = true;
         float speed = 0.1f; //  скорость прогресса (от начальной до конечной позиции)

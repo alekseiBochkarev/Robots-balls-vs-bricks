@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class WinManager : MonoBehaviour
 {
-    private int maxSpawn = 10;
+    private int maxSpawn = 30;
     public int GetMaxSpawn
     {
         get
         {
-            if (SceneManager.GetActiveScene().buildIndex <= 5)
+            if (SaveManager.LoadDayData() <= 15)
             {
-                return (SceneManager.GetActiveScene().buildIndex * 2);
+                return (SaveManager.LoadDayData() * 2);
             } else
             {
                 return maxSpawn;
