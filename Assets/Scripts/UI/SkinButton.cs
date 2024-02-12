@@ -32,7 +32,8 @@ public class SkinButton : MonoBehaviour
 	}
 	void OnEnable()
     {
-        if (_minLevelWhereAvailable <= SceneManager.GetActiveScene().buildIndex) 
+        //if (_minLevelWhereAvailable <= SceneManager.GetActiveScene().buildIndex) 
+        if (_minLevelWhereAvailable <= SaveManager.LoadDayData()) 
 		{
 			SaveSkinIsActivate(_robotName);
 		}

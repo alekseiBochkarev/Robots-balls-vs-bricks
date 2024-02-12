@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: FriendsGames
+  companyName: "\u0410 \u044F \u0434\u0443\u043C\u0430\u043B\u0430 \u0421\u043E\u0432\u0430"
   productName: Brick breaker Robot
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
