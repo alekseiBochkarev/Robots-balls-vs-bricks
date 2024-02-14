@@ -154,7 +154,7 @@ public class BrickSpawner : MonoBehaviour
                 {
                     if (!createMagicBall)
                     {
-                        //здоровье брика будет равно индексу сцены (на 1 сцене 2, на второй 4 и так далее)
+                        //здоровье брика будет равно номеру уровня
                         StartCoroutine(CreateObject(brickNames[Random.Range(0, brickNames.Length)], i, 0, (SaveManager.LoadDayData())));
                     } else
                     {
@@ -246,10 +246,11 @@ public class BrickSpawner : MonoBehaviour
         allBricksMovedDown = false;
         vision = 10f; //need to check maybe we should set more than 10
         colliders = Physics2D.OverlapCircleAll(transform.position, vision, layerAsLayerMask);
-        for (var y = m_levelConfig.grid.GridHeight-1; y >= 0; y--)
+       /* for (var y = m_levelConfig.grid.GridHeight-1; y >= 0; y--)
         {
             yield return MoveRow(y);
-        } 
+        } */
+       yield return MoveRow();
         allBricksMovedDown = true;
     }
 
@@ -281,6 +282,30 @@ public class BrickSpawner : MonoBehaviour
                         //Debug.Log("component MOVEDOWN concrete COLLIDER");
                         StartCoroutine(t.gameObject.GetComponent<MoveDownBehaviour>().MoveDown());
                     }
+                }
+            }
+        }
+        yield return null;
+    }
+    
+    public IEnumerator MoveRow()
+    {
+        vision = 10f; //need to check maybe we should set more than 10
+        colliders = Physics2D.OverlapCircleAll(transform.position, vision, layerAsLayerMask);
+        for (var x = 0; x <= m_levelConfig.grid.GridWidth-1; x++)
+        {
+            foreach (var t in colliders)
+            {
+                if (t.gameObject == gameObject) continue;
+                if (t.gameObject.GetComponent<MoveDownBehaviour>() != null)
+                {
+                    //Debug.Log("component MOVEDOWNBEHAVIOUR not null");
+                   // if (t.gameObject.GetComponent<MoveDownBehaviour>().X == x &&
+                    //    t.gameObject.GetComponent<MoveDownBehaviour>().Y == y)
+                   // {
+                        //Debug.Log("component MOVEDOWN concrete COLLIDER");
+                        StartCoroutine(t.gameObject.GetComponent<MoveDownBehaviour>().MoveDown());
+                  //  }
                 }
             }
         }
