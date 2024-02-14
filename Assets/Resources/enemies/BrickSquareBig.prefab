@@ -5525,13 +5525,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8990824978887176233, guid: 2448ac433eae27f469cb254c9354c2aa,
         type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 6.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990824978887176233, guid: 2448ac433eae27f469cb254c9354c2aa,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 6.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990824978887176233, guid: 2448ac433eae27f469cb254c9354c2aa,
+        type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 5.12
+      value: 6.12
       objectReference: {fileID: 0}
     - target: {fileID: 8990824978887176233, guid: 2448ac433eae27f469cb254c9354c2aa,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 5.12
+      value: 6.12
       objectReference: {fileID: 0}
     - target: {fileID: 8990824978887176233, guid: 2448ac433eae27f469cb254c9354c2aa,
         type: 3}
@@ -5840,12 +5850,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b1dd12cb793426143b346d2259fad843, type: 3}
+  m_Color: {r: 0.3779334, g: 0.8867924, b: 0.28109652, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6.12, y: 6.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
