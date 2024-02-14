@@ -25,5 +25,6 @@ public class RewardAdsManager : MonoBehaviour
     {
         WalletController.Instance.AddMoneyAndShow(1000);
         adsButton.SetActive(false);
+		EventManager.OnCoinsChanged();
     }
 }

@@ -130,7 +130,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
     private void Update()
     {
-        DebugMethod(); // this one only for debugging
+       // DebugMethod(); // this one only for debugging
     }
 
     /**
@@ -139,7 +139,8 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
      */
     private void ShowStatsDataAndRuleButtons()
     {
-        GetCoins();
+        Debug.Log("method ShowStatsDataAndRuleButtons проверяю после ревардед рекламы");
+		GetCoins();
 
         ShowCurrentStatsName(healthText, HealthStatText);
      //   ShowCurrentStatsName(batteryCellsText, BatteryCellsStatText);
@@ -479,7 +480,8 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 
     private void GetCoins()
     {
-        _playerCoins = coins.m_Coins;
+        _playerCoins = coins.LoadCoins();
+		Debug.Log("method ShowStatsDataAndRuleButtons проверяю после ревардед рекламы _playerCoins " + _playerCoins);
     }
 
     private void ShowUpgradePrice(TextMeshProUGUI upgradeButtonText, float priceWithCoins)
@@ -512,7 +514,7 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
-            coins.AddCoin(100000);
+            Coins.Instance.AddCoin(100000);
             WalletController.Instance.ShowCoins();
         }
     }
