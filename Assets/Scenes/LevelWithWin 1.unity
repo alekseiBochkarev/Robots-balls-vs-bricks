@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Scores: {fileID: 805724229}
   m_Hero: {fileID: 0}
   m_GameOverFinalScore: {fileID: 881710504}
+  m_backGround: {fileID: 73994427}
   s_ReturnedBallsAmount: 0
   playerBallsAmount: 0
 --- !u!114 &1875912
@@ -494,7 +495,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73994427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.16, y: -3.19, z: 0}
+  m_LocalPosition: {x: 0.16, y: 4.93, z: 0}
   m_LocalScale: {x: 1.8, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
