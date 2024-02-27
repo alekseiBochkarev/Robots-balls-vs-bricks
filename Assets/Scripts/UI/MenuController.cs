@@ -15,7 +15,7 @@ public class MenuController : MonoBehaviour
     public GameObject m_MainMenuQuitPanel;
   //  public GameObject m_SettingsPanel;
     public GameObject m_PauseMenu;  // or backMenu (panel)
-    public GameObject m_UpgradeButton; // on click -> opens Upgrade modal panel
+    public GameObject m_GymButton; // on click -> opens Upgrade modal panel
     public GameObject m_UpgradePanel;
 
     public GameObject m_LevelSelectionButton; // on click -> opens Level Selection panel
@@ -92,7 +92,7 @@ public class MenuController : MonoBehaviour
     public void OpenUpgradePanel() // nice to add some animation on openning
     {
         m_UpgradePanel.SetActive(true);
-        m_UpgradeButton.SetActive(false);
+        m_GymButton.SetActive(false);
     }
 
     public void OpenLevelSelection() // nice to add some animation on openning
@@ -110,7 +110,7 @@ public class MenuController : MonoBehaviour
     public void CloseUpgradePanel() // nice to add some animation on closing
     {
         m_UpgradePanel.SetActive(false);
-        m_UpgradeButton.SetActive(true);
+        m_GymButton.SetActive(true);
     }
 
     public void ShowPauseMenu()
