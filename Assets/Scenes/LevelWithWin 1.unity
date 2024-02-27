@@ -211,6 +211,7 @@ MonoBehaviour:
   m_GameOverFinalScore: {fileID: 881710504}
   m_backGround: {fileID: 73994427}
   m_backGroundCellField: {fileID: 526159098299412781}
+  m_educationFinger: {fileID: 267824964}
   s_ReturnedBallsAmount: 0
   playerBallsAmount: 0
 --- !u!114 &1875912
@@ -2529,6 +2530,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.24313727
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524055075085242316, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2555685126638658021, guid: 66bf94cef2d746341ba7fb8e0d5dc325,
         type: 3}
