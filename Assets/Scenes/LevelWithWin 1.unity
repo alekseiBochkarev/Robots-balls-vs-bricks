@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Hero: {fileID: 0}
   m_GameOverFinalScore: {fileID: 881710504}
   m_backGround: {fileID: 73994427}
+  m_backGroundCellField: {fileID: 526159098299412781}
   s_ReturnedBallsAmount: 0
   playerBallsAmount: 0
 --- !u!114 &1875912
@@ -1335,6 +1336,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bde532cc5a2129b4db9a462d6b69ef3f, type: 3}
+--- !u!1 &526159098299412781 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 526159098987892215, guid: bde532cc5a2129b4db9a462d6b69ef3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 526159098299412780}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1179347970306387300
 PrefabInstance:
   m_ObjectHideFlags: 0

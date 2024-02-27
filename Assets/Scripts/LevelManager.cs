@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject m_Hero;
     public Text m_GameOverFinalScore;
     public GameObject m_backGround;
+    public GameObject m_backGroundCellField;
 
 	private bool energyIsOver;
 	private bool lifeIsOver;
@@ -42,6 +43,7 @@ public class LevelManager : MonoBehaviour
             {
                 case LevelState.BEFOREPLAYABLE:
                     m_backGround.transform.position = new Vector3(0.16f, 4.93f, 0f);
+                    m_backGroundCellField.SetActive(false);
                     m_Hero.transform.position = new Vector3(0f, 1.1f);
                     m_Hero.transform.localScale = new Vector3(1f, 1f, 1f);
                     //  m_GameMenuPanel.SetActive(false);
@@ -64,6 +66,7 @@ public class LevelManager : MonoBehaviour
                     else
                     {
                         m_backGround.transform.position = new Vector3(0.16f, -3.19f, 0f);
+                        m_backGroundCellField.SetActive(true);
                         m_Hero.transform.position = new Vector3(0f, -4.1f);
                         m_Hero.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
                         // m_GameMenuPanel.SetActive(true);
