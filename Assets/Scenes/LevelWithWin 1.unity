@@ -2150,6 +2150,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2450759191794639295, guid: 040699065a08ed843a7214f627d6b647,
         type: 3}
+      propertyPath: educationFinger
+      value: 
+      objectReference: {fileID: 267824964}
+    - target: {fileID: 2450759191794639295, guid: 040699065a08ed843a7214f627d6b647,
+        type: 3}
       propertyPath: m_ReturnBallsButton
       value: 
       objectReference: {fileID: 215422924}

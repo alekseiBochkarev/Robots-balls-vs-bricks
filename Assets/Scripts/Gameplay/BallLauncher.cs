@@ -61,17 +61,13 @@ public class BallLauncher : MonoBehaviour
     [Header("FOR EDUCATION JUST FOR 1st LEVEL")]
     [SerializeField] private bool isFirstScene;
 
-    private GameObject educationFinger;
+    [SerializeField] private GameObject educationFinger;
     
     private void Awake()
     {
         Instance = this;
         m_CanPlay = true;
         hero = GameObject.FindGameObjectWithTag("Hero").GetComponent<Hero>();
-        if (isFirstScene)
-        {
-            educationFinger = GameObject.Find("EducaionFinger");
-        }
         ballStartPosition = Instantiate(ballStartPrefab, ballStartPostitionCoordinates, new Quaternion(0, 180, 0, 1));
         ballStartPosition.transform.SetParent(this.transform.parent, false);
         m_BallSprite = ballStartPosition.GetComponent<SpriteRenderer>();
