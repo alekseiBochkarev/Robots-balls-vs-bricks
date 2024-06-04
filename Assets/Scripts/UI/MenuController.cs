@@ -91,8 +91,13 @@ public class MenuController : MonoBehaviour
 
     public void OpenUpgradePanel() // nice to add some animation on openning
     {
-        m_UpgradePanel.SetActive(true);
-        m_GymButton.SetActive(false);
+        if (!m_UpgradePanel.activeSelf) {
+            m_UpgradePanel.SetActive(true);
+        } else
+        {
+            m_UpgradePanel.SetActive(false);
+        }
+        //m_GymButton.SetActive(false);
     }
 
     public void OpenLevelSelection() // nice to add some animation on openning

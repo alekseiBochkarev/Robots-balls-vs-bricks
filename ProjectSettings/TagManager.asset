@@ -22,6 +22,8 @@ TagManager:
   - SkinMenuHeroImage
   - MainStatsPanel
   - LevelText
+  - HeroHealthBarCanvas
+  - Gym
   layers:
   - Default
   - TransparentFX
