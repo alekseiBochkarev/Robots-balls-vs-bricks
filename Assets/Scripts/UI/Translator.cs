@@ -261,7 +261,23 @@ public static class Translator
             "LOADING...",
             "ЗАГРУЗКА...",
             "YÜKLENİYOR..."
+        },
+        {
+            "IMPROVE",
+            "ПРОКАЧКА",
+            "geliştirmek"
+        },
+        {
+            "SUPER SKINS",
+            "СУПЕР ГЕРОИ",
+            "süper kahramanlar"
+        },
+        {
+            "NEW SKINS",
+            "НОВЫЕ ГЕРОИ",
+            "yeni kahramanlar"
         }
+
                 
         // ...... ну и т.д., если языков больше, то в каждом блоке будет больше строчек
     };
