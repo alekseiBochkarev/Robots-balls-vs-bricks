@@ -6,7 +6,7 @@
         {
             new ObjectGamePosition("enemies/UFO", 5, 5, 1), 
             
-            new ObjectGamePosition("enemies/BrickPrizSkin2", 5,5,1),
+           // new ObjectGamePosition("enemies/BrickPrizSkin2", 5,5,1),
             
             new ObjectGamePosition("enemies/BrickSquare", 3, 2, 1), 
             new ObjectGamePosition("enemies/BrickSquare", 4, 2, 1),

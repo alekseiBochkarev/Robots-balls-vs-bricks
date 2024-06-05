@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
     public GameObject m_Scores;
     [SerializeField] private GameObject m_Hero;
     [SerializeField] private GameObject m_Hero_HealfBarCanvas;
-    [SerializeField] private GameObject m_Gym_button;
+    //[SerializeField] private GameObject m_Gym_button;
     public Text m_GameOverFinalScore;
     public GameObject m_backGround;
     public GameObject m_backGroundCellField;
@@ -48,10 +48,10 @@ public class LevelManager : MonoBehaviour
                     m_backGround.transform.position = new Vector3(0.16f, 4.93f, 0f);
                     m_backGroundCellField.SetActive(false);
                     m_educationFinger.SetActive(false);
-                    m_Hero.transform.position = new Vector3(0f, 1.1f);
+                    m_Hero.transform.position = new Vector3(0f, -1.1f);
                     m_Hero.transform.localScale = new Vector3(1f, 1f, 1f);
                     m_Hero_HealfBarCanvas.SetActive(false);
-                    m_Gym_button.SetActive(true);
+                    //m_Gym_button.SetActive(true);
                     //  m_GameMenuPanel.SetActive(false);
                     m_TopStatsPanel.SetActive(true);
                     m_MainStatsPanel.SetActive(true);
@@ -77,7 +77,7 @@ public class LevelManager : MonoBehaviour
                         m_Hero.transform.position = new Vector3(0f, -4.1f);
                         m_Hero.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
                         m_Hero_HealfBarCanvas.SetActive(true);
-                        m_Gym_button.SetActive(false);
+                        //m_Gym_button.SetActive(false);
                         // m_GameMenuPanel.SetActive(true);
                         m_BeforeStartPanel.SetActive(false);
                         m_GameOverPanel.SetActive(false);
@@ -145,7 +145,7 @@ public class LevelManager : MonoBehaviour
         Instance = this;
         m_Hero = GameObject.FindGameObjectWithTag("Hero");
         m_Hero_HealfBarCanvas = GameObject.FindGameObjectWithTag("HeroHealthBarCanvas");
-        m_Gym_button = GameObject.FindGameObjectWithTag("Gym");
+        //m_Gym_button = GameObject.FindGameObjectWithTag("Gym");
         EventManager.BallsReturned += CheckBallsAndOpenSpecAttackPanelAndContinuePlaying;
         EventManager.ResetReturningBallsAmount += ResetReturningBallsAmount;
 		EventManager.EnergyIsOverEvent += ShowLosePanelBecauseEnergyIsOver;

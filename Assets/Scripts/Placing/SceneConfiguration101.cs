@@ -9,7 +9,7 @@ public class SceneConfiguration101 : SceneConfiguration
         {
             new ObjectGamePosition("enemies/UFO", 5, 5, SceneManager.GetActiveScene().buildIndex), 
             
-            new ObjectGamePosition("enemies/BrickPrizSkin34", 5,5,SceneManager.GetActiveScene().buildIndex),
+           // new ObjectGamePosition("enemies/BrickPrizSkin34", 5,5,SceneManager.GetActiveScene().buildIndex),
             
             new ObjectGamePosition("enemies/BrickBombaSmall", 3, 2, SceneManager.GetActiveScene().buildIndex), 
             new ObjectGamePosition("enemies/BrickSquareBlue", 4, 2, SceneManager.GetActiveScene().buildIndex),
