@@ -3,45 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8f7a12e7-3117-49e5-b950-126538c99e2e" name="Changes" comment="add changes from battery branch">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Robots-balls-vs-bricks.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelWithWin 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration101.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration101.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration104.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration104.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration11.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration11.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration14.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration14.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration17.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration17.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration20.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration20.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration23.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration23.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration26.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration26.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration29.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration29.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration32.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration32.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration35.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration35.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration38.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration38.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration41.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration41.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration44.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration44.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration47.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration47.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration5.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration5.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration50.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration50.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration53.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration53.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration56.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration56.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration59.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration59.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration62.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration62.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration65.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration65.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration68.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration68.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration71.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration71.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration74.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration74.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration77.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration77.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration8.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration8.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration80.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration80.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration83.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration83.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration86.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration86.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration89.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration89.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration92.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration92.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration95.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration95.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration98.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placing/SceneConfiguration98.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +217,7 @@
       <workItem from="1692696915697" duration="2038000" />
       <workItem from="1692759298231" duration="9113000" />
       <workItem from="1707883897539" duration="7590000" />
-      <workItem from="1717598099111" duration="324000" />
+      <workItem from="1717598099111" duration="789000" />
     </task>
     <task id="LOCAL-00001" summary="newScene and rename menuCanvas">
       <created>1679036454804</created>
