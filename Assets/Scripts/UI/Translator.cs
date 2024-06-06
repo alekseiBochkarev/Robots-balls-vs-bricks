@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.CodeDom.Compiler;
+using UnityEngine;
 
 public static class Translator
 {
@@ -8,12 +9,23 @@ public static class Translator
     {
         if(langIndex==-1) // начальная инициализация индекса языка при первом вызове
         {
-            switch(Application.systemLanguage.ToString())
-            {
-                case "English": langIndex=0; break;
-                case "Russian": langIndex=1; break;
-                case "Turkish": langIndex=2; break;
+           // switch(Application.systemLanguage.ToString())
+           // {
+           //     case "English": langIndex=0; break;
+           //     case "Russian": langIndex=1; break;
+           //     case "Turkish": langIndex=2; break;
                     // продолжить для других языков ....
+           // }
+           switch(Language.Instance.CurrentLanguage)
+            {
+                case "en": langIndex = 0; break;
+                case "ru": langIndex = 1; break;
+                case "tr": langIndex = 2; break;
+                case "be": langIndex = 1; break;
+                case "kk": langIndex = 1; break;
+                case "uk": langIndex = 1; break;
+                case "uz": langIndex = 1; break;
+                default: langIndex = 0; break;
             }
         }
       
