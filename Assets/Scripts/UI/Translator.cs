@@ -276,6 +276,21 @@ public static class Translator
             "NEW SKINS",
             "НОВЫЕ ГЕРОИ",
             "yeni kahramanlar"
+        },
+        {
+            "DAY ",
+            "ДЕНЬ ",
+            "GÜN "
+        },
+        {
+            "INSTAKILL",
+            "КИЛЛЕР",
+            "KATİL"
+        },
+        {
+            "INSTAKILL COMBO",
+            "КИЛЛЕР КОМБО",
+            "KATİL"
         }
 
                 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -304,7 +305,14 @@ public class BrickSpawner : MonoBehaviour
                     //    t.gameObject.GetComponent<MoveDownBehaviour>().Y == y)
                    // {
                         //Debug.Log("component MOVEDOWN concrete COLLIDER");
+                    try
+                    {
                         StartCoroutine(t.gameObject.GetComponent<MoveDownBehaviour>().MoveDown());
+                    } 
+                    catch
+                    {
+                        
+                    }
                   //  }
                 }
             }
@@ -325,7 +333,7 @@ public class BrickSpawner : MonoBehaviour
                     if (t.gameObject.GetComponent<Brick>().X == x &&
                             t.gameObject.GetComponent<Brick>().Y == y)
                         {
-                            Debug.Log("component MOVEDOWN Attack");
+                            //Debug.Log("component MOVEDOWN Attack");
                             yield return t.gameObject.GetComponent<Brick>().Attack();
                         }
                     }  

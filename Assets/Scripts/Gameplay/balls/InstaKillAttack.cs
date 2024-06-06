@@ -14,7 +14,7 @@ public class InstaKillAttack : MonoBehaviour, AttackBehaviour
     if (rnNum == 1)
     {
       //  Debug.Log("Try Kill Brick with InstaKill Ball");
-        brick.GetComponent<Brick>().KillBrick(instaKillMessageText);
+        brick.GetComponent<Brick>().KillBrick(Translator.Translate(instaKillMessageText));
     }
   }
 }
