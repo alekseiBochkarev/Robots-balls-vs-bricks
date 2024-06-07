@@ -21,7 +21,7 @@ public class Language : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
             CurrentLanguage = GetLang();
-            //Debug.Log(CurrentLanguage);
+            UnityEngine.Debug.Log(CurrentLanguage);
         } else
         {
             Destroy(gameObject);

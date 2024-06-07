@@ -3,12 +3,28 @@ using UnityEngine;
 
 public static class Translator
 {
-    static int langIndex=-1; // индекс языка: -1-еще не инициализирован, 0-англ, 1 - русский и т.д.
+    static int langIndex;//=-1; // индекс языка: -1-еще не инициализирован, 0-англ, 1 - русский и т.д.
   
     public static string Translate(string text_)
     {
-        if(langIndex==-1) // начальная инициализация индекса языка при первом вызове
+        switch (Language.Instance.CurrentLanguage)
         {
+            case "en": langIndex = 0; break;
+            case "ru": langIndex = 1; break;
+            case "tr": langIndex = 2; break;
+            case "be": langIndex = 1; break;
+            case "kk": langIndex = 1; break;
+            case "uk": langIndex = 1; break;
+            case "uz": langIndex = 1; break;
+            case "ar": langIndex = 0; break; // арабский
+            case "ca": langIndex = 0; break; // каталанский
+            case "es": langIndex = 0; break; // испанский
+            case "hi": langIndex = 0; break; // хинди
+            default: langIndex = 0; break;
+        }
+
+        //if (langIndex==-1) // начальная инициализация индекса языка при первом вызове
+        //{
            // switch(Application.systemLanguage.ToString())
            // {
            //     case "English": langIndex=0; break;
@@ -16,18 +32,8 @@ public static class Translator
            //     case "Turkish": langIndex=2; break;
                     // продолжить для других языков ....
            // }
-           switch(Language.Instance.CurrentLanguage)
-            {
-                case "en": langIndex = 0; break;
-                case "ru": langIndex = 1; break;
-                case "tr": langIndex = 2; break;
-                case "be": langIndex = 1; break;
-                case "kk": langIndex = 1; break;
-                case "uk": langIndex = 1; break;
-                case "uz": langIndex = 1; break;
-                default: langIndex = 0; break;
-            }
-        }
+           
+        //}
       
         for(int i=0;i<labels.GetLength(0);i++)
         {
