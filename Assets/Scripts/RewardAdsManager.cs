@@ -5,6 +5,7 @@ using YG;
 using Assets.Scripts.Data_Managing;
 using Assets.Scripts.DataManaging.Utills;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 public class RewardAdsManager : MonoBehaviour
 {
@@ -40,8 +41,9 @@ public class RewardAdsManager : MonoBehaviour
         Task.Delay(100);
         int currentLevel = SaveManager.LoadDayData();
         int maxKilledEnemies = SaveManager.LoadKilledEnemies();
+        UnityEngine.Debug.Log("Max killed enemies " + maxKilledEnemies);
 
-        YandexGame.NewLeaderboardScores("MaxLevel", currentLevel);
         YandexGame.NewLeaderboardScores("KilledEnemies", maxKilledEnemies);
+        YandexGame.NewLeaderboardScores("MaxLevel", currentLevel);
     }
 }

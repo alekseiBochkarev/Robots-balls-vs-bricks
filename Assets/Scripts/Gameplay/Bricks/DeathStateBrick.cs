@@ -29,6 +29,7 @@ public class DeathStateBrick : MonoBehaviour, IStateBrick
     
     public void DeathOfBrick (bool isInstantiateLoot){
         SaveManager.AddAndSaveKilled();
+        UnityEngine.Debug.Log("LoadKilled Enemies " + SaveManager.LoadKilledEnemies());
         brick.PlayDeathMusic();
         //AnimatorClipInfo[] m_AnimatorClipInfo = brick.animator.GetCurrentAnimatorClipInfo(0);
         //Output the name of the starting clip
