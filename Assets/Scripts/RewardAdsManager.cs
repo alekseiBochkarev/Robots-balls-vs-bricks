@@ -4,6 +4,7 @@ using UnityEngine;
 using YG;
 using Assets.Scripts.Data_Managing;
 using Assets.Scripts.DataManaging.Utills;
+using System.Threading.Tasks;
 
 public class RewardAdsManager : MonoBehaviour
 {
@@ -26,5 +27,20 @@ public class RewardAdsManager : MonoBehaviour
         WalletController.Instance.AddMoneyAndShow(1000);
         adsButton.SetActive(false);
 		EventManager.OnCoinsChanged();
+    }
+
+    public async void GetData()
+    {
+        // ƒожидаемс€, пока SDK не станет доступным
+        while (!YandexGame.SDKEnabled)
+        {
+            await Task.Delay(200); // ћожно изменить интервал ожидани€ (в миллисекундах)
+        }
+        Task.Delay(100);
+        int currentLevel = SaveManager.LoadDayData();
+        int maxKilledEnemies = SaveManager.LoadKilledEnemies();
+
+        YandexGame.NewLeaderboardScores("MaxLevel", currentLevel);
+        YandexGame.NewLeaderboardScores("KilledEnemies", maxKilledEnemies);
     }
 }

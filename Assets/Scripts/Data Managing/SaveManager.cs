@@ -41,4 +41,25 @@ public class SaveManager : MonoBehaviour
             return defaultDay;
         }
     }
+
+    public static int LoadKilledEnemies()
+    {
+        int defaultKilled = 0;
+        if (PlayerPrefs.HasKey("MaxKilledEnemies"))
+        {
+            return PlayerPrefs.GetInt("MaxKilledEnemies");
+        }
+        else
+        {
+            //Debug.Log("That's OK. Just There is no save data!"); 
+            return defaultKilled;
+        }
+    }
+
+    public static void AddAndSaveKilled()
+    {
+        int currentKilled = LoadKilledEnemies() + 1;
+        PlayerPrefs.SetInt("MaxKilledEnemies", currentKilled);
+        PlayerPrefs.Save();
+    }
 }
