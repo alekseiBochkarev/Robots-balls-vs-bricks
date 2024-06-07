@@ -15,6 +15,7 @@ public class RewardAdsManager : MonoBehaviour
     void Start()
     {
         adsButton.SetActive(true);
+        GetData();
     }
 
     public void ShowRewAdd()
