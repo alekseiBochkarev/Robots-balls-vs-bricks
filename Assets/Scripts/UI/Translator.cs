@@ -1,10 +1,24 @@
 ﻿using System.CodeDom.Compiler;
+using YG;
 using UnityEngine;
 using System.Threading.Tasks;
 
 public static class Translator
 {
     static int langIndex;//=-1; // индекс языка: -1-еще не инициализирован, 0-англ, 1 - русский и т.д.
+
+    private static int indexFromYG()
+    {
+        int index = 0;
+        switch (YandexGame.EnvironmentData.language)
+        {
+            case "en": index = 0; break;
+            case "ru": index = 1; break;
+            case "tr": index = 2; break;
+            default: index = 0; break;
+        }
+        return index;
+    } 
 
     public static string Translate(string text_)
     {
@@ -21,7 +35,7 @@ public static class Translator
             case "ca": langIndex = 0; break; // каталанский
             case "es": langIndex = 0; break; // испанский
             case "hi": langIndex = 0; break; // хинди
-            default: langIndex = 0; break;
+            default: langIndex = indexFromYG(); break;
         }
 
         //if (langIndex==-1) // начальная инициализация индекса языка при первом вызове

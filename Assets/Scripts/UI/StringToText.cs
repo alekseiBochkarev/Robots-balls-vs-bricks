@@ -7,7 +7,7 @@ public class StringToText : MonoBehaviour
 
     private void OnEnable()
     {
-        Invoke("TranslateLate", 2f);
+        Invoke("TranslateLate", 0.05f);
     }
 
     private void TranslateLate()
