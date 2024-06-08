@@ -182,7 +182,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LOADING...
+  m_text: ... /// ..... /////
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -275,9 +275,9 @@ MonoBehaviour:
   textMeshComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
-  ru: "\u0417\u0410\u0413\u0420\u0423\u0417\u041A\u0410..."
-  en: LOADING...
-  tr: "Y\xDCKLEN\u0130YOR..."
+  ru: ...
+  en: ...
+  tr: ...
   az: 
   be: 
   he: 
