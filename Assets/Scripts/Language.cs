@@ -1,16 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
+using YG;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Language : MonoBehaviour
 {
-    [DllImport("__Internal")]
-    private static extern string GetLang();
-    
     public string CurrentLanguage; // ru en
-    
+
     public static Language Instance;
 
     private void Awake()
@@ -20,11 +17,23 @@ public class Language : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            CurrentLanguage = GetLang();
+            GetData();
             UnityEngine.Debug.Log(CurrentLanguage);
-        } else
+        }
+        else
         {
             Destroy(gameObject);
         }
+    }
+
+    public async void GetData()
+    {
+        // ƒожидаемс€, пока SDK не станет доступным
+        while (!YandexGame.SDKEnabled)
+        {
+            await Task.Delay(200); // ћожно изменить интервал ожидани€ (в миллисекундах)
+        }
+        Task.Delay(100);
+        CurrentLanguage = YandexGame.EnvironmentData.language;
     }
 }

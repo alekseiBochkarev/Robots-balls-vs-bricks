@@ -1,10 +1,11 @@
 ﻿using System.CodeDom.Compiler;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public static class Translator
 {
     static int langIndex;//=-1; // индекс языка: -1-еще не инициализирован, 0-англ, 1 - русский и т.д.
-  
+
     public static string Translate(string text_)
     {
         switch (Language.Instance.CurrentLanguage)
