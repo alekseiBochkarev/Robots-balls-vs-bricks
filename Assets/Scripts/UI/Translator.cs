@@ -9,6 +9,7 @@ public static class Translator
 
     private static int indexFromYG()
     {
+        UnityEngine.Debug.Log("print YandexGame.EnvironmentData.language " + YandexGame.EnvironmentData.language);
         int index = 0;
         switch (YandexGame.EnvironmentData.language)
         {
@@ -22,11 +23,12 @@ public static class Translator
 
     public static string Translate(string text_)
     {
+        UnityEngine.Debug.Log("print Language.Instance.CurrentLanguage " + Language.Instance.CurrentLanguage);
         switch (Language.Instance.CurrentLanguage)
         {
             case "en": langIndex = 0; break;
             case "ru": langIndex = 1; break;
-            case "tr": langIndex = 2; break;
+            case "tr": langIndex = 0; break;
             case "be": langIndex = 1; break;
             case "kk": langIndex = 1; break;
             case "uk": langIndex = 1; break;
@@ -35,7 +37,7 @@ public static class Translator
             case "ca": langIndex = 0; break; // каталанский
             case "es": langIndex = 0; break; // испанский
             case "hi": langIndex = 0; break; // хинди
-            default: langIndex = indexFromYG(); break;
+            default: langIndex = 0; break;
         }
 
         //if (langIndex==-1) // начальная инициализация индекса языка при первом вызове

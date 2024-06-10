@@ -22,6 +22,12 @@ public class Language : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             CurrentLanguage = GetLang();
             UnityEngine.Debug.Log(CurrentLanguage);
+            int i = 0;
+            while (CurrentLanguage == null && i < 20)
+            {
+                CurrentLanguage= GetLang();
+                i++;
+            }
         }
         else
         {
