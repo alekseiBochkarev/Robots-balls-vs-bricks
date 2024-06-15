@@ -44,7 +44,11 @@ public class AttackStateBrick : MonoBehaviour, IStateBrick
             brick.animator.Play("attack");
             var bullet = Instantiate(brick.bulletOnlyForRangeAttackedBricks, this.brick.transform.position, Quaternion.identity);
             bullet.GetComponent<Bullet>().AttackPower = (applyDamage/2);
-            yield return new WaitForSeconds(0.1f);
+            if (bullet.GetComponent<Bullet>().AttackPower < 1)
+            {
+                bullet.GetComponent<Bullet>().AttackPower = 1;
+            }
+            yield return new WaitForSeconds(0.05f);
             brick.SetState(brick.idleStateBrick);
             yield break;
         }

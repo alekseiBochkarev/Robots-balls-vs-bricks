@@ -13,10 +13,10 @@ public static class Translator
         int index = 0;
         switch (YandexGame.EnvironmentData.language)
         {
-            case "en": index = 0; break;
+           // case "en": index = 0; break;
             case "ru": index = 1; break;
            // case "tr": index = 2; break;
-            default: index = 0; break;
+            default: index = 1; break;
         }
         return index;
     } 
