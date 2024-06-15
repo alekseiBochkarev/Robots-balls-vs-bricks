@@ -305,14 +305,10 @@ public class BrickSpawner : MonoBehaviour
                     //    t.gameObject.GetComponent<MoveDownBehaviour>().Y == y)
                    // {
                         //Debug.Log("component MOVEDOWN concrete COLLIDER");
-                    try
+                    if(t.gameObject != null && t.gameObject.activeSelf)
                     {
                         StartCoroutine(t.gameObject.GetComponent<MoveDownBehaviour>().MoveDown());
                     } 
-                    catch
-                    {
-                        
-                    }
                   //  }
                 }
             }
@@ -326,17 +322,24 @@ public class BrickSpawner : MonoBehaviour
         {
             foreach (var t in colliders)
             {
-                if (t.gameObject == gameObject) continue;
-                if (t.gameObject.GetComponent<Brick>() != null)
+                if (t != null)
+                {
+                    if (t.gameObject == gameObject) continue;
+                    if (t.gameObject.GetComponent<Brick>() != null)
                     {
                         //Debug.Log("component MOVEDOWNBEHAVIOUR not null");
-                    if (t.gameObject.GetComponent<Brick>().X == x &&
-                            t.gameObject.GetComponent<Brick>().Y == y)
+                        if (t.gameObject.GetComponent<Brick>().X == x &&
+                                t.gameObject.GetComponent<Brick>().Y == y)
                         {
                             //Debug.Log("component MOVEDOWN Attack");
-                            yield return t.gameObject.GetComponent<Brick>().Attack();
+                            if (t.gameObject != null && t.gameObject.activeSelf)
+                            {
+                                yield return t.gameObject.GetComponent<Brick>().Attack();
+                            }
                         }
-                    }  
+                    }
+                }
+                
             }
         }
         yield break;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Gameplay;
+using System.Diagnostics;
 
 public class FireStateBrick : IStateBrick
 {
@@ -69,7 +70,7 @@ public class FireStateBrick : IStateBrick
     }
 
     public void TakeDamage (int appliedDamage) {
-        Debug.Log("TAKE DAMAGE WHEN I FIRE");
+        //Debug.Log("TAKE DAMAGE WHEN I FIRE");
         brick.SetStateWithoutExit(brick.takeDamageStateBrick);
         brick.TakeDamage(appliedDamage);
         brick.SetState(this);
@@ -108,6 +109,11 @@ public class FireStateBrick : IStateBrick
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
     {
         TakeDamage(fireDamage);
+        if (currentY + 1 == (maxY - 1))
+        {
+            //UnityEngine.Debug.Log("set state IsWaitMeleeAttack");
+            brick.IsWaitMeleeAttack = true;
+        }
         //countOfFireStep++;
         if (countOfFireStep > maxCountOfFireStep)
         {

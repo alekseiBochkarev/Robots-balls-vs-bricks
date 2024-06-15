@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 878
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 471}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 19
+  controlID: 93
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 20
+  controlID: 94
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 51
+  controlID: 100
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 28
+  controlID: 101
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -295,8 +295,8 @@ MonoBehaviour:
     y: 0
     width: 308.80005
     height: 828
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -431,7 +431,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: acefffffe2efffffe6f9fffff2f9ffff26fbffff
+      m_ExpandedIDs: 16efffff52efffff5af9ffff6af9ffff2cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1078,22 +1078,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Yandex/Plugins
+    - Assets/Scripts/UI
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Yandex/Plugins
+  - Assets/Scripts/UI
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\a.bochkarev\Documents\Robots-balls-vs-bricks
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 1403}
-    m_SelectedIDs: 265c0000
-    m_LastClickedID: 23590
-    m_ExpandedIDs: 000000000e5b0000105b0000125b0000145b0000165b0000185b00001a5b00001c5b00001e5b0000205b0000225b0000245b0000265b0000285b00002a5b00002c5b00002e5b0000305b0000325b0000345b0000365b0000385b00003a5b00003c5b00003e5b0000405b0000425b0000445b0000465b0000485b00004a5b00004c5b00004e5b0000505b0000525b0000545b000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 923}
+    m_SelectedIDs: 105b0000
+    m_LastClickedID: 23312
+    m_ExpandedIDs: 00000000085b00000a5b00000c5b00000e5b0000105b0000125b0000145b0000165b0000185b00001a5b00001c5b00001e5b0000205b0000225b0000245b0000265b0000285b00002a5b00002c5b00002e5b0000305b0000325b0000345b0000365b0000385b00003a5b00003c5b00003e5b0000405b0000425b0000445b0000465b0000485b00004a5b00004c5b00004e5b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1121,7 +1121,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000000e5b0000105b0000125b0000145b0000165b0000185b00001a5b00001c5b00001e5b0000205b0000225b0000245b0000265b0000285b00002a5b00002c5b00002e5b0000305b0000325b0000345b0000365b0000385b00003a5b00003c5b00003e5b0000405b0000425b0000445b0000465b0000485b00004a5b00004c5b00004e5b0000505b0000525b0000545b0000
+    m_ExpandedIDs: 00000000085b00000a5b00000c5b00000e5b0000105b0000125b0000145b0000165b0000185b00001a5b00001c5b00001e5b0000205b0000225b0000245b0000265b0000285b00002a5b00002c5b00002e5b0000305b0000325b0000345b0000365b0000385b00003a5b00003c5b00003e5b0000405b0000425b0000445b0000465b0000485b00004a5b00004c5b00004e5b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1148,7 +1148,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000445d000084650000405e0000ec580000286c000058860100ee570000ca570000ea570000da250100440c0200c8590000eadd0000ce740000706200000c660000229e0100de9b000046bf0000885a00006436000070360000627b0000c46a000004b70000206b0000bc5a00004e6c000000000000f0cd0000486c00003acb0000d0d000004ac50000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1173,7 +1173,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 114}
     m_GridSize: 96
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 385

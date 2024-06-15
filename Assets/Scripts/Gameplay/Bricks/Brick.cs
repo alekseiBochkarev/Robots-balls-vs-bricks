@@ -304,6 +304,11 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         {
             Destroy(shield);
         }
-        Destroy(parent, 3);
+        Destroy(parent);
+    }
+
+    void OnDestroy()
+    {
+        StopAllCoroutines();
     }
 }

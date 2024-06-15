@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Gameplay;
+using System.Diagnostics;
 
 public class IdleStateBrick : IStateBrick 
 {
@@ -20,7 +21,6 @@ public class IdleStateBrick : IStateBrick
     }
 
     public IEnumerator DoDamage(int applyDamage) {
-        Debug.Log("brick idle Attack");
         brick.SetState(brick.attackStateBrick);
         yield return brick.DoDamage(applyDamage);
     }
@@ -85,6 +85,11 @@ public class IdleStateBrick : IStateBrick
     public void ChangeColor() {} //hmm its a quastion
     
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY) {
+        if (currentY + 1 == (maxY - 1))
+        {
+            //UnityEngine.Debug.Log("set state IsWaitMeleeAttack");
+            brick.IsWaitMeleeAttack = true;
+        }
         brick.SetState(brick.walkStateBrick);
         yield return brick.MoveToTarget(startPos, endPos, currentY, maxY);
         brick.SetState(this);

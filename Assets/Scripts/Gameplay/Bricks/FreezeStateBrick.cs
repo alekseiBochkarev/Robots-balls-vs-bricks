@@ -14,10 +14,12 @@ public class FreezeStateBrick : IStateBrick
 
     public void Enter() {
         brick.ice.SetActive(true);
+        brick.canMove = false;
     }
 
     public void Exit() {
         brick.ice.SetActive(false);
+        brick.canMove = true;
     }
 
     public IEnumerator DoDamage(int applyDamage)
@@ -103,6 +105,10 @@ public class FreezeStateBrick : IStateBrick
             brick.SetState(brick.walkStateBrick);
             yield return brick.MoveToTarget(startPos, endPos, currentY, maxY);
             brick.SetState(brick.idleStateBrick);
+        }
+        else
+        {
+            yield break;
         }
     }
 }

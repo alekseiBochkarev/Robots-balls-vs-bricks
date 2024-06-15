@@ -15,7 +15,7 @@ public static class Translator
         {
             case "en": index = 0; break;
             case "ru": index = 1; break;
-            case "tr": index = 2; break;
+           // case "tr": index = 2; break;
             default: index = 0; break;
         }
         return index;
@@ -26,18 +26,18 @@ public static class Translator
         UnityEngine.Debug.Log("print Language.Instance.CurrentLanguage " + Language.Instance.CurrentLanguage);
         switch (Language.Instance.CurrentLanguage)
         {
-            case "en": langIndex = 0; break;
-            case "ru": langIndex = 1; break;
-            case "tr": langIndex = 0; break;
-            case "be": langIndex = 1; break;
-            case "kk": langIndex = 1; break;
-            case "uk": langIndex = 1; break;
-            case "uz": langIndex = 1; break;
-            case "ar": langIndex = 0; break; // арабский
-            case "ca": langIndex = 0; break; // каталанский
-            case "es": langIndex = 0; break; // испанский
-            case "hi": langIndex = 0; break; // хинди
-            default: langIndex = 0; break;
+          //  case "en": langIndex = 0; break;
+         //   case "ru": langIndex = 1; break;
+          //  case "tr": langIndex = 0; break;
+          //  case "be": langIndex = 1; break;
+          //  case "kk": langIndex = 1; break;
+          //  case "uk": langIndex = 1; break;
+          //  case "uz": langIndex = 1; break;
+         //   case "ar": langIndex = 0; break; // арабский
+          //  case "ca": langIndex = 0; break; // каталанский
+         //   case "es": langIndex = 0; break; // испанский
+         //   case "hi": langIndex = 0; break; // хинди
+            default: langIndex = indexFromYG(); break;
         }
 
         //if (langIndex==-1) // начальная инициализация индекса языка при первом вызове

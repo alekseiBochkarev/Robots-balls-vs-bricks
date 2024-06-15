@@ -99,6 +99,11 @@ public class PoisonStateBrick : IStateBrick
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
     {
         TakeDamage(poisonDamage);
+        if (currentY + 1 == (maxY - 1))
+        {
+            //UnityEngine.Debug.Log("set state IsWaitMeleeAttack");
+            brick.IsWaitMeleeAttack = true;
+        }
         //countOfPoisonStep++;
         if (countOfPoisonStep > maxCountOfPoisonStep)
         {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class MoveDownBehaviour : MonoBehaviour
@@ -51,15 +52,7 @@ public class MoveDownBehaviour : MonoBehaviour
 
     private void UpdateCurrentPosition()
     {
-        try
-        {
-            m_levelConfig.grid.GetXY(this.transform.parent.position, out x, out y);
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogAssertion(e.StackTrace);
-            throw;
-        }
+           m_levelConfig.grid.GetXY(this.transform.parent.position, out x, out y);      
     }
 
     private void SetZeroToCurrentPosition()
@@ -110,9 +103,10 @@ public class MoveDownBehaviour : MonoBehaviour
 
     IEnumerator MoveAndUpdateCurrentPosition(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
     {
-        yield return StartCoroutine(MoveToTarget(startPos, endPos, currentY, maxY));
-        UpdateCurrentPosition();
-        SetBusyXY();
+            yield return StartCoroutine(MoveToTarget(startPos, endPos, currentY, maxY));
+            UpdateCurrentPosition();
+            SetBusyXY();
+        
     }
 
     public void MoveHorizontal()

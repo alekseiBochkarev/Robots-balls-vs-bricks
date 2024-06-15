@@ -29,7 +29,7 @@ public class DeathStateBrick : MonoBehaviour, IStateBrick
     
     public void DeathOfBrick (bool isInstantiateLoot){
         SaveManager.AddAndSaveKilled();
-        UnityEngine.Debug.Log("LoadKilled Enemies " + SaveManager.LoadKilledEnemies());
+        //UnityEngine.Debug.Log("LoadKilled Enemies " + SaveManager.LoadKilledEnemies());
         brick.PlayDeathMusic();
         //AnimatorClipInfo[] m_AnimatorClipInfo = brick.animator.GetCurrentAnimatorClipInfo(0);
         //Output the name of the starting clip
@@ -59,10 +59,12 @@ public class DeathStateBrick : MonoBehaviour, IStateBrick
             GameObject ballPrefab = Resources.Load<GameObject>("BombCloneBall");
             GameObject bombCloneBall = Instantiate(ballPrefab, brick.transform.position, Quaternion.identity);
         }
-        
+
         //   WalletController.Instance.AddCoinAndShow();
         //destroy parent gameObject
-       brick.Destroy();
+        GameObject ripPrefab = Resources.Load<GameObject>("RIP");
+        var rip = Instantiate(ripPrefab, this.brick.transform.position, Quaternion.identity);
+        brick.Destroy();
     }
 
     public void Suicide (){

@@ -98,7 +98,7 @@ public class WalkStateBrick : IStateBrick
         //Debug.Log("currentY " + currentY + " maxY " + maxY);
         if (currentY + 1 == (maxY-1))
         {
-            Debug.Log("set state IsWaitMeleeAttack");
+            //UnityEngine.Debug.Log("set state IsWaitMeleeAttack");
             brick.IsWaitMeleeAttack = true;
         }
         brick.isMovingNow = true;
