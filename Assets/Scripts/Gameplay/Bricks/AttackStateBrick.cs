@@ -65,6 +65,10 @@ public class AttackStateBrick : MonoBehaviour, IStateBrick
         brick.damageTextColor = TextController.COLOR_GREEN;
         brick.damageTextFontSize = TextController.FONT_SIZE_MAX;
         int healHealthUpAmountInt = (int) healHealthUpAmount;
+        if (brick.MCurrentBrickHealth + healHealthUpAmountInt > brick.MMaxBrickHealth)
+        {
+            healHealthUpAmountInt = brick.MMaxBrickHealth - brick.MCurrentBrickHealth;
+        }
         brick.MCurrentBrickHealth += healHealthUpAmountInt;
         brick.healthBar.SaveCurrentBrickHealth();
         brick.healthBar.ShowHealth();
