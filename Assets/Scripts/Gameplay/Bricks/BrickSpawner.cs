@@ -297,20 +297,24 @@ public class BrickSpawner : MonoBehaviour
         {
             foreach (var t in colliders)
             {
-                if (t.gameObject == gameObject) continue;
-                if (t.gameObject.GetComponent<MoveDownBehaviour>() != null)
+                if (t != null)
                 {
-                    //Debug.Log("component MOVEDOWNBEHAVIOUR not null");
-                   // if (t.gameObject.GetComponent<MoveDownBehaviour>().X == x &&
-                    //    t.gameObject.GetComponent<MoveDownBehaviour>().Y == y)
-                   // {
-                        //Debug.Log("component MOVEDOWN concrete COLLIDER");
-                    if(t.gameObject != null && t.gameObject.activeSelf)
+                    if (t.gameObject == gameObject) continue;
+                    if (t.gameObject.GetComponent<MoveDownBehaviour>() != null)
                     {
-                        StartCoroutine(t.gameObject.GetComponent<MoveDownBehaviour>().MoveDown());
-                    } 
-                  //  }
+                        //Debug.Log("component MOVEDOWNBEHAVIOUR not null");
+                        // if (t.gameObject.GetComponent<MoveDownBehaviour>().X == x &&
+                        //    t.gameObject.GetComponent<MoveDownBehaviour>().Y == y)
+                        // {
+                        //Debug.Log("component MOVEDOWN concrete COLLIDER");
+                        if (t.gameObject != null && t.gameObject.activeSelf)
+                        {
+                            StartCoroutine(t.gameObject.GetComponent<MoveDownBehaviour>().MoveDown());
+                        }
+                        //  }
+                    }
                 }
+                
             }
         }
         yield return null;

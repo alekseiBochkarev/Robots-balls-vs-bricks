@@ -20,6 +20,12 @@ public class AttackStateBrick : MonoBehaviour, IStateBrick
 
     public IEnumerator DoDamage(int applyDamage)
     {
+        if (brick.IsWaitToDeath)
+        {
+            UnityEngine.Debug.Log($"IsWaitToDeath {brick.IsWaitToDeath}");
+            brick.DeathOfBrick(false);
+        }
+
         if (brick.CanDoctor)
         {
             int healupPower = 2;
@@ -33,9 +39,9 @@ public class AttackStateBrick : MonoBehaviour, IStateBrick
                     "easetype", iTween.EaseType.linear, "time", (Vector2.Distance(this.brick.transform.position, brick.hero.transform.position))/10));*/
             brick.animator.Play("attack");
             brick.hero.TakeDamage(applyDamage); // later remove it
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
             brick.SetState(brick.idleStateBrick);
-            brick.DeathOfBrick(false);
+            //brick.DeathOfBrick(false);
             yield break;
         }
 

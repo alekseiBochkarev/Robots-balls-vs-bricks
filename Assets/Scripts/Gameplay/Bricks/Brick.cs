@@ -63,6 +63,14 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         set => isWaitMeleeAttack = value;
     }
 
+    private bool isWaitToDeath;
+
+    public bool IsWaitToDeath
+    {
+        get => isWaitToDeath;
+        set => isWaitToDeath = value;
+    }
+
     public SpriteRenderer m_SpriteRenderer;
     public ParticleSystem m_ParentParticle;
     public Vector3 brickCoord;
@@ -94,6 +102,7 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
         InitMoveDown();
 		camera = GameObject.Find("MainCamera");
         parent = transform.parent.gameObject;
+        isWaitToDeath = false;
      //   polygonCollider2D = gameObject.GetComponent<PolygonCollider2D>();
         rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();

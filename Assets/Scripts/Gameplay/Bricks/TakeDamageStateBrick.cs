@@ -51,42 +51,50 @@ public class TakeDamageStateBrick : IStateBrick
     }
 
     public void TakeDamage(int appliedDamage, Color damageTextColor, int damageTextFontSize) {
-        BeHitGeneral(appliedDamage);
-        bool isDamage = true;
-        bool isCriticalHit = false;
-        DamagePopupController.Instance
-        .CreateDamagePopup(brick.brickCoord, appliedDamage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
-
-        if (brick.MCurrentBrickHealth <= 0)
+        if (brick != null)
         {
-            brick.DeathOfBrick(true);
+            BeHitGeneral(appliedDamage);
+            bool isDamage = true;
+            bool isCriticalHit = false;
+            DamagePopupController.Instance
+            .CreateDamagePopup(brick.brickCoord, appliedDamage, isCriticalHit, isDamage, damageTextColor, damageTextFontSize);
+
+            if (brick.MCurrentBrickHealth <= 0)
+            {
+                brick.DeathOfBrick(true);
+            }
         }
     }
     
     public void TakeDamage(int appliedDamage, string textPopupTextValue, Color textColor, int textFontSize)
     {
-        BeHitGeneral(appliedDamage);
-        DamagePopupController.Instance
-        .CreateTextPopup(brick.brickCoordAbove, textPopupTextValue, textColor, textFontSize);
-
-        if (brick.MCurrentBrickHealth <= 0)
+        if (brick != null)
         {
-            brick.DeathOfBrick(true);
-        }
+            BeHitGeneral(appliedDamage);
+            DamagePopupController.Instance
+            .CreateTextPopup(brick.brickCoordAbove, textPopupTextValue, textColor, textFontSize);
+
+            if (brick.MCurrentBrickHealth <= 0)
+            {
+                brick.DeathOfBrick(true);
+            }
+        } 
     }
 
     private void BeHitGeneral(int appliedDamage)
     {
-        EventManager.OnBrickHit();
-        brick.animator.Play("takeDamage");
-        brick.PlayTakeDamageMusic();
-        brick.MCurrentBrickHealth -= appliedDamage;
-        brick.m_Text.text = brick.MCurrentBrickHealth.ToString();
-        brick.healthBar.SaveCurrentBrickHealth();
-        brick.healthBar.ShowHealth();
+        if (brick != null) {
+            EventManager.OnBrickHit();
+            brick.animator.Play("takeDamage");
+            brick.PlayTakeDamageMusic();
+            brick.MCurrentBrickHealth -= appliedDamage;
+            brick.m_Text.text = brick.MCurrentBrickHealth.ToString();
+            brick.healthBar.SaveCurrentBrickHealth();
+            brick.healthBar.ShowHealth();
 
-        // Create DamagePopup with damage above the BRICK
-        InitBrickDamagePopupPosition();
+            // Create DamagePopup with damage above the BRICK
+            InitBrickDamagePopupPosition();
+        }    
     }
 
     public void DeathOfBrick (bool isInstantiateLoot) {

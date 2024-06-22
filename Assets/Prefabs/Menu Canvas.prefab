@@ -322,7 +322,7 @@ RectTransform:
   - {fileID: 8306330870148921673}
   - {fileID: 8179798794997927883}
   m_Father: {fileID: 7282193544897722207}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -457,8 +457,8 @@ RectTransform:
   m_Children:
   - {fileID: 4248270595546201350}
   - {fileID: 4740574170438416998}
-  - {fileID: 8451208925873038116}
   - {fileID: 8451208925728849443}
+  - {fileID: 8451208925873038116}
   - {fileID: 8451208925540186914}
   - {fileID: 7282193544897722207}
   - {fileID: 6260846892429017255}
@@ -549,7 +549,7 @@ MonoBehaviour:
   m_Market: 1
   m_MainMenuQuitPanel: {fileID: 0}
   m_PauseMenu: {fileID: 0}
-  m_UpgradeButton: {fileID: 0}
+  m_GymButton: {fileID: 0}
   m_UpgradePanel: {fileID: 0}
   m_LevelSelectionButton: {fileID: 0}
   m_LevelSelectionPanel: {fileID: 0}
@@ -8743,7 +8743,7 @@ PrefabInstance:
     - target: {fileID: 2598895072394124010, guid: 6e9411d4a1e37ea4db0228aafc07641a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2598895072394124010, guid: 6e9411d4a1e37ea4db0228aafc07641a,
         type: 3}
@@ -8919,7 +8919,7 @@ PrefabInstance:
     - target: {fileID: 2439939898249395041, guid: 7b60a8c87a3309e48a08c403cc1ba2d9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2439939898249395041, guid: 7b60a8c87a3309e48a08c403cc1ba2d9,
         type: 3}

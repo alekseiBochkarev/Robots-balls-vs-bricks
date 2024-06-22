@@ -85,10 +85,13 @@ public class IdleStateBrick : IStateBrick
     public void ChangeColor() {} //hmm its a quastion
     
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY) {
-        if (currentY + 1 == (maxY - 1))
+        if (currentY + 1 == (maxY - 2))
         {
             //UnityEngine.Debug.Log("set state IsWaitMeleeAttack");
             brick.IsWaitMeleeAttack = true;
+        } else if (currentY + 1 >= (maxY - 1))
+        {
+            brick.IsWaitToDeath = true;
         }
         brick.SetState(brick.walkStateBrick);
         yield return brick.MoveToTarget(startPos, endPos, currentY, maxY);
