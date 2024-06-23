@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Security.Cryptography;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour 
+public class BulletStraight : MonoBehaviour
 {
     public GameObject hero;
     [SerializeField] private int attackPower;
@@ -18,12 +20,13 @@ public class Bullet : MonoBehaviour
     private float vision;
     Collider2D[] colliders;
     [SerializeField] private int moveSpeed;
-
+    
     public int MoveSpeed
     {
         get => moveSpeed;
         set => moveSpeed = value;
     }
+    public bool isSlow;
     Vector3 target;
     Vector3 diff;
     float rot_z;
@@ -34,19 +37,21 @@ public class Bullet : MonoBehaviour
         hero = GameObject.Find("Hero");
         damageTextColor = TextController.COLOR_BLACK;
         damageTextFontSize = TextController.FONT_SIZE_MAX;
-        target = FindGoalToMove();
+        //target = FindGoalToMove();
+        checkAndDestroy();
     }
 
     public Vector3 FindGoalToMove()
     {
+        Vector3 targetNew = new Vector3(transform.position.x, hero.transform.position.y, transform.position.z); 
         return hero.transform.position;
     }
 
     void Update ()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target, MoveSpeed * Time.deltaTime);
-        RotateBall();
-        checkAndDestroy();
+        transform.Translate(Vector3.down * MoveSpeed * Time.deltaTime);
+     //   RotateBall();
+        
     }
 
     void RotateBall ()
@@ -83,10 +88,7 @@ public class Bullet : MonoBehaviour
    
     public void checkAndDestroy ()
     {
-        if (transform.position == target)
-        {
-            Destroy(this.gameObject);
-        }
+       Destroy(this.gameObject, 1);
     }
 
     public void DestroyBall () {

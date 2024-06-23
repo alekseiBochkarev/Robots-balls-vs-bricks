@@ -154,6 +154,11 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
             appliedDamage = collider.gameObject.GetComponent<Bullet>().GetAttackPower;
             TakeDamage(appliedDamage);
         }
+        if (collider.gameObject.GetComponent<BulletStraight>() != null)
+        {
+            appliedDamage = collider.gameObject.GetComponent<BulletStraight>().GetAttackPower;
+            TakeDamage(appliedDamage);
+        }
     }
 
     public void HealUp(float healHealthUpAmount)

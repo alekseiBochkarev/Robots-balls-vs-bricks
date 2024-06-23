@@ -5842,7 +5842,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bulletOnlyForRangeAttackedBricks
       value: 
-      objectReference: {fileID: 1054516289806286, guid: 6f75a14e3b02ca4449f55a97bba96b09,
+      objectReference: {fileID: 1054516289806286, guid: d31d28fcac7a1de40a8e44b1ff84b5c1,
         type: 3}
     - target: {fileID: 9146324641245280145, guid: 2448ac433eae27f469cb254c9354c2aa,
         type: 3}

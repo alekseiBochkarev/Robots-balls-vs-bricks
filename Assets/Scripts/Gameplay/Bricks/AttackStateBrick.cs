@@ -49,11 +49,35 @@ public class AttackStateBrick : MonoBehaviour, IStateBrick
         {
             brick.animator.Play("attack");
             var bullet = Instantiate(brick.bulletOnlyForRangeAttackedBricks, this.brick.transform.position, Quaternion.identity);
-            bullet.GetComponent<Bullet>().AttackPower = (applyDamage/2);
-            if (bullet.GetComponent<Bullet>().AttackPower < 1)
+            if (bullet.GetComponent<Bullet>() != null) {
+                bullet.GetComponent<Bullet>().AttackPower = (applyDamage / 2);
+                bullet.GetComponent<Bullet>().MoveSpeed = 7;
+                if (bullet.GetComponent<Bullet>().AttackPower < 1)
+                {
+                    bullet.GetComponent<Bullet>().AttackPower = 1;
+                }
+            } else if (bullet.GetComponent<BulletStraight>() != null)
             {
-                bullet.GetComponent<Bullet>().AttackPower = 1;
+                if (bullet.GetComponent<BulletStraight>().isSlow)
+                {
+                    bullet.GetComponent<BulletStraight>().AttackPower = (applyDamage * 2);
+                    bullet.GetComponent<BulletStraight>().MoveSpeed = 6;
+                    if (bullet.GetComponent<BulletStraight>().AttackPower < 1)
+                    {
+                        bullet.GetComponent<BulletStraight>().AttackPower = 1;
+                    }
+                } else
+                {
+                    bullet.GetComponent<BulletStraight>().AttackPower = (applyDamage);
+                    bullet.GetComponent<BulletStraight>().MoveSpeed = 14;
+                    if (bullet.GetComponent<BulletStraight>().AttackPower < 1)
+                    {
+                        bullet.GetComponent<BulletStraight>().AttackPower = 1;
+                    }
+                }
+                
             }
+            
             yield return new WaitForSeconds(0.05f);
             brick.SetState(brick.idleStateBrick);
             yield break;

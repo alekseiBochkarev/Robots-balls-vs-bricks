@@ -34,6 +34,11 @@ public class FireStateBrick : IStateBrick
     public IEnumerator DoDamage(int applyDamage)
     {
         countOfFireStep++;
+        if (brick.IsWaitToDeath)
+        {
+            UnityEngine.Debug.Log($"IsWaitToDeath {brick.IsWaitToDeath}");
+            brick.DeathOfBrick(false);
+        }
         if (countOfFireStep > maxCountOfFireStep)
         {
             countOfFireStep = 0;
@@ -109,10 +114,14 @@ public class FireStateBrick : IStateBrick
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
     {
         TakeDamage(fireDamage);
-        if (currentY + 1 == (maxY - 1))
+        if (currentY + 1 == (maxY - 2))
         {
             //UnityEngine.Debug.Log("set state IsWaitMeleeAttack");
             brick.IsWaitMeleeAttack = true;
+        }
+        else if (currentY + 1 >= (maxY - 1))
+        {
+            brick.IsWaitToDeath = true;
         }
         //countOfFireStep++;
         if (countOfFireStep > maxCountOfFireStep)

@@ -238,4 +238,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hero: {fileID: 0}
   attackPower: 0
-  MoveSpeed: 7
+  moveSpeed: 0

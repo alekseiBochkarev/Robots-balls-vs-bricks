@@ -25,6 +25,11 @@ public class PoisonStateBrick : IStateBrick
     public IEnumerator DoDamage(int applyDamage)
     {
         countOfPoisonStep++;
+        if (brick.IsWaitToDeath)
+        {
+            UnityEngine.Debug.Log($"IsWaitToDeath {brick.IsWaitToDeath}");
+            brick.DeathOfBrick(false);
+        }
         if (countOfPoisonStep > maxCountOfPoisonStep)
         {
             countOfPoisonStep = 0;
@@ -99,10 +104,14 @@ public class PoisonStateBrick : IStateBrick
     public IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
     {
         TakeDamage(poisonDamage);
-        if (currentY + 1 == (maxY - 1))
+        if (currentY + 1 == (maxY - 2))
         {
             //UnityEngine.Debug.Log("set state IsWaitMeleeAttack");
             brick.IsWaitMeleeAttack = true;
+        }
+        else if (currentY + 1 >= (maxY - 1))
+        {
+            brick.IsWaitToDeath = true;
         }
         //countOfPoisonStep++;
         if (countOfPoisonStep > maxCountOfPoisonStep)

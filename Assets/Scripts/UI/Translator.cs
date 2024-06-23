@@ -23,9 +23,10 @@ public static class Translator
 
     public static string Translate(string text_)
     {
-        UnityEngine.Debug.Log("print Language.Instance.CurrentLanguage " + Language.Instance.CurrentLanguage);
-        switch (Language.Instance.CurrentLanguage)
-        {
+        //UnityEngine.Debug.Log("print Language.Instance.CurrentLanguage " + Language.Instance.CurrentLanguage);
+        langIndex = indexFromYG();
+        //switch (Language.Instance.CurrentLanguage)
+        //{
           //  case "en": langIndex = 0; break;
          //   case "ru": langIndex = 1; break;
           //  case "tr": langIndex = 0; break;
@@ -37,8 +38,8 @@ public static class Translator
           //  case "ca": langIndex = 0; break; // каталанский
          //   case "es": langIndex = 0; break; // испанский
          //   case "hi": langIndex = 0; break; // хинди
-            default: langIndex = indexFromYG(); break;
-        }
+         //   default: langIndex = indexFromYG(); break;
+       // }
 
         //if (langIndex==-1) // начальная инициализация индекса языка при первом вызове
         //{
