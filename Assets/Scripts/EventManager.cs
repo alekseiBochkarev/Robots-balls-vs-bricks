@@ -26,6 +26,12 @@ public class EventManager : MonoBehaviour
     public static event Action NewBallsOnStartSpawned;
     public static event Action AllBallsReturned;
     public static event Action ResetReturningBallsAmount;
+    public static event Action LanguageChanged;
+
+    public static void OnLanguageChanged()
+    {
+        LanguageChanged?.Invoke();
+    }
 
     public static void OnComboCounterChanged(int currentComboAmount)
     {
