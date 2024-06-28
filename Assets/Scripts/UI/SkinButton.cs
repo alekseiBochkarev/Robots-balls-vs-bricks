@@ -68,7 +68,7 @@ public class SkinButton : MonoBehaviour
         }
     }
 
-    //это для иконки из меню
+    //СЌС‚Рѕ РґР»СЏ РёРєРѕРЅРєРё РёР· РјРµРЅСЋ
     private string LoadSkinData()
     {
         string defaultSkin = "r0";

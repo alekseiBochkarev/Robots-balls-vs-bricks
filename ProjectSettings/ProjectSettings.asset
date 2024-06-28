@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: "\u0410 \u044F \u0434\u0443\u043C\u0430\u043B\u0430 \u0421\u043E\u0432\u0430"
-  productName: Star Wars. Robot's city
+  productName: Star Wars. Robot's brick breaker
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
@@ -136,7 +136,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.0.1.23
+  bundleVersion: 0.0.1.24
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0

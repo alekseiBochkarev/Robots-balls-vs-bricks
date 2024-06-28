@@ -9,7 +9,8 @@ public class PlayButton : MonoBehaviour
 
     private void Awake()
     {
-        EventManager.OnLanguageChanged += Translate;
+       //возможно пригодится для перевода, но пока наверно не будем использовать.
+        // EventManager.OnLanguageChanged += Translate;
     }
 
     void OnEnable()
@@ -26,7 +27,7 @@ public class PlayButton : MonoBehaviour
     private void OnDestroy()
     {
         // EventManager.UpgradeStats -= ShowBallsAmountOnHUD;
-        EventManager.OnLanguageChanged -= Translate;
+        //EventManager.OnLanguageChanged -= Translate;
     }
 
 
