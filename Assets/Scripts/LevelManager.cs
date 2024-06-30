@@ -49,7 +49,7 @@ public class LevelManager : MonoBehaviour
                     m_backGroundCellField.SetActive(false);
                     m_educationFinger.SetActive(false);
                     m_Hero.transform.position = new Vector3(0f, -1.1f);
-                    m_Hero.transform.localScale = new Vector3(1f, 1f, 1f);
+                    m_Hero.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     m_Hero_HealfBarCanvas.SetActive(false);
                     //m_Gym_button.SetActive(true);
                     //  m_GameMenuPanel.SetActive(false);
