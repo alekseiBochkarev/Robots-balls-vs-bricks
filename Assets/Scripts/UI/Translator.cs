@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 public static class Translator
 {
-    static int langIndex;//=-1; // индекс языка: -1-еще не инициализирован, 0-англ, 1 - русский и т.д.
+    static int langIndex =-1; // индекс языка: -1-еще не инициализирован, 0-англ, 1 - русский и т.д.
 
     private static int indexFromYG()
     {
@@ -24,7 +24,7 @@ public static class Translator
     public static string Translate(string text_)
     {
         //UnityEngine.Debug.Log("print Language.Instance.CurrentLanguage " + Language.Instance.CurrentLanguage);
-        langIndex = indexFromYG();
+        //langIndex = indexFromYG();
         //switch (Language.Instance.CurrentLanguage)
         //{
           //  case "en": langIndex = 0; break;
@@ -41,17 +41,17 @@ public static class Translator
          //   default: langIndex = indexFromYG(); break;
        // }
 
-        //if (langIndex==-1) // начальная инициализация индекса языка при первом вызове
-        //{
-           // switch(Application.systemLanguage.ToString())
-           // {
-           //     case "English": langIndex=0; break;
-           //     case "Russian": langIndex=1; break;
-           //     case "Turkish": langIndex=2; break;
+        if (langIndex==-1) // начальная инициализация индекса языка при первом вызове
+        {
+            switch(Application.systemLanguage.ToString())
+            {
+                case "English": langIndex=0; break;
+                case "Russian": langIndex=1; break;
+                case "Turkish": langIndex=2; break;
                     // продолжить для других языков ....
-           // }
+            }
            
-        //}
+        }
       
         for(int i=0;i<labels.GetLength(0);i++)
         {
