@@ -417,7 +417,7 @@ public class MenuController : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #elif UNITY_ANDROID && !UNITY_EDITOR
-        ScoreManager.Instance.SubmitScoreToLeaderboard();
+        //ScoreManager.Instance.SubmitScoreToLeaderboard();
         Application.Quit();
 #endif
     }
