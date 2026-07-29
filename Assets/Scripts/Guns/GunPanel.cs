@@ -1,23 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 namespace Guns
 {
     public class GunPanel : MonoBehaviour
     {
-        public TMP_Text BallCountText;
-        public TMP_Text RocketBallCountText;
-        public TMP_Text IceBallCountText;
-        public TMP_Text LaserHorizontalBallCountText;
-        public TMP_Text LaserVerticalBallCountText;
-        public TMP_Text LaserCrossBallCountText;
-        public TMP_Text InstaKillBallCountText;
-        public TMP_Text FireBallCountText;
-        public TMP_Text BombBallCountText;
-        public TMP_Text PoisonBallCountText;
-        public TMP_Text BlackHoleBallCountText;
+        public Text BallCountText;
+        public Text RocketBallCountText;
+        public Text IceBallCountText;
+        public Text LaserHorizontalBallCountText;
+        public Text LaserVerticalBallCountText;
+        public Text LaserCrossBallCountText;
+        public Text InstaKillBallCountText;
+        public Text FireBallCountText;
+        public Text BombBallCountText;
+        public Text PoisonBallCountText;
+        public Text BlackHoleBallCountText;
 
         private void OnEnable()
         {

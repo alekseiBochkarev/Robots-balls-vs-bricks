@@ -1,5 +1,5 @@
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Gameplay.Battery
 {
@@ -10,7 +10,7 @@ namespace Gameplay.Battery
         private const int MaxBatteryAmount = 10;
 
         [SerializeField] private int batteriesAmount;
-        [SerializeField] private TextMeshProUGUI counterText;
+        [SerializeField] private Text counterText;
         [SerializeField] private BatteryEnergy batteryEnergy;
 
         public void Awake()

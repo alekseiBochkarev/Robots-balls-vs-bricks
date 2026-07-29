@@ -1,6 +1,5 @@
 using Scriptable_Objects.LootInChest;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 
 namespace UI.LootInChestSelection
@@ -8,9 +7,9 @@ namespace UI.LootInChestSelection
     public class LootInChestDisplay : MonoBehaviour
     {
         [Header("UI Stats")]
-        [SerializeField] private TextMeshProUGUI lootInChestName;
+        [SerializeField] private Text lootInChestName;
         [SerializeField] private Image lootInChestImage;
-       // [SerializeField] private TextMeshProUGUI specialAttackDescription;
+       // [SerializeField] private Text specialAttackDescription;
       private LootInChestSO lootInChestSO;
 
        private void OnEnable()

@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 using System.Diagnostics;
 
 public class DisplayAttackPower : MonoBehaviour
 {
     private IBall ballComponent;
     [SerializeField]
-    private TextMeshProUGUI textMeshPro;
+    private Text textMeshPro;
 
     void Start()
     {
-        // Найти компонент, реализующий интерфейс IBall
+        // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ IBall
         ballComponent = GetComponent<IBall>();
 
         if (ballComponent == null)
@@ -21,18 +21,10 @@ public class DisplayAttackPower : MonoBehaviour
             return;
         }
 
-        // Найти или добавить компонент TextMeshPro
-        //textMeshPro = GetComponent<TextMeshPro>();
-        //if (textMeshPro == null)
-        //{
-        //    textMeshPro = gameObject.AddComponent<TextMeshPro>();
-        //}
+        // Standard UI Text used instead of a TMP component.
+        textMeshPro.alignment = TextAnchor.MiddleCenter;
 
-        // Настроить внешний вид текста (опционально)
-        // textMeshPro.fontSize = 36;
-        textMeshPro.alignment = TextAlignmentOptions.Center;
-
-        // Обновить текст
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         UpdateText();
     }
 
@@ -43,7 +35,7 @@ public class DisplayAttackPower : MonoBehaviour
 
     void Update()
     {
-        // Обновлять текст каждый кадр (если необходимо)
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
         UpdateText();
     }
 }

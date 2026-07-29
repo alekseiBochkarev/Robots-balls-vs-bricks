@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 public class StringToText : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _textField;
+    [SerializeField] private Text _textField;
     [SerializeField] private string text;
 
     private void OnEnable()

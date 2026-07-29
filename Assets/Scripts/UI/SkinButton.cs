@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using UnityEngine.SceneManagement;
 
 public class SkinButton : MonoBehaviour
@@ -38,7 +37,7 @@ public class SkinButton : MonoBehaviour
 			SaveSkinIsActivate(_robotName);
 		}
 		_buttonImage.sprite = Resources.Load<Sprite>("Robots/" + _robotName);
-		_textMeshPro.GetComponent<TMP_Text>().text = _robotName;
+		_textMeshPro.GetComponent<Text>().text = _robotName;
         _heroSkins = GameObject.FindGameObjectsWithTag("HeroSkin");
         _skinMenuHeroImage = GameObject.FindWithTag("SkinMenuHeroImage");
         _skinMenuHeroImage.GetComponent<Image>().sprite = Resources.Load<Sprite>("Robots/" + LoadSkinData());
@@ -49,7 +48,7 @@ public class SkinButton : MonoBehaviour
 				_lockImage.SetActive(true);
 				_buttonImage.color = new Color32(0,0,0,100);
 				GetComponent<Button>().interactable = false;
-				_textMeshPro.GetComponent<TMP_Text>().text = Translator.Translate("win ") + (_minLevelWhereAvailable - 1) + Translator.Translate(" level");
+				_textMeshPro.GetComponent<Text>().text = Translator.Translate("win ") + (_minLevelWhereAvailable - 1) + Translator.Translate(" level");
         	} else 
 			{
 				_lockImage.SetActive(false);
@@ -60,7 +59,7 @@ public class SkinButton : MonoBehaviour
 		{
 			_buyButton.SetActive(true);
             GetComponent<Button>().interactable = false;
-            _tmpCostOnBuyButton.GetComponent<TMP_Text>().text = _skinCost.ToString(); //+ Translator.Translate(" buy");
+            _tmpCostOnBuyButton.GetComponent<Text>().text = _skinCost.ToString(); //+ Translator.Translate(" buy");
 		} else 
 		{
 			_buyButton.SetActive(false);

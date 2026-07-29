@@ -1,6 +1,5 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -10,9 +9,9 @@ public class ScoreManager : MonoBehaviour
     public int m_Rings { private set; get; }
     public int m_LevelOfFinalBrick;
 
-  //  public TextMeshProUGUI m_BestScoreText;
-    public TextMeshProUGUI m_ScoreText;
-  //  public TextMeshProUGUI m_UpgradePoints;
+  //  public Text m_BestScoreText;
+    public Text m_ScoreText;
+  //  public Text m_UpgradePoints;
     
     private void Awake()
     {

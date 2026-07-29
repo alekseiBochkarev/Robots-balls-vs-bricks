@@ -1,6 +1,5 @@
 using Gameplay.Batteries.Battery_Cell;
 using Interfaces;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,12 +35,12 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
     [SerializeField] private GameObject sightLengthPrefab;
 
     [Header("Hero Stats Names")] [SerializeField]
-    private TextMeshProUGUI healthText;
+    private Text healthText;
 
-//    [SerializeField] private TextMeshProUGUI batteryCellsText;
-    [SerializeField] private TextMeshProUGUI attackText;
-    [SerializeField] private TextMeshProUGUI starterBallsText;
-    [SerializeField] private TextMeshProUGUI sightLengthText;
+//    [SerializeField] private Text batteryCellsText;
+    [SerializeField] private Text attackText;
+    [SerializeField] private Text starterBallsText;
+    [SerializeField] private Text sightLengthText;
 
     [Header("Upgrade Buttons")] [SerializeField]
     private Button upgradeHealthButton;
@@ -52,17 +51,17 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
     [SerializeField] private Button upgradeSightLengthButton;
 
     [Header("Upgrade Cost Text")] 
-    [SerializeField] private TextMeshProUGUI upgradeHealthButtonText;
+    [SerializeField] private Text upgradeHealthButtonText;
 
     [SerializeField] private GameObject justUpgradeHealthText;
 
-  //  [SerializeField] private TextMeshProUGUI upgradeBatteryCellsButtonText;
+  //  [SerializeField] private Text upgradeBatteryCellsButtonText;
   // [SerializeField] private GameObject justUpgradeBatteryText;
-    [SerializeField] private TextMeshProUGUI upgradeAttackPowerButtonText;
+    [SerializeField] private Text upgradeAttackPowerButtonText;
     [SerializeField] private GameObject justUpgradeAttackText;
-    [SerializeField] private TextMeshProUGUI upgradeStarterBallsButtonText;
+    [SerializeField] private Text upgradeStarterBallsButtonText;
     [SerializeField] private GameObject justUpgradeStarterBallText;
-    [SerializeField] private TextMeshProUGUI upgradeSightLengthButtonText;
+    [SerializeField] private Text upgradeSightLengthButtonText;
     [SerializeField] private GameObject justUpgradeSightLengthText;
 
     private const string HealthStatText = "Health";
@@ -484,17 +483,17 @@ public class UIUpgradeStatsPanel : MonoBehaviour, IResetToDefaultValues
 		Debug.Log("method ShowStatsDataAndRuleButtons проверяю после ревардед рекламы _playerCoins " + _playerCoins);
     }
 
-    private void ShowUpgradePrice(TextMeshProUGUI upgradeButtonText, float priceWithCoins)
+    private void ShowUpgradePrice(Text upgradeButtonText, float priceWithCoins)
     {
         upgradeButtonText.text = $"{priceWithCoins}";
     }
 
-    private void ShowMaxLevelInsteadPrice(TextMeshProUGUI upgradeButtonText)
+    private void ShowMaxLevelInsteadPrice(Text upgradeButtonText)
     {
         upgradeButtonText.text = $"{MaxLevelStatText}";
     }
 
-    private void ShowCurrentStatsName(TextMeshProUGUI currentStatsText, string statsValue)
+    private void ShowCurrentStatsName(Text currentStatsText, string statsValue)
     {
         currentStatsText.text = $"{Translator.Translate(statsValue)}";
     }

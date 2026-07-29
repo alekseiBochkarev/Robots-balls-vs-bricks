@@ -1,15 +1,14 @@
-﻿using Assets.Scripts.Gameplay.Combo;
+using Assets.Scripts.Gameplay.Combo;
 using Assets.Scripts.Gameplay.HeroBuffs;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SpecialAttackDisplay : MonoBehaviour
 {
     [Header("UI Stats")]
-    [SerializeField] private TextMeshProUGUI specialAttackName;
+    [SerializeField] private Text specialAttackName;
     [SerializeField] private Image specialAttackImage;
-    [SerializeField] private TextMeshProUGUI specialAttackDescription;
+    [SerializeField] private Text specialAttackDescription;
     private SpecialAttackSO specialAttack;
 
     private SpecialAttackPanelController m_SpecialAttackPanelController;

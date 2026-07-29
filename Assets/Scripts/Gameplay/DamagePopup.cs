@@ -1,7 +1,7 @@
 using UnityEngine;
-using TMPro;
 using Assets.Scripts.DataManaging.Utills;
 using Assets.Scripts.Gameplay;
+using UnityEngine.UI;
 
 public class DamagePopup : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class DamagePopup : MonoBehaviour
     private const float DISAPPEAR_TIMER_MAX = 0.3f;
     private const float VECTOR3_X_MAX = 0.7f;
     private const float VECTOR3_Y_MAX = 0.3f;
-    private TextMeshPro textMesh;
+    private Text textMesh;
     private float disappearTimer = DISAPPEAR_TIMER_MAX;
     private Vector3 defaultScalePopup;
     
@@ -21,7 +21,7 @@ public class DamagePopup : MonoBehaviour
 
     private void Awake() 
     {
-        textMesh = transform.GetComponent<TextMeshPro>();
+        textMesh = transform.GetComponent<Text>();
         defaultScalePopup = this.transform.localScale;
     }
 
@@ -50,7 +50,7 @@ public class DamagePopup : MonoBehaviour
     public void Setup(int damageAmount, bool isCriticalHit, bool isDamage, Color damageTextColor, int damageTextFontSize)
     {
         SetValueOperator(isDamage);
-        textMesh.SetText(valueOperator + damageAmount.ToString());
+        textMesh.text = valueOperator + damageAmount.ToString();
         if (!isCriticalHit)
         {
             // Normal hit
@@ -65,7 +65,10 @@ public class DamagePopup : MonoBehaviour
         }
         // Sorting order need to prevent the problem with displaying popups in right order
         sortingOrder++;
-        textMesh.sortingOrder = sortingOrder;
+        if (textMesh.canvas != null)
+        {
+            textMesh.canvas.sortingOrder = sortingOrder;
+        }
         
         moveVector = Utills.GetRandomVector(VECTOR3_X_MAX, VECTOR3_Y_MAX);
     }
@@ -74,12 +77,15 @@ public class DamagePopup : MonoBehaviour
     {
         
         // Set Text params
-        textMesh.SetText(text);
+        textMesh.text = text;
         SetTextMeshFontSize(textFontSize);
         SetTextMeshColor(textColor);
         // Sorting order need to prevent the problem with displaying popups in right order
         sortingOrder++;
-        textMesh.sortingOrder = sortingOrder;
+        if (textMesh.canvas != null)
+        {
+            textMesh.canvas.sortingOrder = sortingOrder;
+        }
         
         moveVector = Utills.GetRandomVector(VECTOR3_X_MAX, VECTOR3_Y_MAX);
     }

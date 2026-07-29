@@ -32,14 +32,14 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     float rot_z;
 
     public void Init() {
-        hero = Hero.Instance != null ? Hero.Instance.gameObject : GameObject.Find("Hero");
+        hero = GameObject.Find("Hero");
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
         m_MinimumYPosition = BallLauncher.ballStartPositionCoordinatesY;
         m_Collider2D = GetComponent<CircleCollider2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_TrailRenderer = GetComponent<TrailRenderer>();
-        m_hero = Hero.Instance != null ? Hero.Instance : hero.GetComponent<Hero>();
+        m_hero = hero.GetComponent<Hero>();
         EventManager.UpgradeAttackPowerStat += InitAttackPower;
         EventManager.UpgradeStats += InitAttackPower;
         EventManager.SkinChanged += InitAttackPower;
@@ -82,16 +82,14 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Brick brick = collision.gameObject.GetComponent<Brick>();
-        if (brick != null){
+        if (collision.gameObject.GetComponent<Brick>() != null){
             afterCollisionBehaviour.BehaviourAfterCollision();
         } 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Brick brick = collision.gameObject.GetComponent<Brick>();
-        if (brick != null) {
+        if (collision.gameObject.GetComponent<Brick>() != null) {
             afterCollisionBehaviour.BehaviourAfterCollision();
         } else if (collision.gameObject.tag.Equals("Floor")) {
             transform.localPosition = new Vector3(transform.localPosition.x, m_MinimumYPosition, 0);
@@ -144,13 +142,13 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         if (m_Rigidbody2D.bodyType != RigidbodyType2D.Dynamic)
             return;
 
-        m_Rigidbody2D.velocity = m_Rigidbody2D.velocity.normalized * m_MoveSpeed;
+        m_Rigidbody2D.linearVelocity = m_Rigidbody2D.linearVelocity.normalized * m_MoveSpeed;
         RotateBall();
     }
 
     void RotateBall()
     {
-        rot_z = Mathf.Atan2(m_Rigidbody2D.velocity.y, m_Rigidbody2D.velocity.x) * Mathf.Rad2Deg;
+        rot_z = Mathf.Atan2(m_Rigidbody2D.linearVelocity.y, m_Rigidbody2D.linearVelocity.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
     }
     

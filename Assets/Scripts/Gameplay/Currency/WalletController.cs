@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class WalletController : MonoBehaviour
 {    
@@ -11,7 +10,7 @@ public class WalletController : MonoBehaviour
     public Coins Coins {private set; get;}
 
 
-    [SerializeField] private TextMeshProUGUI m_CoinsText;
+    [SerializeField] private Text m_CoinsText;
     private Text m_CrystalsText;
 
     private void Awake() {

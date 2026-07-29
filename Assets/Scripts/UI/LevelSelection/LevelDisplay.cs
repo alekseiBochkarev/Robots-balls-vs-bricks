@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class LevelDisplay : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI levelName;
-    [SerializeField] private TextMeshProUGUI levelDescription;
+    [SerializeField] private Text levelName;
+    [SerializeField] private Text levelDescription;
     [SerializeField] private Image levelImage;
     [SerializeField] private Button playButton;
     [SerializeField] private GameObject lockIcon;

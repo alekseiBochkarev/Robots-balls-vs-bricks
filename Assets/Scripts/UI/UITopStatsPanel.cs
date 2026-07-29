@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class UITopStatsPanel : MonoBehaviour
@@ -13,16 +13,16 @@ public class UITopStatsPanel : MonoBehaviour
     public int sightLengthLevel;
     
     // Тексты для отображения уровней/значений
-    [SerializeField] private TextMeshProUGUI levelValueText;
-    [SerializeField] private TextMeshProUGUI coinsValueText;
-    [SerializeField] private TextMeshProUGUI healthLevelText;
-    [SerializeField] private TextMeshProUGUI healthRealText;
-    [SerializeField] private TextMeshProUGUI attackLevelText;
-    [SerializeField] private TextMeshProUGUI attackRealText;
-    [SerializeField] private TextMeshProUGUI starterBallsLevelText;
-    [SerializeField] private TextMeshProUGUI starterBallRealText;
-    [SerializeField] private TextMeshProUGUI sightLengthLevelText;
-    [SerializeField] private TextMeshProUGUI sightLengthRealText;
+    [SerializeField] private Text levelValueText;
+    [SerializeField] private Text coinsValueText;
+    [SerializeField] private Text healthLevelText;
+    [SerializeField] private Text healthRealText;
+    [SerializeField] private Text attackLevelText;
+    [SerializeField] private Text attackRealText;
+    [SerializeField] private Text starterBallsLevelText;
+    [SerializeField] private Text starterBallRealText;
+    [SerializeField] private Text sightLengthLevelText;
+    [SerializeField] private Text sightLengthRealText;
 
     // Префабы статов
     [SerializeField] private Transform healthStatPrefab;
