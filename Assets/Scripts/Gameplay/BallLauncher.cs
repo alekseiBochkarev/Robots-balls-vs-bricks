@@ -25,6 +25,8 @@ public class BallLauncher : MonoBehaviour
 
     private Vector3 m_Direction;
     private Balls m_BallsScript;
+    private Camera m_Camera;
+    private AimLine m_AimLine;
 
     private Vector3 m_DefaultStartPosition;
     [Header("For all bricks and scoreballs and magicballs")]
@@ -68,6 +70,8 @@ public class BallLauncher : MonoBehaviour
         Instance = this;
         m_CanPlay = true;
         hero = GameObject.FindGameObjectWithTag("Hero").GetComponent<Hero>();
+        m_Camera = Camera.main;
+        m_AimLine = GetComponent<AimLine>();
         ballStartPosition = Instantiate(ballStartPrefab, ballStartPostitionCoordinates, new Quaternion(0, 180, 0, 1));
         ballStartPosition.transform.SetParent(this.transform.parent, false);
         m_BallSprite = ballStartPosition.GetComponent<SpriteRenderer>();
@@ -118,7 +122,7 @@ public class BallLauncher : MonoBehaviour
             return;
 
         if(Time.timeScale != 0 && LevelManager.Instance.m_LevelState != LevelManager.LevelState.GAMEOVER)
-            m_WorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.back * -10;
+            m_WorldPosition = m_Camera.ScreenToWorldPoint(Input.mousePosition) + Vector3.back * -10;
 
         
        /* if (Input.GetMouseButtonDown(0)
@@ -128,14 +132,14 @@ public class BallLauncher : MonoBehaviour
             && m_WorldPosition.y >= bottomBorder.transform.position.y)
             StartDrag(m_WorldPosition);
         else */
-       if (Input.GetMouseButton(0)
+        if (Input.GetMouseButton(0)
            && m_WorldPosition.x >= leftBorder.transform.position.x
            && m_WorldPosition.x <= rightBorder.transform.position.x
            && m_WorldPosition.y <= topBorder.transform.position.y
            && m_WorldPosition.y >= (bottomBorder.transform.position.y + 0.3))
-       {
-           hero.ShowAim();
-           ContinueDrag(m_WorldPosition);
+        {
+            hero.ShowAim();
+            ContinueDrag(m_WorldPosition);
            if (educationFinger != null)
            {
                Destroy(educationFinger);
@@ -155,7 +159,7 @@ public class BallLauncher : MonoBehaviour
 
     private void StartDrag(Vector3 worldPosition)
     {
-        GetComponent<AimLine>().AimLineDraw(ballStartPosition.transform.position, worldPosition);
+        m_AimLine.AimLineDraw(ballStartPosition.transform.position, worldPosition);
         m_EndPosition = worldPosition;
         //m_StartPosition = worldPosition;
        // Debug.Log("startPosition " + m_StartPosition);
@@ -163,7 +167,7 @@ public class BallLauncher : MonoBehaviour
     
     private void ContinueDrag(Vector3 worldPosition)
     {
-        GetComponent<AimLine>().AimLineDraw(ballStartPosition.transform.position, worldPosition);
+        m_AimLine.AimLineDraw(ballStartPosition.transform.position, worldPosition);
 		m_EndPosition = worldPosition;
     }
 
@@ -171,7 +175,7 @@ public class BallLauncher : MonoBehaviour
     {
         if (m_StartPosition == m_EndPosition)
             return;
-		GetComponent<AimLine>().RemoveDraw();
+		m_AimLine.RemoveDraw();
        // m_Direction = m_EndPosition - m_StartPosition;
         m_Direction = m_EndPosition - ballStartPosition.transform.position;
         m_CanPlay = false;
@@ -215,8 +219,9 @@ public class BallLauncher : MonoBehaviour
     {
         for (int i = 0; i < m_BallsScript.PlayerBalls.Count; i++)
         {
-            m_BallsScript.PlayerBalls[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            m_BallsScript.PlayerBalls[i].Disable();
+            AbstractBall ball = m_BallsScript.PlayerBalls[i];
+            ball.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            ball.Disable();
         }
     }
 
@@ -384,7 +389,8 @@ public class BallLauncher : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
        // Debug.Log("GameObject2 collided with " + col.name);
-        if (col.gameObject.GetComponent<Brick>() != null)
+        Brick brick = col.gameObject.GetComponent<Brick>();
+        if (brick != null)
         {
             colliderTriggered = true;
         }   
@@ -392,7 +398,8 @@ public class BallLauncher : MonoBehaviour
 
     void OnTriggerExit2D (Collider2D col)
     {
-        if (col.gameObject.GetComponent<Brick>() != null)
+        Brick brick = col.gameObject.GetComponent<Brick>();
+        if (brick != null)
         {
             colliderTriggered = false;
         }

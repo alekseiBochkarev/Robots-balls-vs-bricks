@@ -172,18 +172,20 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<IBall>() != null)
+        IBall ball = collision.gameObject.GetComponent<IBall>();
+        if (ball != null)
         {
-           // polygonCollider2D.isTrigger = false;
-            appliedDamage = collision.gameObject.GetComponent<IBall>().GetAttackPower;
-            damageTextColor = collision.gameObject.GetComponent<IBall>().GetDamageTextColor;
-            damageTextFontSize = collision.gameObject.GetComponent<IBall>().GetDamageTextFontSize;
+            // polygonCollider2D.isTrigger = false;
+            appliedDamage = ball.GetAttackPower;
+            damageTextColor = ball.GetDamageTextColor;
+            damageTextFontSize = ball.GetDamageTextFontSize;
             TakeDamage(appliedDamage, damageTextColor, damageTextFontSize);
             EventManager.OnBrickHit();
-            if (collision.gameObject.GetComponent<AbstractBall>() != null)
+            AbstractBall abstractBall = collision.gameObject.GetComponent<AbstractBall>();
+            if (abstractBall != null)
             {
                 Vector3 position = collision.gameObject.transform.position;
-                collision.gameObject.GetComponent<AbstractBall>().SpecialAttack(position, this.gameObject);
+                abstractBall.SpecialAttack(position, this.gameObject);
             }
         }
         else if (collision.gameObject.tag == "Finish")
@@ -195,18 +197,20 @@ public class Brick : MoveDownBehaviour, IDamage, IHealth, IDamageable
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.GetComponent<IBall>() != null)
+        IBall ball = collider.gameObject.GetComponent<IBall>();
+        if (ball != null)
         {
-           // polygonCollider2D.isTrigger = false;
-            appliedDamage = collider.gameObject.GetComponent<IBall>().GetAttackPower;
-            damageTextColor = collider.gameObject.GetComponent<IBall>().GetDamageTextColor;
-            damageTextFontSize = collider.gameObject.GetComponent<IBall>().GetDamageTextFontSize;
+            // polygonCollider2D.isTrigger = false;
+            appliedDamage = ball.GetAttackPower;
+            damageTextColor = ball.GetDamageTextColor;
+            damageTextFontSize = ball.GetDamageTextFontSize;
             TakeDamage(appliedDamage, damageTextColor, damageTextFontSize);
-           // EventManager.OnBrickHit();
-            if (collider.gameObject.GetComponent<AbstractBall>() != null)
+            // EventManager.OnBrickHit();
+            AbstractBall abstractBall = collider.gameObject.GetComponent<AbstractBall>();
+            if (abstractBall != null)
             {
                 Vector3 position = collider.gameObject.transform.position;
-                collider.gameObject.GetComponent<AbstractBall>().SpecialAttack(position, this.gameObject);
+                abstractBall.SpecialAttack(position, this.gameObject);
             }
         }
         else if (collider.gameObject.tag == "Finish")

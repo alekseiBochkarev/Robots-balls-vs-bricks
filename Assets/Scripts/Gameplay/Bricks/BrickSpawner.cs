@@ -40,6 +40,9 @@ public class BrickSpawner : MonoBehaviour
 
     private float vision;
     Collider2D[] colliders;
+    private int pendingObjectsCreated;
+    private int pendingBricksMovingDown;
+    private int pendingBricksMovingHorizontal;
 
     [Header("Bricks Row")]
     //public List<BricksRow> m_BricksRow;
@@ -121,21 +124,24 @@ public class BrickSpawner : MonoBehaviour
 
     private void CreateBrickRow()
     {
+        pendingObjectsCreated = 0;
+        allObjectsCreated = false;
+
         // первое создание из конфигуратора
         if (isFirstCreation)
         {
             for (int i = 0; i < _objectGamePositions.Length; i++)
             {
+                BeginObjectCreation();
                 StartCoroutine(CreateObject(_objectGamePositions[i].Name, _objectGamePositions[i].X, _objectGamePositions[i].Y, _objectGamePositions[i].Health));
             }
             isFirstCreation = false;
         }
         
-        
-        allObjectsCreated = false;
         int numberOfScoreBallInRow = Random.Range(0, maxObjectsInRow);
         if (CheckIfICanCreateScoreBall()) {
-            CreateObject("extras/Score Ball Particle", numberOfScoreBallInRow, 0, 1);
+            BeginObjectCreation();
+            StartCoroutine(CreateObject("extras/Score Ball Particle", numberOfScoreBallInRow, 0, 1));
         }
         bool createMagicBall = CheckIfICanCreateMagicBall();
         int numberOfMagicBallInRow = 0;
@@ -144,6 +150,7 @@ public class BrickSpawner : MonoBehaviour
             numberOfMagicBallInRow = Random.Range(0, maxObjectsInRow);
             if (numberOfMagicBallInRow != numberOfScoreBallInRow)
             {
+                BeginObjectCreation();
                 StartCoroutine(CreateObject("extras/Magic Ball Particle", numberOfMagicBallInRow, 0, 1));
             }
         }
@@ -156,11 +163,13 @@ public class BrickSpawner : MonoBehaviour
                     if (!createMagicBall)
                     {
                         //здоровье брика будет равно номеру уровня
+                        BeginObjectCreation();
                         StartCoroutine(CreateObject(brickNames[Random.Range(0, brickNames.Length)], i, 0, (SaveManager.LoadDayData())));
                     } else
                     {
                         if (i != numberOfMagicBallInRow)
                         {
+                            BeginObjectCreation();
                             StartCoroutine(CreateObject(brickNames[Random.Range(0, brickNames.Length)], i, 0, (SaveManager.LoadDayData())));
                         }
                     }
@@ -168,7 +177,7 @@ public class BrickSpawner : MonoBehaviour
                 }
             }
         }
-        allObjectsCreated = true;
+        FinalizeObjectCreationBatch();
         
     }
 /*
@@ -185,24 +194,22 @@ public class BrickSpawner : MonoBehaviour
     private IEnumerator CreateObject(string prefabName, int numberInRow, int yPosition, int health)
     {
         if (m_levelConfig.grid.GetValue(numberInRow, yPosition+1) == 0) {
-            GameObject newObject = Instantiate(Resources.Load (prefabName) as GameObject, m_levelConfig.grid.GetWorldPosition(numberInRow, yPosition), new Quaternion(0, 180, 0, 1));
-            if (newObject.GetComponentInChildren<Brick>() != null)
+            GameObject newObject = Instantiate(Resources.Load(prefabName) as GameObject, m_levelConfig.grid.GetWorldPosition(numberInRow, yPosition), new Quaternion(0, 180, 0, 1));
+            Brick brick = newObject.GetComponentInChildren<Brick>();
+            if (brick != null)
             {
-                newObject.GetComponentInChildren<Brick>().MCurrentBrickHealth = health;
-                newObject.GetComponentInChildren<Brick>().MMaxBrickHealth = health;
-                newObject.GetComponentInChildren<Brick>().m_Text.text = health.ToString();
+                brick.MCurrentBrickHealth = health;
+                brick.MMaxBrickHealth = health;
+                brick.m_Text.text = health.ToString();
             }
             newObject.transform.localScale *= m_levelConfig.ScaleCoefficient;
-            if (newObject.GetComponentInChildren<MoveDownBehaviour>() != null)
+            MoveDownBehaviour moveDownBehaviour = newObject.GetComponentInChildren<MoveDownBehaviour>();
+            if (moveDownBehaviour != null)
             {
-                yield return newObject.GetComponentInChildren<MoveDownBehaviour>().MoveDown();
+                yield return moveDownBehaviour.MoveDown();
             }
-            else
-            {
-                yield break;
-            }
-           
         }
+        CompleteObjectCreation();
         // Instantiate(prefab, new Vector3(getPositionX(numberInRow), 1.64f, 0), new Quaternion(0, 180, 0, 1)); 
     }
     /*
@@ -245,6 +252,7 @@ public class BrickSpawner : MonoBehaviour
         ScoreManager.Instance.UpdateScore();
         //Debug.Log("MOVE DOWN BRICK ROWS");
         allBricksMovedDown = false;
+        pendingBricksMovingDown = 0;
         vision = 10f; //need to check maybe we should set more than 10
         colliders = Physics2D.OverlapCircleAll(transform.position, vision, layerAsLayerMask);
        /* for (var y = m_levelConfig.grid.GridHeight-1; y >= 0; y--)
@@ -268,82 +276,74 @@ public class BrickSpawner : MonoBehaviour
     public IEnumerator MoveRow(int y)
     {
         vision = 10f; //need to check maybe we should set more than 10
-        colliders = Physics2D.OverlapCircleAll(transform.position, vision, layerAsLayerMask);
-        for (var x = 0; x <= m_levelConfig.grid.GridWidth-1; x++)
+        if (colliders == null || colliders.Length == 0)
         {
-            foreach (var t in colliders)
+            colliders = Physics2D.OverlapCircleAll(transform.position, vision, layerAsLayerMask);
+        }
+        for (var i = 0; i < colliders.Length; i++)
+        {
+            Collider2D t = colliders[i];
+            if (t == null || t.gameObject == gameObject || !t.gameObject.activeSelf)
             {
-                if (t.gameObject == gameObject) continue;
-                if (t.gameObject.GetComponent<MoveDownBehaviour>() != null)
-                {
-                    //Debug.Log("component MOVEDOWNBEHAVIOUR not null");
-                    if (t.gameObject.GetComponent<MoveDownBehaviour>().X == x &&
-                        t.gameObject.GetComponent<MoveDownBehaviour>().Y == y)
-                    {
-                        //Debug.Log("component MOVEDOWN concrete COLLIDER");
-                        StartCoroutine(t.gameObject.GetComponent<MoveDownBehaviour>().MoveDown());
-                    }
-                }
+                continue;
+            }
+
+            MoveDownBehaviour moveDownBehaviour = t.gameObject.GetComponent<MoveDownBehaviour>();
+            if (moveDownBehaviour != null && moveDownBehaviour.Y == y)
+            {
+                BeginBricksMovingDown();
+                StartCoroutine(MoveDownBrick(moveDownBehaviour));
             }
         }
-        yield return null;
+        while (pendingBricksMovingDown > 0)
+        {
+            yield return null;
+        }
     }
     
     public IEnumerator MoveRow()
     {
         vision = 10f; //need to check maybe we should set more than 10
-        colliders = Physics2D.OverlapCircleAll(transform.position, vision, layerAsLayerMask);
-        for (var x = 0; x <= m_levelConfig.grid.GridWidth-1; x++)
+        pendingBricksMovingDown = 0;
+        if (colliders == null || colliders.Length == 0)
         {
-            foreach (var t in colliders)
+            colliders = Physics2D.OverlapCircleAll(transform.position, vision, layerAsLayerMask);
+        }
+        for (var i = 0; i < colliders.Length; i++)
+        {
+            Collider2D t = colliders[i];
+            if (t == null || t.gameObject == gameObject || !t.gameObject.activeSelf)
             {
-                if (t != null)
-                {
-                    if (t.gameObject == gameObject) continue;
-                    if (t.gameObject.GetComponent<MoveDownBehaviour>() != null)
-                    {
-                        //Debug.Log("component MOVEDOWNBEHAVIOUR not null");
-                        // if (t.gameObject.GetComponent<MoveDownBehaviour>().X == x &&
-                        //    t.gameObject.GetComponent<MoveDownBehaviour>().Y == y)
-                        // {
-                        //Debug.Log("component MOVEDOWN concrete COLLIDER");
-                        if (t.gameObject != null && t.gameObject.activeSelf)
-                        {
-                            StartCoroutine(t.gameObject.GetComponent<MoveDownBehaviour>().MoveDown());
-                        }
-                        //  }
-                    }
-                }
-                
+                continue;
+            }
+
+            MoveDownBehaviour moveDownBehaviour = t.gameObject.GetComponent<MoveDownBehaviour>();
+            if (moveDownBehaviour != null)
+            {
+                BeginBricksMovingDown();
+                StartCoroutine(MoveDownBrick(moveDownBehaviour));
             }
         }
-        yield return null;
+        while (pendingBricksMovingDown > 0)
+        {
+            yield return null;
+        }
     }
     
     public IEnumerator AttackRow(int y)
     {
-        for (var x = 0; x <= m_levelConfig.grid.GridWidth-1; x++)
+        for (var i = 0; i < colliders.Length; i++)
         {
-            foreach (var t in colliders)
+            Collider2D t = colliders[i];
+            if (t == null || t.gameObject == gameObject || !t.gameObject.activeSelf)
             {
-                if (t != null)
-                {
-                    if (t.gameObject == gameObject) continue;
-                    if (t.gameObject.GetComponent<Brick>() != null)
-                    {
-                        //Debug.Log("component MOVEDOWNBEHAVIOUR not null");
-                        if (t.gameObject.GetComponent<Brick>().X == x &&
-                                t.gameObject.GetComponent<Brick>().Y == y)
-                        {
-                            //Debug.Log("component MOVEDOWN Attack");
-                            if (t.gameObject != null && t.gameObject.activeSelf)
-                            {
-                                yield return t.gameObject.GetComponent<Brick>().Attack();
-                            }
-                        }
-                    }
-                }
-                
+                continue;
+            }
+
+            Brick brick = t.gameObject.GetComponent<Brick>();
+            if (brick != null && brick.Y == y)
+            {
+                yield return brick.Attack();
             }
         }
         yield break;
@@ -352,23 +352,83 @@ public class BrickSpawner : MonoBehaviour
     public void MoveHorizontalBricksRows()
     {
         allBricksMovedHorizontal = false;
+        pendingBricksMovingHorizontal = 0;
         vision = 10f; //need to check maybe we should set more than 10
         colliders = Physics2D.OverlapCircleAll(transform.position, vision, layerAsLayerMask);
-        for (int y = m_levelConfig.grid.GridHeight-1; y >= 0; y--) {
-            for (int x = 0; x <= m_levelConfig.grid.GridWidth-1; x ++) {
-                
-                    for (int i = 0; i < colliders.Length; i ++) {
-                        if (colliders[i].gameObject == gameObject) continue;
-                        if (colliders[i].gameObject.GetComponent<MoveDownBehaviour>() != null) {
-                            if (colliders[i].gameObject.GetComponent<MoveDownBehaviour>().X == x && colliders[i].gameObject.GetComponent<MoveDownBehaviour>().Y == y) {
-                                colliders[i].gameObject.GetComponent<MoveDownBehaviour>().MoveHorizontal();
-                            }
-                        }
-                    }
-                
+        for (int i = 0; i < colliders.Length; i++) {
+            Collider2D collider = colliders[i];
+            if (collider == null || collider.gameObject == gameObject || !collider.gameObject.activeSelf)
+            {
+                continue;
+            }
+
+            MoveDownBehaviour moveDownBehaviour = collider.gameObject.GetComponent<MoveDownBehaviour>();
+            if (moveDownBehaviour != null && moveDownBehaviour.needHorizontalMove)
+            {
+                BeginBricksMovingHorizontal();
+                StartCoroutine(MoveHorizontalBrick(moveDownBehaviour));
             }
         }
-        allBricksMovedHorizontal = true; 
+        if (pendingBricksMovingHorizontal == 0)
+        {
+            allBricksMovedHorizontal = true;
+        }
+    }
+
+    private IEnumerator MoveDownBrick(MoveDownBehaviour moveDownBehaviour)
+    {
+        yield return moveDownBehaviour.MoveDown();
+        pendingBricksMovingDown--;
+    }
+
+    private IEnumerator MoveHorizontalBrick(MoveDownBehaviour moveDownBehaviour)
+    {
+        yield return moveDownBehaviour.MoveHorizontal();
+        pendingBricksMovingHorizontal--;
+        if (pendingBricksMovingHorizontal <= 0)
+        {
+            pendingBricksMovingHorizontal = 0;
+            allBricksMovedHorizontal = true;
+        }
+    }
+
+    private void BeginBricksMovingDown()
+    {
+        pendingBricksMovingDown++;
+        allBricksMovedDown = false;
+    }
+
+    private void BeginBricksMovingHorizontal()
+    {
+        pendingBricksMovingHorizontal++;
+        allBricksMovedHorizontal = false;
+    }
+
+    private void BeginObjectCreation()
+    {
+        pendingObjectsCreated++;
+    }
+
+    private void CompleteObjectCreation()
+    {
+        if (pendingObjectsCreated > 0)
+        {
+            pendingObjectsCreated--;
+        }
+
+        if (pendingObjectsCreated <= 0)
+        {
+            pendingObjectsCreated = 0;
+            allObjectsCreated = true;
+        }
+    }
+
+    private void FinalizeObjectCreationBatch()
+    {
+        if (pendingObjectsCreated == 0)
+        {
+            allObjectsCreated = true;
+        }
     }
 
     void Update()

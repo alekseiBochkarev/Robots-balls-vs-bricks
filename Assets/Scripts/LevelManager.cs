@@ -192,8 +192,9 @@ public class LevelManager : MonoBehaviour
     {
         colliders = Physics2D.OverlapCircleAll(transform.position, vision);
         for (int i = 0; i < colliders.Length; i ++) {
-            if (colliders[i].gameObject.GetComponent<IBall>() != null) {
-                colliders[i].gameObject.GetComponent<IBall>().DestroyBall();
+            IBall ball = colliders[i].gameObject.GetComponent<IBall>();
+            if (ball != null) {
+                ball.DestroyBall();
             }
         }
         Debug.Log("OpenSpecAttackPanelAndContinuePlaying");

@@ -32,14 +32,14 @@ public abstract class AbstractBall: MonoBehaviour, IBall
     float rot_z;
 
     public void Init() {
-        hero = GameObject.Find("Hero");
+        hero = Hero.Instance != null ? Hero.Instance.gameObject : GameObject.Find("Hero");
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
         m_MinimumYPosition = BallLauncher.ballStartPositionCoordinatesY;
         m_Collider2D = GetComponent<CircleCollider2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_TrailRenderer = GetComponent<TrailRenderer>();
-        m_hero = hero.GetComponent<Hero>();
+        m_hero = Hero.Instance != null ? Hero.Instance : hero.GetComponent<Hero>();
         EventManager.UpgradeAttackPowerStat += InitAttackPower;
         EventManager.UpgradeStats += InitAttackPower;
         EventManager.SkinChanged += InitAttackPower;
@@ -66,7 +66,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
     private void InitAttackPower()
     {
-        attackPower = hero.GetComponent<Hero>().AttackSkill;
+        attackPower = m_hero.AttackSkill;
     }
 
     public void DestroyAfterTime()
@@ -82,14 +82,16 @@ public abstract class AbstractBall: MonoBehaviour, IBall
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Brick>() != null){
+        Brick brick = collision.gameObject.GetComponent<Brick>();
+        if (brick != null){
             afterCollisionBehaviour.BehaviourAfterCollision();
         } 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Brick>() != null) {
+        Brick brick = collision.gameObject.GetComponent<Brick>();
+        if (brick != null) {
             afterCollisionBehaviour.BehaviourAfterCollision();
         } else if (collision.gameObject.tag.Equals("Floor")) {
             transform.localPosition = new Vector3(transform.localPosition.x, m_MinimumYPosition, 0);
@@ -137,7 +139,7 @@ public abstract class AbstractBall: MonoBehaviour, IBall
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (m_Rigidbody2D.bodyType != RigidbodyType2D.Dynamic)
             return;

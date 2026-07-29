@@ -8,7 +8,7 @@ public class MoveDownBehaviour : MonoBehaviour
     // value == 0 - empty, value == 1 - brick, value == 2 - barrier
     //private Grid grid;
     public bool needHorizontalMove;
-    [SerializeField] public int x, y;
+    [SerializeField] private int x, y;
     public LevelConfig m_levelConfig;
     public bool isMovingNow = false;
     public bool canMove;
@@ -16,7 +16,9 @@ public class MoveDownBehaviour : MonoBehaviour
 
     public void InitMoveDown()
     {
-        m_levelConfig = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelConfig>();
+        m_levelConfig = LevelConfig.Instance != null
+            ? LevelConfig.Instance
+            : GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelConfig>();
         UpdateCurrentPosition();
         // EventManager.BrickDestroyed += GetPositionAndResetCell;
         needHorizontalMove = false;
@@ -52,7 +54,7 @@ public class MoveDownBehaviour : MonoBehaviour
 
     private void UpdateCurrentPosition()
     {
-           m_levelConfig.grid.GetXY(this.transform.parent.position, out x, out y);      
+           m_levelConfig.grid.GetXY(this.transform.parent.position, out x, out y);
     }
 
     private void SetZeroToCurrentPosition()
@@ -109,7 +111,7 @@ public class MoveDownBehaviour : MonoBehaviour
         
     }
 
-    public void MoveHorizontal()
+    public IEnumerator MoveHorizontal()
     {
         if (needHorizontalMove)
         {
@@ -119,7 +121,7 @@ public class MoveDownBehaviour : MonoBehaviour
                 Vector3 target = m_levelConfig.grid.GetWorldPosition(x - 1, y);
                 //iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
                 //StartCoroutine(WaitAndUpdateCurrentPosition());
-                StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.position, target, y+1, m_levelConfig.GetHeight()));
+                yield return MoveAndUpdateCurrentPosition(gameObject.transform.position, target, y+1, m_levelConfig.GetHeight());
                 needHorizontalMove = false;
             }
             else if (m_levelConfig.grid.GetValue(x + 1, y) == 0)
@@ -128,7 +130,7 @@ public class MoveDownBehaviour : MonoBehaviour
                 Vector3 target = m_levelConfig.grid.GetWorldPosition(x + 1, y);
                 //iTween.MoveTo(gameObject, new Vector3(target.x, target.y, target.z), 0.05f);
                 //StartCoroutine(WaitAndUpdateCurrentPosition());
-                StartCoroutine(MoveAndUpdateCurrentPosition(gameObject.transform.position, target, y+1, m_levelConfig.GetHeight()));
+                yield return MoveAndUpdateCurrentPosition(gameObject.transform.position, target, y+1, m_levelConfig.GetHeight());
                 needHorizontalMove = false;
             }
 

@@ -17,7 +17,7 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
     private Vector3 heroCoord;
     [SerializeField] private AudioClip clip;
     private GameObject camera;
-    [SerializeField] private static float m_currentHealth;
+    private static float m_currentHealth;
 
     [SerializeField] private GameObject heroBody;
     [SerializeField] private GameObject tornado;
@@ -30,7 +30,7 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
         get { return m_currentHealth; }
     }
 
-    [SerializeField] public float MaxHealth { private set; get; }
+    public float MaxHealth { private set; get; }
 
     public void Awake()
     {
@@ -149,14 +149,16 @@ public class Hero : MonoBehaviour, IHealth, IDamageable
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.GetComponent<Bullet>() != null)
+        Bullet bullet = collider.gameObject.GetComponent<Bullet>();
+        if (bullet != null)
         {
-            appliedDamage = collider.gameObject.GetComponent<Bullet>().GetAttackPower;
+            appliedDamage = bullet.GetAttackPower;
             TakeDamage(appliedDamage);
         }
-        if (collider.gameObject.GetComponent<BulletStraight>() != null)
+        BulletStraight bulletStraight = collider.gameObject.GetComponent<BulletStraight>();
+        if (bulletStraight != null)
         {
-            appliedDamage = collider.gameObject.GetComponent<BulletStraight>().GetAttackPower;
+            appliedDamage = bulletStraight.GetAttackPower;
             TakeDamage(appliedDamage);
         }
     }
