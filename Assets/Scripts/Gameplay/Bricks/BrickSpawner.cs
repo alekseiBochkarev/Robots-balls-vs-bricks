@@ -276,58 +276,13 @@ public class BrickSpawner : MonoBehaviour
     public IEnumerator MoveRow(int y)
     {
         vision = 10f; //need to check maybe we should set more than 10
-        if (colliders == null || colliders.Length == 0)
-        {
-            colliders = Physics2D.OverlapCircleAll(transform.position, vision, layerAsLayerMask);
-        }
-        for (var i = 0; i < colliders.Length; i++)
-        {
-            Collider2D t = colliders[i];
-            if (t == null || t.gameObject == gameObject || !t.gameObject.activeSelf)
-            {
-                continue;
-            }
-
-            MoveDownBehaviour moveDownBehaviour = t.gameObject.GetComponent<MoveDownBehaviour>();
-            if (moveDownBehaviour != null && moveDownBehaviour.Y == y)
-            {
-                BeginBricksMovingDown();
-                StartCoroutine(MoveDownBrick(moveDownBehaviour));
-            }
-        }
-        while (pendingBricksMovingDown > 0)
-        {
-            yield return null;
-        }
+        yield return MoveRowBatch(CollectMoveDownBehaviours(true, y));
     }
     
     public IEnumerator MoveRow()
     {
         vision = 10f; //need to check maybe we should set more than 10
-        pendingBricksMovingDown = 0;
-        if (colliders == null || colliders.Length == 0)
-        {
-            colliders = Physics2D.OverlapCircleAll(transform.position, vision, layerAsLayerMask);
-        }
-        for (var i = 0; i < colliders.Length; i++)
-        {
-            Collider2D t = colliders[i];
-            if (t == null || t.gameObject == gameObject || !t.gameObject.activeSelf)
-            {
-                continue;
-            }
-
-            MoveDownBehaviour moveDownBehaviour = t.gameObject.GetComponent<MoveDownBehaviour>();
-            if (moveDownBehaviour != null)
-            {
-                BeginBricksMovingDown();
-                StartCoroutine(MoveDownBrick(moveDownBehaviour));
-            }
-        }
-        while (pendingBricksMovingDown > 0)
-        {
-            yield return null;
-        }
+        yield return MoveRowBatch(CollectMoveDownBehaviours(false, 0));
     }
     
     public IEnumerator AttackRow(int y)
@@ -377,7 +332,7 @@ public class BrickSpawner : MonoBehaviour
 
     private IEnumerator MoveDownBrick(MoveDownBehaviour moveDownBehaviour)
     {
-        yield return moveDownBehaviour.MoveDown();
+        yield return moveDownBehaviour.ExecutePlannedMoveDown();
         pendingBricksMovingDown--;
     }
 
@@ -396,6 +351,113 @@ public class BrickSpawner : MonoBehaviour
     {
         pendingBricksMovingDown++;
         allBricksMovedDown = false;
+    }
+
+    private List<MoveDownBehaviour> CollectMoveDownBehaviours(bool useYFilter, int yFilter)
+    {
+        if (colliders == null || colliders.Length == 0)
+        {
+            colliders = Physics2D.OverlapCircleAll(transform.position, vision, layerAsLayerMask);
+        }
+
+        HashSet<MoveDownBehaviour> uniqueMoveDownBehaviours = new HashSet<MoveDownBehaviour>();
+        for (var i = 0; i < colliders.Length; i++)
+        {
+            Collider2D collider = colliders[i];
+            if (collider == null || collider.gameObject == gameObject || !collider.gameObject.activeSelf)
+            {
+                continue;
+            }
+
+            MoveDownBehaviour moveDownBehaviour = collider.gameObject.GetComponent<MoveDownBehaviour>();
+            if (moveDownBehaviour == null)
+            {
+                continue;
+            }
+
+            moveDownBehaviour.RefreshGridPosition();
+            if (!useYFilter || moveDownBehaviour.Y == yFilter)
+            {
+                uniqueMoveDownBehaviours.Add(moveDownBehaviour);
+            }
+        }
+
+        return new List<MoveDownBehaviour>(uniqueMoveDownBehaviours);
+    }
+
+    private IEnumerator MoveRowBatch(List<MoveDownBehaviour> moveDownBehaviours)
+    {
+        pendingBricksMovingDown = 0;
+        if (moveDownBehaviours == null || moveDownBehaviours.Count == 0)
+        {
+            yield break;
+        }
+
+        HashSet<Vector2Int> occupiedCells = new HashSet<Vector2Int>();
+        for (var i = 0; i < moveDownBehaviours.Count; i++)
+        {
+            MoveDownBehaviour moveDownBehaviour = moveDownBehaviours[i];
+            moveDownBehaviour.CancelPlannedMoveDown();
+            occupiedCells.Add(new Vector2Int(moveDownBehaviour.X, moveDownBehaviour.Y));
+        }
+
+        moveDownBehaviours.Sort((left, right) => right.Y.CompareTo(left.Y));
+        List<MoveDownBehaviour> plannedMovers = new List<MoveDownBehaviour>();
+
+        for (var i = 0; i < moveDownBehaviours.Count; i++)
+        {
+            MoveDownBehaviour moveDownBehaviour = moveDownBehaviours[i];
+            if (!moveDownBehaviour.canMove)
+            {
+                continue;
+            }
+
+            int targetX = moveDownBehaviour.X;
+            int targetY = moveDownBehaviour.Y + 1;
+            int targetCellValue = m_levelConfig.grid.GetValue(targetX, targetY);
+            if (targetCellValue == 2)
+            {
+                moveDownBehaviour.needHorizontalMove = true;
+                continue;
+            }
+
+            if (targetCellValue == -1)
+            {
+                continue;
+            }
+
+            if (targetCellValue != 0 && targetCellValue != 1)
+            {
+                continue;
+            }
+
+            Vector2Int targetCell = new Vector2Int(targetX, targetY);
+            if (occupiedCells.Contains(targetCell))
+            {
+                continue;
+            }
+
+            moveDownBehaviour.PlanMoveDownToCell(targetX, targetY);
+            plannedMovers.Add(moveDownBehaviour);
+            occupiedCells.Remove(new Vector2Int(moveDownBehaviour.X, moveDownBehaviour.Y));
+            occupiedCells.Add(targetCell);
+        }
+
+        for (var i = 0; i < plannedMovers.Count; i++)
+        {
+            plannedMovers[i].PreparePlannedMoveDown();
+        }
+
+        for (var i = 0; i < plannedMovers.Count; i++)
+        {
+            BeginBricksMovingDown();
+            StartCoroutine(MoveDownBrick(plannedMovers[i]));
+        }
+
+        while (pendingBricksMovingDown > 0)
+        {
+            yield return null;
+        }
     }
 
     private void BeginBricksMovingHorizontal()

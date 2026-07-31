@@ -13,6 +13,10 @@ public class MoveDownBehaviour : MonoBehaviour
     public bool isMovingNow = false;
     public bool canMove;
     Brick brick;
+    private bool hasPlannedMoveDown;
+    private Vector3 plannedStartPosition;
+    private Vector3 plannedTargetPosition;
+    private int plannedCurrentY;
 
     public void InitMoveDown()
     {
@@ -64,23 +68,83 @@ public class MoveDownBehaviour : MonoBehaviour
 
     public IEnumerator MoveDown()
     {
-        if (canMove)
+        if (TryPlanMoveDown())
         {
-            if (m_levelConfig.grid.GetValue(x, y + 1) == 0)
-            {
-                SetFreeXY();
-                Vector3 target = m_levelConfig.grid.GetWorldPosition(x, y + 1);
-               yield return MoveAndUpdateCurrentPosition(gameObject.transform.parent.position, target, y+2, m_levelConfig.GetHeight());
-            }
-            else if (m_levelConfig.grid.GetValue(x, y + 1) == 2)
-            {
-                needHorizontalMove = true;
-            }
+            PreparePlannedMoveDown();
+            yield return ExecutePlannedMoveDown();
         }
         else
         {
             yield return null;
         }
+    }
+
+    public void RefreshGridPosition()
+    {
+        UpdateCurrentPosition();
+    }
+
+    public bool TryPlanMoveDown()
+    {
+        RefreshGridPosition();
+        hasPlannedMoveDown = false;
+
+        if (!canMove)
+        {
+            return false;
+        }
+
+        int targetX = x;
+        int targetY = y + 1;
+        int targetCellValue = m_levelConfig.grid.GetValue(targetX, targetY);
+
+        if (targetCellValue == 2)
+        {
+            needHorizontalMove = true;
+            return false;
+        }
+
+        if (targetCellValue != 0)
+        {
+            return false;
+        }
+
+        PlanMoveDownToCell(targetX, targetY);
+        return true;
+    }
+
+    public void PlanMoveDownToCell(int targetX, int targetY)
+    {
+        hasPlannedMoveDown = true;
+        plannedStartPosition = transform.parent.position;
+        plannedTargetPosition = m_levelConfig.grid.GetWorldPosition(targetX, targetY);
+        plannedCurrentY = targetY + 1;
+        needHorizontalMove = false;
+    }
+
+    public void CancelPlannedMoveDown()
+    {
+        hasPlannedMoveDown = false;
+    }
+
+    public void PreparePlannedMoveDown()
+    {
+        if (hasPlannedMoveDown)
+        {
+            SetFreeXY();
+        }
+    }
+
+    public IEnumerator ExecutePlannedMoveDown()
+    {
+        if (!hasPlannedMoveDown)
+        {
+            yield break;
+        }
+
+        hasPlannedMoveDown = false;
+        yield return MoveAndUpdateCurrentPosition(plannedStartPosition, plannedTargetPosition, plannedCurrentY,
+            m_levelConfig.GetHeight());
     }
 
     public virtual IEnumerator MoveToTarget(Vector3 startPos, Vector3 endPos, int currentY, int maxY)
